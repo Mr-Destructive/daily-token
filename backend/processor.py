@@ -263,7 +263,14 @@ class NewsProcessor:
             # Extract significance
             score_match = re.search(r'SIGNIFICANCE_SCORE:\s*(\d+)', raw_summary, re.IGNORECASE)
             # Extract image info
-            img_sel_match = re.search(r'SELECTED_IMAGE_URL:\s*(http\S+|NONE)', raw_summary, re.IGNORECASE)
+            # Improved regex to find URLs in case model adds quotes, brackets or other text
+            img_sel_match = re.search(r'SELECTED_IMAGE_URL:\s*(https?://\S+)', raw_summary, re.IGNORECASE)
+            if not img_sel_match and "SELECTED_IMAGE_URL: NONE" not in raw_summary.upper():
+                # Try finding any URL in the response if the explicit field is messy
+                all_urls = re.findall(r'https?://\S+', raw_summary)
+                if all_urls:
+                    selected_image_url = all_urls[0]
+            
             img_layout_match = re.search(r'IMAGE_LAYOUT:\s*(WIDE|TALL|SQUARE)', raw_summary, re.IGNORECASE)
             
             if headline_match:
@@ -277,9 +284,9 @@ class NewsProcessor:
                     significance_score = int(score_match.group(1).strip())
                 except:
                     pass
-            
+
             if img_sel_match:
-                selected_image_url = img_sel_match.group(1).strip()
+                selected_image_url = img_sel_match.group(1).strip().strip('"').strip("'").strip(']').strip('[')
             
             if img_layout_match:
                 image_layout = img_layout_match.group(1).upper().strip()

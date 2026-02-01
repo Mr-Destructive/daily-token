@@ -18,7 +18,6 @@ except ImportError:
 
 from scraper import NewsAggregator
 from processor import NewsProcessor
-from image_generator import PlaceholderImageGenerator
 from exporter import NewsExporter
 
 
@@ -67,57 +66,8 @@ def generate_daily_newspaper() -> Dict:
     for page_num in range(1, 6):
         print(f"   - Page {page_num}: {len(organized[page_num])} stories")
     
-    # Step 4: Download AI-selected images
-    print("\n[4/5] Downloading AI-selected images...")
-    images_dir = repo_root / "output" / "images"
-    images_dir.mkdir(parents=True, exist_ok=True)
-    
-    import requests
-    
-    img_count = 0
-    for page_num in range(1, 6):
-        for story_idx, story in enumerate(organized[page_num]):
-            image_url = story.get('selected_image_url')
-            
-            if image_url and image_url.startswith('http'):
-                # Unique filename for this story's image
-                safe_title = "".join([c if c.isalnum() else "_" for c in story['original_title'][:30]])
-                
-                print(f"   - Downloading: {story['original_title'][:40]}...")
-                
-                try:
-                    headers = {
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-                        'Referer': story.get('url', '')
-                    }
-                    img_response = requests.get(image_url, timeout=10, stream=True, headers=headers)
-                    if img_response.status_code == 200:
-                        # Detect extension
-                        content_type = img_response.headers.get("Content-Type", "").lower()
-                        ext = ".jpg"
-                        if "image/png" in content_type: ext = ".png"
-                        elif "image/webp" in content_type: ext = ".webp"
-                        elif "image/svg" in content_type: ext = ".svg"
-                        elif "image/gif" in content_type: ext = ".gif"
-                        
-                        image_filename = f"story_{page_num}_{story_idx}_{safe_title}{ext}"
-                        img_path = images_dir / image_filename
-                        
-                        with open(img_path, 'wb') as f:
-                            for chunk in img_response.iter_content(chunk_size=8192):
-                                f.write(chunk)
-                        
-                        story['generated_image_path'] = f"../images/{image_filename}"
-                        img_count += 1
-                    else:
-                        print(f"      ✗ Failed: HTTP {img_response.status_code}")
-                except Exception as e:
-                    print(f"      ✗ Error downloading {image_url}: {e}")
-            else:
-                # No image selected or NONE - do not use placeholders
-                story['generated_image_path'] = None
-    
-    print(f"   ✓ Downloaded {img_count} images")
+    # Step 4: Skip image processing (not used)
+    print("\n[4/5] Skipping image processing...")
     
     # Step 5: Export
     print("\n[5/5] Exporting newspaper...")
