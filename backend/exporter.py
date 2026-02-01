@@ -442,12 +442,10 @@ class NewsExporter:
         .span-2 {{ grid-column: span 2; }}
         .span-1 {{ grid-column: span 1; }}
         
-        /* Article Typography */
-        .article {{ margin-bottom: 20px; }}
+        /* Typography */
         .headline-xl {{ font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 0.95; margin: 0 0 15px 0; font-weight: 900; }}
         .headline-lg {{ font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1; margin: 0 0 10px 0; font-weight: 900; }}
         .headline-sm {{ font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.1; margin: 0 0 8px 0; font-weight: 700; }}
-        
         .article a {{ color: inherit; text-decoration: none; }}
         .article a:hover {{ text-decoration: underline; }}
         
@@ -464,16 +462,19 @@ class NewsExporter:
         
         .footer-links {{ font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--highlight); }}
         .footer-links-sm {{ font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--highlight); }}
-        
-        /* Dynamic Image Handling */
+
+        /* Articles */
+        .article {{ margin-bottom: 20px; }}
         .news-img {{
             width: 100%;
             height: auto;
             display: block;
             margin-bottom: 15px;
-            filter: contrast(1.1) grayscale(100%);
+            filter: grayscale(100%) contrast(1.2);
             border: 1px solid var(--ink);
+            transition: filter 0.3s ease;
         }}
+        .news-img:hover {{ filter: none; }}
         
         /* Section Pulse */
         .section-pulse-grid {{
@@ -490,11 +491,27 @@ class NewsExporter:
         .pulse-tag {{ font-family: 'Oswald', sans-serif; font-size: 0.65rem; color: var(--highlight); }}
         .pulse-link {{ font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; }}
         .pulse-link a {{ color: var(--ink); text-decoration: none; }}
-        
+
         @media (max-width: 900px) {{
-            .lead-grid, .columns-4, .section-pulse-grid {{ grid-template-columns: 1fr !important; }}
+            .newspaper {{ padding: 15px 20px; }}
+            .masthead {{ font-size: 3rem; letter-spacing: -1px; }}
+            .sub-masthead {{ font-size: 0.7rem; flex-direction: column; align-items: center; gap: 5px; }}
+            .lead-grid, .columns-4, .section-pulse-grid {{ grid-template-columns: 1fr !important; gap: 20px; }}
             .span-8, .span-4, .span-2 {{ grid-column: span 1 !important; border-right: none; padding-right: 0; }}
-            .masthead {{ font-size: 3rem; }}
+            .article {{ border-bottom: 1px solid var(--sep); padding-bottom: 25px; margin-bottom: 25px; }}
+            .headline-xl {{ font-size: 2rem; }}
+            .headline-lg {{ font-size: 1.6rem; }}
+            .headline-sm {{ font-size: 1.2rem; }}
+            nav {{ 
+                font-size: 0.75rem; 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 10px;
+                padding: 10px 0;
+            }}
+            .nav-sep {{ display: none; }}
+            .news-img {{ margin-top: 10px; filter: none; }} /* Real colors on mobile for better visibility */
         }}
     </style>
 </head>

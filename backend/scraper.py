@@ -33,37 +33,34 @@ class ImageFetcher:
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             }
+            # Many sites like Substack/Twitter need a referer
             response = requests.get(url, timeout=10, headers=headers)
             response.raise_for_status()
             
             soup = BeautifulSoup(response.text, 'html.parser')
             
             # 1. OpenGraph Image (Standard SEO)
-            og_image = soup.find('meta', property='og:image') or soup.find('meta', attrs={'name': 'og:image'})
-            if og_image and og_image.get('content'):
-                candidates.append(urljoin(url, og_image['content']))
+            for og in soup.find_all('meta', property=re.compile(r'^og:image', re.I)):
+                if og.get('content'):
+                    candidates.append(urljoin(url, og['content']))
             
             # 2. Twitter Image (Card SEO)
-            twitter_image = soup.find('meta', name='twitter:image') or soup.find('meta', attrs={'property': 'twitter:image'})
-            if twitter_image and twitter_image.get('content'):
-                candidates.append(urljoin(url, twitter_image['content']))
+            for tw in soup.find_all('meta', name=re.compile(r'^twitter:image', re.I)):
+                if tw.get('content'):
+                    candidates.append(urljoin(url, tw['content']))
             
             # 3. Schema.org Image
-            schema_image = soup.find('meta', itemprop='image')
-            if schema_image and schema_image.get('content'):
-                candidates.append(urljoin(url, schema_image['content']))
+            for schema in soup.find_all('meta', itemprop='image'):
+                if schema.get('content'):
+                    candidates.append(urljoin(url, schema['content']))
 
-            # 4. Article Thumbnails (Common in CMS like WordPress/Ghost)
-            thumb = soup.find('link', rel='image_src') or soup.find('meta', name='thumbnail')
-            if thumb and (thumb.get('href') or thumb.get('content')):
-                candidates.append(urljoin(url, thumb.get('href') or thumb.get('content')))
+            # 4. Article Thumbnails (Common in CMS)
+            for link in soup.find_all('link', rel=re.compile(r'image_src|thumbnail|icon', re.I)):
+                if link.get('href'):
+                    candidates.append(urljoin(url, link['href']))
 
-            # 5. High-density Favicons (as last resort fallback)
-            icon = soup.find('link', rel='apple-touch-icon') or soup.find('link', sizes='180x180')
-            if icon and icon.get('href'):
-                candidates.append(urljoin(url, icon['href']))
-            
-            # 6. Large images in article body (filter icons)
+            # 5. Large images in article body (filter icons)
+            # We look for images that look like actual content
             for img in soup.find_all('img'):
                 src = img.get('src') or img.get('data-src') or img.get('data-original-src')
                 if not src: continue
@@ -72,18 +69,23 @@ class ImageFetcher:
                 low_src = src.lower()
                 
                 # Filter out obvious junk
-                if any(x in low_src for x in ['icon', 'logo', 'avatar', 'sprite', 'pixel', 'tracker', 'ad', 'btn']):
+                if any(x in low_src for x in ['icon', 'logo', 'avatar', 'sprite', 'pixel', 'tracker', 'ad', 'btn', 'nav']):
                     continue
                 
-                # Check dimensions if available
-                width = img.get('width', '')
-                height = img.get('height', '')
-                if width.isdigit() and int(width) < 100: continue
+                # Check extension
+                if not any(full_url.lower().endswith(ext) for ext in ['.jpg', '.jpeg', '.png', '.webp']):
+                    continue
                 
                 if full_url not in candidates:
                     candidates.append(full_url)
             
-            return candidates[:12]  # Limit candidates
+            # Deduplicate while preserving order
+            unique_candidates = []
+            for c in candidates:
+                if c not in unique_candidates:
+                    unique_candidates.append(c)
+                    
+            return unique_candidates[:15]
         except Exception:
             return []
 
