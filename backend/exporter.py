@@ -334,6 +334,16 @@ class NewsExporter:
                 '''
             sections_html += '</div></section>'
 
+        # Archives Section (Last 7 days)
+        archive_links_html = ""
+        import datetime as dt_mod
+        today = dt_mod.date.today()
+        for i in range(1, 8):
+            prev_date = today - dt_mod.timedelta(days=i)
+            date_path = prev_date.strftime('%Y/%m/%d')
+            display_date = prev_date.strftime('%b %d, %Y').upper()
+            archive_links_html += f'<a href="/daily-token/archive/{date_path}/newspaper.html" class="archive-link">{display_date}</a>'
+
         # --- TEMPLATE ---
         html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -492,6 +502,26 @@ class NewsExporter:
         .pulse-link {{ font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; }}
         .pulse-link a {{ color: var(--ink); text-decoration: none; }}
 
+        /* Archive Strip */
+        .archive-strip {{
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid var(--sep);
+            text-align: center;
+        }}
+        .archive-title {{ font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px; color: #777; }}
+        .archive-links {{ display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }}
+        .archive-link {{ 
+            font-family: 'Oswald', sans-serif; 
+            font-size: 0.75rem; 
+            color: var(--ink); 
+            text-decoration: none; 
+            border: 1px solid var(--sep);
+            padding: 5px 10px;
+            transition: all 0.2s;
+        }}
+        .archive-link:hover {{ border-color: var(--highlight); color: var(--highlight); }}
+
         @media (max-width: 900px) {{
             .newspaper {{ padding: 15px 20px; }}
             .masthead {{ font-size: 3rem; letter-spacing: -1px; }}
@@ -534,6 +564,13 @@ class NewsExporter:
             {front_page_html}
             {sections_html}
         </main>
+
+        <div class="archive-strip">
+            <div class="archive-title">RECENT EDITIONS</div>
+            <div class="archive-links">
+                {archive_links_html}
+            </div>
+        </div>
 
         <footer style="text-align: center; border-top: 4px double var(--ink); margin-top: 60px; padding-top: 20px; font-family: 'Oswald'; font-size: 0.8rem;">
             VERIFIED BY NEURAL CONSENSUS // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
