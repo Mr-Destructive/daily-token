@@ -3,8 +3,8 @@ import os
 import time
 from typing import Optional
 from pathlib import Path
-from google import genai
-from google.genai import types
+from google.generativeai import genai
+from google.generativeai import types
 
 class ImageGenerator:
     """Uses the modern google-genai client to generate actual illustrations"""
