@@ -18,7 +18,7 @@ except ImportError:
     pass
 
 from scraper import NewsAggregator
-from processor_with_router import NewsProcessorWithRouter as NewsProcessor
+from processor import NewsProcessor
 from exporter import NewsExporter
 
 def archive_current_edition(repo_root: Path):
