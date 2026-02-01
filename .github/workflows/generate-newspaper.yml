@@ -68,7 +68,7 @@ jobs:
         uses: actions/deploy-pages@v3
       
       - name: Upload to Netlify (if token provided)
-        if: secrets.NETLIFY_AUTH_TOKEN != ''
+        if: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}
         uses: nwtgck/actions-netlify@v2.0
         with:
           publish-dir: './output/current'
