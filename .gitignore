@@ -54,8 +54,7 @@ tmp/
 temp/
 .cache
 
-# Documentation (local reference only)
-*.txt
+# Documentation (local reference only - not these essential files)
 DEPLOYMENT_SUMMARY.txt
 GITHUB_SETUP.txt
 GITHUB_PAGES_CONFIG.txt
