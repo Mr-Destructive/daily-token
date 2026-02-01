@@ -17,12 +17,7 @@ except ImportError:
     HAS_META_AI = False
     MetaAI = None
 
-try:
-    import google.generativeai as genai
-    HAS_GEMINI = True
-except ImportError:
-    HAS_GEMINI = False
-    print("Warning: google-generativeai not installed")
+# Gemini not used - using Meta-AI instead (free, no API key needed)
 
 
 # Import configuration from root config.py
@@ -38,7 +33,6 @@ try:
         LLM_TIMEOUT,
         CONFIDENCE_THRESHOLD,
         PROCESSING_MAX_WORKERS,
-        GEMINI_MODEL,
         OPENROUTER_REASONING_MODELS,
         KIMI_MODEL,
     )
@@ -51,7 +45,6 @@ except ImportError:
     LLM_TIMEOUT = 30
     CONFIDENCE_THRESHOLD = 0.8
     PROCESSING_MAX_WORKERS = 5
-    GEMINI_MODEL = "gemini-2.5-flash-lite"
     OPENROUTER_REASONING_MODELS = ["google/gemini-2.0-flash-exp:free"]
     KIMI_MODEL = "moonshot-v1-8k"
 
@@ -69,13 +62,11 @@ class NewsProcessor:
     """Process and categorize news using a hierarchy of LLMs"""
     
     def __init__(self):
-        self.use_kimi = False
         self.use_openrouter = False
         self.use_meta_ai = False
-        self.use_gemini = False
         self.dynamic_free_models = []
         
-        # Primary: OpenRouter (We will use Kimi K2.5 through OpenRouter if possible)
+        # Primary: OpenRouter (if API key available)
         self.openrouter_key = os.getenv("OPENROUTER_API_KEY", "").strip()
         if self.openrouter_key:
             self.use_openrouter = True
@@ -84,22 +75,14 @@ class NewsProcessor:
             if self.dynamic_free_models:
                 print(f"   - Top free models found: {', '.join(self.dynamic_free_models[:3])}")
 
-        # Meta-AI fallback
+        # Fallback: Meta-AI (no API key needed)
         if HAS_META_AI:
             try:
                 self.meta_ai = MetaAI()
                 self.use_meta_ai = True
-                print("✓ Meta-AI initialized")
-            except Exception: pass
-
-        # Gemini fallback
-        if HAS_GEMINI:
-            gemini_key = os.getenv("GEMINI_API_KEY", "").strip()
-            if gemini_key:
-                genai.configure(api_key=gemini_key)
-                self.gemini_model = genai.GenerativeModel(GEMINI_MODEL)
-                self.use_gemini = True
-                print("✓ Gemini initialized")
+                print("✓ Meta-AI initialized (no API key needed)")
+            except Exception as e:
+                print(f"⚠ Meta-AI init failed: {e}")
 
     def _fetch_best_free_models(self) -> List[str]:
         """Fetch and prioritize the best free reasoning models from OpenRouter"""

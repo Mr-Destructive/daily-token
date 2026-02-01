@@ -36,9 +36,6 @@ jobs:
       - name: Configure environment
         run: |
           cat > backend/.env << EOF
-          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
-          META_AI_COOKIE=${{ secrets.META_AI_COOKIE }}
-          KIMI_API_KEY=${{ secrets.KIMI_API_KEY }}
           OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}
           EOF
       
