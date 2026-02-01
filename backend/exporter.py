@@ -7,6 +7,12 @@ from pathlib import Path
 from typing import Dict, List
 import xml.etree.ElementTree as ET
 
+try:
+    from meta_ai_api_tool_call import MetaAI
+    HAS_META_AI = True
+except ImportError:
+    HAS_META_AI = False
+
 # Import page categories from processor for consistency
 from processor import PAGE_CATEGORIES
 
@@ -18,9 +24,10 @@ def _site_url():
         return os.environ.get("SITE_URL", "https://daily-tokens.netlify.app")
 
 
-def _get_llm_location():
-    """Get a random LLM/AI world location for the newspaper dateline"""
-    locations = [
+def _get_llm_location_from_vibes(stories_summary: str) -> str:
+    """Get LLM world location based on newspaper vibes using Meta AI"""
+    
+    available_locations = [
         "TENSOR CITY",
         "GRADIENT VALLEY",
         "MODEL SQUARE",
@@ -42,7 +49,41 @@ def _get_llm_location():
         "SOFTMAX SECTOR",
         "ACTIVATION AVENUE"
     ]
-    return random.choice(locations)
+    
+    if not HAS_META_AI:
+        return random.choice(available_locations)
+    
+    try:
+        meta_ai = MetaAI()
+        prompt = f"""You are a creative news editor in an AI-themed world. Based on these today's AI news themes:
+
+{stories_summary}
+
+Which of these LLM-themed cities best captures the "vibe" of today's news edition?
+
+Locations: {', '.join(available_locations)}
+
+Respond with ONLY the city name. Examples:
+- If news is about new models: MODEL SQUARE or TRANSFORMER TOWER
+- If about optimization: QUANTIZATION QUARTER or CONVERGENCE CENTRAL  
+- If about inference/deployment: INFERENCE ISLAND or NEURAL NEXUS
+- If creative/vision work: PROMPT BAY or VECTOR STATION
+- If about training: GRADIENT VALLEY or PARAMETER PARK
+
+Choose one that fits the day's AI news vibe:"""
+        
+        response = meta_ai.prompt(message=prompt)
+        location = response.strip().upper()
+        
+        # Validate response is one of our locations
+        if location in available_locations:
+            return location
+        
+        # Fallback if Meta AI returns something else
+        return random.choice(available_locations)
+    except Exception as e:
+        print(f"⚠ Error getting location from Meta AI: {e}")
+        return random.choice(available_locations)
 
 
 class NewsExporter:
@@ -53,6 +94,22 @@ class NewsExporter:
     def __init__(self, organized_stories: Dict[int, List[Dict]]):
         self.organized = organized_stories
         self.timestamp = datetime.now().isoformat()
+        self.location = self._determine_location()
+    
+    def _determine_location(self) -> str:
+        """Get newspaper location based on today's news vibes"""
+        # Build a summary of today's stories
+        headlines = []
+        for page_num in range(1, 6):
+            for story in self.organized[page_num][:2]:  # Top 2 per page
+                headlines.append(story.get('generated_headline', story['original_title']))
+        
+        summary = " | ".join(headlines[:10])  # Top 10 headlines
+        
+        print(f"\n[Determining location based on today's vibes...]")
+        location = _get_llm_location_from_vibes(summary)
+        print(f"   ✓ Today's edition location: {location}")
+        return location
     
     def export_json(self, output_path: str) -> str:
         """Export as structured JSON"""
@@ -420,7 +477,7 @@ class NewsExporter:
         <header>
             <h1 class="masthead">Daily Tokens</h1>
             <div class="sub-masthead">
-                <span>{_get_llm_location()}, {datetime.now().strftime('%A, %B %d, %Y').upper()}</span>
+                <span>{self.location}, {datetime.now().strftime('%A, %B %d, %Y').upper()}</span>
                 <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
                 <span>VOL. {datetime.now().strftime('%Y')}.{datetime.now().strftime('%j')}</span>
             </div>
