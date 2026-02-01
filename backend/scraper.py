@@ -223,8 +223,59 @@ class RSSFeedScraper:
         return results
 
 
+class GenericWebScraper:
+    """Fallback scraper for sites without RSS feeds"""
+    
+    @staticmethod
+    def scrape_blog(name: str, url: str, limit: int = 3) -> List[Dict]:
+        """Simple heuristic scraper to find article links on a blog page"""
+        try:
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+            response = requests.get(url, timeout=10, headers=headers)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.text, 'html.parser')
+            stories = []
+            
+            # Find all links that look like articles
+            # We look for links within h1, h2, h3 or with 'article' in class
+            links = []
+            for tag in soup.find_all(['a']):
+                href = tag.get('href')
+                if not href or href.startswith('#') or len(href) < 5:
+                    continue
+                
+                full_url = urljoin(url, href)
+                title = tag.get_text().strip()
+                
+                # Title must be reasonably long to be a headline
+                if len(title) < 15:
+                    # Try finding title in parent or sibling
+                    parent_text = tag.parent.get_text().strip()
+                    if 15 < len(parent_text) < 200:
+                        title = parent_text
+                
+                if len(title) > 15 and full_url not in [s['link'] for s in stories]:
+                    # Filter for relevance to the lab name or generic AI terms
+                    if any(x in title.lower() or x in full_url.lower() for x in ['news', 'blog', '2024', '2025', '2026', name.lower()]):
+                        stories.append({
+                            'title': title,
+                            'link': full_url,
+                            'published': 'Recently',
+                            'summary': '',
+                            'source': name.title()
+                        })
+                
+                if len(stories) >= limit:
+                    break
+            
+            return stories
+        except Exception as e:
+            print(f"Error scraping {url}: {e}")
+            return []
+
 class NewsAggregator:
-    """Combine HackerNews and RSS feeds, filter for AI-related content"""
+    """Combine HackerNews, RSS feeds, and Web Scraping, filter for AI content"""
     
     # Keywords from config.py
     AI_KEYWORDS = AI_KEYWORDS
@@ -232,39 +283,60 @@ class NewsAggregator:
     def __init__(self):
         self.hn_scraper = HackerNewsScraper()
         self.rss_scraper = RSSFeedScraper()
+        # Import LABS_TO_SCRAPE if exists
+        try:
+            from config import LABS_TO_SCRAPE
+            self.labs_to_scrape = LABS_TO_SCRAPE
+        except ImportError:
+            self.labs_to_scrape = {}
     
     def filter_ai_stories(self, stories: List[Dict]) -> List[Dict]:
         """Filter stories by AI relevance - be more permissive"""
         filtered = []
+        
+        # Expanded keywords for local check
+        local_keywords = self.AI_KEYWORDS + ['learning', 'neural', 'robot', 'compute', 'data', 'algorithm', 'model']
         
         for story in stories:
             title = story.get('title', '').lower()
             url = story.get('url', '').lower()
             
             # Check if contains AI keywords - case insensitive
-            if any(keyword.lower() in title or keyword.lower() in url for keyword in self.AI_KEYWORDS):
+            if any(keyword.lower() in title or keyword.lower() in url for keyword in local_keywords):
                 filtered.append(story)
             
         return filtered
     
     def aggregate_all(self) -> Dict:
-        """Aggregate HackerNews + RSS feeds"""
+        """Aggregate HackerNews + RSS feeds + Scraped Blogs"""
         print("Aggregating news...")
         
-        # Get HackerNews stories - fetch more and filter less strictly
+        # Get HackerNews stories
         hn_stories = self.hn_scraper.get_top_stories()
         hn_filtered = self.filter_ai_stories(hn_stories)
         
-        # STRICT AI ONLY: Do not fall back to general top stories
-        # We only return stories that matched our AI keywords
-        
         # Get RSS feeds
-        rss_feeds = self.rss_scraper.fetch_all_feeds(5)
+        rss_results = self.rss_scraper.fetch_all_feeds(RSS_STORIES_PER_FEED)
+        
+        # Get Scraped Blogs
+        scraped_results = {}
+        if self.labs_to_scrape:
+            print(f"Scraping {len(self.labs_to_scrape)} blogs without RSS...")
+            for name, url in self.labs_to_scrape.items():
+                scraped_results[name] = GenericWebScraper.scrape_blog(name, url, limit=3)
+        
+        # Combine all RSS + Scraped
+        all_rss_combined = rss_results
+        for name, stories in scraped_results.items():
+            if name in all_rss_combined:
+                all_rss_combined[name].extend(stories)
+            else:
+                all_rss_combined[name] = stories
         
         return {
             'timestamp': datetime.now().isoformat(),
-            'hackernews': hn_filtered[:50],  # Increased from 20 to 50 for broader selection
-            'rss_feeds': rss_feeds,
+            'hackernews': hn_filtered[:50],
+            'rss_feeds': all_rss_combined,
         }
 
 

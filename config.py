@@ -170,12 +170,49 @@ HACKERNEWS_STORY_LIMIT = 100  # Expand candidate pool significantly
 
 # RSS feeds - only working ones (many lab feeds have broken XML)
 RSS_FEEDS = {
-    'arxiv_ai': 'http://arxiv.org/rss/cs.AI',
-    'arxiv_lg': 'http://arxiv.org/rss/cs.LG',
-    'arxiv_cv': 'http://arxiv.org/rss/cs.CV',
+    # OpenAI
+    "openai": "https://openai.com/news/rss.xml",
+    
+    # Google & DeepMind
+    "google_research": "https://research.google/blog/rss/",
+    "deepmind": "https://deepmind.google/blog/feed/",
+    
+    # Microsoft
+    "microsoft_ai": "https://news.microsoft.com/source/topics/ai/feed/",
+    
+    # NVIDIA
+    "nvidia_developer": "https://developer.nvidia.com/blog/feed",
+    "nvidia_press": "https://nvidianews.nvidia.com/releases.xml",
+    
+    # Amazon/AWS
+    "aws_ai": "https://aws.amazon.com/blogs/ai/feed/",
+    
+    # Meta (They often break RSS, but this is their blog)
+    "meta_ai": "https://ai.meta.com/blog/rss/",
+    
+    # Community & Open Source
+    "huggingface": "https://huggingface.co/blog/feed.xml",
+    "bair": "https://bair.berkeley.edu/blog/feed.xml",
+    
+    # Research
+    "arxiv_ai": "https://arxiv.org/rss/cs.AI",
+    "arxiv_lg": "https://arxiv.org/rss/cs.LG",
 }
 
-RSS_STORIES_PER_FEED = 8  # Stories per feed
+# LABS TO SCRAPE (If RSS fails)
+LABS_TO_SCRAPE = {
+    "anthropic": "https://www.anthropic.com/news",
+    "mistral": "https://mistral.ai/news",
+    "cohere": "https://cohere.com/blog",
+    "deepseek": "https://deepseek.com/news",
+    "moonshot": "https://www.moonshot.ai/news",
+    "alibaba": "https://damo.alibaba.com/blog",
+    "baidu": "https://research.baidu.com/blog",
+    "xai": "https://x.ai/blog",
+    "ollama": "https://ollama.com/blog"
+}
+
+RSS_STORIES_PER_FEED = 5  # Stories per feed
 
 
 # =============================================================================
