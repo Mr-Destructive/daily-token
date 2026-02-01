@@ -1,0 +1,25 @@
+<svg width="400" height="600" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="600" fill="#fff5f5" stroke="#ccc" stroke-width="1"/>
+  
+  <!-- Technical pattern background -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ddd" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="600" fill="url(#grid)" />
+  
+  <!-- Stylized AI Elements -->
+  <circle cx="200.0" cy="300.0" r="133.33333333333334" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="5,5" opacity="0.3"/>
+  <rect x="180.0" y="280.0" width="40" height="40" fill="none" stroke="#000" stroke-width="2" transform="rotate(45 200.0 300.0)"/>
+  
+  <!-- Connecting lines -->
+  <path d="M 0 0 L 400 600 M 400 0 L 0 600" stroke="#000" stroke-width="0.2" opacity="0.2"/>
+  
+  <text x="20" y="560" fill="#000" font-size="14" font-family="serif" font-weight="bold">
+    The 80% Problem in Agentic Coding – Addy Osmani
+  </text>
+  <text x="20" y="580" fill="#666" font-size="10" font-family="serif" font-style="italic">
+    NEWSPAPER DATA VISUALIZATION // INFERENCE CORNER
+  </text>
+</svg>

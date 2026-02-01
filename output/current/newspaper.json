@@ -1,0 +1,191 @@
+{
+  "metadata": {
+    "generated": "2026-02-01T20:56:23.592859",
+    "format_version": "1.0"
+  },
+  "pages": {
+    "1": {
+      "title": "Breaking Vectors",
+      "story_count": 3,
+      "stories": [
+        {
+          "original_title": "OpenClaw security assessment [pdf]",
+          "generated_headline": "Security Flaws Uncovered in OpenClaw Framework",
+          "url": "https://zeroleaks.ai/reports/openclaw-analysis.pdf",
+          "hn_url": "https://news.ycombinator.com/item?id=46842884",
+          "source": "HackerNews",
+          "score": 59,
+          "significance_score": 85,
+          "category": "Breaking Vectors",
+          "category_id": 1,
+          "confidence": 0.95,
+          "summary": "A recent security assessment reveals vulnerabilities in the OpenClaw framework, raising concerns about potential exploitation and highlighting the need for robust security measures.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769910854,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "Browser Agent Benchmark: Comparing LLM models for web automation",
+          "generated_headline": "Benchmarking LLM Agents: Evaluating Web Automation Capabilities",
+          "url": "https://browser-use.com/posts/ai-browser-agent-benchmark",
+          "hn_url": "https://news.ycombinator.com/item?id=46837660",
+          "source": "HackerNews",
+          "score": 11,
+          "significance_score": 80,
+          "category": "Breaking Vectors",
+          "category_id": 1,
+          "confidence": 0.95,
+          "summary": "A new benchmark compares the performance of large language models in web automation tasks, shedding light on their strengths and limitations in real-world applications.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769874517,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "List animals until failure",
+          "generated_headline": "AI's Enumerative Limits: When LLMs Struggle to List the Unseen",
+          "url": "https://rose.systems/animalist/",
+          "hn_url": "https://news.ycombinator.com/item?id=46842603",
+          "source": "HackerNews",
+          "score": 216,
+          "significance_score": 85,
+          "category": "Breaking Vectors",
+          "category_id": 1,
+          "confidence": 0.85,
+          "summary": "A recent experiment pushes language models to exhaustion, revealing the boundaries of their ability to generate exhaustive lists and exposing gaps in their world knowledge.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769907803,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "2": {
+      "title": "Model Architectures",
+      "story_count": 1,
+      "stories": [
+        {
+          "original_title": "Turning Karpathy's Autoregressive Baby GPT into Diffusion GPT Step by Step",
+          "generated_headline": "From Autoregression to Diffusion: Reimagining GPT Architectures",
+          "url": "https://colab.research.google.com/github/ash80/diffusion-gpt/blob/master/The_Annotated_Discrete_Diffusion_Models.ipynb",
+          "hn_url": "https://news.ycombinator.com/item?id=46845965",
+          "source": "HackerNews",
+          "score": 7,
+          "significance_score": 90,
+          "category": "Model Architectures",
+          "category_id": 2,
+          "confidence": 0.9,
+          "summary": "Researchers transform Karpathy's Baby GPT into a diffusion model, exploring novel approaches to generative AI and sequence modeling.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769951294,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "3": {
+      "title": "Neural Horizons",
+      "story_count": 1,
+      "stories": [
+        {
+          "original_title": "Show HN: Another social/job market for AI agents (this one paid bill)",
+          "generated_headline": "AI Agent Job Market Launches Paid Platform for Autonomous Software Agents",
+          "url": "https://ugig.net/",
+          "hn_url": "https://news.ycombinator.com/item?id=46846663",
+          "source": "HackerNews",
+          "score": 1,
+          "significance_score": 85,
+          "category": "Neural Horizons",
+          "category_id": 3,
+          "confidence": 0.9,
+          "summary": "A new platform has emerged as a paid job market specifically for AI agents, connecting autonomous software agents with opportunities to perform tasks and earn compensation. This development signals growing commercial applications for AI agents in specialized roles.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769958279,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "4": {
+      "title": "Lab Outputs",
+      "story_count": 3,
+      "stories": [
+        {
+          "original_title": "Show HN: OpenJuris \u2013 AI legal research with citations from primary sources",
+          "generated_headline": "OpenJuris Introduces AI-Powered Legal Research with Primary Source Citations",
+          "url": "https://openjuris.org/",
+          "hn_url": "https://news.ycombinator.com/item?id=46843162",
+          "source": "HackerNews",
+          "score": 12,
+          "significance_score": 75,
+          "category": "Lab Outputs",
+          "category_id": 4,
+          "confidence": 0.95,
+          "summary": "OpenJuris, a new AI-driven legal research tool, leverages primary source citations to enhance accuracy and reliability in legal research.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769914114,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "nanochat can now train GPT-2 grade LLM for \u2013$73 (3 hours on single 8XH100 node)",
+          "generated_headline": "Breakthrough in AI Training: Nanochat Enables GPT-2 Grade LLM Training for Under $100",
+          "url": "https://twitter.com/karpathy/status/2017703360393318587",
+          "hn_url": "https://news.ycombinator.com/item?id=46844411",
+          "source": "HackerNews",
+          "score": 11,
+          "significance_score": 85,
+          "category": "Lab Outputs",
+          "category_id": 4,
+          "confidence": 0.95,
+          "summary": "Nanochat has achieved a significant milestone by enabling the training of a GPT-2 grade large language model for just $73 using a single 8XH100 node in three hours. This development marks a major step forward in making advanced AI training more accessible and cost-effective.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769932971,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "Generative AI and Wikipedia editing: What we learned in 2025",
+          "generated_headline": "Generative AI Integration with Wikipedia: Key Developments and Challenges in 2025",
+          "url": "https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/",
+          "hn_url": "https://news.ycombinator.com/item?id=46840924",
+          "source": "HackerNews",
+          "score": 188,
+          "significance_score": 85,
+          "category": "Lab Outputs",
+          "category_id": 4,
+          "confidence": 0.9,
+          "summary": "In 2025, the integration of generative AI into Wikipedia editing has sparked significant advancements and debates, highlighting both the potential for enhanced content creation and the risks of misinformation. This analysis explores the lessons learned and the ongoing efforts to balance innovation with accuracy.",
+          "selected_image_url": null,
+          "image_layout": "WIDE",
+          "published": 1769894042,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "5": {
+      "title": "Inference Corner",
+      "story_count": 1,
+      "stories": [
+        {
+          "original_title": "What I learned building an opinionated and minimal coding agent",
+          "generated_headline": "Streamlining AI-assisted Coding: Lessons from a Minimal Agent",
+          "url": "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+          "hn_url": "https://news.ycombinator.com/item?id=46844822",
+          "source": "HackerNews",
+          "score": 166,
+          "significance_score": 75,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.9,
+          "summary": "A developer shares insights from building a focused coding agent, highlighting the importance of opinionated design in achieving efficient AI-assisted development workflows.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769938426,
+          "generated_image_path": null
+        }
+      ]
+    }
+  }
+}

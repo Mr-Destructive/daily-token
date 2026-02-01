@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Tokens AI Newspaper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #111;
+            --paper: #fdfdfb;
+            --sep: #ccc;
+            --highlight: #a00;
+        }
+        
+        * { box-sizing: border-box; }
+        body {
+            background-color: #ddd;
+            margin: 0; padding: 10px;
+            font-family: 'Lora', serif;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+        
+        .newspaper {
+            background-color: var(--paper);
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+            border: 1px solid #aaa;
+        }
+        
+        /* Masthead */
+        header {
+            text-align: center;
+            border-bottom: 6px double var(--ink);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .masthead {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 6rem;
+            letter-spacing: -3px;
+            margin: 0;
+            line-height: 0.85;
+            text-transform: uppercase;
+        }
+        
+        .sub-masthead {
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+            margin-top: 15px;
+            padding: 4px 0;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: 1px;
+        }
+        
+        nav {
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--ink);
+            margin-bottom: 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+        }
+        nav a { text-decoration: none; color: var(--ink); font-weight: 700; }
+        nav a:hover { color: var(--highlight); }
+        .nav-sep { margin: 0 15px; color: var(--sep); }
+        
+        /* Sections */
+        .deck-header {
+            text-align: center;
+            border-bottom: 2px solid var(--ink);
+            line-height: 0.1em;
+            margin: 40px 0 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+        }
+        .deck-header span { background: var(--paper); padding: 0 20px; }
+        
+        /* Grid Engine */
+        .lead-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+            border-bottom: 3px solid var(--ink);
+            padding-bottom: 30px;
+        }
+        
+        .columns-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .span-8 { grid-column: span 8; border-right: 1px solid var(--sep); padding-right: 30px; }
+        .span-4 { grid-column: span 4; }
+        .span-2 { grid-column: span 2; }
+        .span-1 { grid-column: span 1; }
+        
+        /* Article Typography */
+        .article { margin-bottom: 20px; }
+        .headline-xl { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 0.95; margin: 0 0 15px 0; font-weight: 900; }
+        .headline-lg { font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1; margin: 0 0 10px 0; font-weight: 900; }
+        .headline-sm { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.1; margin: 0 0 8px 0; font-weight: 700; }
+        
+        .article a { color: inherit; text-decoration: none; }
+        .article a:hover { text-decoration: underline; }
+        
+        .metadata {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            color: #555;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary { font-size: 1.1rem; text-align: justify; margin-bottom: 15px; line-height: 1.3; }
+        .summary-sm { font-size: 0.9rem; text-align: justify; margin-bottom: 10px; line-height: 1.3; }
+        
+        .footer-links { font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--highlight); }
+        .footer-links-sm { font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--highlight); }
+        
+        /* Dynamic Image Handling */
+        .news-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 15px;
+            filter: contrast(1.1) grayscale(100%);
+            border: 1px solid var(--ink);
+        }
+        
+        /* Section Pulse */
+        .section-pulse-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            background: #f4f4f2;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid var(--sep);
+        }
+        .pulse-block { border-right: 1px solid var(--sep); padding-right: 10px; }
+        .pulse-block:last-child { border-right: none; }
+        .pulse-tag { font-family: 'Oswald', sans-serif; font-size: 0.65rem; color: var(--highlight); }
+        .pulse-link { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; }
+        .pulse-link a { color: var(--ink); text-decoration: none; }
+        
+        @media (max-width: 900px) {
+            .lead-grid, .columns-4, .section-pulse-grid { grid-template-columns: 1fr !important; }
+            .span-8, .span-4, .span-2 { grid-column: span 1 !important; border-right: none; padding-right: 0; }
+            .masthead { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="newspaper">
+        <header>
+            <h1 class="masthead">Daily Tokens</h1>
+            <div class="sub-masthead">
+                <span>NEW YORK, SUNDAY, FEBRUARY 01, 2026</span>
+                <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
+                <span>VOL. 2026.032</span>
+            </div>
+        </header>
+
+        <nav>
+            <a href="#front-page">THE FRONT PAGE</a> <span class="nav-sep">|</span> <a href="#section-1">BREAKING VECTORS</a> <span class="nav-sep">|</span> <a href="#section-2">MODEL ARCHITECTURES</a> <span class="nav-sep">|</span> <a href="#section-3">NEURAL HORIZONS</a> <span class="nav-sep">|</span> <a href="#section-4">LAB OUTPUTS</a> <span class="nav-sep">|</span> <a href="#section-5">INFERENCE CORNER</a>
+        </nav>
+
+        <main>
+            
+        <section id="front-page">
+            <div class="deck-header"><span>FRONT PAGE // KEY BREAKTHROUGHS</span></div>
+            <div class="lead-grid">
+        
+                <article class="article span-8 main-story">
+                    <div class="article-body">
+                        
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://colab.research.google.com/github/ash80/diffusion-gpt/blob/master/The_Annotated_Discrete_Diffusion_Models.ipynb">From Autoregression to Diffusion: Reimagining GPT Architectures</a></h2>
+                        <div class="metadata">SOURCE: HACKERNEWS // 1769951294</div>
+                        
+                        <p class="summary">Researchers transform Karpathy's Baby GPT into a diffusion model, exploring novel approaches to generative AI and sequence modeling....</p>
+                        <div class="footer-links"><a href="https://colab.research.google.com/github/ash80/diffusion-gpt/blob/master/The_Annotated_Discrete_Diffusion_Models.ipynb">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46845965">HN</a></div>
+                    </div>
+                </article>
+            
+                <article class="article span-4 side-story">
+                    <div class="article-body">
+                        
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">Security Flaws Uncovered in OpenClaw Framework</a></h2>
+                        <div class="metadata">SOURCE: HACKERNEWS // 1769910854</div>
+                        
+                        <p class="summary">A recent security assessment reveals vulnerabilities in the OpenClaw framework, raising concerns about potential exploitation and highlighting the need for robust security measures.</p>
+                        <div class="footer-links"><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46842884">HN</a></div>
+                    </div>
+                </article>
+            
+                <article class="article span-4 side-story">
+                    <div class="article-body">
+                        
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://rose.systems/animalist/">AI's Enumerative Limits: When LLMs Struggle to List the Unseen</a></h2>
+                        <div class="metadata">SOURCE: HACKERNEWS // 1769907803</div>
+                        
+                        <p class="summary">A recent experiment pushes language models to exhaustion, revealing the boundaries of their ability to generate exhaustive lists and exposing gaps in their world knowledge.</p>
+                        <div class="footer-links"><a href="https://rose.systems/animalist/">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46842603">HN</a></div>
+                    </div>
+                </article>
+            </div>
+            
+            <section id="section-1">
+                <div class="deck-header"><span>BREAKING VECTORS</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">Security Flaws Uncovered in OpenClaw Framework</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A recent security assessment reveals vulnerabilities in the OpenClaw framework, raising concerns about potential exploitation and highlighting the need for robust security measures.</p>
+                            <div class="footer-links-sm"><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">LINK</a> // <a href="https://news.ycombinator.com/item?id=46842884">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://browser-use.com/posts/ai-browser-agent-benchmark">Benchmarking LLM Agents: Evaluating Web Automation Capabilities</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A new benchmark compares the performance of large language models in web automation tasks, shedding light on their strengths and limitations in real-world applications.</p>
+                            <div class="footer-links-sm"><a href="https://browser-use.com/posts/ai-browser-agent-benchmark">LINK</a> // <a href="https://news.ycombinator.com/item?id=46837660">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://rose.systems/animalist/">AI's Enumerative Limits: When LLMs Struggle to List the Unseen</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A recent experiment pushes language models to exhaustion, revealing the boundaries of their ability to generate exhaustive lists and exposing gaps in their world knowledge.</p>
+                            <div class="footer-links-sm"><a href="https://rose.systems/animalist/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46842603">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
+            <section id="section-2">
+                <div class="deck-header"><span>MODEL ARCHITECTURES</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://colab.research.google.com/github/ash80/diffusion-gpt/blob/master/The_Annotated_Discrete_Diffusion_Models.ipynb">From Autoregression to Diffusion: Reimagining GPT Architectures</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">Researchers transform Karpathy's Baby GPT into a diffusion model, exploring novel approaches to generative AI and sequence modeling.</p>
+                            <div class="footer-links-sm"><a href="https://colab.research.google.com/github/ash80/diffusion-gpt/blob/master/The_Annotated_Discrete_Diffusion_Models.ipynb">LINK</a> // <a href="https://news.ycombinator.com/item?id=46845965">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
+            <section id="section-3">
+                <div class="deck-header"><span>NEURAL HORIZONS</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://ugig.net/">AI Agent Job Market Launches Paid Platform for Autonomous Software Agents</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A new platform has emerged as a paid job market specifically for AI agents, connecting autonomous software agents with opportunities to perform tasks and earn compensation. This development signals growing commercial applications for AI agents in specialized roles.</p>
+                            <div class="footer-links-sm"><a href="https://ugig.net/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46846663">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
+            <section id="section-4">
+                <div class="deck-header"><span>LAB OUTPUTS</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://openjuris.org/">OpenJuris Introduces AI-Powered Legal Research with Primary Source Citations</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">OpenJuris, a new AI-driven legal research tool, leverages primary source citations to enhance accuracy and reliability in legal research.</p>
+                            <div class="footer-links-sm"><a href="https://openjuris.org/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46843162">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://twitter.com/karpathy/status/2017703360393318587">Breakthrough in AI Training: Nanochat Enables GPT-2 Grade LLM Training for Under $100</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">Nanochat has achieved a significant milestone by enabling the training of a GPT-2 grade large language model for just $73 using a single 8XH100 node in three hours. This development marks a major step forward in making advanced AI training more accessible and cost-effective.</p>
+                            <div class="footer-links-sm"><a href="https://twitter.com/karpathy/status/2017703360393318587">LINK</a> // <a href="https://news.ycombinator.com/item?id=46844411">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-2">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/">Generative AI Integration with Wikipedia: Key Developments and Challenges in 2025</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">In 2025, the integration of generative AI into Wikipedia editing has sparked significant advancements and debates, highlighting both the potential for enhanced content creation and the risks of misinformation. This analysis explores the lessons learned and the ongoing efforts to balance innovation with accuracy.</p>
+                            <div class="footer-links-sm"><a href="https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46840924">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
+            <section id="section-5">
+                <div class="deck-header"><span>INFERENCE CORNER</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">Streamlining AI-assisted Coding: Lessons from a Minimal Agent</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A developer shares insights from building a focused coding agent, highlighting the importance of opinionated design in achieving efficient AI-assisted development workflows.</p>
+                            <div class="footer-links-sm"><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46844822">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
+        </main>
+
+        <footer style="text-align: center; border-top: 4px double var(--ink); margin-top: 60px; padding-top: 20px; font-family: 'Oswald'; font-size: 0.8rem;">
+            DATA PIPELINE VERIFIED BY GEMINI NANO // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
+        </footer>
+    </div>
+</body>
+</html>

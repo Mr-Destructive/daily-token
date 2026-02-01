@@ -1,0 +1,2 @@
+# This file ensures the output/images directory is tracked in git
+# Downloaded story images will be stored here by GitHub Actions

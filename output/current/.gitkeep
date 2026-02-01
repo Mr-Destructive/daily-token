@@ -1,0 +1,2 @@
+# This file ensures the output/current directory is tracked in git
+# Generated newspaper files will be created here by GitHub Actions
