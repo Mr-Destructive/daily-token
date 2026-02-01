@@ -493,7 +493,7 @@ class NewsExporter:
         </main>
 
         <footer style="text-align: center; border-top: 4px double var(--ink); margin-top: 60px; padding-top: 20px; font-family: 'Oswald'; font-size: 0.8rem;">
-            DATA PIPELINE VERIFIED BY GEMINI NANO // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
+            VERIFIED BY NEURAL CONSENSUS // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
         </footer>
     </div>
 </body>
