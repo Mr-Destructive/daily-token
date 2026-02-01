@@ -52,6 +52,7 @@ jobs:
         run: |
           mkdir -p docs
           cp -r output/current/* docs/
+          cp docs/newspaper.html docs/index.html
       
       - name: Commit and push
         run: |
