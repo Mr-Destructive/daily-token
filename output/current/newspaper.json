@@ -1,139 +1,18 @@
 {
   "metadata": {
-    "generated": "2026-02-01T21:09:54.381907",
+    "generated": "2026-02-01T15:46:44.070116",
     "format_version": "1.0"
   },
   "pages": {
     "1": {
       "title": "Breaking Vectors",
-      "story_count": 4,
-      "stories": [
-        {
-          "original_title": "List animals until failure",
-          "generated_headline": "Researchers Explore Cognitive Limits Through Sequential Animal Listing Task",
-          "url": "https://rose.systems/animalist/",
-          "hn_url": "https://news.ycombinator.com/item?id=46842603",
-          "source": "HackerNews",
-          "score": 223,
-          "significance_score": 65,
-          "category": "Breaking Vectors",
-          "category_id": 1,
-          "confidence": 0.95,
-          "summary": "A novel study investigates human memory capacity by challenging participants to list animals until they can no longer continue, shedding light on cognitive boundaries.",
-          "selected_image_url": null,
-          "image_layout": "WIDE",
-          "published": 1769907803,
-          "generated_image_path": null
-        },
-        {
-          "original_title": "Outsourcing thinking",
-          "generated_headline": "Outsourcing Thinking: The Rise of AI-Driven Decision Making",
-          "url": "https://erikjohannes.no/posts/20260130-outsourcing-thinking/index.html",
-          "hn_url": "https://news.ycombinator.com/item?id=46840865",
-          "source": "HackerNews",
-          "score": 187,
-          "significance_score": 85,
-          "category": "Breaking Vectors",
-          "category_id": 1,
-          "confidence": 0.95,
-          "summary": "As AI systems become increasingly sophisticated, businesses and individuals are increasingly relying on algorithms to make complex decisions, raising questions about autonomy, accountability, and the future of human cognition.",
-          "selected_image_url": null,
-          "image_layout": "SQUARE",
-          "published": 1769893617,
-          "generated_image_path": null
-        },
-        {
-          "original_title": "Autonomous cars, drones cheerfully obey prompt injection by road sign",
-          "generated_headline": "Autonomous Vehicles Vulnerable to Prompt Injection via Road Sign Manipulation",
-          "url": "https://www.theregister.com/2026/01/30/road_sign_hijack_ai/",
-          "hn_url": "https://news.ycombinator.com/item?id=46840676",
-          "source": "HackerNews",
-          "score": 127,
-          "significance_score": 85,
-          "category": "Breaking Vectors",
-          "category_id": 1,
-          "confidence": 0.95,
-          "summary": "Researchers have demonstrated that autonomous cars and drones can be tricked into obeying malicious commands through prompt injection techniques using manipulated road signs, raising significant security concerns.",
-          "selected_image_url": null,
-          "image_layout": "WIDE",
-          "published": 1769892513,
-          "generated_image_path": null
-        },
-        {
-          "original_title": "Browser Agent Benchmark: Comparing LLM models for web automation",
-          "generated_headline": "Comparative Analysis of LLM Models for Web Automation Performance",
-          "url": "https://browser-use.com/posts/ai-browser-agent-benchmark",
-          "hn_url": "https://news.ycombinator.com/item?id=46837660",
-          "source": "HackerNews",
-          "score": 11,
-          "significance_score": 85,
-          "category": "Breaking Vectors",
-          "category_id": 1,
-          "confidence": 0.95,
-          "summary": "A new benchmark evaluates the efficiency and capabilities of leading large language models in browser-based automation tasks, highlighting key performance differentiators.",
-          "selected_image_url": null,
-          "image_layout": "SQUARE",
-          "published": 1769874517,
-          "generated_image_path": null
-        }
-      ]
+      "story_count": 0,
+      "stories": []
     },
     "2": {
       "title": "Model Architectures",
-      "story_count": 3,
-      "stories": [
-        {
-          "original_title": "Show HN: OpenJuris \u2013 AI legal research with citations from primary sources",
-          "generated_headline": "OpenJuris Introduces AI-Powered Legal Research Platform with Primary Source Citations",
-          "url": "https://openjuris.org/",
-          "hn_url": "https://news.ycombinator.com/item?id=46843162",
-          "source": "HackerNews",
-          "score": 12,
-          "significance_score": 85,
-          "category": "Model Architectures",
-          "category_id": 2,
-          "confidence": 0.95,
-          "summary": "OpenJuris, an open-source AI tool, offers advanced legal research capabilities by providing citations directly from primary legal sources, enhancing accuracy and reliability for legal professionals.",
-          "selected_image_url": null,
-          "image_layout": "SQUARE",
-          "published": 1769914114,
-          "generated_image_path": null
-        },
-        {
-          "original_title": "Turning Karpathy's Autoregressive Baby GPT into Diffusion GPT Step by Step",
-          "generated_headline": "From Autoregression to Diffusion: Evolving Baby GPT\u2019s Architecture",
-          "url": "https://colab.research.google.com/github/ash80/diffusion-gpt/blob/master/The_Annotated_Discrete_Diffusion_Models.ipynb",
-          "hn_url": "https://news.ycombinator.com/item?id=46845965",
-          "source": "HackerNews",
-          "score": 7,
-          "significance_score": 85,
-          "category": "Model Architectures",
-          "category_id": 2,
-          "confidence": 0.95,
-          "summary": "A detailed step-by-step transformation of Karpathy's Autoregressive Baby GPT into a Diffusion-based model, exploring the technical advancements and architectural shifts in modern AI systems.",
-          "selected_image_url": null,
-          "image_layout": "SQUARE",
-          "published": 1769951294,
-          "generated_image_path": null
-        },
-        {
-          "original_title": "The 80% Problem in Agentic Coding \u2013 Addy Osmani",
-          "generated_headline": "The 80% Problem in Agentic Coding: Addressing the Gap in Autonomous Development",
-          "url": "https://addyo.substack.com/p/the-80-problem-in-agentic-coding",
-          "hn_url": "https://news.ycombinator.com/item?id=46844737",
-          "source": "HackerNews",
-          "score": 6,
-          "significance_score": 85,
-          "category": "Model Architectures",
-          "category_id": 2,
-          "confidence": 0.95,
-          "summary": "Addy Osmani explores the challenges of agentic coding systems, highlighting the persistent gap where these tools achieve 80% accuracy but struggle with the remaining 20%, limiting their reliability in real-world applications.",
-          "selected_image_url": null,
-          "image_layout": "SQUARE",
-          "published": 1769937219,
-          "generated_image_path": null
-        }
-      ]
+      "story_count": 0,
+      "stories": []
     },
     "3": {
       "title": "Neural Horizons",
@@ -147,26 +26,8 @@
     },
     "5": {
       "title": "Inference Corner",
-      "story_count": 1,
-      "stories": [
-        {
-          "original_title": "Show HN: Zuckerman \u2013 minimalist personal AI agent that self-edits its own code",
-          "generated_headline": "Zuckerman: A Self-Editing AI Agent Redefining Minimalist Code Automation",
-          "url": "https://github.com/zuckermanai/zuckerman",
-          "hn_url": "https://news.ycombinator.com/item?id=46846210",
-          "source": "HackerNews",
-          "score": 3,
-          "significance_score": 85,
-          "category": "Inference Corner",
-          "category_id": 5,
-          "confidence": 0.98,
-          "summary": "Zuckerman introduces a groundbreaking approach to AI agents by enabling self-editing of its own code, offering a minimalist yet powerful tool for developers. This innovation could streamline workflows and enhance adaptability in software development.",
-          "selected_image_url": null,
-          "image_layout": "SQUARE",
-          "published": 1769953815,
-          "generated_image_path": null
-        }
-      ]
+      "story_count": 0,
+      "stories": []
     }
   }
 }
