@@ -67,16 +67,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v3
       
-      - name: Upload to Netlify (if token provided)
-        if: ${{ secrets.NETLIFY_AUTH_TOKEN != '' }}
-        uses: nwtgck/actions-netlify@v2.0
-        with:
-          publish-dir: './output/current'
-          production-branch: main
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: 'Daily newspaper - ${{ github.event.head_commit.message }}'
-          enable-pull-request-comment: false
-          enable-commit-comment: false
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
