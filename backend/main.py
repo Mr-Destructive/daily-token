@@ -42,6 +42,11 @@ def archive_current_edition(repo_root: Path):
     
     print(f"\n[0/5] Archiving previous edition to {archive_dir.relative_to(repo_root)}...")
     
+    # Move all files from current to archive
+    for item in current_dir.iterdir():
+        if item.is_file() and not item.name.startswith('.'):
+            shutil.copy2(item, archive_dir / item.name)
+
     # Create a simple redirect index.html for the archive folder
     redirect_html = f"""<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=newspaper.html"></head>
     <body><p>Redirecting to <a href="newspaper.html">newspaper.html</a>...</p></body></html>"""
