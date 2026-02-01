@@ -1,18 +1,100 @@
 {
   "metadata": {
-    "generated": "2026-02-01T15:55:55.346693",
+    "generated": "2026-02-01T16:00:57.623999",
     "format_version": "1.0"
   },
   "pages": {
     "1": {
       "title": "Breaking Vectors",
-      "story_count": 0,
-      "stories": []
+      "story_count": 4,
+      "stories": [
+        {
+          "original_title": "Autonomous cars, drones cheerfully obey prompt injection by road sign",
+          "generated_headline": "Autonomous Vehicles Vulnerable to Road Sign Manipulation",
+          "url": "https://www.theregister.com/2026/01/30/road_sign_hijack_ai/",
+          "hn_url": "https://news.ycombinator.com/item?id=46840676",
+          "source": "HackerNews",
+          "score": 130,
+          "significance_score": 95,
+          "category": "Breaking Vectors",
+          "category_id": 1,
+          "confidence": 0.95,
+          "summary": "Researchers demonstrate how autonomous cars and drones can be tricked into obeying malicious commands via manipulated road signs, exposing a critical security flaw. This vulnerability highlights the need for more robust AI systems in real-world applications.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769892513
+        },
+        {
+          "original_title": "OpenClaw security assessment [pdf]",
+          "generated_headline": "Security Flaws Uncovered in OpenClaw Framework Raise Concerns",
+          "url": "https://zeroleaks.ai/reports/openclaw-analysis.pdf",
+          "hn_url": "https://news.ycombinator.com/item?id=46842884",
+          "source": "HackerNews",
+          "score": 60,
+          "significance_score": 80,
+          "category": "Breaking Vectors",
+          "category_id": 1,
+          "confidence": 0.95,
+          "summary": "A recent security assessment reveals vulnerabilities in OpenClaw, a framework used in AI and machine learning applications, sparking worries about potential exploits. The findings underscore the importance of robust security measures in AI development.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769910854
+        },
+        {
+          "original_title": "'Tesla is (still) trying to deceive investors into thinking it has SF robotaxis'",
+          "generated_headline": "Tesla Faces Criticism Over Misleading Claims on Autonomous Vehicle Progress",
+          "url": "https://electrek.co/2026/01/28/tesla-is-still-trying-to-deceive-investors-into-thinking-it-has-sf-robotaxis/",
+          "hn_url": "https://news.ycombinator.com/item?id=46844257",
+          "source": "HackerNews",
+          "score": 47,
+          "significance_score": 85,
+          "category": "Breaking Vectors",
+          "category_id": 1,
+          "confidence": 0.95,
+          "summary": "Tesla is accused of deceiving investors about the development and deployment of robotaxis in San Francisco, raising concerns about transparency in AI-driven automotive advancements. The controversy highlights challenges in balancing innovation with accurate communication.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769930710
+        },
+        {
+          "original_title": "OpenClaw proves agentic AI works. It also proves your security model doesn't",
+          "generated_headline": "Agentic AI System Exposes Gaps in Existing Security Frameworks",
+          "url": "https://venturebeat.com/security/openclaw-agentic-ai-security-risk-ciso-guide",
+          "hn_url": "https://news.ycombinator.com/item?id=46846946",
+          "source": "HackerNews",
+          "score": 1,
+          "significance_score": 90,
+          "category": "Breaking Vectors",
+          "category_id": 1,
+          "confidence": 0.95,
+          "summary": "OpenClaw's demonstration of agentic AI's capabilities has raised alarms about the inadequacy of current security models, highlighting the need for a reevaluation of existing protocols. The system's success underscores both the potential and the risks of advanced AI applications.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769960627
+        }
+      ]
     },
     "2": {
       "title": "Model Architectures",
-      "story_count": 0,
-      "stories": []
+      "story_count": 1,
+      "stories": [
+        {
+          "original_title": "Turning Karpathy's Autoregressive Baby GPT into Diffusion GPT Step by Step",
+          "generated_headline": "Researchers Transform Autoregressive GPT into Diffusion Model, Advancing Generative AI",
+          "url": "https://colab.research.google.com/github/ash80/diffusion-gpt/blob/master/The_Annotated_Discrete_Diffusion_Models.ipynb",
+          "hn_url": "https://news.ycombinator.com/item?id=46845965",
+          "source": "HackerNews",
+          "score": 8,
+          "significance_score": 90,
+          "category": "Model Architectures",
+          "category_id": 2,
+          "confidence": 0.95,
+          "summary": "Building on Karpathy's Baby GPT, researchers adapt the autoregressive model into a diffusion-based framework, offering new insights into generative AI architectures. This work highlights the versatility of transformer models in diverse AI applications.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769951294
+        }
+      ]
     },
     "3": {
       "title": "Neural Horizons",
@@ -21,13 +103,159 @@
     },
     "4": {
       "title": "Lab Outputs",
-      "story_count": 0,
-      "stories": []
+      "story_count": 2,
+      "stories": [
+        {
+          "original_title": "nanochat can now train GPT-2 grade LLM for \u2013$73 (3 hours on single 8XH100 node)",
+          "generated_headline": "Breakthrough in Cost-Efficient LLM Training Achieved with nanochat Framework",
+          "url": "https://twitter.com/karpathy/status/2017703360393318587",
+          "hn_url": "https://news.ycombinator.com/item?id=46844411",
+          "source": "HackerNews",
+          "score": 12,
+          "significance_score": 95,
+          "category": "Lab Outputs",
+          "category_id": 4,
+          "confidence": 0.95,
+          "summary": "The nanochat framework enables training of GPT-2 grade large language models at a significantly reduced cost of $73, utilizing a single 8xH100 node over 3 hours. This development marks a notable advancement in making AI model training more accessible.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769932971
+        },
+        {
+          "original_title": "List animals until failure",
+          "generated_headline": "Researchers Push Limits of AI's Zoological Knowledge",
+          "url": "https://rose.systems/animalist/",
+          "hn_url": "https://news.ycombinator.com/item?id=46842603",
+          "source": "HackerNews",
+          "score": 229,
+          "significance_score": 60,
+          "category": "Lab Outputs",
+          "category_id": 4,
+          "confidence": 0.8,
+          "summary": "A recent experiment challenges AI models to list animals until failure, revealing intriguing insights into their knowledge boundaries and potential biases. The test highlights the complexities of evaluating AI's understanding of real-world concepts.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769907803
+        }
+      ]
     },
     "5": {
       "title": "Inference Corner",
-      "story_count": 0,
-      "stories": []
+      "story_count": 7,
+      "stories": [
+        {
+          "original_title": "Generative AI and Wikipedia editing: What we learned in 2025",
+          "generated_headline": "Generative AI's Role in Wikipedia Editing: 2025 Insights",
+          "url": "https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/",
+          "hn_url": "https://news.ycombinator.com/item?id=46840924",
+          "source": "HackerNews",
+          "score": 192,
+          "significance_score": 80,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.95,
+          "summary": "A new report reveals key findings on the impact of generative AI on Wikipedia editing, highlighting both the benefits and challenges of AI-assisted content creation. The study sheds light on the evolving relationship between AI tools and human editors.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769894042
+        },
+        {
+          "original_title": "Show HN: OpenJuris \u2013 AI legal research with citations from primary sources",
+          "generated_headline": "OpenJuris Launches AI-Powered Legal Research Tool with Primary Source Citations",
+          "url": "https://openjuris.org/",
+          "hn_url": "https://news.ycombinator.com/item?id=46843162",
+          "source": "HackerNews",
+          "score": 13,
+          "significance_score": 80,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.95,
+          "summary": "OpenJuris provides an AI-driven platform for legal research, citing primary sources to enhance accuracy and reliability. This innovation aims to streamline legal workflows and improve access to jurisprudence.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769914114
+        },
+        {
+          "original_title": "CollectWise (YC F24) Is Hiring",
+          "generated_headline": "CollectWise Seeks AI Talent to Drive Innovation",
+          "url": "https://www.ycombinator.com/companies/collectwise/jobs/ZunnO6k-ai-agent-engineer",
+          "hn_url": "https://news.ycombinator.com/item?id=46840801",
+          "source": "HackerNews",
+          "score": 1,
+          "significance_score": 60,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.95,
+          "summary": "Y Combinator-backed CollectWise is looking for skilled AI engineers to join its team, signaling the startup's focus on leveraging AI for growth. The hiring push indicates CollectWise's ambitions in the AI space.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769893256
+        },
+        {
+          "original_title": "Outsourcing thinking",
+          "generated_headline": "The Cognitive Shift: When Humans Outsource Thinking to AI",
+          "url": "https://erikjohannes.no/posts/20260130-outsourcing-thinking/index.html",
+          "hn_url": "https://news.ycombinator.com/item?id=46840865",
+          "source": "HackerNews",
+          "score": 190,
+          "significance_score": 90,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.9,
+          "summary": "As AI increasingly handles complex tasks, a growing trend sees humans relying on machines for cognitive work, raising questions about the future of human problem-solving skills. The implications of this shift are profound and warrant closer examination.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769893617
+        },
+        {
+          "original_title": "What I learned building an opinionated and minimal coding agent",
+          "generated_headline": "Streamlining AI-Assisted Coding: Insights from a Minimal Agent",
+          "url": "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+          "hn_url": "https://news.ycombinator.com/item?id=46844822",
+          "source": "HackerNews",
+          "score": 184,
+          "significance_score": 75,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.9,
+          "summary": "A developer shares key takeaways from building a focused coding agent, shedding light on the challenges and opportunities in AI-powered development tools. The project highlights the importance of opinionated design in enhancing productivity.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769938426
+        },
+        {
+          "original_title": "Sparse File LRU Cache",
+          "generated_headline": "Efficient Caching with Sparse File LRU Implementation",
+          "url": "http://ternarysearch.blogspot.com/2026/01/sparse-file-lru-cache.html",
+          "hn_url": "https://news.ycombinator.com/item?id=46842586",
+          "source": "HackerNews",
+          "score": 44,
+          "significance_score": 70,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.9,
+          "summary": "A new approach to caching leverages sparse files and LRU algorithms to optimize storage and retrieval efficiency. This technique shows promise for improving performance in resource-constrained environments.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769907607
+        },
+        {
+          "original_title": "Show HN: Zuckerman \u2013 minimalist personal AI agent that self-edits its own code",
+          "generated_headline": "Zuckerman AI Agent Pioneers Self-Modifying Code Frontier",
+          "url": "https://github.com/zuckermanai/zuckerman",
+          "hn_url": "https://news.ycombinator.com/item?id=46846210",
+          "source": "HackerNews",
+          "score": 8,
+          "significance_score": 85,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.9,
+          "summary": "The Zuckerman project introduces a minimalist AI agent capable of self-editing its own code, marking a significant step towards more autonomous AI systems. This innovation could redefine the boundaries of AI adaptability and learning.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769953815
+        }
+      ]
     }
   }
 }
