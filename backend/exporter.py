@@ -172,6 +172,32 @@ class NewsExporter:
         
         return output_path
     
+    def export_text(self, output_path: str) -> str:
+        """Export as plain text"""
+        lines = [
+            f"DAILY TOKENS - {self.timestamp}",
+            f"LOCATION: {self.location}",
+            "=" * 60,
+            ""
+        ]
+        
+        for page_num in range(1, 6):
+            stories = self.organized[page_num]
+            lines.append(f"SECTION: {self.PAGE_NAMES[page_num].upper()}")
+            lines.append("-" * 60)
+            
+            for i, story in enumerate(stories, 1):
+                lines.append(f"{i}. {story.get('generated_headline', story['original_title']).upper()}")
+                lines.append(f"Source: {story['source']} | URL: {story.get('url', 'N/A')}")
+                lines.append(f"Summary: {story['summary']}")
+                lines.append("")
+            lines.append("")
+            
+        content = "\n".join(lines)
+        with open(output_path, 'w') as f:
+            f.write(content)
+        return output_path
+
     def export_html(self, output_path: str) -> str:
         """Export as interactive HTML newspaper"""
         
