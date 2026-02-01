@@ -105,12 +105,10 @@
         .span-2 { grid-column: span 2; }
         .span-1 { grid-column: span 1; }
         
-        /* Article Typography */
-        .article { margin-bottom: 20px; }
+        /* Typography */
         .headline-xl { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 0.95; margin: 0 0 15px 0; font-weight: 900; }
         .headline-lg { font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1; margin: 0 0 10px 0; font-weight: 900; }
         .headline-sm { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.1; margin: 0 0 8px 0; font-weight: 700; }
-        
         .article a { color: inherit; text-decoration: none; }
         .article a:hover { text-decoration: underline; }
         
@@ -127,16 +125,19 @@
         
         .footer-links { font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--highlight); }
         .footer-links-sm { font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--highlight); }
-        
-        /* Dynamic Image Handling */
+
+        /* Articles */
+        .article { margin-bottom: 20px; }
         .news-img {
             width: 100%;
             height: auto;
             display: block;
             margin-bottom: 15px;
-            filter: contrast(1.1) grayscale(100%);
+            filter: grayscale(100%) contrast(1.2);
             border: 1px solid var(--ink);
+            transition: filter 0.3s ease;
         }
+        .news-img:hover { filter: none; }
         
         /* Section Pulse */
         .section-pulse-grid {
@@ -153,11 +154,27 @@
         .pulse-tag { font-family: 'Oswald', sans-serif; font-size: 0.65rem; color: var(--highlight); }
         .pulse-link { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; }
         .pulse-link a { color: var(--ink); text-decoration: none; }
-        
+
         @media (max-width: 900px) {
-            .lead-grid, .columns-4, .section-pulse-grid { grid-template-columns: 1fr !important; }
+            .newspaper { padding: 15px 20px; }
+            .masthead { font-size: 3rem; letter-spacing: -1px; }
+            .sub-masthead { font-size: 0.7rem; flex-direction: column; align-items: center; gap: 5px; }
+            .lead-grid, .columns-4, .section-pulse-grid { grid-template-columns: 1fr !important; gap: 20px; }
             .span-8, .span-4, .span-2 { grid-column: span 1 !important; border-right: none; padding-right: 0; }
-            .masthead { font-size: 3rem; }
+            .article { border-bottom: 1px solid var(--sep); padding-bottom: 25px; margin-bottom: 25px; }
+            .headline-xl { font-size: 2rem; }
+            .headline-lg { font-size: 1.6rem; }
+            .headline-sm { font-size: 1.2rem; }
+            nav { 
+                font-size: 0.75rem; 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 10px;
+                padding: 10px 0;
+            }
+            .nav-sep { display: none; }
+            .news-img { margin-top: 10px; filter: none; } /* Real colors on mobile for better visibility */
         }
     </style>
 </head>
@@ -166,14 +183,14 @@
         <header>
             <h1 class="masthead">Daily Tokens</h1>
             <div class="sub-masthead">
-                <span>BIAS BOROUGH, SUNDAY, FEBRUARY 01, 2026</span>
+                <span>WEIGHT WARD, SUNDAY, FEBRUARY 01, 2026</span>
                 <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
                 <span>VOL. 2026.032</span>
             </div>
         </header>
 
         <nav>
-            <a href="#front-page">THE FRONT PAGE</a> <span class="nav-sep">|</span> <a href="#section-1">BREAKING VECTORS</a> <span class="nav-sep">|</span> <a href="#section-4">LAB OUTPUTS</a> <span class="nav-sep">|</span> <a href="#section-5">INFERENCE CORNER</a>
+            <a href="#front-page">THE FRONT PAGE</a> <span class="nav-sep">|</span> <a href="#section-1">BREAKING VECTORS</a> <span class="nav-sep">|</span> <a href="#section-2">MODEL ARCHITECTURES</a> <span class="nav-sep">|</span> <a href="#section-3">NEURAL HORIZONS</a> <span class="nav-sep">|</span> <a href="#section-4">LAB OUTPUTS</a> <span class="nav-sep">|</span> <a href="#section-5">INFERENCE CORNER</a>
         </nav>
 
         <main>
@@ -185,10 +202,10 @@
                 <article class="article span-8 main-story">
                     <div class="article-body">
                         
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://www.sciencedaily.com/releases/2026/01/260129080418.htm">Breakthrough Cooling Technique Tamps Down Quantum Computer Noise</a></h2>
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://www.sciencedaily.com/releases/2026/01/260129080418.htm">Breakthrough in Quantum Computing: Researchers Harness Noise for Cooling</a></h2>
                         <div class="metadata">SOURCE: HACKERNEWS // 1769967078</div>
                         
-                        <p class="summary">Researchers have discovered a method to mitigate noise in quantum computers, a major hurdle in quantum computing development, using the noise itself to cool the systems. This innovation could significantly enhance the stability and performance of quantum computers....</p>
+                        <p class="summary">Scientists have discovered a novel method to cool quantum computers using noise, potentially paving the way for more stable and powerful quantum systems. This innovative approach could overcome a major hurdle in quantum computing development....</p>
                         <div class="footer-links"><a href="https://www.sciencedaily.com/releases/2026/01/260129080418.htm">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46847733">HN</a></div>
                     </div>
                 </article>
@@ -196,10 +213,10 @@
                 <article class="article span-4 side-story">
                     <div class="article-body">
                         
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://www.theregister.com/2026/01/30/road_sign_hijack_ai/">Road Sign Hack Exposes Vulnerability in Autonomous Vehicle AI</a></h2>
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://www.theregister.com/2026/01/30/road_sign_hijack_ai/">AI Navigation Systems Vulnerable to Subtle Road Sign Manipulation</a></h2>
                         <div class="metadata">SOURCE: HACKERNEWS // 1769892513</div>
                         
-                        <p class="summary">Researchers demonstrate how easily autonomous cars and drones can be manipulated by altered road signs, highlighting critical security concerns in AI-driven transportation systems. The findings underscore the need for robust safeguards against prompt injection attacks.</p>
+                        <p class="summary">Researchers demonstrate how autonomous vehicles and drones can be tricked into misinterpreting road signs, highlighting a critical security concern for AI-driven transportation. The findings underscore the need for robust safeguards against prompt injection attacks.</p>
                         <div class="footer-links"><a href="https://www.theregister.com/2026/01/30/road_sign_hijack_ai/">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46840676">HN</a></div>
                     </div>
                 </article>
@@ -207,11 +224,11 @@
                 <article class="article span-4 side-story">
                     <div class="article-body">
                         
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://electrek.co/2026/01/28/tesla-is-still-trying-to-deceive-investors-into-thinking-it-has-sf-robotaxis/">Tesla Accused of Misleading Investors on Autonomous Vehicle Progress</a></h2>
-                        <div class="metadata">SOURCE: HACKERNEWS // 1769930710</div>
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">OpenClaw Security Flaws Exposed in Comprehensive Assessment</a></h2>
+                        <div class="metadata">SOURCE: HACKERNEWS // 1769910854</div>
                         
-                        <p class="summary">Tesla is facing criticism for allegedly exaggerating its advancements in autonomous driving technology, specifically regarding its robotaxi capabilities in San Francisco. The controversy raises concerns about transparency in AI development and deployment.</p>
-                        <div class="footer-links"><a href="https://electrek.co/2026/01/28/tesla-is-still-trying-to-deceive-investors-into-thinking-it-has-sf-robotaxis/">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46844257">HN</a></div>
+                        <p class="summary">A detailed analysis reveals significant vulnerabilities in OpenClaw, highlighting potential risks for users and underscoring the importance of robust security measures. The findings have implications for the broader AI and cybersecurity communities.</p>
+                        <div class="footer-links"><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46842884">HN</a></div>
                     </div>
                 </article>
             </div>
@@ -223,9 +240,9 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://www.theregister.com/2026/01/30/road_sign_hijack_ai/">Road Sign Hack Exposes Vulnerability in Autonomous Vehicle AI</a></h3>
+                            <h3 class="headline-sm"><a href="https://www.theregister.com/2026/01/30/road_sign_hijack_ai/">AI Navigation Systems Vulnerable to Subtle Road Sign Manipulation</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Researchers demonstrate how easily autonomous cars and drones can be manipulated by altered road signs, highlighting critical security concerns in AI-driven transportation systems. The findings underscore the need for robust safeguards against prompt injection attacks.</p>
+                            <p class="summary-sm">Researchers demonstrate how autonomous vehicles and drones can be tricked into misinterpreting road signs, highlighting a critical security concern for AI-driven transportation. The findings underscore the need for robust safeguards against prompt injection attacks.</p>
                             <div class="footer-links-sm"><a href="https://www.theregister.com/2026/01/30/road_sign_hijack_ai/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46840676">HN</a></div>
                         </div>
                     </article>
@@ -233,9 +250,9 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">OpenClaw Security Flaws Exposed: AI System Vulnerabilities Uncovered</a></h3>
+                            <h3 class="headline-sm"><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">OpenClaw Security Flaws Exposed in Comprehensive Assessment</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A recent security assessment reveals significant vulnerabilities in OpenClaw, highlighting potential risks for AI systems relying on this framework. The findings underscore the need for robust security measures in AI development.</p>
+                            <p class="summary-sm">A detailed analysis reveals significant vulnerabilities in OpenClaw, highlighting potential risks for users and underscoring the importance of robust security measures. The findings have implications for the broader AI and cybersecurity communities.</p>
                             <div class="footer-links-sm"><a href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">LINK</a> // <a href="https://news.ycombinator.com/item?id=46842884">HN</a></div>
                         </div>
                     </article>
@@ -243,10 +260,38 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://electrek.co/2026/01/28/tesla-is-still-trying-to-deceive-investors-into-thinking-it-has-sf-robotaxis/">Tesla Accused of Misleading Investors on Autonomous Vehicle Progress</a></h3>
+                            <h3 class="headline-sm"><a href="https://electrek.co/2026/01/28/tesla-is-still-trying-to-deceive-investors-into-thinking-it-has-sf-robotaxis/">Tesla Accused of Misleading Investors on Autonomous Vehicle Capabilities</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Tesla is facing criticism for allegedly exaggerating its advancements in autonomous driving technology, specifically regarding its robotaxi capabilities in San Francisco. The controversy raises concerns about transparency in AI development and deployment.</p>
+                            <p class="summary-sm">Tesla is facing criticism for allegedly exaggerating its progress on robotaxi technology, raising concerns about transparency and accountability in the autonomous vehicle sector. The controversy highlights the challenges of balancing innovation with investor expectations.</p>
                             <div class="footer-links-sm"><a href="https://electrek.co/2026/01/28/tesla-is-still-trying-to-deceive-investors-into-thinking-it-has-sf-robotaxis/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46844257">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
+            <section id="section-2">
+                <div class="deck-header"><span>MODEL ARCHITECTURES</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://github.com/zuckermanai/zuckerman">Breakthrough in AI Self-Modification: Zuckerman Agent Can Edit Own Code</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">The Zuckerman AI agent showcases a novel approach to autonomous code modification, potentially revolutionizing adaptive AI systems. This open-source project offers a glimpse into future AI architectures.</p>
+                            <div class="footer-links-sm"><a href="https://github.com/zuckermanai/zuckerman">LINK</a> // <a href="https://news.ycombinator.com/item?id=46846210">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
+            <section id="section-3">
+                <div class="deck-header"><span>NEURAL HORIZONS</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://www.agentgram.co/">Open-Source AI Social Network Paves Way for Decentralized Intelligent Interactions</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">AgentGram, a self-hostable AI agent social network, allows users to create and deploy autonomous AI agents, promoting a new era of decentralized collaboration and innovation. This platform has potential implications for AI research and development.</p>
+                            <div class="footer-links-sm"><a href="https://www.agentgram.co/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46847722">HN</a></div>
                         </div>
                     </article>
                 </div></section>
@@ -257,10 +302,20 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://www.sciencedaily.com/releases/2026/01/260129080418.htm">Breakthrough Cooling Technique Tamps Down Quantum Computer Noise</a></h3>
+                            <h3 class="headline-sm"><a href="https://www.sciencedaily.com/releases/2026/01/260129080418.htm">Breakthrough in Quantum Computing: Researchers Harness Noise for Cooling</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Researchers have discovered a method to mitigate noise in quantum computers, a major hurdle in quantum computing development, using the noise itself to cool the systems. This innovation could significantly enhance the stability and performance of quantum computers.</p>
+                            <p class="summary-sm">Scientists have discovered a novel method to cool quantum computers using noise, potentially paving the way for more stable and powerful quantum systems. This innovative approach could overcome a major hurdle in quantum computing development.</p>
                             <div class="footer-links-sm"><a href="https://www.sciencedaily.com/releases/2026/01/260129080418.htm">LINK</a> // <a href="https://news.ycombinator.com/item?id=46847733">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://rose.systems/animalist/">Generative AI's Creative Bounds Tested in Animal Listing Experiment</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A recent test pushes a generative AI model to list animals until it fails, revealing insights into the model's creative capabilities and limitations.</p>
+                            <div class="footer-links-sm"><a href="https://rose.systems/animalist/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46842603">HN</a></div>
                         </div>
                     </article>
                 </div></section>
@@ -271,9 +326,9 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/">Generative AI's Role in Shaping Collaborative Knowledge Platforms</a></h3>
+                            <h3 class="headline-sm"><a href="https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/">Wikipedia Integrates Generative AI: Insights from 2025 Editing Trends</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A review of 2025 highlights key lessons on integrating generative AI into Wikipedia editing, revealing both opportunities and challenges in AI-assisted content creation. The findings underscore the need for nuanced AI collaboration strategies.</p>
+                            <p class="summary-sm">A review of 2025 reveals key lessons from the intersection of generative AI and Wikipedia editing, highlighting impacts on content accuracy and collaboration. The findings underscore AI's growing role in knowledge curation.</p>
                             <div class="footer-links-sm"><a href="https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46840924">HN</a></div>
                         </div>
                     </article>
@@ -283,7 +338,7 @@
                             
                             <h3 class="headline-sm"><a href="https://openjuris.org/">AI-Powered Legal Research Platform OpenJuris Emerges with Primary Source Citations</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">OpenJuris leverages AI to provide accurate and reliable legal research results, citing primary sources to enhance transparency and trust. This innovative tool has the potential to revolutionize the way legal professionals conduct research and analyze cases.</p>
+                            <p class="summary-sm">OpenJuris leverages AI to provide accurate and reliable legal research, citing primary sources to enhance credibility. This innovative tool has the potential to transform the legal research landscape.</p>
                             <div class="footer-links-sm"><a href="https://openjuris.org/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46843162">HN</a></div>
                         </div>
                     </article>
@@ -291,9 +346,9 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://www.ycombinator.com/companies/collectwise/jobs/ZunnO6k-ai-agent-engineer">AI Agent Engineer Wanted: CollectWise Seeks Talent</a></h3>
+                            <h3 class="headline-sm"><a href="https://www.ycombinator.com/companies/collectwise/jobs/ZunnO6k-ai-agent-engineer">AI Agent Engineer Wanted at CollectWise, YC F24 Startup</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">CollectWise, a Y Combinator-backed startup, is looking for an AI agent engineer to join its team, indicating a push to enhance its AI-driven capabilities. The role suggests a focus on developing intelligent systems that can autonomously handle complex tasks.</p>
+                            <p class="summary-sm">CollectWise, a Y Combinator-backed startup, is seeking an AI agent engineer to join their team, indicating a focus on developing intelligent automation solutions. The role suggests a push into advanced AI applications.</p>
                             <div class="footer-links-sm"><a href="https://www.ycombinator.com/companies/collectwise/jobs/ZunnO6k-ai-agent-engineer">LINK</a> // <a href="https://news.ycombinator.com/item?id=46840801">HN</a></div>
                         </div>
                     </article>
@@ -301,29 +356,9 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://www.agentgram.co/">Open-Source AI Social Network AgentGram Emerges for Decentralized Interactions</a></h3>
+                            <h3 class="headline-sm"><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">Streamlining AI-assisted Coding: Lessons from a Minimal Agent</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">AgentGram, a self-hostable AI agent social network, allows users to create and manage their own AI-driven social platforms, promoting decentralized and autonomous online interactions. This open-source project aims to redefine social networking with AI-powered agents.</p>
-                            <div class="footer-links-sm"><a href="https://www.agentgram.co/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46847722">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="https://sattlerjoshua.com/writing/2026-02-01-thoughts-on-ai-assisted-software-engineering/">AI-Assisted Software Engineering: A New Era of Code Craftsmanship</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">As AI tools increasingly aid software development, experts weigh in on the benefits and challenges of this emerging trend, highlighting its potential to boost productivity and transform coding workflows.</p>
-                            <div class="footer-links-sm"><a href="https://sattlerjoshua.com/writing/2026-02-01-thoughts-on-ai-assisted-software-engineering/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46847625">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">Streamlining AI-assisted Coding: Lessons from a Minimalist Agent</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A developer shares insights from building a focused coding agent, highlighting the importance of opinionated design in enhancing productivity. The project reveals key considerations for creating effective AI coding tools.</p>
+                            <p class="summary-sm">A developer shares insights from building a focused coding agent, highlighting the benefits of opinionated design in AI-driven development tools.</p>
                             <div class="footer-links-sm"><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46844822">HN</a></div>
                         </div>
                     </article>
@@ -331,9 +366,9 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://erikjohannes.no/posts/20260130-outsourcing-thinking/index.html">The Cognitive Shift: When AI Becomes the Thinking Partner</a></h3>
+                            <h3 class="headline-sm"><a href="https://erikjohannes.no/posts/20260130-outsourcing-thinking/index.html">The Cognitive Shift: When AI Assumes the Thinking Load</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">As AI tools increasingly handle complex tasks, the boundaries of human cognition are being redefined, raising questions about the future of decision-making and creativity. This piece explores the implications of outsourcing thinking to AI systems.</p>
+                            <p class="summary-sm">As AI tools become integral to daily tasks, the boundaries of human cognition are being redefined, raising questions about the future of mental labor. The trend of outsourcing thinking to machines is reshaping productivity and creativity.</p>
                             <div class="footer-links-sm"><a href="https://erikjohannes.no/posts/20260130-outsourcing-thinking/index.html">LINK</a> // <a href="https://news.ycombinator.com/item?id=46840865">HN</a></div>
                         </div>
                     </article>
@@ -341,20 +376,10 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="http://ternarysearch.blogspot.com/2026/01/sparse-file-lru-cache.html">Efficient Caching for AI Workloads: Sparse File LRU Cache Innovation</a></h3>
+                            <h3 class="headline-sm"><a href="http://ternarysearch.blogspot.com/2026/01/sparse-file-lru-cache.html">Efficient Caching with Sparse File LRU Implementation</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A new caching approach optimizes memory usage for AI applications by leveraging sparse files and LRU eviction policies, potentially boosting performance in resource-constrained environments. This technique could have significant implications for large-scale AI deployments.</p>
+                            <p class="summary-sm">A novel approach to caching using sparse files and LRU eviction policies offers improved performance in resource-constrained environments. This technique has implications for optimizing AI model inference and data processing workflows.</p>
                             <div class="footer-links-sm"><a href="http://ternarysearch.blogspot.com/2026/01/sparse-file-lru-cache.html">LINK</a> // <a href="https://news.ycombinator.com/item?id=46842586">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="https://github.com/zuckermanai/zuckerman">Zuckerman: A Self-Evolving AI Agent Redefines Code Adaptation</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">This minimalist personal AI agent showcases the ability to self-edit its own code, marking a significant step in autonomous AI development. Its open-source nature invites exploration into adaptive AI applications.</p>
-                            <div class="footer-links-sm"><a href="https://github.com/zuckermanai/zuckerman">LINK</a> // <a href="https://news.ycombinator.com/item?id=46846210">HN</a></div>
                         </div>
                     </article>
                 </div></section>
