@@ -1,6 +1,7 @@
 """Export newspaper in multiple formats"""
 import json
 import os
+import random
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List
@@ -15,6 +16,33 @@ def _site_url():
         return SITE_URL
     except ImportError:
         return os.environ.get("SITE_URL", "https://daily-tokens.netlify.app")
+
+
+def _get_llm_location():
+    """Get a random LLM/AI world location for the newspaper dateline"""
+    locations = [
+        "TENSOR CITY",
+        "GRADIENT VALLEY",
+        "MODEL SQUARE",
+        "PROMPT BAY",
+        "VECTOR STATION",
+        "ATTENTION HEIGHTS",
+        "TRANSFORMER TOWER",
+        "NEURAL NEXUS",
+        "EMBEDDING ESTATES",
+        "INFERENCE ISLAND",
+        "QUANTIZATION QUARTER",
+        "TOKENVILLE",
+        "PARAMETER PARK",
+        "LAYER LAND",
+        "CONVERGENCE CENTRAL",
+        "BIAS BOROUGH",
+        "WEIGHT WARD",
+        "BACKPROP BAY",
+        "SOFTMAX SECTOR",
+        "ACTIVATION AVENUE"
+    ]
+    return random.choice(locations)
 
 
 class NewsExporter:
@@ -392,7 +420,7 @@ class NewsExporter:
         <header>
             <h1 class="masthead">Daily Tokens</h1>
             <div class="sub-masthead">
-                <span>NEW YORK, {datetime.now().strftime('%A, %B %d, %Y').upper()}</span>
+                <span>{_get_llm_location()}, {datetime.now().strftime('%A, %B %d, %Y').upper()}</span>
                 <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
                 <span>VOL. {datetime.now().strftime('%Y')}.{datetime.now().strftime('%j')}</span>
             </div>
