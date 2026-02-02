@@ -788,21 +788,29 @@ class NewsExporter:
         </footer>
     </div>
 
-    <!-- IMMERSIVE ARTICLE DETAIL (CLIPPING STYLE) -->
-    <div id="detail-modal">
-        <div class="clipping-container">
-            <span class="clipping-close" onclick="closeMap()">&times;</span>
-            <div class="clipping-header">
-                <div class="clipping-pub-name">THE DAILY TOKEN</div>
-                <div class="clipping-meta" id="modal-meta"></div>
-            </div>
-            <div class="clipping-content">
-                <h2 class="clipping-title" id="modal-title"></h2>
-                <div id="modal-image-container"></div>
-                <div class="clipping-body" id="modal-summary"></div>
-                <div class="clipping-footer">
-                    <a id="modal-hn-link" href="#" target="_blank" class="clipping-btn">DISCUSS ON HACKER NEWS</a>
+    <!-- IMMERSIVE ARTICLE DETAIL (FULL SCREEN CLIPPING) -->
+    <div id="detail-screen">
+        <div class="clipping-sheet">
+            <nav class="clipping-nav">
+                <a href="javascript:void(0)" onclick="closeMap()" class="back-btn">← BACK TO NEWSPAPER</a>
+                <div class="clipping-pub-tag">THE DAILY TOKEN // SPECIAL EDITION</div>
+            </nav>
+            
+            <div class="clipping-layout">
+                <header class="clipping-header">
+                    <h1 class="clipping-title" id="modal-title"></h1>
+                    <div class="clipping-meta" id="modal-meta"></div>
+                </header>
+                
+                <div class="clipping-main">
+                    <div id="modal-image-container" class="clipping-image"></div>
+                    <div class="clipping-body" id="modal-summary"></div>
                 </div>
+
+                <footer class="clipping-footer">
+                    <a id="modal-hn-link" href="#" target="_blank" class="clipping-btn">OPEN DISCUSSION ON HACKER NEWS</a>
+                    <div class="clipping-end-mark">■</div>
+                </footer>
             </div>
         </div>
     </div>
@@ -815,123 +823,116 @@ class NewsExporter:
         }}
         
         .newspaper.zoomed {{
-            opacity: 0;
-            filter: blur(20px);
+            opacity: 0 !important;
+            filter: blur(30px);
             pointer-events: none;
-            transform: scale(2);
+            transform: scale(3) !important;
         }}
 
-        #detail-modal {{
+        #detail-screen {{
             display: none;
             position: fixed;
             z-index: 10000;
             left: 0; top: 0;
             width: 100%; height: 100%;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
+            overflow-y: auto;
             opacity: 0;
             transition: opacity 0.5s;
-            pointer-events: none;
         }}
 
-        #detail-modal.visible {{
-            display: flex;
+        #detail-screen.visible {{
+            display: block;
             opacity: 1;
-            pointer-events: auto;
         }}
 
-        .clipping-container {{
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
-            padding: 40px;
-            box-shadow: 0 30px 90px rgba(0,0,0,0.4);
-            border: 1px solid #ccc;
-            position: relative;
-            overflow-y: auto;
-            transform: translateY(50px) scale(0.95);
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .clipping-sheet {{
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }}
 
-        #detail-modal.visible .clipping-container {{
-            transform: translateY(0) scale(1);
-        }}
-
-        .clipping-header {{
-            border-bottom: 3px solid #111;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
+        .clipping-nav {{
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
+            border-bottom: 1px solid #111;
+            padding-bottom: 15px;
+            margin-bottom: 50px;
+            font-family: 'Oswald', sans-serif;
         }}
 
-        .clipping-pub-name {{ font-family: 'Playfair Display'; font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; }}
-        .clipping-meta {{ font-family: 'Oswald'; font-size: 0.8rem; color: #666; }}
+        .back-btn {{ text-decoration: none; color: #a00; font-weight: 700; letter-spacing: 1px; font-size: 0.9rem; }}
+        .back-btn:hover {{ color: #111; }}
+        .clipping-pub-tag {{ font-size: 0.8rem; color: #666; letter-spacing: 2px; }}
 
+        .clipping-layout {{ flex: 1; }}
+
+        .clipping-header {{ margin-bottom: 40px; text-align: center; }}
         .clipping-title {{ 
-            font-family: 'Playfair Display'; 
-            font-size: 3.5rem; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 4rem; 
             font-weight: 900; 
-            line-height: 1; 
-            margin: 0 0 25px 0; 
+            line-height: 0.95; 
+            margin: 0 0 20px 0; 
             color: #111;
+            letter-spacing: -2px;
         }}
+        .clipping-meta {{ font-family: 'Oswald'; font-size: 1rem; color: #444; letter-spacing: 1px; text-transform: uppercase; }}
 
-        #modal-image-container img {{ 
+        .clipping-main {{ display: flex; flex-direction: column; gap: 40px; }}
+        
+        .clipping-image img {{ 
             width: 100%; 
-            margin-bottom: 30px; 
-            border: 1px solid #ddd;
-            filter: grayscale(20%);
+            border: 1px solid #111;
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.05);
         }}
 
         .clipping-body {{ 
             font-family: 'Lora', serif; 
-            font-size: 1.4rem; 
+            font-size: 1.6rem; 
             line-height: 1.6; 
-            color: #222; 
+            color: #111; 
             text-align: justify;
-            margin-bottom: 40px;
         }}
 
-        .clipping-footer {{ border-top: 1px solid #ddd; padding-top: 30px; text-align: center; }}
+        .clipping-footer {{ 
+            margin-top: 60px; 
+            padding-top: 40px; 
+            border-top: 1px solid #ddd; 
+            text-align: center;
+            padding-bottom: 100px;
+        }}
         
         .clipping-btn {{
             display: inline-block;
             background: #111;
-            color: #fff;
+            color: #fdfdfb;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 15px 40px;
             font-family: 'Oswald';
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: background 0.2s;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border: 1px solid #111;
         }}
-        .clipping-btn:hover {{ background: #a00; }}
+        .clipping-btn:hover {{ background: transparent; color: #111; }}
+        
+        .clipping-end-mark {{ margin-top: 40px; font-size: 1.5rem; color: #111; opacity: 0.3; }}
 
-        .clipping-close {{ 
-            position: absolute; 
-            top: 15px; right: 20px; 
-            font-size: 2.5rem; 
-            cursor: pointer; 
-            color: #111; 
-            line-height: 1;
-            opacity: 0.5;
-        }}
-        .clipping-close:hover {{ opacity: 1; }}
-
-        #detail-modal:not(.visible) {{
-            display: none !important;
+        @media (max-width: 800px) {{
+            .clipping-title {{ font-size: 2.5rem; letter-spacing: -1px; }}
+            .clipping-body {{ font-size: 1.2rem; }}
+            .clipping-sheet {{ padding: 20px; }}
         }}
     </style>
 
     <script>
         function openMap(triggerEl, title, summary, imgUrl, slug, source, hnUrl) {{
-            const modal = document.getElementById('detail-modal');
+            const screen = document.getElementById('detail-screen');
             const newspaper = document.querySelector('.newspaper');
             const titleEl = document.getElementById('modal-title');
             const summaryEl = document.getElementById('modal-summary');
@@ -939,37 +940,36 @@ class NewsExporter:
             const hnLink = document.getElementById('modal-hn-link');
             const imgContainer = document.getElementById('modal-image-container');
             
-            // 1. Position-aware zoom
+            // 1. Zoom origin
             const rect = triggerEl.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            newspaper.style.transformOrigin = `${{centerX}}px ${{centerY}}px`;
+            newspaper.style.transformOrigin = `${{rect.left + rect.width/2}}px ${{rect.top + rect.height/2}}px`;
             
-            // 2. Set content
+            // 2. Load Content
             titleEl.innerText = title;
             summaryEl.innerText = summary;
-            metaEl.innerText = `SOURCE: ${{source}} // EXCLUSIVE REPORT`;
+            metaEl.innerText = `SOURCE: ${{source}} // DAILY TOKEN EXCLUSIVE`;
             hnLink.href = hnUrl;
             imgContainer.innerHTML = imgUrl ? `<img src="${{imgUrl}}" alt="">` : '';
             
-            // 3. State update
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.set('story', slug);
-            window.history.pushState({{}}, '', newUrl);
-
-            // 4. Transitions
+            // 3. Zoom Newspaper Away
             newspaper.classList.add('zoomed');
             
+            // 4. Fade in New Screen
             setTimeout(() => {{
-                modal.classList.add('visible');
-            }}, 200);
+                screen.classList.add('visible');
+                window.scrollTo(0, 0);
+                
+                const newUrl = new URL(window.location);
+                newUrl.searchParams.set('story', slug);
+                window.history.pushState({{}}, '', newUrl);
+            }}, 400);
         }}
 
         function closeMap() {{
-            const modal = document.getElementById('detail-modal');
+            const screen = document.getElementById('detail-screen');
             const newspaper = document.querySelector('.newspaper');
             
-            modal.classList.remove('visible');
+            screen.classList.remove('visible');
             
             setTimeout(() => {{
                 newspaper.classList.remove('zoomed');
@@ -980,7 +980,6 @@ class NewsExporter:
             }}, 400);
         }}
 
-        // Query param support
         window.addEventListener('load', function() {{
             const params = new URLSearchParams(window.location.search);
             const storySlug = params.get('story');
@@ -993,12 +992,13 @@ class NewsExporter:
             }}
         }});
 
-        window.onclick = function(event) {{
-            const modal = document.getElementById('detail-modal');
-            if (event.target == modal) {{
+        // Handle browser back button
+        window.addEventListener('popstate', function() {{
+            const screen = document.getElementById('detail-screen');
+            if (screen.classList.contains('visible')) {{
                 closeMap();
             }}
-        }}
+        }});
     </script>
 </body>
 </html>
