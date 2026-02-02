@@ -18,7 +18,7 @@ except ImportError:
     pass
 
 from scraper import NewsAggregator
-from processor import NewsProcessor
+from processor_with_router import NewsProcessorWithRouter as NewsProcessor
 from exporter import NewsExporter
 
 def archive_current_edition(repo_root: Path):
@@ -65,7 +65,7 @@ def generate_daily_newspaper() -> Dict:
     archive_current_edition(repo_root)
     
     print("=" * 60)
-    print(f"Daily AI Newspaper Generator - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"The Daily Token - AI Newspaper Generator - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("=" * 60)
     
     # Step 1: Aggregate news

@@ -186,7 +186,7 @@ class LLMRouter:
                 headers = {
                     "Authorization": f"Bearer {self.openrouter_key}",
                     "HTTP-Referer": "https://daily-tokens.netlify.app",
-                    "X-Title": "Daily Tokens",
+                    "X-Title": "The Daily Token",
                     "Content-Type": "application/json"
                 }
 
@@ -198,7 +198,7 @@ class LLMRouter:
                         "model": model.model_id,
                         "messages": [{"role": "user", "content": prompt}],
                         "temperature": 0.7,
-                        "max_tokens": 300,
+                        "max_tokens": 800,
                     },
                     timeout=model.timeout
                 )

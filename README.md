@@ -1,12 +1,12 @@
-# Daily Tokens
+# The Daily Token
 
-Daily Tokens is an automated news curation engine that transforms the latest developments in artificial intelligence into a beautifully formatted digital newspaper. It bridges the gap between raw data from HackerNews and laboratory RSS feeds, and a readable, curated experience designed for those who want to stay informed about the rapidly evolving AI landscape without being overwhelmed by the noise.
+The Daily Token is an automated news curation engine that transforms the latest developments in artificial intelligence into a beautifully formatted digital newspaper. It bridges the gap between raw data from HackerNews and laboratory RSS feeds, and a readable, curated experience designed for those who want to stay informed about the rapidly evolving AI landscape without being overwhelmed by the noise.
 
-The system intelligently categorizes, summarizes, and organizes stories into a 5-page layout, choosing relevant imagery directly from source articles. Whether you prefer an interactive 3D page-flip experience, a clean Markdown summary, or a plain text digest, Daily Tokens provides a sophisticated way to consume the day's most significant technical breakthroughs and research.
+The system intelligently categorizes, summarizes, and organizes stories into a 5-page layout, choosing relevant imagery directly from source articles. Whether you prefer an interactive 3D page-flip experience, a clean Markdown summary, or a plain text digest, The Daily Token provides a sophisticated way to consume the day's most significant technical breakthroughs and research.
 
 ## Technical Setup
 
-Daily Tokens uses a robust backend pipeline powered by a hierarchy of Large Language Models and an intelligent image extraction engine.
+The Daily Token uses a robust backend pipeline powered by a hierarchy of Large Language Models and an intelligent image extraction engine.
 
 ### Prerequisites
 

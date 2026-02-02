@@ -175,7 +175,7 @@ class NewsExporter:
     def export_text(self, output_path: str) -> str:
         """Export as plain text"""
         lines = [
-            f"DAILY TOKENS - {self.timestamp}",
+            f"THE DAILY TOKEN - {self.timestamp}",
             f"LOCATION: {self.location}",
             "=" * 60,
             ""
@@ -217,7 +217,7 @@ class NewsExporter:
         
         channel = ET.SubElement(root, "channel")
         
-        ET.SubElement(channel, "title").text = "Daily Tokens"
+        ET.SubElement(channel, "title").text = "The Daily Token"
         ET.SubElement(channel, "link").text = _site_url()
         ET.SubElement(channel, "description").text = "The AI world's daily news."
         ET.SubElement(channel, "language").text = "en-us"
@@ -342,7 +342,7 @@ class NewsExporter:
             prev_date = today - dt_mod.timedelta(days=i)
             date_path = prev_date.strftime('%Y/%m/%d')
             display_date = prev_date.strftime('%b %d, %Y').upper()
-            archive_links_html += f'<a href="/daily-token/archive/{date_path}/newspaper.html" class="archive-link">{display_date}</a>'
+            archive_links_html += f'<a href="archive/{date_path}/newspaper.html" class="archive-link">{display_date}</a>'
 
         # --- TEMPLATE ---
         html = f"""<!DOCTYPE html>
@@ -350,7 +350,7 @@ class NewsExporter:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Tokens AI Newspaper</title>
+    <title>The Daily Token AI Newspaper</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {{
@@ -548,7 +548,7 @@ class NewsExporter:
 <body>
     <div class="newspaper">
         <header>
-            <h1 class="masthead">Daily Tokens</h1>
+            <h1 class="masthead">The Daily Token</h1>
             <div class="sub-masthead">
                 <span>{self.location}, {datetime.now().strftime('%A, %B %d, %Y').upper()}</span>
                 <span>AI TECHNOLOGY & INFRASTRUCTURE</span>

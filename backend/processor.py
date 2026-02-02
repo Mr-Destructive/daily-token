@@ -124,11 +124,12 @@ class NewsProcessor:
                 with httpx.Client() as client:
                     response = client.post(
                         "https://openrouter.ai/api/v1/chat/completions",
-                        headers={
-                            "Authorization": f"Bearer {self.openrouter_key}",
-                            "HTTP-Referer": "https://daily-tokens.netlify.app",
-                            "X-Title": "Daily Tokens",
-                        },
+                                            headers={
+                                                "Authorization": f"Bearer {self.openrouter_key}",
+                                                "HTTP-Referer": "https://daily-tokens.netlify.app",
+                                                "X-Title": "The Daily Token",
+                                            },
+                        
                         json={
                             "model": model,
                             "messages": [{"role": "user", "content": prompt}],

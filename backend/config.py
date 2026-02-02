@@ -1,5 +1,5 @@
 """
-Configuration file for Daily Tokens newspaper.
+Configuration file for The Daily Token newspaper.
 
 This is the single source of truth for all customizable settings.
 Edit this file to customize your newspaper without touching core code.

@@ -41,19 +41,19 @@ PAGE_CATEGORIES = {
 # SITE BRANDING - Headlines, titles, descriptions
 # =============================================================================
 
-SITE_TITLE = "Daily Tokens"
+SITE_TITLE = "The Daily Token"
 SITE_TAGLINE = "The AI world's daily news. Breaking vectors. Model architectures. Neural horizons."
 # Base URL for RSS and links (e.g. https://your-site.netlify.app or https://user.github.io/repo)
 SITE_URL = os.environ.get("SITE_URL", "https://daily-tokens.netlify.app")
 SITE_DESCRIPTION = "Your daily digest of AI breakthroughs, model releases, research, and predictions. Curated from HackerNews and major AI labs. Delivered fresh every morning."
 
 # Landing page hero text
-HERO_HEADLINE = "Daily Tokens"
+HERO_HEADLINE = "The Daily Token"
 HERO_SUBHEADING = "The AI world's daily news. Breaking vectors. Model architectures. Neural horizons."
 HERO_DESCRIPTION = "Your daily digest of AI breakthroughs, model releases, research, and predictions. Curated from HackerNews and major AI labs. Delivered fresh every morning."
 
 # Newsletter header
-NEWSPAPER_HEADER = "DAILY TOKENS"
+NEWSPAPER_HEADER = "THE DAILY TOKEN"
 PUBLICATION_TAGLINE = "The AI world's daily news"
 
 
