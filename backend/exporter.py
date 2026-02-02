@@ -340,29 +340,39 @@ class NewsExporter:
         
         for idx, story in enumerate(front_page_leads):
             layout = "span-8 main-story" if idx == 0 else "span-4 side-story"
-            img_path = story.get('generated_image_path', '')
             if img_path:
                 img_filename = os.path.basename(img_path)
                 final_img_src = f"{image_prefix}{img_filename}"
-                image_html = f'<img src="{final_img_src}" class="news-img" alt="">'
-            else:
-                image_html = ""
+                # We need js_headline etc for the image link too, but they are defined below. 
+                # Let's move definitions up.
             
             headline = story.get('generated_headline', story['original_title'])
             summary = story['summary']
+            
+            # Create a URL-safe slug
+            slug = "".join([c.lower() if c.isalnum() else "-" for c in headline[:50]]).strip("-")
+            
             # Escape for JavaScript openMap call
             js_headline = headline.replace("'", "\\'").replace('"', '&quot;')
             js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
             
+            if img_path:
+                image_html = f'<img src="{final_img_src}" class="news-img" alt="" style="cursor:pointer" onclick=\'openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>'
+            else:
+                image_html = ""
+            
             front_page_html += f'''
-                <article class="article {layout}">
+                <article class="article {layout}" id="story-{slug}">
                     <div class="article-body">
                         {image_html if idx == 0 else ""}
-                        <h2 class={"{'headline-xl' if idx == 0 else 'headline-lg'}"}><a href="{story.get('url', '#')}">{headline}</a></h2>
+                        <h2 class={"{'headline-xl' if idx == 0 else 'headline-lg'}"}><a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")'>{headline}</a></h2>
                         <div class="metadata">SOURCE: {story['source'].upper()} // {str(story.get('published', ''))[:10]}</div>
                         {image_html if idx != 0 else ""}
                         <p class="summary">{" ".join(summary.split()[:60]) + "..." if idx == 0 else summary}</p>
-                        <div class="footer-links"><a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}")'>READ ARTICLE</a> | <a href="{story.get('hn_url', '#')}">HN</a></div>
+                        <div class="footer-links">
+                            <a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")'>READ ARTICLE</a> | 
+                            <a href="{story.get('hn_url', '#')}">HN</a>
+                        </div>
                     </div>
                 </article>
             '''
@@ -395,31 +405,39 @@ class NewsExporter:
             '''
             
             for idx, story in enumerate(stories):
-                img_path = story.get('generated_image_path', '')
-                if img_path:
-                    img_filename = os.path.basename(img_path)
-                    final_img_src = f"{image_prefix}{img_filename}"
-                    image_html = f'<img src="{final_img_src}" class="news-img" alt="">'
-                else:
-                    image_html = ""
-                
                 headline = story.get('generated_headline', story['original_title'])
                 summary = story['summary']
+                img_path = story.get('generated_image_path', '')
+                
+                # Create a URL-safe slug
+                slug = "".join([c.lower() if c.isalnum() else "-" for c in headline[:50]]).strip("-")
+                
                 # Escape for JavaScript openMap call
                 js_headline = headline.replace("'", "\\'").replace('"', '&quot;')
                 js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
+                
+                if img_path:
+                    img_filename = os.path.basename(img_path)
+                    final_img_src = f"{image_prefix}{img_filename}"
+                    image_html = f'<img src="{final_img_src}" class="news-img" alt="" style="cursor:pointer" onclick=\'openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>'
+                else:
+                    image_html = ""
+                    final_img_src = ""
                 
                 layout_pref = story.get('image_layout', 'SQUARE')
                 col_span = "span-2" if layout_pref == "WIDE" else "span-1"
                 
                 sections_html += f'''
-                    <article class="article {col_span}">
+                    <article class="article {col_span}" id="story-{slug}">
                         <div class="article-body">
                             {image_html if idx % 4 == 0 or layout_pref == "WIDE" else ""}
-                            <h3 class="headline-sm"><a href="{story.get('url', '#')}">{headline}</a></h3>
+                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")'>{headline}</a></h3>
                             <div class="metadata">{story['source'].upper()}</div>
                             <p class="summary-sm">{summary}</p>
-                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}")'>LINK</a> // <a href="{story.get('hn_url', '#')}">HN</a></div>
+                            <div class="footer-links-sm">
+                                <a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")'>LINK</a> // 
+                                <a href="{story.get('hn_url', '#')}">HN</a>
+                            </div>
                         </div>
                     </article>
                 '''
@@ -766,69 +784,212 @@ class NewsExporter:
 
     <!-- MARAUDER'S MAP MODAL -->
     <div id="marauders-modal">
-        <div class="map-content">
-            <span class="map-close" onclick="closeMap()">&times;</span>
-            <div class="map-header">
-                <div class="map-subtitle">Mischief Managed</div>
-                <h2 class="map-title" id="modal-title">Article Detail</h2>
+        <div class="map-container">
+            <div class="map-fold-left"></div>
+            <div class="map-content">
+                <span class="map-close" onclick="closeMap()">&times;</span>
+                <div class="map-header">
+                    <div class="map-subtitle">I solemnly swear that I am up to no good</div>
+                    <h2 class="map-title" id="modal-title">Article Detail</h2>
+                </div>
+                <div class="map-inner-content">
+                    <div id="modal-image-container"></div>
+                    <div class="map-body" id="modal-summary">
+                        Summary goes here...
+                    </div>
+                </div>
+                <div class="map-footer">Mischief Managed</div>
             </div>
-            <div class="map-body" id="modal-summary">
-                Summary goes here...
-            </div>
+            <div class="map-fold-right"></div>
         </div>
     </div>
+
+    <style>
+        #marauders-modal {{
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            perspective: 2000px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }}
+
+        .map-container {{
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            display: flex;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s;
+            opacity: 0;
+            transform: scale(0.1) rotateX(20deg);
+        }}
+
+        #marauders-modal.open .map-container {{
+            opacity: 1;
+            transform: scale(1) rotateX(0deg);
+        }}
+
+        .map-content {{
+            flex: 2;
+            background: #e9dcc9;
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+            border: 2px solid #4a3728;
+            z-index: 2;
+        }}
+
+        .map-fold-left, .map-fold-right {{
+            flex: 1;
+            background: #d9ccb9;
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+            border: 2px solid #4a3728;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }}
+
+        .map-fold-left {{ transform-origin: right; transform: rotateY(0deg); border-right: none; }}
+        .map-fold-right {{ transform-origin: left; transform: rotateY(0deg); border-left: none; }}
+
+        #marauders-modal:not(.open) .map-fold-left {{ transform: rotateY(-90deg); }}
+        #marauders-modal:not(.open) .map-fold-right {{ transform: rotateY(90deg); }}
+
+        .map-header {{ text-align: center; margin-bottom: 30px; border-bottom: 1px double #4a3728; padding-bottom: 20px; }}
+        .map-subtitle {{ font-family: 'Oswald'; font-size: 0.8rem; letter-spacing: 3px; color: #842; text-transform: uppercase; }}
+        .map-title {{ font-family: 'Playfair Display'; font-size: 2.5rem; color: #4a3728; margin: 10px 0; }}
+        
+        .map-inner-content {{ display: flex; gap: 30px; flex-direction: column; align-items: center; }}
+        #modal-image-container img {{ max-width: 100%; border: 5px solid #4a3728; filter: sepia(0.5) contrast(1.2); box-shadow: 5px 5px 15px rgba(0,0,0,0.3); }}
+        
+        .map-body {{ 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.3rem; 
+            line-height: 1.6; 
+            color: #4a3728; 
+            text-align: justify;
+            filter: url('#ink-bleed');
+            opacity: 0;
+            transition: opacity 2s;
+        }}
+        
+        .map-container.revealed .map-body {{ opacity: 1; }}
+
+        .map-footer {{ text-align: center; margin-top: 40px; font-family: 'Oswald'; color: #842; font-size: 0.9rem; letter-spacing: 5px; }}
+        .map-close {{ position: absolute; top: 20px; right: 20px; font-size: 2.5rem; cursor: pointer; color: #4a3728; z-index: 10; }}
+
+        /* Footprints */
+        .footprint {{
+            position: absolute;
+            width: 25px; height: 12px;
+            background: #4a3728;
+            opacity: 0;
+            border-radius: 50% 50% 40% 40%;
+            pointer-events: none;
+            z-index: 100;
+        }}
+    </style>
 
     <!-- SVG Filters for Ink Bleed -->
     <svg style="display:none;">
         <defs>
             <filter id="ink-bleed">
-                <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
             </filter>
         </defs>
     </svg>
 
     <script>
-        function openMap(title, summary) {{
+        function openMap(title, summary, imgUrl, slug) {{
             const modal = document.getElementById('marauders-modal');
+            const container = modal.querySelector('.map-container');
             const titleEl = document.getElementById('modal-title');
             const summaryEl = document.getElementById('modal-summary');
+            const imgContainer = document.getElementById('modal-image-container');
             
+            // Set content
             titleEl.innerText = title;
             summaryEl.innerText = summary;
+            imgContainer.innerHTML = imgUrl ? `<img src="${{imgUrl}}" alt="">` : '';
             
-            modal.style.display = 'block';
+            // Show modal
+            modal.style.display = 'flex';
             
-            // Add footprints
-            for(let i=0; i<6; i++) {{
-                setTimeout(() => createFootprint(i), i * 300);
-            }}
-            
+            // Update URL query param without reload
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('story', slug);
+            window.history.pushState({{}}, '', newUrl);
+
+            // Trigger animations
             setTimeout(() => {{
                 modal.classList.add('open');
-                summaryEl.classList.add('ink-spread');
-            }}, 1000);
+                
+                // Walking footprints across the newspaper first
+                for(let i=0; i<8; i++) {{
+                    setTimeout(() => createFootprint(i), i * 250);
+                }}
+                
+                // Reveal ink after unfold
+                setTimeout(() => {{
+                    container.classList.add('revealed');
+                }}, 1200);
+            }}, 10);
         }}
 
         function closeMap() {{
             const modal = document.getElementById('marauders-modal');
+            const container = modal.querySelector('.map-container');
             modal.classList.remove('open');
+            container.classList.remove('revealed');
+            
+            // Remove story from URL
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.delete('story');
+            window.history.pushState({{}}, '', newUrl);
+
             setTimeout(() => {{
                 modal.style.display = 'none';
-                document.getElementById('modal-summary').classList.remove('ink-spread');
-            }}, 500);
+            }}, 1000);
         }}
 
         function createFootprint(i) {{
-            const content = document.querySelector('.map-content');
+            const body = document.body;
             const fp = document.createElement('div');
             fp.className = 'footprint';
-            fp.style.left = (20 + (i * 10)) + '%';
-            fp.style.top = (80 - (i * 10)) + '%';
-            fp.style.animation = (i % 2 === 0 ? 'walk-left' : 'walk-right') + ' 1.5s forwards';
-            content.appendChild(fp);
-            setTimeout(() => fp.remove(), 1500);
+            
+            // Start from bottom left and walk towards center
+            fp.style.left = (10 + (i * 8)) + '%';
+            fp.style.top = (90 - (i * 8)) + '%';
+            
+            const anim = i % 2 === 0 ? 'walk-left' : 'walk-right';
+            fp.style.animation = `${{anim}} 1s forwards`;
+            
+            body.appendChild(fp);
+            setTimeout(() => fp.remove(), 1000);
         }}
+
+        // Check query params on load
+        window.onload = function() {{
+            const params = new URLSearchParams(window.location.search);
+            const storySlug = params.get('story');
+            if (storySlug) {{
+                const targetArticle = document.getElementById(`story-${{storySlug}}`);
+                if (targetArticle) {{
+                    // Try to find the trigger link
+                    const link = targetArticle.querySelector('a[onclick]');
+                    if (link) link.click();
+                }}
+            }}
+        }};
 
         // Close on outside click
         window.onclick = function(event) {{
