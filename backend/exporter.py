@@ -369,12 +369,12 @@ class NewsExporter:
                 <article class="article {layout}" id="story-{slug}">
                     <div class="article-body">
                         {image_html if idx == 0 else ""}
-                        <h2 class="{headline_class}"><a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>{headline}</a></h2>
+                        <h2 class="{headline_class}"><a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}", "{story['source'].upper()}", "{story.get('hn_url', '#')}")\'>{headline}</a></h2>
                         <div class="metadata">SOURCE: {story['source'].upper()} // {str(story.get('published', ''))[:10]}</div>
                         {image_html if idx != 0 else ""}
                         <p class="summary">{" ".join(summary.split()[:60]) + "..." if idx == 0 else summary}</p>
                         <div class="footer-links">
-                            <a href="javascript:void(0)" onclick='openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")'>READ ARTICLE</a> | 
+                            <a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}", "{story['source'].upper()}", "{story.get('hn_url', '#')}")\'>READ ARTICLE</a> | 
                             <a href="{story.get('hn_url', '#')}">HN</a>
                         </div>
                     </div>
@@ -437,11 +437,11 @@ class NewsExporter:
                     <article class="article {col_span}" id="story-{slug}">
                         <div class="article-body">
                             {image_html if idx % 4 == 0 or layout_pref == "WIDE" else ""}
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")'>{headline}</a></h3>
+                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}", "{story['source'].upper()}", "{story.get('hn_url', '#')}")\'>{headline}</a></h3>
                             <div class="metadata">{story['source'].upper()}</div>
                             <p class="summary-sm">{summary}</p>
                             <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")'>LINK</a> // 
+                                <a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}", "{story['source'].upper()}", "{story.get('hn_url', '#')}")\'>LINK</a> // 
                                 <a href="{story.get('hn_url', '#')}">HN</a>
                             </div>
                         </div>
@@ -788,220 +788,199 @@ class NewsExporter:
         </footer>
     </div>
 
-    <!-- IMMERSIVE ARTICLE DETAIL -->
-    <div id="marauders-modal">
-        <div class="map-wrapper">
-            <div class="map-fold map-fold-left"></div>
-            <div class="map-content">
-                <span class="map-close" onclick="closeMap()">&times;</span>
-                <div class="map-header">
-                    <div class="map-subtitle">Daily Token Special Report</div>
-                    <h2 class="map-title" id="modal-title"></h2>
-                </div>
-                <div class="map-inner-content">
-                    <div id="modal-image-container"></div>
-                    <div class="map-body" id="modal-summary"></div>
-                </div>
-                <div class="map-footer">MISCHIEF MANAGED</div>
+    <!-- IMMERSIVE ARTICLE DETAIL (CLIPPING STYLE) -->
+    <div id="detail-modal">
+        <div class="clipping-container">
+            <span class="clipping-close" onclick="closeMap()">&times;</span>
+            <div class="clipping-header">
+                <div class="clipping-pub-name">THE DAILY TOKEN</div>
+                <div class="clipping-meta" id="modal-meta"></div>
             </div>
-            <div class="map-fold map-fold-right"></div>
+            <div class="clipping-content">
+                <h2 class="clipping-title" id="modal-title"></h2>
+                <div id="modal-image-container"></div>
+                <div class="clipping-body" id="modal-summary"></div>
+                <div class="clipping-footer">
+                    <a id="modal-hn-link" href="#" target="_blank" class="clipping-btn">DISCUSS ON HACKER NEWS</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <style>
         /* Base Newspaper Transition */
         .newspaper {{
-            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s, filter 1.2s;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s, filter 0.8s;
             transform-origin: center center;
         }}
         
         .newspaper.zoomed {{
-            opacity: 0.2;
-            filter: blur(10px) grayscale(100%);
+            opacity: 0;
+            filter: blur(20px);
             pointer-events: none;
+            transform: scale(2);
         }}
 
-        #marauders-modal {{
+        #detail-modal {{
             display: none;
             position: fixed;
             z-index: 10000;
             left: 0; top: 0;
             width: 100%; height: 100%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
             justify-content: center;
-            perspective: 3000px;
+            opacity: 0;
+            transition: opacity 0.5s;
             pointer-events: none;
         }}
 
-        #marauders-modal.visible {{
+        #detail-modal.visible {{
             display: flex;
+            opacity: 1;
             pointer-events: auto;
         }}
 
-        .map-wrapper {{
-            width: 85%;
-            max-width: 1100px;
-            height: 85vh;
-            display: flex;
-            transform-style: preserve-3d;
-            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s;
-            opacity: 0;
-            transform: translateZ(-1000px) rotateX(10deg);
-        }}
-
-        #marauders-modal.open .map-wrapper {{
-            opacity: 1;
-            transform: translateZ(0) rotateX(0deg);
-        }}
-
-        .map-content {{
-            flex: 3;
-            background: #e9dcc9 url('https://www.transparenttextures.com/patterns/old-map.png');
-            padding: 60px;
+        .clipping-container {{
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
+            padding: 40px;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.4);
+            border: 1px solid #ccc;
             position: relative;
             overflow-y: auto;
-            border: 1px solid #4a3728;
-            box-shadow: 0 0 100px rgba(0,0,0,0.5);
-            z-index: 2;
+            transform: translateY(50px) scale(0.95);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }}
 
-        .map-fold {{
-            flex: 1;
-            background: #d9ccb9 url('https://www.transparenttextures.com/patterns/old-map.png');
-            border: 1px solid #4a3728;
-            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1;
+        #detail-modal.visible .clipping-container {{
+            transform: translateY(0) scale(1);
         }}
 
-        .map-fold-left {{ transform-origin: right; border-right: none; }}
-        .map-fold-right {{ transform-origin: left; border-left: none; }}
+        .clipping-header {{
+            border-bottom: 3px solid #111;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }}
 
-        #marauders-modal:not(.open) .map-fold-left {{ transform: rotateY(-110deg); }}
-        #marauders-modal:not(.open) .map-fold-right {{ transform: rotateY(110deg); }}
+        .clipping-pub-name {{ font-family: 'Playfair Display'; font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; }}
+        .clipping-meta {{ font-family: 'Oswald'; font-size: 0.8rem; color: #666; }}
 
-        .map-header {{ text-align: center; border-bottom: 2px double #4a3728; margin-bottom: 40px; padding-bottom: 20px; }}
-        .map-subtitle {{ font-family: 'Oswald'; font-size: 0.9rem; letter-spacing: 4px; color: #842; text-transform: uppercase; }}
-        .map-title {{ font-family: 'Playfair Display'; font-size: 3rem; font-weight: 900; color: #4a3728; margin: 15px 0; line-height: 1.1; }}
-        
-        #modal-image-container img {{ max-width: 100%; border: 8px solid #fdfdfb; filter: sepia(0.3) contrast(1.1); box-shadow: 10px 10px 30px rgba(0,0,0,0.4); margin-bottom: 30px; }}
-        
-        .map-body {{ 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.6rem; 
-            line-height: 1.7; 
-            color: #321; 
+        .clipping-title {{ 
+            font-family: 'Playfair Display'; 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            line-height: 1; 
+            margin: 0 0 25px 0; 
+            color: #111;
+        }}
+
+        #modal-image-container img {{ 
+            width: 100%; 
+            margin-bottom: 30px; 
+            border: 1px solid #ddd;
+            filter: grayscale(20%);
+        }}
+
+        .clipping-body {{ 
+            font-family: 'Lora', serif; 
+            font-size: 1.4rem; 
+            line-height: 1.6; 
+            color: #222; 
             text-align: justify;
-            opacity: 0;
-            transition: opacity 1.5s 0.5s;
+            margin-bottom: 40px;
         }}
+
+        .clipping-footer {{ border-top: 1px solid #ddd; padding-top: 30px; text-align: center; }}
         
-        #marauders-modal.open .map-body {{ opacity: 1; }}
-
-        .map-footer {{ text-align: center; margin-top: 50px; font-family: 'Oswald'; color: #842; font-size: 1rem; letter-spacing: 8px; font-weight: 700; }}
-        .map-close {{ position: absolute; top: 30px; right: 30px; font-size: 3rem; cursor: pointer; color: #4a3728; z-index: 10; opacity: 0.6; transition: opacity 0.3s; }}
-        .map-close:hover {{ opacity: 1; }}
-
-        .footprint {{
-            position: absolute;
-            width: 30px; height: 15px;
-            background: #4a3728;
-            opacity: 0;
-            border-radius: 50% 50% 40% 40%;
-            pointer-events: none;
-            z-index: 10001;
+        .clipping-btn {{
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-family: 'Oswald';
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: background 0.2s;
         }}
+        .clipping-btn:hover {{ background: #a00; }}
 
-        @keyframes walk-left {{
-            0% {{ opacity: 0; transform: translate(0,0) rotate(-20deg) scale(0.8); }}
-            20% {{ opacity: 0.5; }}
-            100% {{ opacity: 0; transform: translate(50px, -80px) rotate(-20deg) scale(1.2); }}
+        .clipping-close {{ 
+            position: absolute; 
+            top: 15px; right: 20px; 
+            font-size: 2.5rem; 
+            cursor: pointer; 
+            color: #111; 
+            line-height: 1;
+            opacity: 0.5;
         }}
+        .clipping-close:hover {{ opacity: 1; }}
 
-        @keyframes walk-right {{
-            0% {{ opacity: 0; transform: translate(20px,30px) rotate(20deg) scale(0.8); }}
-            20% {{ opacity: 0.5; }}
-            100% {{ opacity: 0; transform: translate(80px, -50px) rotate(20deg) scale(1.2); }}
-        }}
-
-        #marauders-modal:not(.visible) {{
+        #detail-modal:not(.visible) {{
             display: none !important;
         }}
     </style>
 
     <script>
-        function openMap(triggerEl, title, summary, imgUrl, slug) {{
-            const modal = document.getElementById('marauders-modal');
+        function openMap(triggerEl, title, summary, imgUrl, slug, source, hnUrl) {{
+            const modal = document.getElementById('detail-modal');
             const newspaper = document.querySelector('.newspaper');
             const titleEl = document.getElementById('modal-title');
             const summaryEl = document.getElementById('modal-summary');
+            const metaEl = document.getElementById('modal-meta');
+            const hnLink = document.getElementById('modal-hn-link');
             const imgContainer = document.getElementById('modal-image-container');
             
-            // 1. Calculate trigger position for transform origin
+            // 1. Position-aware zoom
             const rect = triggerEl.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
-            
-            // Set newspaper zoom origin to the clicked article
             newspaper.style.transformOrigin = `${{centerX}}px ${{centerY}}px`;
             
             // 2. Set content
             titleEl.innerText = title;
             summaryEl.innerText = summary;
+            metaEl.innerText = `SOURCE: ${{source}} // EXCLUSIVE REPORT`;
+            hnLink.href = hnUrl;
             imgContainer.innerHTML = imgUrl ? `<img src="${{imgUrl}}" alt="">` : '';
             
-            // 3. Update URL
+            // 3. State update
             const newUrl = new URL(window.location);
             newUrl.searchParams.set('story', slug);
             window.history.pushState({{}}, '', newUrl);
 
-            // 4. Start Zoom and Fade Transition
+            // 4. Transitions
             newspaper.classList.add('zoomed');
-            newspaper.style.transform = 'scale(4)';
             
-            // 5. Show detail view with 3D unfold
             setTimeout(() => {{
                 modal.classList.add('visible');
-                setTimeout(() => {{
-                    modal.classList.add('open');
-                    
-                    // Summon footprints across the detailed view
-                    for(let i=0; i<6; i++) {{
-                        setTimeout(() => createFootprint(i), i * 350);
-                    }}
-                }}, 50);
-            }}, 300);
+            }}, 200);
         }}
 
         function closeMap() {{
-            const modal = document.getElementById('marauders-modal');
+            const modal = document.getElementById('detail-modal');
             const newspaper = document.querySelector('.newspaper');
             
-            modal.classList.remove('open');
+            modal.classList.remove('visible');
             
             setTimeout(() => {{
-                modal.classList.remove('visible');
                 newspaper.classList.remove('zoomed');
-                newspaper.style.transform = 'scale(1)';
                 
-                // Remove story from URL
                 const newUrl = new URL(window.location);
                 newUrl.searchParams.delete('story');
                 window.history.pushState({{}}, '', newUrl);
-            }}, 800);
+            }}, 400);
         }}
 
-        function createFootprint(i) {{
-            const fp = document.createElement('div');
-            fp.className = 'footprint';
-            fp.style.left = (30 + (i * 8)) + '%';
-            fp.style.top = (70 - (i * 8)) + '%';
-            fp.style.animation = (i % 2 === 0 ? 'walk-left' : 'walk-right') + ' 1.2s forwards';
-            document.body.appendChild(fp);
-            setTimeout(() => fp.remove(), 1200);
-        }}
-
-        // Check query params on load
+        // Query param support
         window.addEventListener('load', function() {{
             const params = new URLSearchParams(window.location.search);
             const storySlug = params.get('story');
@@ -1014,9 +993,8 @@ class NewsExporter:
             }}
         }});
 
-        // Close on outside click
         window.onclick = function(event) {{
-            const modal = document.getElementById('marauders-modal');
+            const modal = document.getElementById('detail-modal');
             if (event.target == modal) {{
                 closeMap();
             }}
