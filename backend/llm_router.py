@@ -316,7 +316,12 @@ class LLMRouter:
     def get_usage_stats(self) -> Dict:
         """Get usage statistics"""
         if not self.usage_log:
-            return {"total_calls": 0, "total_cost": 0}
+            return {
+                "total_calls": 0,
+                "total_cost": 0.0,
+                "by_model": {},
+                "avg_cost_per_call": 0.0
+            }
         
         total_cost = sum(log["cost"] for log in self.usage_log)
         model_usage = {}
@@ -331,7 +336,7 @@ class LLMRouter:
             "total_calls": len(self.usage_log),
             "total_cost": total_cost,
             "by_model": model_usage,
-            "avg_cost_per_call": total_cost / len(self.usage_log) if self.usage_log else 0
+            "avg_cost_per_call": total_cost / len(self.usage_log) if self.usage_log else 0.0
         }
     
     def save_usage_log(self, filepath: str = None):
