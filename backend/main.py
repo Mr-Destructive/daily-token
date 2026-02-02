@@ -124,9 +124,14 @@ def generate_daily_newspaper() -> Dict:
                     img_response = requests.get(image_url, timeout=10, stream=True, headers=headers)
                     if img_response.status_code == 200:
                         content_type = img_response.headers.get("Content-Type", "").lower()
-                        ext = ".jpg"
+                        
+                        # Only handle raster formats
                         if "image/png" in content_type: ext = ".png"
                         elif "image/webp" in content_type: ext = ".webp"
+                        elif "image/jpeg" in content_type or "image/jpg" in content_type: ext = ".jpg"
+                        else:
+                            # Skip SVGs or other types
+                            continue
                         
                         image_filename = f"story_{page_num}_{story_idx}_{safe_title}{ext}"
                         img_path = images_dir / image_filename

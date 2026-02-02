@@ -24,59 +24,66 @@ class ImageFetcher:
     
     @staticmethod
     def get_candidate_images(url: str) -> List[str]:
-        """Extract all potential cover images from URL (SEO, OpenGraph, Thumbnails)"""
+        """Extract all potential raster cover images from URL (SEO, OpenGraph, Thumbnails)"""
         if not url or not url.startswith('http'):
             return []
             
         candidates = []
+        valid_exts = ['.jpg', '.jpeg', '.png', '.webp']
+        
         try:
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             }
-            # Many sites like Substack/Twitter need a referer
             response = requests.get(url, timeout=10, headers=headers)
             response.raise_for_status()
             
             soup = BeautifulSoup(response.text, 'html.parser')
             
-            # 1. OpenGraph Image (Standard SEO)
+            # Helper to check if URL is a valid raster image
+            def is_valid(img_url):
+                img_url = img_url.lower()
+                # Must be one of our extensions
+                if not any(img_url.endswith(ext) for ext in valid_exts):
+                    # Also check if it's a dynamic URL that might be an image but lacks extension
+                    if '?' not in img_url and not any(ext in img_url for ext in valid_exts):
+                        return False
+                # Filter out obvious small icons/logos even if they are PNG
+                if any(x in img_url for x in ['icon', 'logo', 'avatar', 'sprite', 'pixel', 'tracker', 'ad', 'btn', 'nav']):
+                    return False
+                return True
+
+            # 1. OpenGraph Image
             for og in soup.find_all('meta', property=re.compile(r'^og:image', re.I)):
-                if og.get('content'):
-                    candidates.append(urljoin(url, og['content']))
+                c = og.get('content')
+                if c and is_valid(c):
+                    candidates.append(urljoin(url, c))
             
-            # 2. Twitter Image (Card SEO)
+            # 2. Twitter Image
             for tw in soup.find_all('meta', name=re.compile(r'^twitter:image', re.I)):
-                if tw.get('content'):
-                    candidates.append(urljoin(url, tw['content']))
+                c = tw.get('content')
+                if c and is_valid(c):
+                    candidates.append(urljoin(url, c))
             
             # 3. Schema.org Image
             for schema in soup.find_all('meta', itemprop='image'):
-                if schema.get('content'):
-                    candidates.append(urljoin(url, schema['content']))
+                c = schema.get('content')
+                if c and is_valid(c):
+                    candidates.append(urljoin(url, c))
 
-            # 4. Article Thumbnails (Common in CMS)
-            for link in soup.find_all('link', rel=re.compile(r'image_src|thumbnail|icon', re.I)):
-                if link.get('href'):
-                    candidates.append(urljoin(url, link['href']))
+            # 4. Article Thumbnails
+            for link in soup.find_all('link', rel=re.compile(r'image_src|thumbnail', re.I)):
+                c = link.get('href')
+                if c and is_valid(c):
+                    candidates.append(urljoin(url, c))
 
-            # 5. Large images in article body (filter icons)
-            # We look for images that look like actual content
+            # 5. Large images in article body
             for img in soup.find_all('img'):
                 src = img.get('src') or img.get('data-src') or img.get('data-original-src')
                 if not src: continue
                 
                 full_url = urljoin(url, src)
-                low_src = src.lower()
-                
-                # Filter out obvious junk
-                if any(x in low_src for x in ['icon', 'logo', 'avatar', 'sprite', 'pixel', 'tracker', 'ad', 'btn', 'nav']):
-                    continue
-                
-                # Check extension
-                if not any(full_url.lower().endswith(ext) for ext in ['.jpg', '.jpeg', '.png', '.webp']):
-                    continue
-                
-                if full_url not in candidates:
+                if is_valid(full_url):
                     candidates.append(full_url)
             
             # Deduplicate while preserving order
