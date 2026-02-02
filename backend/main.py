@@ -140,7 +140,8 @@ def generate_daily_newspaper() -> Dict:
                             for chunk in img_response.iter_content(chunk_size=8192):
                                 f.write(chunk)
                         
-                        story['generated_image_path'] = f"../images/{image_filename}"
+                        story['generated_image_path'] = f"/daily-token/images/{image_filename}"
+                        print(f"      ✓ Downloaded: {image_filename} from {story['source']}")
                         img_count += 1
                 except Exception: pass
             else:

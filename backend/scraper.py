@@ -40,6 +40,7 @@ class ImageFetcher:
             response.raise_for_status()
             
             soup = BeautifulSoup(response.text, 'html.parser')
+            # print(f"      - Successfully fetched HTML for {url[:40]}")
             
             # Helper to check if URL is a valid raster image
             def is_valid(img_url):
@@ -92,6 +93,9 @@ class ImageFetcher:
                 full_url = urljoin(url, src)
                 if is_valid(full_url):
                     candidates.append(full_url)
+            
+            # if candidates:
+            #     print(f"      - Found {len(candidates)} image candidates")
             
             # Deduplicate while preserving order
             unique_candidates = []

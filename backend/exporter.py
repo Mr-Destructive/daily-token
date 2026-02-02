@@ -272,7 +272,7 @@ class NewsExporter:
                 for day in archive_data[year][month]:
                     date_str = f"{year}-{month}-{day}"
                     display_date = datetime.strptime(date_str, "%Y-%m-%d").strftime("%b %d, %Y").upper()
-                    html_lines.append(f'<li><a href="{year}/{month}/{day}/newspaper.html">{display_date}</a></li>')
+                    html_lines.append(f'<li><a href="/daily-token/archive/{year}/{month}/{day}/newspaper.html">{display_date}</a></li>')
                 html_lines.append('</ul></div>')
             html_lines.append('</div>')
 
@@ -298,7 +298,7 @@ class NewsExporter:
     </style>
 </head>
 <body>
-    <a href="../../newspaper.html" class="back-home">← BACK TO LATEST EDITION</a>
+    <a href="/daily-token/newspaper.html" class="back-home">← BACK TO LATEST EDITION</a>
     <h1>Historical Archives</h1>
     {archive_list_html}
 </body>
@@ -407,7 +407,7 @@ class NewsExporter:
             prev_date = today - dt_mod.timedelta(days=i)
             date_path = prev_date.strftime('%Y/%m/%d')
             display_date = prev_date.strftime('%b %d, %Y').upper()
-            archive_links_html += f'<a href="archive/{date_path}/newspaper.html" class="archive-link">{display_date}</a>'
+            archive_links_html += f'<a href="/daily-token/archive/{date_path}/newspaper.html" class="archive-link">{display_date}</a>'
 
         # --- TEMPLATE ---
         html = f"""<!DOCTYPE html>
@@ -634,7 +634,7 @@ class NewsExporter:
             <div class="archive-title">RECENT EDITIONS</div>
             <div class="archive-links">
                 {archive_links_html}
-                <a href="archive/index.html" class="archive-link" style="background:#111; color:#fff;">ALL ARCHIVES</a>
+                <a href="/daily-token/archive/index.html" class="archive-link" style="background:#111; color:#fff;">ALL ARCHIVES</a>
             </div>
         </div>
 

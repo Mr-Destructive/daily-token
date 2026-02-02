@@ -43,8 +43,8 @@ PAGE_CATEGORIES = {
 
 SITE_TITLE = "The Daily Token"
 SITE_TAGLINE = "The AI world's daily news. Breaking vectors. Model architectures. Neural horizons."
-# Base URL for RSS and links (e.g. https://your-site.netlify.app or https://user.github.io/repo)
-SITE_URL = os.environ.get("SITE_URL", "https://daily-tokens.netlify.app")
+# Base URL for RSS and links
+SITE_URL = os.environ.get("SITE_URL", "https://dev.meetgor.com/daily-token")
 SITE_DESCRIPTION = "Your daily digest of AI breakthroughs, model releases, research, and predictions. Curated from HackerNews and major AI labs. Delivered fresh every morning."
 
 # Landing page hero text
