@@ -309,8 +309,8 @@ class NewsProcessorWithRouter:
                 'selected_image_url': selected_image_url,
                 'image_layout': sum_result.get('image_layout', 'SQUARE'),
                 'published': story.get('published', story.get('time')),
-                'model_used': f"Cat: {cat_result['model_used']}, Sum: {sum_result['model_used']}",
-                'cost': cat_result['cost'] + sum_result['cost'],
+                'model_used': f"Cat: {cat_result.get('model_used', 'Meta-AI')}, Sum: {sum_result.get('model_used', 'Meta-AI')}",
+                'cost': cat_result.get('cost', 0) + sum_result.get('cost', 0),
             })
         
         except Exception as e:

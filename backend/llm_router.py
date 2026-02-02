@@ -114,12 +114,14 @@ class LLMRouter:
         self.openrouter_key = os.getenv("OPENROUTER_API_KEY", "").strip()
         
         if not self.hf_token:
-            raise ValueError("HF_TOKEN not found in .env. Get one from https://huggingface.co/settings/tokens")
+            print("⚠ HF_TOKEN not found in .env. HuggingFace models will be skipped.")
+        
+        if not self.openrouter_key:
+            print("⚠ OPENROUTER_API_KEY not found in .env. OpenRouter models will be skipped.")
         
         self.usage_log: List[Dict] = []
         print("✓ LLM Router initialized")
-        print(f"  Models: {len(self.MODELS)}")
-        print(f"  HF Token: {'✓' if self.hf_token else '✗'}")
+        print(f"  Models available: {len(self.MODELS)}")
     
     def pick_model(self, prefer_cheap: bool = True) -> LLMModel:
         """
@@ -243,6 +245,12 @@ class LLMRouter:
         
         # Try models in order
         for model in models_to_try:
+            # Skip if token missing
+            if model.provider == "huggingface" and not self.hf_token:
+                continue
+            if model.provider == "openrouter" and not self.openrouter_key:
+                continue
+
             print(f"  → Trying {model.name}...", end=" ")
             
             # Estimate tokens (rough: ~4 chars per token)
