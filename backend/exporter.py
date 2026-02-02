@@ -829,131 +829,89 @@ class NewsExporter:
             transform: scale(3) !important;
         }}
 
-    <!-- IMMERSIVE ARTICLE DETAIL (CLIPPING STYLE) -->
-    <div id="detail-screen">
-        <div class="clipping-sheet">
-            <span class="clipping-close" onclick="closeMap()">&times;</span>
-            <div class="clipping-header">
-                <div class="clipping-pub-tag">THE DAILY TOKEN // EXCLUSIVE CLIPPING</div>
-                <h1 class="clipping-title" id="modal-title"></h1>
-                <div class="clipping-meta" id="modal-meta"></div>
-            </div>
-            
-            <div class="clipping-content">
-                <div id="modal-image-container" class="clipping-image"></div>
-                <div class="clipping-body" id="modal-summary"></div>
-            </div>
-
-            <footer class="clipping-footer">
-                <a id="modal-hn-link" href="#" target="_blank" class="clipping-btn">READ ON HACKER NEWS</a>
-            </footer>
+    <!-- ARTICLE FOCUS OVERLAY -->
+    <div id="focus-overlay" onclick="closeMap()">
+        <div id="focused-article-container" onclick="event.stopPropagation()">
+            <!-- Cloned article content will be injected here -->
         </div>
     </div>
 
     <style>
         /* Base Newspaper Transition */
         .newspaper {{
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s, filter 0.8s;
-            transform-origin: center center;
+            transition: filter 0.8s, opacity 0.8s;
         }}
         
-        .newspaper.zoomed {{
-            opacity: 0.3 !important;
-            filter: blur(15px) grayscale(50%);
-            transform: scale(1.5);
+        .newspaper.blurred {{
+            filter: blur(15px) grayscale(80%);
+            opacity: 0.3;
             pointer-events: none;
         }}
 
-        #detail-screen {{
+        #focus-overlay {{
             display: none;
             position: fixed;
             z-index: 10000;
             left: 0; top: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
-            display: flex;
+            background: rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.5s;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.4s;
-            pointer-events: none;
         }}
 
-        #detail-screen.visible {{
+        #focus-overlay.visible {{
             display: flex;
             opacity: 1;
-            pointer-events: auto;
         }}
 
-        .clipping-sheet {{
-            width: 90%;
-            max-width: 750px;
-            max-height: 85vh;
+        #focused-article-container {{
             background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
-            padding: 40px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
-            border: 1px solid #ccc;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            transform: scale(0.8) translateY(30px);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            /* Ragged edge effect */
-            clip-path: polygon(0% 2%, 100% 0%, 98% 100%, 2% 98%);
-        }}
-
-        #detail-screen.visible .clipping-sheet {{
-            transform: scale(1) translateY(0);
-        }}
-
-        .clipping-header {{ margin-bottom: 25px; text-align: center; flex-shrink: 0; }}
-        .clipping-pub-tag {{ font-family: 'Oswald'; font-size: 0.75rem; color: #a00; letter-spacing: 3px; margin-bottom: 10px; }}
-        .clipping-title {{ 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2.8rem; 
-            font-weight: 900; 
-            line-height: 1; 
-            margin: 0 0 10px 0; 
-            color: #111;
-            letter-spacing: -1px;
-        }}
-        .clipping-meta {{ font-family: 'Oswald'; font-size: 0.85rem; color: #666; text-transform: uppercase; }}
-
-        .clipping-content {{ 
-            flex: 1;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+            padding: 50px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
             overflow-y: auto;
-            padding-right: 15px;
-            margin-bottom: 20px;
+            position: absolute;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #ccc;
+            z-index: 10001;
+        }}
+
+        /* Styles for the zoomed-in content */
+        .focused-headline {{ 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            margin-bottom: 20px; 
+            line-height: 1;
+            color: #111;
         }}
         
-        /* Custom scrollbar */
-        .clipping-content::-webkit-scrollbar {{ width: 4px; }}
-        .clipping-content::-webkit-scrollbar-track {{ background: rgba(0,0,0,0.05); }}
-        .clipping-content::-webkit-scrollbar-thumb {{ background: #111; }}
-
-        .clipping-image img {{ 
+        .focused-image {{ 
             width: 100%; 
-            max-height: 350px;
-            object-fit: cover;
+            margin-bottom: 30px; 
             border: 1px solid #ddd;
-            margin-bottom: 20px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
         }}
 
-        .clipping-body {{ 
+        .focused-summary {{ 
             font-family: 'Lora', serif; 
-            font-size: 1.4rem; 
+            font-size: 1.5rem; 
             line-height: 1.6; 
             color: #222; 
             text-align: justify;
+            margin-bottom: 30px;
         }}
 
-        .clipping-footer {{ 
-            padding-top: 20px; 
-            border-top: 1px solid #ddd; 
+        .focused-footer {{
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
             text-align: center;
-            flex-shrink: 0;
         }}
-        
+
         .clipping-btn {{
             display: inline-block;
             background: #111;
@@ -967,20 +925,20 @@ class NewsExporter:
         }}
         .clipping-btn:hover {{ background: #a00; }}
 
-        .clipping-close {{ 
-            position: absolute; 
-            top: 15px; right: 20px; 
-            font-size: 2.5rem; 
-            cursor: pointer; 
-            color: #111; 
-            opacity: 0.4;
-            transition: opacity 0.2s;
-            z-index: 10;
+        .close-focus {{
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #111;
+            opacity: 0.3;
         }}
-        .clipping-close:hover {{ opacity: 1; }}
+        .close-focus:hover {{ opacity: 1; }}
 
-        #detail-screen:not(.visible) {{
-            display: none !important;
+        /* Hide original elements we don't want in focus */
+        #focused-article-container .footer-links,
+        #focused-article-container .footer-links-sm {{
+            display: none;
         }}
     </style>
 
@@ -1063,52 +1021,68 @@ class NewsExporter:
 
     <script>
         function openMap(triggerEl, title, summary, imgUrl, slug, source, hnUrl) {{
-            const screen = document.getElementById('detail-screen');
+            const overlay = document.getElementById('focus-overlay');
+            const container = document.getElementById('focused-article-container');
             const newspaper = document.querySelector('.newspaper');
-            const titleEl = document.getElementById('modal-title');
-            const summaryEl = document.getElementById('modal-summary');
-            const metaEl = document.getElementById('modal-meta');
-            const hnLink = document.getElementById('modal-hn-link');
-            const imgContainer = document.getElementById('modal-image-container');
             
-            // 1. Zoom origin
-            const rect = triggerEl.getBoundingClientRect();
-            newspaper.style.transformOrigin = `${{rect.left + rect.width/2}}px ${{rect.top + rect.height/2}}px`;
+            // 1. Calculate the exact position of the clicked article piece
+            const rect = triggerEl.closest('.article').getBoundingClientRect();
             
-            // 2. Load Content
-            titleEl.innerText = title;
-            summaryEl.innerText = summary;
-            metaEl.innerText = `SOURCE: ${{source}} // DAILY TOKEN EXCLUSIVE`;
-            hnLink.href = hnUrl;
-            imgContainer.innerHTML = imgUrl ? `<img src="${{imgUrl}}" alt="">` : '';
+            // 2. Prepare the focused container with the content
+            container.innerHTML = `
+                <span class="close-focus" onclick="closeMap()">&times;</span>
+                <div class="clipping-pub-tag">THE DAILY TOKEN // NEWS CLIPPING</div>
+                <h1 class="focused-headline">${{title}}</h1>
+                <div class="clipping-meta">SOURCE: ${{source}} // EXCLUSIVE REPORT</div>
+                ${{imgUrl ? `<img src="${{imgUrl}}" class="focused-image" alt="">` : ''}}
+                <div class="focused-summary">${{summary}}</div>
+                <div class="focused-footer">
+                    <a href="${{hnUrl}}" target="_blank" class="clipping-btn">DISCUSS ON HACKER NEWS</a>
+                </div>
+            `;
             
-            // 3. Zoom Newspaper Away
-            newspaper.classList.add('zoomed');
+            // 3. Set the initial position of the container to match the article piece exactly
+            container.style.transition = 'none';
+            container.style.top = rect.top + 'px';
+            container.style.left = rect.left + 'px';
+            container.style.width = rect.width + 'px';
+            container.style.height = rect.height + 'px';
+            container.style.padding = '20px';
             
-            // 4. Fade in New Screen
-            setTimeout(() => {{
-                screen.classList.add('visible');
-                window.scrollTo(0, 0);
+            // 4. Show the overlay and blur background
+            overlay.classList.add('visible');
+            newspaper.classList.add('blurred');
+            
+            // 5. Animate to full focus after a frame
+            requestAnimationFrame(() => {{
+                container.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                container.style.top = '5vh';
+                container.style.left = '5%';
+                container.style.width = '90%';
+                container.style.height = '90vh';
+                container.style.padding = '50px';
                 
                 const newUrl = new URL(window.location);
                 newUrl.searchParams.set('story', slug);
                 window.history.pushState({{}}, '', newUrl);
-            }}, 400);
+            }});
         }}
 
         function closeMap() {{
-            const screen = document.getElementById('detail-screen');
+            const overlay = document.getElementById('focus-overlay');
+            const container = document.getElementById('focused-article-container');
             const newspaper = document.querySelector('.newspaper');
             
-            screen.classList.remove('visible');
+            overlay.classList.remove('visible');
+            newspaper.classList.remove('blurred');
+            
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.delete('story');
+            window.history.pushState({{}}, '', newUrl);
             
             setTimeout(() => {{
-                newspaper.classList.remove('zoomed');
-                
-                const newUrl = new URL(window.location);
-                newUrl.searchParams.delete('story');
-                window.history.pushState({{}}, '', newUrl);
-            }}, 400);
+                container.innerHTML = '';
+            }}, 800);
         }}
 
         window.addEventListener('load', function() {{
@@ -1123,10 +1097,9 @@ class NewsExporter:
             }}
         }});
 
-        // Handle browser back button
         window.addEventListener('popstate', function() {{
-            const screen = document.getElementById('detail-screen');
-            if (screen.classList.contains('visible')) {{
+            const overlay = document.getElementById('focus-overlay');
+            if (overlay.classList.contains('visible')) {{
                 closeMap();
             }}
         }});
