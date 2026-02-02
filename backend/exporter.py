@@ -348,15 +348,21 @@ class NewsExporter:
             else:
                 image_html = ""
             
+            headline = story.get('generated_headline', story['original_title'])
+            summary = story['summary']
+            # Escape for JavaScript openMap call
+            js_headline = headline.replace("'", "\\'").replace('"', '&quot;')
+            js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
+            
             front_page_html += f'''
                 <article class="article {layout}">
                     <div class="article-body">
                         {image_html if idx == 0 else ""}
-                        <h2 class={"{'headline-xl' if idx == 0 else 'headline-lg'}"}><a href="{story.get('url', '#')}">{story.get('generated_headline', story['original_title'])}</a></h2>
+                        <h2 class={"{'headline-xl' if idx == 0 else 'headline-lg'}"}><a href="{story.get('url', '#')}">{headline}</a></h2>
                         <div class="metadata">SOURCE: {story['source'].upper()} // {str(story.get('published', ''))[:10]}</div>
                         {image_html if idx != 0 else ""}
-                        <p class="summary">{" ".join(story['summary'].split()[:60]) + "..." if idx == 0 else story['summary']}</p>
-                        <div class="footer-links"><a href="javascript:void(0)" onclick='openMap("{story.get('generated_headline', story['original_title']).replace("'", "\\'")}", "{story['summary'].replace("'", "\\'").replace('"', '&quot;')}")'>READ ARTICLE</a> | <a href="{story.get('hn_url', '#')}">HN</a></div>
+                        <p class="summary">{" ".join(summary.split()[:60]) + "..." if idx == 0 else summary}</p>
+                        <div class="footer-links"><a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}")'>READ ARTICLE</a> | <a href="{story.get('hn_url', '#')}">HN</a></div>
                     </div>
                 </article>
             '''
@@ -397,6 +403,12 @@ class NewsExporter:
                 else:
                     image_html = ""
                 
+                headline = story.get('generated_headline', story['original_title'])
+                summary = story['summary']
+                # Escape for JavaScript openMap call
+                js_headline = headline.replace("'", "\\'").replace('"', '&quot;')
+                js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
+                
                 layout_pref = story.get('image_layout', 'SQUARE')
                 col_span = "span-2" if layout_pref == "WIDE" else "span-1"
                 
@@ -404,10 +416,10 @@ class NewsExporter:
                     <article class="article {col_span}">
                         <div class="article-body">
                             {image_html if idx % 4 == 0 or layout_pref == "WIDE" else ""}
-                            <h3 class="headline-sm"><a href="{story.get('url', '#')}">{story.get('generated_headline', story['original_title'])}</a></h3>
+                            <h3 class="headline-sm"><a href="{story.get('url', '#')}">{headline}</a></h3>
                             <div class="metadata">{story['source'].upper()}</div>
-                            <p class="summary-sm">{story['summary']}</p>
-                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("{story.get('generated_headline', story['original_title']).replace("'", "\\'")}", "{story['summary'].replace("'", "\\'").replace('"', '&quot;')}")'>LINK</a> // <a href="{story.get('hn_url', '#')}">HN</a></div>
+                            <p class="summary-sm">{summary}</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}")'>LINK</a> // <a href="{story.get('hn_url', '#')}">HN</a></div>
                         </div>
                     </article>
                 '''
