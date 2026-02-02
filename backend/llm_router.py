@@ -37,6 +37,24 @@ class ModelProvider(Enum):
     OPENROUTER = "openrouter"
 
 
+class BasicFallbackModel:
+    """Zero-cost emergency fallback that requires no API keys"""
+    def generate(self, prompt: str) -> str:
+        # Extract title/summary from prompt to build a crude response
+        lines = prompt.split('\n')
+        title = "AI Breakthrough"
+        summary = "New developments in artificial intelligence."
+        
+        for line in lines:
+            if "ARTICLE TITLE:" in line: title = line.replace("ARTICLE TITLE:", "").strip()
+            if "SUMMARY:" in line: summary = line.replace("SUMMARY:", "").strip()
+            
+        return f"""HEADLINE: {title[:60]}
+SUMMARY: {summary[:150]}
+SIGNIFICANCE_SCORE: 50
+SELECTED_IMAGE_URL: NONE
+IMAGE_LAYOUT: SQUARE"""
+
 class LLMRouter:
     """Route LLM requests across multiple models with fallback"""
     
@@ -306,11 +324,27 @@ class LLMRouter:
         except Exception as e:
             print(f"✗ ({e})")
 
+        # 4. Ultimate Guaranteed Fallback: Basic Scripted Response
+        print("  → Trying Local Basic Fallback...", end=" ")
+        try:
+            basic_model = BasicFallbackModel()
+            response = basic_model.generate(prompt)
+            print("✓ (Local)")
+            return {
+                "response": response,
+                "model": "Local-Fallback",
+                "provider": "local",
+                "cost": 0,
+                "quality_score": 1,
+            }
+        except Exception:
+            print("✗")
+
         # All failed
         return {
             "response": None,
-            "error": f"All {len(models_to_try)} models + Meta-AI failed",
-            "models_tried": [m.name for m in models_to_try] + ["Meta-AI"]
+            "error": f"All providers failed",
+            "models_tried": [m.name for m in models_to_try] + ["Meta-AI", "Local-Fallback"]
         }
     
     def get_usage_stats(self) -> Dict:
