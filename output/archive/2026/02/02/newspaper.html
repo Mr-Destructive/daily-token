@@ -138,6 +138,102 @@
             transition: filter 0.3s ease;
         }
         .news-img:hover { filter: none; }
+
+        /* --- MARAUDER'S MAP MODAL --- */
+        #marauders-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .map-content {
+            position: relative;
+            background: #e9dcc9; /* Parchment color */
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+            margin: 5% auto;
+            padding: 50px;
+            width: 70%;
+            max-width: 900px;
+            min-height: 500px;
+            border: 20px solid transparent;
+            border-image: url('https://www.transparenttextures.com/patterns/pinstripe.png') 30 round;
+            box-shadow: 0 0 100px rgba(0,0,0,0.5);
+            font-family: 'Playfair Display', serif;
+            color: #4a3728;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #marauders-modal.open .map-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .map-header {
+            text-align: center;
+            border-bottom: 2px solid #4a3728;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        .map-title { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -1px; }
+        .map-subtitle { font-family: 'Oswald'; text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; }
+
+        .map-body {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            text-align: justify;
+            position: relative;
+            filter: url('#ink-bleed');
+        }
+
+        /* Footprints Animation */
+        .footprint {
+            position: absolute;
+            width: 30px;
+            height: 15px;
+            background: #4a3728;
+            opacity: 0;
+            border-radius: 50% 50% 40% 40%;
+            pointer-events: none;
+        }
+        
+        @keyframes walk-left {
+            0% { opacity: 0; transform: translate(0,0) rotate(-20deg); }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }
+        }
+
+        @keyframes walk-right {
+            0% { opacity: 0; transform: translate(20px,20px) rotate(20deg); }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { opacity: 0; transform: translate(60px, -40px) rotate(20deg); }
+        }
+
+        .map-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 900;
+        }
+
+        .ink-spread {
+            animation: inkSpread 2s forwards;
+        }
+
+        @keyframes inkSpread {
+            from { opacity: 0; filter: blur(20px); }
+            to { opacity: 1; filter: blur(0); }
+        }
         
         /* Section Pulse */
         .section-pulse-grid {
@@ -203,14 +299,14 @@
         <header>
             <h1 class="masthead">The Daily Token</h1>
             <div class="sub-masthead">
-                <span>GRADIENT VALLEY, MONDAY, FEBRUARY 02, 2026</span>
+                <span>MODEL SQUARE, MONDAY, FEBRUARY 02, 2026</span>
                 <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
                 <span>VOL. 2026.033</span>
             </div>
         </header>
 
         <nav>
-            <a href="#front-page">THE FRONT PAGE</a> <span class="nav-sep">|</span> <a href="#section-2">MODEL ARCHITECTURES</a> <span class="nav-sep">|</span> <a href="#section-3">NEURAL HORIZONS</a> <span class="nav-sep">|</span> <a href="#section-4">LAB OUTPUTS</a> <span class="nav-sep">|</span> <a href="#section-5">INFERENCE CORNER</a>
+            <a href="#front-page">THE FRONT PAGE</a> <span class="nav-sep">|</span> <a href="#section-1">BREAKING VECTORS</a> <span class="nav-sep">|</span> <a href="#section-2">MODEL ARCHITECTURES</a> <span class="nav-sep">|</span> <a href="#section-3">NEURAL HORIZONS</a> <span class="nav-sep">|</span> <a href="#section-4">LAB OUTPUTS</a> <span class="nav-sep">|</span> <a href="#section-5">INFERENCE CORNER</a>
         </nav>
 
         <main>
@@ -222,37 +318,61 @@
                 <article class="article span-8 main-story">
                     <div class="article-body">
                         
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf">Pioneering Concurrency: The Actors Model Reimagined</a></h2>
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf">Pioneering Concurrent Computation: The Actors Model Reimagined</a></h2>
                         <div class="metadata">SOURCE: HACKERNEWS // 1769994675</div>
                         
-                        <p class="summary">The Actors model, introduced in 1985, revolutionized concurrent computation by treating actors as fundamental units of computation that communicate through message passing. This seminal paper laid the groundwork for modern concurrent programming paradigms....</p>
-                        <div class="footer-links"><a href="https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46851192">HN</a></div>
+                        <p class="summary">This seminal 1985 paper introduces the Actors model, a groundbreaking framework for concurrent computation that has influenced decades of research and development in distributed systems and artificial intelligence. The model proposes a novel approach to handling parallel processes and communication....</p>
+                        <div class="footer-links"><a href="javascript:void(0)" onclick='openMap("Pioneering Concurrent Computation: The Actors Model Reimagined", "This seminal 1985 paper introduces the Actors model, a groundbreaking framework for concurrent computation that has influenced decades of research and development in distributed systems and artificial intelligence. The model proposes a novel approach to handling parallel processes and communication.")'>READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46851192">HN</a></div>
                     </div>
                 </article>
             
                 <article class="article span-4 side-story">
                     <div class="article-body">
                         
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://github.com/zuckermanai/zuckerman">Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents</a></h2>
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere">Omnipresent OpenClaw Model Architecture Sparks Widespread Security Concerns</a></h2>
+                        <div class="metadata">SOURCE: HACKERNEWS // 1769973609</div>
+                        
+                        <p class="summary">OpenClaw's ubiquitous adoption has raised alarms among cybersecurity experts, who warn of a looming catastrophe due to the model's inherent vulnerabilities.</p>
+                        <div class="footer-links"><a href="javascript:void(0)" onclick='openMap("Omnipresent OpenClaw Model Architecture Sparks Widespread Security Concerns", "OpenClaw\'s ubiquitous adoption has raised alarms among cybersecurity experts, who warn of a looming catastrophe due to the model\'s inherent vulnerabilities.")'>READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46848552">HN</a></div>
+                    </div>
+                </article>
+            
+                <article class="article span-4 side-story">
+                    <div class="article-body">
+                        
+                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://github.com/zuckermanai/zuckerman">Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code</a></h2>
                         <div class="metadata">SOURCE: HACKERNEWS // 1769953815</div>
-                        <img src="/daily-token/images/story_4_1_Show_HN__Zuckerman___minimalis.png" class="news-img" alt="">
-                        <p class="summary">Zuckerman is a cutting-edge, minimalist AI agent that pushes the boundaries of artificial intelligence by self-editing its own code, potentially revolutionizing the field of AI development. This innovative technology showcases the agent's ability to adapt and improve independently.</p>
-                        <div class="footer-links"><a href="https://github.com/zuckermanai/zuckerman">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46846210">HN</a></div>
-                    </div>
-                </article>
-            
-                <article class="article span-4 side-story">
-                    <div class="article-body">
-                        
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/">Unlocking the Power of Agent Systems: A Scientific Approach to Scaling</a></h2>
-                        <div class="metadata">SOURCE: HACKERNEWS // 1769968830</div>
-                        <img src="/daily-token/images/story_4_3_Towards_a_science_of_scaling_a.jpg" class="news-img" alt="">
-                        <p class="summary">Researchers explore the science behind scaling agent systems, shedding light on when and why these systems succeed or fail. Their findings provide a foundation for building more effective and reliable AI agents.</p>
-                        <div class="footer-links"><a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/">READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46847958">HN</a></div>
+                        <img src="/daily-token/images/story_3_0_Show_HN__Zuckerman___minimalis.png" class="news-img" alt="">
+                        <p class="summary">Zuckerman is a cutting-edge, minimalist AI agent capable of self-editing its own code, marking a significant leap forward in artificial intelligence autonomy. This innovative technology has the potential to revolutionize the way AI systems are developed and maintained.</p>
+                        <div class="footer-links"><a href="javascript:void(0)" onclick='openMap("Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code", "Zuckerman is a cutting-edge, minimalist AI agent capable of self-editing its own code, marking a significant leap forward in artificial intelligence autonomy. This innovative technology has the potential to revolutionize the way AI systems are developed and maintained.")'>READ ARTICLE</a> | <a href="https://news.ycombinator.com/item?id=46846210">HN</a></div>
                     </div>
                 </article>
             </div>
             
+            <section id="section-1">
+                <div class="deck-header"><span>BREAKING VECTORS</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-1">
+                        <div class="article-body">
+                            <img src="/daily-token/images/story_1_0_Clearspace__YC_W23__Is_Hiring_.png" class="news-img" alt="">
+                            <h3 class="headline-sm"><a href="https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace">Clearspace Seeks Applied Researcher to Drive Machine Learning Innovations</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">Clearspace, a Y Combinator-backed startup, is looking to hire an applied researcher to join its team and advance its machine learning capabilities. The role promises opportunities to shape the future of AI-driven solutions.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Clearspace Seeks Applied Researcher to Drive Machine Learning Innovations", "Clearspace, a Y Combinator-backed startup, is looking to hire an applied researcher to join its team and advance its machine learning capabilities. The role promises opportunities to shape the future of AI-driven solutions.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46848260">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://www.vatican.va/content/leo-xiv/en/messages/communications/documents/20260124-messaggio-comunicazioni-sociali.html">Pope Leo XIV Urges Thoughtful Communication in Digital Age on World Social Communications Day</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">In his message, the Pope emphasizes the importance of promoting dignity and truth in online interactions, highlighting the challenges and opportunities of social media.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Pope Leo XIV Urges Thoughtful Communication in Digital Age on World Social Communications Day", "In his message, the Pope emphasizes the importance of promoting dignity and truth in online interactions, highlighting the challenges and opportunities of social media.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46850067">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
             <section id="section-2">
                 <div class="deck-header"><span>MODEL ARCHITECTURES</span></div>
                 <div class="columns-4">
@@ -260,10 +380,20 @@
                     <article class="article span-1">
                         <div class="article-body">
                             
-                            <h3 class="headline-sm"><a href="https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf">Pioneering Concurrency: The Actors Model Reimagined</a></h3>
+                            <h3 class="headline-sm"><a href="https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf">Pioneering Concurrent Computation: The Actors Model Reimagined</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">The Actors model, introduced in 1985, revolutionized concurrent computation by treating actors as fundamental units of computation that communicate through message passing. This seminal paper laid the groundwork for modern concurrent programming paradigms.</p>
-                            <div class="footer-links-sm"><a href="https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf">LINK</a> // <a href="https://news.ycombinator.com/item?id=46851192">HN</a></div>
+                            <p class="summary-sm">This seminal 1985 paper introduces the Actors model, a groundbreaking framework for concurrent computation that has influenced decades of research and development in distributed systems and artificial intelligence. The model proposes a novel approach to handling parallel processes and communication.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Pioneering Concurrent Computation: The Actors Model Reimagined", "This seminal 1985 paper introduces the Actors model, a groundbreaking framework for concurrent computation that has influenced decades of research and development in distributed systems and artificial intelligence. The model proposes a novel approach to handling parallel processes and communication.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46851192">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere">Omnipresent OpenClaw Model Architecture Sparks Widespread Security Concerns</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">OpenClaw's ubiquitous adoption has raised alarms among cybersecurity experts, who warn of a looming catastrophe due to the model's inherent vulnerabilities.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Omnipresent OpenClaw Model Architecture Sparks Widespread Security Concerns", "OpenClaw\'s ubiquitous adoption has raised alarms among cybersecurity experts, who warn of a looming catastrophe due to the model\'s inherent vulnerabilities.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46848552">HN</a></div>
                         </div>
                     </article>
                 </div></section>
@@ -273,31 +403,11 @@
             
                     <article class="article span-1">
                         <div class="article-body">
-                            <img src="/daily-token/images/story_3_0_Clearspace__YC_W23__Is_Hiring_.png" class="news-img" alt="">
-                            <h3 class="headline-sm"><a href="https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace">Clearspace Expands AI Research Capabilities with New Applied Researcher Hire</a></h3>
+                            <img src="/daily-token/images/story_3_0_Show_HN__Zuckerman___minimalis.png" class="news-img" alt="">
+                            <h3 class="headline-sm"><a href="https://github.com/zuckermanai/zuckerman">Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Clearspace, a Y Combinator-backed startup, is seeking an applied researcher to join its team and drive innovation in machine learning applications. This strategic hire underscores the company's commitment to advancing AI technology.</p>
-                            <div class="footer-links-sm"><a href="https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace">LINK</a> // <a href="https://news.ycombinator.com/item?id=46848260">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="https://www.vatican.va/content/leo-xiv/en/messages/communications/documents/20260124-messaggio-comunicazioni-sociali.html">Pope Leo XIV Urges Global Dialogue on Social Communications</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">In his message for the 60th World Day of Social Communications, Pope Leo XIV emphasizes the importance of open dialogue and cooperation in the digital age. The Pope's message highlights the potential of social communications to bridge gaps and foster global understanding.</p>
-                            <div class="footer-links-sm"><a href="https://www.vatican.va/content/leo-xiv/en/messages/communications/documents/20260124-messaggio-comunicazioni-sociali.html">LINK</a> // <a href="https://news.ycombinator.com/item?id=46850067">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="https://www.wsj.com/tech/ai/ai-avoidance-teenagers-7d1efa06">Adolescent Perspectives: Uncovering the Resistance to Artificial Intelligence Adoption</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A recent study reveals the top reasons teenagers are hesitant to embrace AI technology, shedding light on the concerns and misconceptions surrounding its integration in their lives.</p>
-                            <div class="footer-links-sm"><a href="https://www.wsj.com/tech/ai/ai-avoidance-teenagers-7d1efa06">LINK</a> // <a href="https://news.ycombinator.com/item?id=46853072">HN</a></div>
+                            <p class="summary-sm">Zuckerman is a cutting-edge, minimalist AI agent capable of self-editing its own code, marking a significant leap forward in artificial intelligence autonomy. This innovative technology has the potential to revolutionize the way AI systems are developed and maintained.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code", "Zuckerman is a cutting-edge, minimalist AI agent capable of self-editing its own code, marking a significant leap forward in artificial intelligence autonomy. This innovative technology has the potential to revolutionize the way AI systems are developed and maintained.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46846210">HN</a></div>
                         </div>
                     </article>
                 </div></section>
@@ -308,84 +418,20 @@
                     <article class="article span-1">
                         <div class="article-body">
                             <img src="/daily-token/images/story_4_0_Show_HN__My_Open_Source_Deep_R.png" class="news-img" alt="">
-                            <h3 class="headline-sm"><a href="https://github.com/IamLumae/Project-Lutum-Veritas">Open-Source Research Tool Claims Superiority Over Google's Proprietary Technology</a></h3>
+                            <h3 class="headline-sm"><a href="https://github.com/IamLumae/Project-Lutum-Veritas">Breakthrough Open-Source Research Tool Outperforms Google's Algorithms, Claims Developer</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A developer has released an open-source deep research tool, claiming it outperforms Google's offerings, and is sharing evidence to support the claim. The tool, Project Lutum Veritas, is now available for public scrutiny and use.</p>
-                            <div class="footer-links-sm"><a href="https://github.com/IamLumae/Project-Lutum-Veritas">LINK</a> // <a href="https://news.ycombinator.com/item?id=46848479">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="https://github.com/zuckermanai/zuckerman">Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Zuckerman is a cutting-edge, minimalist AI agent that pushes the boundaries of artificial intelligence by self-editing its own code, potentially revolutionizing the field of AI development. This innovative technology showcases the agent's ability to adapt and improve independently.</p>
-                            <div class="footer-links-sm"><a href="https://github.com/zuckermanai/zuckerman">LINK</a> // <a href="https://news.ycombinator.com/item?id=46846210">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="https://github.com/gavrielc/nanoclaw">Breakthrough in Compact Robotics: NanoClaw Redefines Autonomous Manipulation</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Researchers have unveiled NanoClaw, a 500-line TypeScript project that packs a claw-like robot into an impressively small package, leveraging Apple container isolation for efficient deployment.</p>
-                            <div class="footer-links-sm"><a href="https://github.com/gavrielc/nanoclaw">LINK</a> // <a href="https://news.ycombinator.com/item?id=46850205">HN</a></div>
+                            <p class="summary-sm">A developer has released an open-source deep research tool that claims to surpass Google's search capabilities, sparking interest in the tech community. The tool's performance is backed by data and is now available for public scrutiny.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough Open-Source Research Tool Outperforms Google\'s Algorithms, Claims Developer", "A developer has released an open-source deep research tool that claims to surpass Google\'s search capabilities, sparking interest in the tech community. The tool\'s performance is backed by data and is now available for public scrutiny.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46848479">HN</a></div>
                         </div>
                     </article>
                 
                     <article class="article span-2">
                         <div class="article-body">
-                            <img src="/daily-token/images/story_4_3_Towards_a_science_of_scaling_a.jpg" class="news-img" alt="">
-                            <h3 class="headline-sm"><a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/">Unlocking the Power of Agent Systems: A Scientific Approach to Scaling</a></h3>
+                            <img src="/daily-token/images/story_4_1_Towards_a_science_of_scaling_a.jpg" class="news-img" alt="">
+                            <h3 class="headline-sm"><a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/">Unlocking the Secrets of Scalable AI: Researchers Uncover Key to Effective Agent Systems</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Researchers explore the science behind scaling agent systems, shedding light on when and why these systems succeed or fail. Their findings provide a foundation for building more effective and reliable AI agents.</p>
-                            <div class="footer-links-sm"><a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46847958">HN</a></div>
-                        </div>
-                    </article>
-                </div></section>
-            <section id="section-5">
-                <div class="deck-header"><span>INFERENCE CORNER</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1">
-                        <div class="article-body">
-                            <img src="/daily-token/images/story_5_0_My_iPhone_16_Pro_Max_produces_.png" class="news-img" alt="">
-                            <h3 class="headline-sm"><a href="https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/">iPhone 16 Pro Max Struggles with MLX LLMs, Produces Garbage Output</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A user reports issues with running MLX LLMs on their iPhone 16 Pro Max, resulting in poor output quality. This raises questions about the device's capabilities and optimization for local language models.</p>
-                            <div class="footer-links-sm"><a href="https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46849258">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2">
-                        <div class="article-body">
-                            <img src="/daily-token/images/story_5_1_What_I_learned_building_an_opi.jpg" class="news-img" alt="">
-                            <h3 class="headline-sm"><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">Crafting Code with Conviction: The Power of Opinionated AI Agents</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Mario Zechner shares insights from building a minimal yet effective coding agent, shedding light on the potential of AI-assisted development. The agent's capabilities and limitations offer a glimpse into the future of coding.</p>
-                            <div class="footer-links-sm"><a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46844822">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2">
-                        <div class="article-body">
-                            <img src="/daily-token/images/story_5_2_Two_kinds_of_AI_users_are_emer.png" class="news-img" alt="">
-                            <h3 class="headline-sm"><a href="https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/">The Great Divide: Two Distinct Profiles of AI Adopters Take Shape</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">As artificial intelligence continues to permeate various aspects of life, two distinct categories of users are emerging, highlighting a striking disparity in their approaches and benefits. This dichotomy raises important questions about the future of AI adoption and its societal implications.</p>
-                            <div class="footer-links-sm"><a href="https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/">LINK</a> // <a href="https://news.ycombinator.com/item?id=46850588">HN</a></div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="https://www.sciencedaily.com/releases/2026/01/260121034130.htm">Exercise Linked to Younger-Looking Brain Structure in Adults</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A new study using MRI scans reveals that regular exercise can lead to a more youthful brain structure in adults, potentially reversing age-related cognitive decline.</p>
-                            <div class="footer-links-sm"><a href="https://www.sciencedaily.com/releases/2026/01/260121034130.htm">LINK</a> // <a href="https://news.ycombinator.com/item?id=46849630">HN</a></div>
+                            <p class="summary-sm">A new study sheds light on the science of scaling agent systems, revealing crucial insights into when and why these systems succeed, paving the way for more efficient and reliable AI applications.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Unlocking the Secrets of Scalable AI: Researchers Uncover Key to Effective Agent Systems", "A new study sheds light on the science of scaling agent systems, revealing crucial insights into when and why these systems succeed, paving the way for more efficient and reliable AI applications.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46847958">HN</a></div>
                         </div>
                     </article>
                 
@@ -394,8 +440,92 @@
                             
                             <h3 class="headline-sm"><a href="https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html">Deciphering the Shift: Aging Stem Cells Prioritize Endurance Over Rapid Response</a></h3>
                             <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Researchers uncover the metabolic changes driving aged muscle stem cells to favor self-preservation over swift repair, shedding light on potential therapeutic targets for muscle degeneration.</p>
-                            <div class="footer-links-sm"><a href="https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html">LINK</a> // <a href="https://news.ycombinator.com/item?id=46847746">HN</a></div>
+                            <p class="summary-sm">Researchers uncover the metabolic changes driving aged muscle stem cells to favor self-preservation over swift repair, shedding light on potential therapeutic targets for muscle degeneration. This paradigm shift could redefine strategies for treating age-related muscle loss.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Deciphering the Shift: Aging Stem Cells Prioritize Endurance Over Rapid Response", "Researchers uncover the metabolic changes driving aged muscle stem cells to favor self-preservation over swift repair, shedding light on potential therapeutic targets for muscle degeneration. This paradigm shift could redefine strategies for treating age-related muscle loss.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46847746">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://lapcatsoftware.com/articles/2026/2/1.html">Apple's MacBook Pro DFU Port Documentation Sparks Frustration Among Users</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">Apple's documentation for identifying the DFU port on MacBook Pro models with Apple silicon is reportedly incorrect, causing issues with firmware updates and external disk installations.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Apple\'s MacBook Pro DFU Port Documentation Sparks Frustration Among Users", "Apple\'s documentation for identifying the DFU port on MacBook Pro models with Apple silicon is reportedly incorrect, causing issues with firmware updates and external disk installations.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46852096">HN</a></div>
+                        </div>
+                    </article>
+                </div></section>
+            <section id="section-5">
+                <div class="deck-header"><span>INFERENCE CORNER</span></div>
+                <div class="columns-4">
+            
+                    <article class="article span-2">
+                        <div class="article-body">
+                            <img src="/daily-token/images/story_5_0_Two_kinds_of_AI_users_are_emer.png" class="news-img" alt="">
+                            <h3 class="headline-sm"><a href="https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/">The Great Divide: Two Distinct Profiles of AI Users Take Shape</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">As AI adoption accelerates, research reveals a stark contrast between pragmatic and visionary users, reshaping the future of work and technology integration.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("The Great Divide: Two Distinct Profiles of AI Users Take Shape", "As AI adoption accelerates, research reveals a stark contrast between pragmatic and visionary users, reshaping the future of work and technology integration.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46850588">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://www.wsj.com/tech/ai/ai-avoidance-teenagers-7d1efa06">Unraveling the AI Paradox: Understanding Teenagers' Resistance to Artificial Intelligence</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A closer look at the reasons behind teenagers' hesitation to adopt AI technology reveals a complex interplay of factors, from lack of understanding to concerns about autonomy. This insightful analysis sheds light on the AI paradox and its implications for the future of AI integration.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Unraveling the AI Paradox: Understanding Teenagers\' Resistance to Artificial Intelligence", "A closer look at the reasons behind teenagers\' hesitation to adopt AI technology reveals a complex interplay of factors, from lack of understanding to concerns about autonomy. This insightful analysis sheds light on the AI paradox and its implications for the future of AI integration.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46853072">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://github.com/gavrielc/nanoclaw">Breakthrough in Compact Robotics: NanoClaw Redefines Autonomous Database Agents</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">NanoClaw, a 500-line TypeScript project, introduces a novel "Clawdbot" concept, leveraging Apple container isolation for enhanced security and efficiency in database management.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough in Compact Robotics: NanoClaw Redefines Autonomous Database Agents", "NanoClaw, a 500-line TypeScript project, introduces a novel &quot;Clawdbot&quot; concept, leveraging Apple container isolation for enhanced security and efficiency in database management.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46850205">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/">iPhone 16 Pro Max Struggles with MLX LLMs: Garbage Output Revealed</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A user reports issues with running MLX Large Language Models on their iPhone 16 Pro Max, citing poor output quality. The problem highlights potential challenges in optimizing LLMs for mobile devices.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("iPhone 16 Pro Max Struggles with MLX LLMs: Garbage Output Revealed", "A user reports issues with running MLX Large Language Models on their iPhone 16 Pro Max, citing poor output quality. The problem highlights potential challenges in optimizing LLMs for mobile devices.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46849258">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            <img src="/daily-token/images/story_5_4_MRI_scans_show_exercise_can_ma.webp" class="news-img" alt="">
+                            <h3 class="headline-sm"><a href="https://www.sciencedaily.com/releases/2026/01/260121034130.htm">Exercise Induces Cerebral Rejuvenation: MRI Study Reveals Brain Age Reduction</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">A recent MRI study has found that regular exercise can lead to a reduction in brain age, suggesting a potential link between physical activity and improved cognitive health. The findings imply that exercise may be a valuable tool in maintaining brain health and reducing the risk of age-related cognitive decline.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Exercise Induces Cerebral Rejuvenation: MRI Study Reveals Brain Age Reduction", "A recent MRI study has found that regular exercise can lead to a reduction in brain age, suggesting a potential link between physical activity and improved cognitive health. The findings imply that exercise may be a valuable tool in maintaining brain health and reducing the risk of age-related cognitive decline.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46849630">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-2">
+                        <div class="article-body">
+                            <img src="/daily-token/images/story_5_5_Kiki___The_accountability_mons.png" class="news-img" alt="">
+                            <h3 class="headline-sm"><a href="https://www.kiki.computer/">Kiki: The AI-Powered Accountability Companion for the Distracted Mind</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">Kiki is a cutting-edge tool designed to help individuals stay on track and achieve their goals, leveraging AI-driven insights to promote productivity and focus. This innovative solution is perfect for those struggling with distractions and seeking a personalized approach to task management.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Kiki: The AI-Powered Accountability Companion for the Distracted Mind", "Kiki is a cutting-edge tool designed to help individuals stay on track and achieve their goals, leveraging AI-driven insights to promote productivity and focus. This innovative solution is perfect for those struggling with distractions and seeking a personalized approach to task management.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46849078">HN</a></div>
+                        </div>
+                    </article>
+                
+                    <article class="article span-1">
+                        <div class="article-body">
+                            
+                            <h3 class="headline-sm"><a href="https://failhub.substack.com/p/failhub-issue-1">Learning from the Unsuccessful: A Shift in Engineering Perspective</a></h3>
+                            <div class="metadata">HACKERNEWS</div>
+                            <p class="summary-sm">This article highlights the importance of analyzing real-world engineering failures to improve design and innovation processes. By studying failures, engineers can gain valuable insights that success stories often overlook.</p>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("Learning from the Unsuccessful: A Shift in Engineering Perspective", "This article highlights the importance of analyzing real-world engineering failures to improve design and innovation processes. By studying failures, engineers can gain valuable insights that success stories often overlook.")'>LINK</a> // <a href="https://news.ycombinator.com/item?id=46847456">HN</a></div>
                         </div>
                     </article>
                 </div></section>
@@ -413,5 +543,80 @@
             VERIFIED BY NEURAL CONSENSUS // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
         </footer>
     </div>
+
+    <!-- MARAUDER'S MAP MODAL -->
+    <div id="marauders-modal">
+        <div class="map-content">
+            <span class="map-close" onclick="closeMap()">&times;</span>
+            <div class="map-header">
+                <div class="map-subtitle">Mischief Managed</div>
+                <h2 class="map-title" id="modal-title">Article Detail</h2>
+            </div>
+            <div class="map-body" id="modal-summary">
+                Summary goes here...
+            </div>
+        </div>
+    </div>
+
+    <!-- SVG Filters for Ink Bleed -->
+    <svg style="display:none;">
+        <defs>
+            <filter id="ink-bleed">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
+            </filter>
+        </defs>
+    </svg>
+
+    <script>
+        function openMap(title, summary) {
+            const modal = document.getElementById('marauders-modal');
+            const titleEl = document.getElementById('modal-title');
+            const summaryEl = document.getElementById('modal-summary');
+            
+            titleEl.innerText = title;
+            summaryEl.innerText = summary;
+            
+            modal.style.display = 'block';
+            
+            // Add footprints
+            for(let i=0; i<6; i++) {
+                setTimeout(() => createFootprint(i), i * 300);
+            }
+            
+            setTimeout(() => {
+                modal.classList.add('open');
+                summaryEl.classList.add('ink-spread');
+            }, 1000);
+        }
+
+        function closeMap() {
+            const modal = document.getElementById('marauders-modal');
+            modal.classList.remove('open');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.getElementById('modal-summary').classList.remove('ink-spread');
+            }, 500);
+        }
+
+        function createFootprint(i) {
+            const content = document.querySelector('.map-content');
+            const fp = document.createElement('div');
+            fp.className = 'footprint';
+            fp.style.left = (20 + (i * 10)) + '%';
+            fp.style.top = (80 - (i * 10)) + '%';
+            fp.style.animation = (i % 2 === 0 ? 'walk-left' : 'walk-right') + ' 1.5s forwards';
+            content.appendChild(fp);
+            setTimeout(() => fp.remove(), 1500);
+        }
+
+        // Close on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('marauders-modal');
+            if (event.target == modal) {
+                closeMap();
+            }
+        }
+    </script>
 </body>
 </html>
