@@ -340,11 +340,7 @@ class NewsExporter:
         
         for idx, story in enumerate(front_page_leads):
             layout = "span-8 main-story" if idx == 0 else "span-4 side-story"
-            if img_path:
-                img_filename = os.path.basename(img_path)
-                final_img_src = f"{image_prefix}{img_filename}"
-                # We need js_headline etc for the image link too, but they are defined below. 
-                # Let's move definitions up.
+            img_path = story.get('generated_image_path', '')
             
             headline = story.get('generated_headline', story['original_title'])
             summary = story['summary']
@@ -357,9 +353,12 @@ class NewsExporter:
             js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
             
             if img_path:
+                img_filename = os.path.basename(img_path)
+                final_img_src = f"{image_prefix}{img_filename}"
                 image_html = f'<img src="{final_img_src}" class="news-img" alt="" style="cursor:pointer" onclick=\'openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>'
             else:
                 image_html = ""
+                final_img_src = ""
             
             front_page_html += f'''
                 <article class="article {layout}" id="story-{slug}">
@@ -894,7 +893,25 @@ class NewsExporter:
             opacity: 0;
             border-radius: 50% 50% 40% 40%;
             pointer-events: none;
-            z-index: 100;
+            z-index: 10000;
+        }}
+
+        @keyframes walk-left {{
+            0% {{ opacity: 0; transform: translate(0,0) rotate(-20deg); }}
+            20% {{ opacity: 0.6; }}
+            80% {{ opacity: 0.6; }}
+            100% {{ opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }}
+        }}
+
+        @keyframes walk-right {{
+            0% {{ opacity: 0; transform: translate(20px,20px) rotate(20deg); }}
+            20% {{ opacity: 0.6; }}
+            80% {{ opacity: 0.6; }}
+            100% {{ opacity: 0; transform: translate(60px, -40px) rotate(20deg); }}
+        }}
+
+        #marauders-modal:not(.visible) {{
+            display: none !important;
         }}
     </style>
 
@@ -922,7 +939,7 @@ class NewsExporter:
             imgContainer.innerHTML = imgUrl ? `<img src="${{imgUrl}}" alt="">` : '';
             
             // Show modal
-            modal.style.display = 'flex';
+            modal.classList.add('visible');
             
             // Update URL query param without reload
             const newUrl = new URL(window.location);
@@ -957,7 +974,7 @@ class NewsExporter:
             window.history.pushState({{}}, '', newUrl);
 
             setTimeout(() => {{
-                modal.style.display = 'none';
+                modal.classList.remove('visible');
             }}, 1000);
         }}
 

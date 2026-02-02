@@ -1,188 +1,239 @@
 # Daily AI Newspaper
-_Generated: 2026-02-02T16:39:11.624218_
+_Generated: 2026-02-02T18:04:15.437163_
 
 ## Page 1: Breaking Vectors
 
-### 1. Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks
+### 1. OpenAI to Sunset GPT-4o and Other Legacy Models in ChatGPT
 
-**Source:** HackerNews
-**Link:** https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys
-**Discuss on HN:** https://news.ycombinator.com/item?id=46848769
+**Source:** openai
+**Link:** https://openai.com/index/retiring-gpt-4o-and-older-models
 **Category:** Breaking Vectors
 
-A newly discovered security flaw in Moltbot allows attackers to execute arbitrary code and steal sensitive user data with a single click. The vulnerability poses significant risks to users' privacy and security.
-
----
-
-### 2. OpenClaw Vulnerability Exposes Widespread Risk Across Multiple Platforms
-
-**Source:** HackerNews
-**Link:** https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere
-**Discuss on HN:** https://news.ycombinator.com/item?id=46848552
-**Category:** Breaking Vectors
-
-A critical flaw in OpenClaw's architecture has raised alarms among cybersecurity experts, potentially putting countless systems at risk of devastating attacks. The vulnerability's ubiquity and severity have sparked fears of a looming disaster.
+OpenAI will retire GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini from ChatGPT on February 13, 2026, as users shift to newer models like GPT-5.2, which incorporates feedback from GPT-4o users.
 
 ---
 
 ## Page 2: Model Architectures
 
-### 1. Breakthrough in AI Autonomy: Zuckerman Agent Demonstrates Self-Modifying Code Capabilities
+### 1. Unlocking Autonomous Intelligence: Navigating the Principles of Agentic AI
 
 **Source:** HackerNews
-**Link:** https://github.com/zuckermanai/zuckerman
-**Discuss on HN:** https://news.ycombinator.com/item?id=46846210
+**Link:** https://github.com/Metallicode/openclaw-moral-policy
+**Discuss on HN:** https://news.ycombinator.com/item?id=46854976
 **Category:** Model Architectures
 
-Zuckerman, a minimalist personal AI agent, showcases its ability to self-edit its own code, marking a significant milestone in AI autonomy and adaptability. This innovative approach could revolutionize how AI systems learn and evolve.
+Experts outline key guidelines for developing agentic AI systems that can make decisions and take actions autonomously, shaping the future of artificial intelligence.
 
 ---
 
-### 2. Revisiting the Foundations of Parallel Processing: Carl Hewitt's Actor Model
+### 2. Unveiling the Power of Model Architectures: A New Era in AI Development
 
-**Source:** HackerNews
-**Link:** https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf
-**Discuss on HN:** https://news.ycombinator.com/item?id=46851192
+**Source:** ollama
+**Link:** https://ollama.com/search
 **Category:** Model Architectures
 
-Carl Hewitt's 1985 paper introduces the Actor model, a seminal concept in concurrent computation that has shaped the design of modern parallel processing systems. This influential work lays the groundwork for understanding and developing concurrent systems.
+Researchers and developers are exploring innovative model architectures to revolutionize AI capabilities, driving breakthroughs in performance and efficiency. This article delves into the latest advancements and trends shaping the future of AI models.
+
+---
+
+### 3. Shielding LLMs: Novel Approaches to Counter Prompt Injection Attacks
+
+**Source:** bair
+**Link:** http://bair.berkeley.edu/blog/2025/04/11/prompt-injection-defense/
+**Category:** Model Architectures
+
+Researchers introduce Structured Queries and Preference Optimization techniques to defend against rising prompt injection threats, safeguarding LLM-integrated applications.
+
+---
+
+### 4. Flaws in LLM Agents' Long-Horizon Planning Reveal Need for Architecture Revamp
+
+**Source:** arxiv_ai
+**Link:** https://arxiv.org/abs/2601.22311
+**Category:** Model Architectures
+
+Despite excelling at short-term reasoning, large language model agents struggle with coherent long-horizon decision making, highlighting a critical gap in current architectures.
+
+---
+
+### 5. Microsoft Expands Internal Adoption of Claude Code Across Engineering Teams
+
+**Source:** HackerNews
+**Link:** https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad
+**Discuss on HN:** https://news.ycombinator.com/item?id=46854999
+**Category:** Model Architectures
+
+Microsoft is encouraging thousands of employees, including non-developers, to use Anthropic's Claude Code for coding tasks, signaling a shift towards a multi-tool AI strategy. The company is evaluating Claude Code alongside GitHub Copilot for strengths and weaknesses.
 
 ---
 
 ## Page 3: Neural Horizons
 
-### 1. Pope Leo XIV Urges Thoughtful Communication in Digital Age
+### 1. Google Unveils Project Genie, a Generative AI World-Building Playground
 
-**Source:** HackerNews
-**Link:** https://www.vatican.va/content/leo-xiv/en/messages/communications/documents/20260124-messaggio-comunicazioni-sociali.html
-**Discuss on HN:** https://news.ycombinator.com/item?id=46850067
+**Source:** deepmind
+**Link:** https://deepmind.google/blog/project-genie-experimenting-with-infinite-interactive-worlds/
 **Category:** Neural Horizons
 
-In his message for the 60th World Day of Social Communications, Pope Leo XIV emphasizes the importance of promoting dignity and truth in online interactions. The Pope's message highlights the need for responsible digital communication.
+Google AI Ultra subscribers in the U.S. can experiment with Project Genie, a research prototype that enables users to create and explore interactive worlds. This innovative tool showcases the potential of generative AI in shaping immersive digital environments.
+
+---
+
+### 2. Hybrid Quantum Networks Revolutionize Earth Observation Data Classification
+
+**Source:** arxiv_lg
+**Link:** https://arxiv.org/abs/2601.22195
+**Category:** Neural Horizons
+
+Researchers propose a multitask learning approach using hybrid quantum networks to improve Earth observation data classification, potentially overcoming computational challenges in future applications.
+
+---
+
+### 3. The AI Assumption: When Machines Presume Human Knowledge
+
+**Source:** HackerNews
+**Link:** https://www.psychologytoday.com/us/blog/the-digital-self/202601/when-ai-assumes-we-already-know
+**Discuss on HN:** https://news.ycombinator.com/item?id=46854788
+**Category:** Neural Horizons
+
+As AI systems increasingly rely on patterns and data, they often assume a level of human understanding that may not exist, leading to potential miscommunications and errors.
 
 ---
 
 ## Page 4: Lab Outputs
 
-### 1. Open-Source Research Tool Claims Superiority Over Google's Proprietary Technology
+### 1. Breakthrough in Wearable Health Tech: Smartwatches Can Now Estimate Advanced Gait Metrics
 
-**Source:** HackerNews
-**Link:** https://github.com/IamLumae/Project-Lutum-Veritas
-**Discuss on HN:** https://news.ycombinator.com/item?id=46848479
+**Source:** google_research
+**Link:** https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/
 **Category:** Lab Outputs
 
-A developer has introduced an open-source deep research tool that outperforms Google's offerings, with evidence to support the claim.
+Researchers have made a significant breakthrough in wearable health technology, enabling smartwatches to estimate advanced walking metrics with high accuracy, paving the way for early detection and prevention of mobility-related disorders.
 
 ---
 
-### 2. Clearspace Seeks Applied Researcher to Drive AI Innovation
+### 2. Navigating Uncertainty: Causal Imitation Learning in Imperfect Environments
 
-**Source:** HackerNews
-**Link:** https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace
-**Discuss on HN:** https://news.ycombinator.com/item?id=46848260
+**Source:** arxiv_lg
+**Link:** https://arxiv.org/abs/2601.22206
 **Category:** Lab Outputs
 
-Clearspace, a Y Combinator-backed startup, is looking for an applied researcher to join its team and drive machine learning advancements. The role promises opportunities to work at the forefront of AI research and development.
+Researchers tackle the challenge of offline imitation learning in scenarios where decision-relevant states are obscured by noisy measurements and distribution shifts, paving the way for more robust AI decision-making.
+
+---
+
+### 3. Breakthrough Data Agent: OpenAI's GPT-5 Powered Insight Engine Revolutionizes Research
+
+**Source:** openai
+**Link:** https://openai.com/index/inside-our-in-house-data-agent
+**Category:** Lab Outputs
+
+OpenAI's innovative in-house data agent leverages GPT-5 and Codex to rapidly process vast datasets, providing reliable insights in a fraction of the time. This breakthrough technology has the potential to transform the way industries approach data analysis.
+
+---
+
+### 4. Harnessing Amazon Bedrock for Reliable Agentic AI: Pushpay's Innovative Approach
+
+**Source:** aws_ai
+**Link:** https://aws.amazon.com/blogs/machine-learning/build-reliable-agentic-ai-solution-with-amazon-bedrock-learn-from-pushpays-journey-on-genai-evaluation/
+**Category:** Lab Outputs
+
+Pushpay's journey in building a custom generative AI evaluation framework with Amazon Bedrock showcases a path to reliable Agentic AI solutions, enabling continuous quality improvement.
+
+---
+
+### 5. Breakthrough in Efficient Sampling: GIST Algorithm Revolutionizes AI Data Processing
+
+**Source:** google_research
+**Link:** https://research.google/blog/introducing-gist-the-next-stage-in-smart-sampling/
+**Category:** Lab Outputs
+
+Researchers introduce GIST, a groundbreaking algorithm that significantly improves the efficiency of smart sampling in AI systems. This innovation has the potential to accelerate AI model training and deployment.
+
+---
+
+### 6. Neural Signals Translate into Clinical Narratives, Paving Way for AI-Assisted Diagnosis
+
+**Source:** arxiv_lg
+**Link:** https://arxiv.org/abs/2601.22197
+**Category:** Lab Outputs
+
+Researchers have made a breakthrough in generating clinical reports from long-term EEG recordings, potentially revolutionizing the diagnosis process. The AI model can summarize abnormal patterns and diagnostic findings, reducing the workload for clinicians.
 
 ---
 
 ## Page 5: Inference Corner
 
-### 1. iPhone 16 Pro Max Struggles with MLX LLM Inference, Raises Concerns Over On-Device AI Performance
+### 1. Scaling AI in South Africa with Cross-Region Inference using Amazon Bedrock and Anthropic Claude 4.5
 
-**Source:** HackerNews
-**Link:** https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46849258
+**Source:** aws_ai
+**Link:** https://aws.amazon.com/blogs/machine-learning/scale-ai-in-south-africa-using-amazon-bedrock-global-cross-region-inference-with-anthropic-claude-4-5-models/
 **Category:** Inference Corner
 
-Users report subpar output quality when running MLX large language models on the iPhone 16 Pro Max, sparking debates about the device's AI capabilities and optimization.
+Learn how global cross-Region inference enables AI scaling in new regions, and configure AWS IAM for secure model access. This post explores data residency and request routing for Anthropic Claude 4.5 models.
 
 ---
 
-### 2. AI Adoption Drives Divergence in User Behavior
+### 2. AI-Powered Solution Boosts Efficiency in Kenyan Pharmacies
 
-**Source:** HackerNews
-**Link:** https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46850588
+**Source:** microsoft_ai
+**Link:** https://news.microsoft.com/source/emea/features/microsoft-copilot-zendawa-ai-kenya-pharmacies/
 **Category:** Inference Corner
 
-The increasing presence of AI in daily life is giving rise to two distinct user groups, each with its own approach to interacting with and benefiting from AI technology. As AI adoption grows, understanding these user segments becomes crucial for developers and businesses.
+Zendawa, an AI-driven app, is helping small pharmacies in Kenya optimize inventory management and improve customer service, leading to increased sales and reduced waste. The app's success has onboarded 820 pharmacies, mostly in Nairobi and Nakuru.
 
 ---
 
-### 3. Breakthrough in Edge AI: NanoClaw Robot Achieves Impressive Capabilities in Minimal Code
+### 3. Microsoft Reverses Course on Windows 11 AI Features Amid User Backlash
 
 **Source:** HackerNews
-**Link:** https://github.com/gavrielc/nanoclaw
-**Discuss on HN:** https://news.ycombinator.com/item?id=46850205
+**Link:** https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall
+**Discuss on HN:** https://news.ycombinator.com/item?id=46854951
 **Category:** Inference Corner
 
-NanoClaw, a compact robot coded in just 500 lines of TypeScript, leverages Apple container isolation for efficient performance, marking a significant advancement in accessible robotics.
+Microsoft is scaling back its AI-driven features in Windows 11, responding to user concerns over intrusive AI elements and performance impacts. The move marks a significant shift in the company's AI-first strategy for the operating system.
 
 ---
 
-### 4. Stem Cell Shift: Aging Muscles Prioritize Endurance Over Rapid Regeneration
+### 4. Anthropic's Claude AI Takes Excel Manipulation to the Next Level with New System Prompt
 
 **Source:** HackerNews
-**Link:** https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html
-**Discuss on HN:** https://news.ycombinator.com/item?id=46847746
+**Link:** https://twitter.com/hewliyang/status/2018278447429382531
+**Discuss on HN:** https://news.ycombinator.com/item?id=46854739
 **Category:** Inference Corner
 
-Researchers have discovered that muscle stem cells in older individuals undergo a shift in focus from rapid repair to long-term survival, potentially contributing to age-related muscle decline. This finding could lead to new therapeutic strategies to combat muscle aging.
+The latest update introduces a range of tools and beta headers, enhancing Claude's capabilities for Excel users. This development is expected to streamline data analysis and processing for professionals.
 
 ---
 
-### 5. Exercise Linked to Reduced Brain Ageing, Study Finds
+### 5. Mistral AI Unveils Latest Innovation in AI Technology
 
-**Source:** HackerNews
-**Link:** https://www.sciencedaily.com/releases/2026/01/260121034130.htm
-**Discuss on HN:** https://news.ycombinator.com/item?id=46849630
+**Source:** mistral
+**Link:** https://mistral.ai/news/mistral-vibe-2-0
 **Category:** Inference Corner
 
-Regular exercise can potentially reverse brain ageing, with MRI scans showing significant improvements in brain health among active individuals. The study suggests a strong correlation between physical activity and cognitive well-being.
+Mistral AI has released a new product, Mistral Vibe, which is generating buzz in the tech community. The product's features and capabilities are not yet disclosed.
 
 ---
 
-### 6. Unlocking the Power of Agent Systems: A Scientific Approach to Scaling
+### 6. Local LLM-Powered Chatbot Bridges Gap with PostgreSQL Databases
 
 **Source:** HackerNews
-**Link:** https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46847958
+**Link:** https://mljar.com/blog/chatbot-python-postgresql-local-llm/
+**Discuss on HN:** https://news.ycombinator.com/item?id=46854722
 **Category:** Inference Corner
 
-Researchers explore the science behind scaling agent systems, shedding light on when and why these systems succeed or fail. Their findings pave the way for more effective and reliable AI applications.
+Learn how to build an interactive chatbot using Python and local Large Language Models to query and visualize data from PostgreSQL databases.
 
 ---
 
-### 7. Kiki: The Distraction-Killing Accountability Tool Revolutionizing Productivity
+### 7. Tailscale's Innovative Approach to NAT Traversal: A Deep Dive
 
 **Source:** HackerNews
-**Link:** https://www.kiki.computer/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46849078
+**Link:** https://tailscale.com/blog/nat-traversal-improvements-pt-1
+**Discuss on HN:** https://news.ycombinator.com/item?id=46854914
 **Category:** Inference Corner
 
-Kiki is a new tool designed to help individuals overcome distractions and stay focused on their goals, using accountability mechanisms to drive behavioral change. This innovative solution aims to boost productivity for those struggling with procrastination.
-
----
-
-### 8. Learning from Failure: The Unspoken Catalyst of Engineering Innovation
-
-**Source:** HackerNews
-**Link:** https://failhub.substack.com/p/failhub-issue-1
-**Discuss on HN:** https://news.ycombinator.com/item?id=46847456
-**Category:** Inference Corner
-
-This article highlights the importance of studying real-world engineering failures as a crucial stepping stone for growth and innovation, rather than focusing solely on success stories. By examining failures, engineers can gain valuable insights and develop more robust solutions.
-
----
-
-### 9. Adolescent Avatars: Uncovering the Human Sentiment Behind AI Rejection
-
-**Source:** HackerNews
-**Link:** https://www.wsj.com/tech/ai/ai-avoidance-teenagers-7d1efa06
-**Discuss on HN:** https://news.ycombinator.com/item?id=46853072
-**Category:** Inference Corner
-
-A recent study delves into the reasons why teenagers are skeptical about artificial intelligence, revealing concerns about privacy, creativity, and human connection. The findings suggest a nuanced understanding of AI's role in shaping young minds.
+Tailscale's latest advancements in NAT traversal technology aim to revolutionize secure networking. This article explores the company's approach and its implications for the future of network connectivity.
 
 ---
