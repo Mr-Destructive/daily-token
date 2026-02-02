@@ -198,10 +198,10 @@ class NewsExporter:
             f.write(content)
         return output_path
 
-    def export_html(self, output_path: str) -> str:
+    def export_html(self, output_path: str, image_prefix: str = "images/") -> str:
         """Export as interactive HTML newspaper"""
         
-        html_content = self._generate_html()
+        html_content = self._generate_html(image_prefix=image_prefix)
         
         with open(output_path, 'w') as f:
             f.write(html_content)
@@ -308,7 +308,7 @@ class NewsExporter:
             f.write(full_html)
         return output_path
     
-    def _generate_html(self) -> str:
+    def _generate_html(self, image_prefix: str = "images/") -> str:
         """Generate professional, dense, adaptive newspaper-style HTML"""
         
         # Collect all stories and sort by significance
@@ -337,7 +337,12 @@ class NewsExporter:
         for idx, story in enumerate(front_page_leads):
             layout = "span-8 main-story" if idx == 0 else "span-4 side-story"
             img_path = story.get('generated_image_path', '')
-            image_html = f'<img src="{img_path}" class="news-img" alt="">' if img_path else ""
+            if img_path:
+                img_filename = os.path.basename(img_path)
+                final_img_src = f"{image_prefix}{img_filename}"
+                image_html = f'<img src="{final_img_src}" class="news-img" alt="">'
+            else:
+                image_html = ""
             
             front_page_html += f'''
                 <article class="article {layout}">
@@ -381,7 +386,12 @@ class NewsExporter:
             
             for idx, story in enumerate(stories):
                 img_path = story.get('generated_image_path', '')
-                image_html = f'<img src="{img_path}" class="news-img" alt="">' if img_path else ""
+                if img_path:
+                    img_filename = os.path.basename(img_path)
+                    final_img_src = f"{image_prefix}{img_filename}"
+                    image_html = f'<img src="{final_img_src}" class="news-img" alt="">'
+                else:
+                    image_html = ""
                 
                 layout_pref = story.get('image_layout', 'SQUARE')
                 col_span = "span-2" if layout_pref == "WIDE" else "span-1"

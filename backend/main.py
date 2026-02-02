@@ -21,40 +21,23 @@ from scraper import NewsAggregator
 from processor_with_router import NewsProcessorWithRouter as NewsProcessor
 from exporter import NewsExporter
 
-def archive_current_edition(repo_root: Path):
-    """Move files from output/current to output/archive/YYYY/MM/DD"""
+def archive_current_edition(repo_root: Path) -> Path:
+    """Prepare archive directory for YYYY/MM/DD"""
     current_dir = repo_root / "output" / "current"
     metadata_file = current_dir / "metadata.json"
     
-    if not metadata_file.exists():
-        return
-        
-    try:
-        with open(metadata_file, 'r') as f:
-            meta = json.load(f)
-            dt = datetime.fromisoformat(meta['timestamp'])
-    except Exception:
-        dt = datetime.now()
+    dt = datetime.now()
+    if metadata_file.exists():
+        try:
+            with open(metadata_file, 'r') as f:
+                meta = json.load(f)
+                dt = datetime.fromisoformat(meta['timestamp'])
+        except Exception: pass
         
     archive_base = repo_root / "output" / "archive"
     archive_dir = archive_base / dt.strftime('%Y') / dt.strftime('%m') / dt.strftime('%d')
     archive_dir.mkdir(parents=True, exist_ok=True)
-    
-    print(f"\n[0/5] Archiving previous edition to {archive_dir.relative_to(repo_root)}...")
-    
-    # Move all files from current to archive
-    for item in current_dir.iterdir():
-        if item.is_file() and not item.name.startswith('.'):
-            shutil.copy2(item, archive_dir / item.name)
-
-    # Create a simple redirect index.html for the archive folder
-    redirect_html = f"""<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=newspaper.html"></head>
-    <body><p>Redirecting to <a href="newspaper.html">newspaper.html</a>...</p></body></html>"""
-    
-    with open(archive_dir / "index.html", 'w') as f:
-        f.write(redirect_html)
-            
-    print(f"   ✓ Archived previous edition with redirect index")
+    return archive_dir
 
 def generate_daily_newspaper() -> Dict:
     """Main pipeline: scrape → process → export"""
@@ -153,25 +136,41 @@ def generate_daily_newspaper() -> Dict:
     print("\n[5/5] Exporting newspaper...")
     exporter = NewsExporter(organized)
     
-    output_dir = repo_root / "output" / "current"
-    output_dir.mkdir(parents=True, exist_ok=True)
+    # 5a. Export Current Edition
+    current_dir = repo_root / "output" / "current"
+    current_dir.mkdir(parents=True, exist_ok=True)
     
-    html_file = exporter.export_html(str(output_dir / "newspaper.html"))
-    json_file = exporter.export_json(str(output_dir / "newspaper.json"))
-    md_file = exporter.export_markdown(str(output_dir / "newspaper.md"))
-    txt_file = exporter.export_text(str(output_dir / "newspaper.txt"))
-    rss_file = exporter.export_rss_feed(str(output_dir / "feed.xml"))
+    html_file = exporter.export_html(str(current_dir / "newspaper.html"), image_prefix="/daily-token/images/")
+    json_file = exporter.export_json(str(current_dir / "newspaper.json"))
+    md_file = exporter.export_markdown(str(current_dir / "newspaper.md"))
+    txt_file = exporter.export_text(str(current_dir / "newspaper.txt"))
+    rss_file = exporter.export_rss_feed(str(current_dir / "feed.xml"))
     
-    # Generate the main archive index page (historical list)
+    # 5b. Export Dated Archive
+    archive_dir = archive_current_edition(repo_root)
+    # For archive folders, we use the absolute path /daily-token/images/ to be safe
+    exporter.export_html(str(archive_dir / "newspaper.html"), image_prefix="/daily-token/images/")
+    exporter.export_json(str(archive_dir / "newspaper.json"))
+    exporter.export_markdown(str(archive_dir / "newspaper.md"))
+    exporter.export_text(str(archive_dir / "newspaper.txt"))
+    
+    # Create redirect index for archive
+    redirect_html = f"""<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=newspaper.html"></head>
+    <body><p>Redirecting to <a href="newspaper.html">newspaper.html</a>...</p></body></html>"""
+    with open(archive_dir / "index.html", 'w') as f:
+        f.write(redirect_html)
+
+    # 5c. Generate Archive Index
     archive_index = exporter.export_archive_index(
         str(repo_root / "output" / "archive"),
         str(repo_root / "output" / "archive" / "index.html")
     )
     
+    # Copy landing page
     import shutil
     landing_src = repo_root / "frontend" / "index.html"
     if landing_src.exists():
-        shutil.copy2(landing_src, output_dir / "index.html")
+        shutil.copy2(landing_src, current_dir / "index.html")
     
     metadata = {
         'timestamp': datetime.now().isoformat(),
