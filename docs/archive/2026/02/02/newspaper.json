@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "generated": "2026-02-02T04:38:55.572711",
+    "format_version": "1.0"
+  },
+  "pages": {
+    "1": {
+      "title": "Breaking Vectors",
+      "story_count": 0,
+      "stories": []
+    },
+    "2": {
+      "title": "Model Architectures",
+      "story_count": 1,
+      "stories": [
+        {
+          "original_title": "Towards a science of scaling agent systems: When and why agent systems work",
+          "generated_headline": "Unlocking the Secrets of Scalable Agent Systems: A New Framework Emerges",
+          "url": "https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/",
+          "hn_url": "https://news.ycombinator.com/item?id=46847958",
+          "source": "HackerNews",
+          "score": 56,
+          "significance_score": 90,
+          "category": "Model Architectures",
+          "category_id": 2,
+          "confidence": 0.95,
+          "summary": "Researchers are making strides in understanding the intricacies of agent systems, proposing a framework that sheds light on when and why these systems succeed, paving the way for more effective AI architectures. This breakthrough could revolutionize the design of complex AI systems.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769968830,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "3": {
+      "title": "Neural Horizons",
+      "story_count": 1,
+      "stories": [
+        {
+          "original_title": "Actors: A Model of Concurrent Computation [pdf] (1985)",
+          "generated_headline": "Pioneering Concurrent Computation: The Actor Model Revisited",
+          "url": "https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf",
+          "hn_url": "https://news.ycombinator.com/item?id=46851192",
+          "source": "HackerNews",
+          "score": 36,
+          "significance_score": 90,
+          "category": "Neural Horizons",
+          "category_id": 3,
+          "confidence": 0.8,
+          "summary": "This seminal 1985 paper by Carl Hewitt and Gul Agha introduces the Actor model, a foundational concept in concurrent computation that has influenced modern AI and distributed systems. The model provides a framework for understanding and designing systems that process multiple tasks simultaneously.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769994675,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "4": {
+      "title": "Lab Outputs",
+      "story_count": 1,
+      "stories": [
+        {
+          "original_title": "Show HN: My Open Source Deep Research tools beats Google and I can Prove it",
+          "generated_headline": "Open-Source Research Tool Claims Superiority Over Google's Proprietary Solutions",
+          "url": "https://github.com/IamLumae/Project-Lutum-Veritas",
+          "hn_url": "https://news.ycombinator.com/item?id=46848479",
+          "source": "HackerNews",
+          "score": 4,
+          "significance_score": 85,
+          "category": "Lab Outputs",
+          "category_id": 4,
+          "confidence": 0.95,
+          "summary": "A developer has released an open-source deep research tool, Project Lutum Veritas, claiming it outperforms Google's offerings, sparking interest in the potential of community-driven research solutions. The tool's capabilities and transparency may challenge traditional search giants.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769972981,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "5": {
+      "title": "Inference Corner",
+      "story_count": 7,
+      "stories": [
+        {
+          "original_title": "What I learned building an opinionated and minimal coding agent",
+          "generated_headline": "The Art of Simplicity: Lessons from Building a Streamlined Coding Agent",
+          "url": "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/",
+          "hn_url": "https://news.ycombinator.com/item?id=46844822",
+          "source": "HackerNews",
+          "score": 364,
+          "significance_score": 80,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.95,
+          "summary": "A developer shares insights from creating a minimal yet effective coding agent, highlighting the importance of opinionated design in achieving streamlined AI-powered coding tools. This reflection offers valuable takeaways for building efficient AI systems.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769938426,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "Show HN: Zuckerman \u2013 minimalist personal AI agent that self-edits its own code",
+          "generated_headline": "Minimalist AI Agent Zuckerman Emerges, Capable of Self-Modifying Code",
+          "url": "https://github.com/zuckermanai/zuckerman",
+          "hn_url": "https://news.ycombinator.com/item?id=46846210",
+          "source": "HackerNews",
+          "score": 68,
+          "significance_score": 85,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.95,
+          "summary": "Zuckerman is a new open-source AI agent that starts small and grows by editing its own code, offering a collaborative ecosystem for personal AIs. This approach enables real-time self-improvement and sharing of advancements with other agents \u00b9.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769953815,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "'Tesla is (still) trying to deceive investors into thinking it has SF robotaxis'",
+          "generated_headline": "Tesla's Misleading Claims on Robotaxi Capabilities Raise Concerns",
+          "url": "https://electrek.co/2026/01/28/tesla-is-still-trying-to-deceive-investors-into-thinking-it-has-sf-robotaxis/",
+          "hn_url": "https://news.ycombinator.com/item?id=46844257",
+          "source": "HackerNews",
+          "score": 63,
+          "significance_score": 80,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.95,
+          "summary": "Tesla's recent statements about its San Francisco robotaxi project have been criticized as deceptive, sparking worries about the company's transparency with investors. The claims have fueled ongoing debates about the readiness of autonomous driving technology.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769930710,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "OpenClaw is everywhere all at once, and a disaster waiting to happen",
+          "generated_headline": "The Lacking Oversight of Open-Source AI Agents Raises Concerns",
+          "url": "https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere",
+          "hn_url": "https://news.ycombinator.com/item?id=46848552",
+          "source": "HackerNews",
+          "score": 37,
+          "significance_score": 90,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.95,
+          "summary": "The proliferation of open-source AI agents like OpenClaw, capable of executing tasks autonomously, has sparked fears of unintended consequences and misuse. Experts warn that the lack of regulation and oversight may lead to disastrous outcomes.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769973609,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "Show HN: NanoClaw \u2013 \u201cClawdbot\u201d in 500 lines of TS with Apple container isolation",
+          "generated_headline": "Breakthrough in Edge AI: NanoClaw Robot Achieves Container Isolation in Under 500 Lines of Code",
+          "url": "https://github.com/gavrielc/nanoclaw",
+          "hn_url": "https://news.ycombinator.com/item?id=46850205",
+          "source": "HackerNews",
+          "score": 241,
+          "significance_score": 85,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.9,
+          "summary": "Researchers have successfully developed NanoClaw, a compact robot utilizing Apple container isolation, showcasing the potential for efficient and secure edge AI applications. This innovation could pave the way for widespread adoption of AI-powered devices.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769986162,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "Clearspace (YC W23) Is Hiring an Applied Researcher (ML)",
+          "generated_headline": "Clearspace Seeks Top Talent to Drive AI Innovation",
+          "url": "https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace",
+          "hn_url": "https://news.ycombinator.com/item?id=46848260",
+          "source": "HackerNews",
+          "score": 1,
+          "significance_score": 70,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.9,
+          "summary": "Clearspace, a Y Combinator-backed startup, is looking for an applied researcher to join its machine learning team and drive advancements in AI-powered solutions. This hire underscores the company's commitment to leveraging cutting-edge research to fuel its growth.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769971314,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "Two kinds of AI users are emerging",
+          "generated_headline": "The Great Divide: AI Users Split into Two Distinct Camps",
+          "url": "https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/",
+          "hn_url": "https://news.ycombinator.com/item?id=46850588",
+          "source": "HackerNews",
+          "score": 69,
+          "significance_score": 80,
+          "category": "Inference Corner",
+          "category_id": 5,
+          "confidence": 0.8,
+          "summary": "As AI adoption accelerates, a growing divide is emerging between users who leverage AI as a tool to augment their capabilities and those who rely on it as a crutch to compensate for lack of expertise. This dichotomy has significant implications for the future of work and AI development.",
+          "selected_image_url": null,
+          "image_layout": "SQUARE",
+          "published": 1769989518,
+          "generated_image_path": null
+        }
+      ]
+    }
+  }
+}
