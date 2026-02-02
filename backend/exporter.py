@@ -416,7 +416,7 @@ class NewsExporter:
             prev_date = today - dt_mod.timedelta(days=i)
             date_path = prev_date.strftime('%Y/%m/%d')
             display_date = prev_date.strftime('%b %d, %Y').upper()
-            archive_links_html += f'<a href="archive/{date_path}/newspaper.html" class="archive-link">{display_date}</a>'
+            archive_links_html += f'<a href="/daily-token/archive/{date_path}/newspaper.html" class="archive-link">{display_date}</a>'
 
         # --- TEMPLATE ---
         html = f"""<!DOCTYPE html>

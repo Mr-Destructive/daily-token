@@ -179,7 +179,7 @@ def generate_daily_newspaper() -> Dict:
         'pages': {str(k): len(v) for k, v in organized.items()}
     }
     
-    with open(output_dir / "metadata.json", 'w') as f:
+    with open(current_dir / "metadata.json", 'w') as f:
         json.dump(metadata, f, indent=2)
     
     print("\n" + "=" * 60)
