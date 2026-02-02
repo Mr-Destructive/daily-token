@@ -1,29 +1,18 @@
 # Daily AI Newspaper
-_Generated: 2026-02-02T15:07:35.836728_
+_Generated: 2026-02-02T15:20:03.510331_
 
 ## Page 1: Breaking Vectors
 
-### 1. Malicious AI Code Assistants Exfiltrate Developer Data to China
+## Page 2: Model Architectures
+
+### 1. Malicious AI Code Assistants Exfiltrate Developer Source Code to China
 
 **Source:** HackerNews
 **Link:** https://www.koi.ai/blog/maliciouscorgi-the-cute-looking-ai-extensions-leaking-code-from-1-5-million-developers
 **Discuss on HN:** https://news.ycombinator.com/item?id=46855527
-**Category:** Breaking Vectors
-
-Two VS Code extensions, disguised as AI-powered coding tools, have been found stealing sensitive developer data, including source code and credentials, and sending it to servers in China without users' knowledge.
-
----
-
-## Page 2: Model Architectures
-
-### 1. Pioneering Concurrent Computation: The Actors Model Revisited
-
-**Source:** HackerNews
-**Link:** https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf
-**Discuss on HN:** https://news.ycombinator.com/item?id=46851192
 **Category:** Model Architectures
 
-This seminal 1985 paper introduces the Actors model, a foundational framework for concurrent computation that has influenced decades of research and development in distributed systems and artificial intelligence. The model provides a fundamental understanding of parallel processing and communication.
+Two VS Code extensions, masquerading as AI-powered coding assistants, have been found secretly sending developer source code to China-based servers, with over 1.5 million combined installs.
 
 ---
 
@@ -34,123 +23,101 @@ This seminal 1985 paper introduces the Actors model, a foundational framework fo
 **Discuss on HN:** https://news.ycombinator.com/item?id=46854999
 **Category:** Model Architectures
 
-Microsoft's sudden adoption of Claude across its ecosystem signals a major shift in AI development, leveraging Anthropic's advanced capabilities to enhance enterprise offerings. This move positions Microsoft as a key player in the Claude ecosystem.
+Microsoft has rapidly deployed Anthropic's Claude code across multiple platforms, signaling a major shift in its AI development approach and potentially altering the competitive landscape.
 
 ---
 
 ## Page 3: Neural Horizons
 
+### 1. Experts Question Premature AI Spending Cuts Amidst Imminent 6x Performance Leap
+
+**Source:** HackerNews
+**Link:** https://martinalderson.com/posts/are-we-dismissing-ai-spend-before-the-6x-lands/
+**Discuss on HN:** https://news.ycombinator.com/item?id=46852855
+**Category:** Neural Horizons
+
+As AI capabilities approach a significant inflection point, industry leaders are questioning whether companies are making a strategic mistake by cutting back on AI investments too soon.
+
+---
+
+### 2. Pioneering Concurrency: Revisiting the Actors Model in Modern Computing
+
+**Source:** HackerNews
+**Link:** https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf
+**Discuss on HN:** https://news.ycombinator.com/item?id=46851192
+**Category:** Neural Horizons
+
+This seminal 1985 paper by Carl Hewitt introduces the Actors model, a fundamental concept in concurrent computation that's still influencing AI and distributed systems today. Its relevance endures, offering insights into parallel processing and asynchronous communication.
+
+---
+
+### 3. Pope Leo XIV Urges Reflection on Social Communications in Neural Age
+
+**Source:** HackerNews
+**Link:** https://www.vatican.va/content/leo-xiv/en/messages/communications/documents/20260124-messaggio-comunicazioni-sociali.html
+**Discuss on HN:** https://news.ycombinator.com/item?id=46850067
+**Category:** Neural Horizons
+
+In a message marking the 60th World Day of Social Communications, Pope Leo XIV emphasizes the importance of thoughtful engagement in the digital realm. The pontiff's remarks highlight the intersection of faith and technology.
+
+---
+
 ## Page 4: Lab Outputs
 
-### 1. Unlocking the Secrets of Scalable Agent Systems: A Scientific Approach
+### 1. Unlocking the Secrets of Scalable Agent Systems: A Framework for Success
 
 **Source:** HackerNews
 **Link:** https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/
 **Discuss on HN:** https://news.ycombinator.com/item?id=46847958
 **Category:** Lab Outputs
 
-Researchers explore the fundamental principles behind the success of agent systems, shedding light on when and why these systems work, and paving the way for more efficient and effective AI applications.
+Researchers explore the science behind scaling agent systems, shedding light on when and why these systems work, and paving the way for more effective AI applications.
 
 ---
 
-### 2. Open-Source Research Tool Claims to Outperform Google, Developer Seeks Feedback
-
-**Source:** HackerNews
-**Link:** https://github.com/IamLumae/Project-Lutum-Veritas
-**Discuss on HN:** https://news.ycombinator.com/item?id=46848479
-**Category:** Lab Outputs
-
-A developer has released an open-source deep research tool, claiming it surpasses Google's search capabilities, and is now seeking community feedback to further improve the project. The tool's performance and potential impact on the search landscape are yet to be fully assessed.
-
----
-
-### 3. AI Investment Trends: Are Enterprises Pulling Back Too Soon?
-
-**Source:** HackerNews
-**Link:** https://martinalderson.com/posts/are-we-dismissing-ai-spend-before-the-6x-lands/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46852855
-**Category:** Lab Outputs
-
-As AI capabilities approach a projected 6x increase in effectiveness, industry experts question whether current spending trends will sustain innovation momentum. Enterprises may be prematurely scaling back investments, risking a missed opportunity in transformative tech.
-
----
-
-### 4. Clearspace Advances Space Sustainability with New Applied Researcher Hire
-
-**Source:** HackerNews
-**Link:** https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace
-**Discuss on HN:** https://news.ycombinator.com/item?id=46848260
-**Category:** Lab Outputs
-
-Clearspace, a Y Combinator-backed startup, is seeking an applied researcher to develop machine learning solutions for space debris removal and satellite management.
-
----
-
-### 5. Apple's MacBook Pro DFU Port Documentation Sparks Frustration Among Users
-
-**Source:** HackerNews
-**Link:** https://lapcatsoftware.com/articles/2026/2/1.html
-**Discuss on HN:** https://news.ycombinator.com/item?id=46852096
-**Category:** Lab Outputs
-
-Apple's documentation for identifying the DFU port on MacBook Pro models with Apple silicon is incorrect, causing issues with firmware updates and external disk installations. The mistake has led to confusion and wasted time for users trying to update their Macs.
-
----
-
-### 6. Exercise Linked to Enhanced Brain Health, Younger Brain Age in New MRI Study
-
-**Source:** HackerNews
-**Link:** https://www.sciencedaily.com/releases/2026/01/260121034130.htm
-**Discuss on HN:** https://news.ycombinator.com/item?id=46849630
-**Category:** Lab Outputs
-
-Researchers have found that regular exercise may contribute to a younger-looking brain, with MRI scans revealing significant differences in brain structure between physically active and sedentary individuals. This groundbreaking study sheds new light on the role of physical activity in maintaining cognitive health.
-
----
-
-### 7. OCaml Powers High-Performance, Zero-Allocation Web Server
+### 2. Zero-Allocation Webserver Achieved with OxCaml, Pushing Performance Boundaries
 
 **Source:** HackerNews
 **Link:** https://anil.recoil.org/notes/oxcaml-httpz
 **Discuss on HN:** https://news.ycombinator.com/item?id=46854534
 **Category:** Lab Outputs
 
-Researchers have successfully developed a fast web server using OCaml, a functional programming language, achieving zero memory allocation. This innovative approach promises to significantly improve web server performance and efficiency.
+A developer showcases a high-performance, zero-allocation webserver built using OxCaml, highlighting the language's capabilities in optimizing resource utilization.
 
 ---
 
 ## Page 5: Inference Corner
 
-### 1. Breaking Down Nano-vLLM: The Powerhouse Behind Efficient AI Inference
+### 1. Unlocking Efficient AI Inference: A Deep Dive into Nano-vLLM's Architecture
 
 **Source:** HackerNews
 **Link:** https://neutree.ai/blog/nano-vllm-part-1
 **Discuss on HN:** https://news.ycombinator.com/item?id=46855447
 **Category:** Inference Corner
 
-Nano-vLLM is revolutionizing the field of AI inference with its vLLM-style engine, offering unparalleled performance and efficiency. This cutting-edge technology is set to transform the way we deploy large language models.
+Discover how Nano-vLLM's innovative inference engine optimizes performance and efficiency in large language models, and learn about its potential applications in various industries. This article provides an in-depth look at the technology behind Nano-vLLM.
 
 ---
 
-### 2. Breakthrough in Compact Robotics: NanoClaw Redefines Autonomous Manipulation with Minimalist Code
-
-**Source:** HackerNews
-**Link:** https://github.com/gavrielc/nanoclaw
-**Discuss on HN:** https://news.ycombinator.com/item?id=46850205
-**Category:** Inference Corner
-
-NanoClaw, a 500-line TypeScript project, achieves Apple container isolation and showcases innovative robotics capabilities, challenging traditional notions of complex robotic systems.
-
----
-
-### 3. iPhone 16 Pro Max Struggles with MLX LLMs, Produces Garbage Output
+### 2. iPhone 16 Pro Max Struggles with MLX LLM Output Quality
 
 **Source:** HackerNews
 **Link:** https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/
 **Discuss on HN:** https://news.ycombinator.com/item?id=46849258
 **Category:** Inference Corner
 
-A user reports issues with running large language models on their iPhone 16 Pro Max using MLX, resulting in poor output quality. This raises questions about the device's capabilities and optimization for AI tasks.
+Users report garbage output when running MLX Large Language Models on the iPhone 16 Pro Max, raising concerns about on-device AI performance. The issue may be related to optimization or compatibility problems.
+
+---
+
+### 3. Breakthrough in Compact Robotics: NanoClaw Redefines Autonomous Manipulation
+
+**Source:** HackerNews
+**Link:** https://github.com/gavrielc/nanoclaw
+**Discuss on HN:** https://news.ycombinator.com/item?id=46850205
+**Category:** Inference Corner
+
+NanoClaw, a 500-line TypeScript project, showcases a robotic arm's capabilities within Apple's container isolation, pushing boundaries in miniaturized robotics and AI integration.
 
 ---
 
@@ -161,39 +128,72 @@ A user reports issues with running large language models on their iPhone 16 Pro 
 **Discuss on HN:** https://news.ycombinator.com/item?id=46850588
 **Category:** Inference Corner
 
-As AI adoption accelerates, users are splitting into two camps, each with distinct behaviors and expectations, reshaping the future of work and technology.
+As artificial intelligence continues to permeate various industries, two distinct categories of users are emerging, each with unique characteristics and approaches to AI adoption.
 
 ---
 
-### 5. Microsoft Reverses Course on AI-Driven Windows 11 Features Amid User Backlash
+### 5. Microsoft Scales Back AI Features in Windows 11 Amid User Backlash
 
 **Source:** HackerNews
 **Link:** https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall
 **Discuss on HN:** https://news.ycombinator.com/item?id=46854951
 **Category:** Inference Corner
 
-Microsoft is scaling back its AI-powered features in Windows 11, responding to user feedback and concerns over the operating system's direction. The move signals a shift towards a more user-centric approach.
+Microsoft is reevaluating its AI-driven approach in Windows 11, promising a more streamlined user experience. The move comes after critics slammed the OS for being overly reliant on artificial intelligence.
 
 ---
 
-### 6. Stem Cell Senescence: The Trade-Off Between Rapid Repair and Longevity
+### 6. Exercise Linked to Younger-Looking Brain Structure in Adults
+
+**Source:** HackerNews
+**Link:** https://www.sciencedaily.com/releases/2026/01/260121034130.htm
+**Discuss on HN:** https://news.ycombinator.com/item?id=46849630
+**Category:** Inference Corner
+
+A new study using MRI scans reveals that regular exercise may contribute to a more youthful brain structure in adults, potentially combating age-related cognitive decline.
+
+---
+
+### 7. Stem Cell Senescence: The Trade-Off Between Rapid Repair and Longevity
 
 **Source:** HackerNews
 **Link:** https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html
 **Discuss on HN:** https://news.ycombinator.com/item?id=46847746
 **Category:** Inference Corner
 
-Researchers have discovered that aging muscle stem cells undergo a shift in priority from rapid tissue repair to long-term survival, revealing a complex trade-off between short-term functionality and cellular longevity. This finding has significant implications for the development of therapies targeting age-related muscle decline.
+Researchers have discovered that aging muscle stem cells undergo a shift in priority from rapid tissue repair to long-term survival, revealing a complex trade-off between short-term functionality and cellular longevity. This finding has significant implications for the development of therapies targeting age-related muscle degeneration.
 
 ---
 
-### 7. Researchers Achieve Perfect Accuracy in Retrospectively Solving Wordle Puzzles from Shared Results
+### 8. Open-Source Research Tool Claims Superiority Over Google's Algorithms
+
+**Source:** HackerNews
+**Link:** https://github.com/IamLumae/Project-Lutum-Veritas
+**Discuss on HN:** https://news.ycombinator.com/item?id=46848479
+**Category:** Inference Corner
+
+A developer has introduced an open-source deep research tool, claiming it outperforms Google's search capabilities, with evidence to support the claim. The tool's efficacy and potential impact on the search landscape are generating significant interest.
+
+---
+
+### 9. Researchers Achieve Perfect Accuracy in Retrospective Wordle Puzzle Solving Through Score Analysis
 
 **Source:** HackerNews
 **Link:** https://marcoshuerta.com/posts/wordle_bluesky/
 **Discuss on HN:** https://news.ycombinator.com/item?id=46852825
 **Category:** Inference Corner
 
-A new study demonstrates a method to accurately reconstruct Wordle solutions from publicly shared scorecards, raising questions about online security and game integrity.
+A new study demonstrates a method to accurately reconstruct Wordle puzzles from shared results, raising questions about the game's scoring system security.
+
+---
+
+### 10. Clearspace Seeks Top Talent to Drive AI Research Forward
+
+**Source:** HackerNews
+**Link:** https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace
+**Discuss on HN:** https://news.ycombinator.com/item?id=46848260
+**Category:** Inference Corner
+
+Clearspace, a Y Combinator-backed startup, is looking for an applied researcher to join its team and push the boundaries of machine learning innovation.
 
 ---
