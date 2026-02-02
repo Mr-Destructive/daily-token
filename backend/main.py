@@ -140,7 +140,7 @@ def generate_daily_newspaper() -> Dict:
     current_dir = repo_root / "output" / "current"
     current_dir.mkdir(parents=True, exist_ok=True)
     
-    html_file = exporter.export_html(str(current_dir / "newspaper.html"), image_prefix="/daily-token/images/")
+    html_file = exporter.export_html(str(current_dir / "newspaper.html"), image_prefix="images/")
     json_file = exporter.export_json(str(current_dir / "newspaper.json"))
     md_file = exporter.export_markdown(str(current_dir / "newspaper.md"))
     txt_file = exporter.export_text(str(current_dir / "newspaper.txt"))
@@ -148,8 +148,8 @@ def generate_daily_newspaper() -> Dict:
     
     # 5b. Export Dated Archive
     archive_dir = archive_current_edition(repo_root)
-    # For archive folders, we use the absolute path /daily-token/images/ to be safe
-    exporter.export_html(str(archive_dir / "newspaper.html"), image_prefix="/daily-token/images/")
+    # For archive folders like archive/2026/02/02/, we need 4 levels up to get to images/
+    exporter.export_html(str(archive_dir / "newspaper.html"), image_prefix="../../../../images/")
     exporter.export_json(str(archive_dir / "newspaper.json"))
     exporter.export_markdown(str(archive_dir / "newspaper.md"))
     exporter.export_text(str(archive_dir / "newspaper.txt"))

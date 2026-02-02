@@ -344,6 +344,12 @@ class NewsExporter:
             
             headline = story.get('generated_headline', story['original_title'])
             summary = story['summary']
+            img_path = story.get('generated_image_path', '')
+            final_img_src = ""
+            
+            if img_path:
+                img_filename = os.path.basename(img_path)
+                final_img_src = f"{image_prefix}{img_filename}"
             
             # Create a URL-safe slug
             slug = "".join([c.lower() if c.isalnum() else "-" for c in headline[:50]]).strip("-")
@@ -352,19 +358,18 @@ class NewsExporter:
             js_headline = headline.replace("'", "\\'").replace('"', '&quot;')
             js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
             
-            if img_path:
-                img_filename = os.path.basename(img_path)
-                final_img_src = f"{image_prefix}{img_filename}"
+            if final_img_src:
                 image_html = f'<img src="{final_img_src}" class="news-img" alt="" style="cursor:pointer" onclick=\'openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>'
             else:
                 image_html = ""
-                final_img_src = ""
+            
+            headline_class = "headline-xl" if idx == 0 else "headline-lg"
             
             front_page_html += f'''
                 <article class="article {layout}" id="story-{slug}">
                     <div class="article-body">
                         {image_html if idx == 0 else ""}
-                        <h2 class={"{'headline-xl' if idx == 0 else 'headline-lg'}"}><a href="javascript:void(0)" onclick='openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")'>{headline}</a></h2>
+                        <h2 class="{headline_class}"><a href="javascript:void(0)" onclick=\'openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>{headline}</a></h2>
                         <div class="metadata">SOURCE: {story['source'].upper()} // {str(story.get('published', ''))[:10]}</div>
                         {image_html if idx != 0 else ""}
                         <p class="summary">{" ".join(summary.split()[:60]) + "..." if idx == 0 else summary}</p>
@@ -407,6 +412,11 @@ class NewsExporter:
                 headline = story.get('generated_headline', story['original_title'])
                 summary = story['summary']
                 img_path = story.get('generated_image_path', '')
+                final_img_src = ""
+                
+                if img_path:
+                    img_filename = os.path.basename(img_path)
+                    final_img_src = f"{image_prefix}{img_filename}"
                 
                 # Create a URL-safe slug
                 slug = "".join([c.lower() if c.isalnum() else "-" for c in headline[:50]]).strip("-")
@@ -415,13 +425,10 @@ class NewsExporter:
                 js_headline = headline.replace("'", "\\'").replace('"', '&quot;')
                 js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
                 
-                if img_path:
-                    img_filename = os.path.basename(img_path)
-                    final_img_src = f"{image_prefix}{img_filename}"
+                if final_img_src:
                     image_html = f'<img src="{final_img_src}" class="news-img" alt="" style="cursor:pointer" onclick=\'openMap("{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>'
                 else:
                     image_html = ""
-                    final_img_src = ""
                 
                 layout_pref = story.get('image_layout', 'SQUARE')
                 col_span = "span-2" if layout_pref == "WIDE" else "span-1"
@@ -910,6 +917,12 @@ class NewsExporter:
             100% {{ opacity: 0; transform: translate(60px, -40px) rotate(20deg); }}
         }}
 
+        #marauders-modal:not(.show-content) .map-header,
+        #marauders-modal:not(.show-content) .map-inner-content,
+        #marauders-modal:not(.show-content) .map-footer {{
+            visibility: hidden;
+        }}
+
         #marauders-modal:not(.visible) {{
             display: none !important;
         }}
@@ -955,17 +968,19 @@ class NewsExporter:
                     setTimeout(() => createFootprint(i), i * 250);
                 }}
                 
-                // Reveal ink after unfold
+                // Reveal ink and content after unfold
                 setTimeout(() => {{
                     container.classList.add('revealed');
+                    modal.classList.add('show-content');
                 }}, 1200);
-            }}, 10);
+            }}, 50);
         }}
 
         function closeMap() {{
             const modal = document.getElementById('marauders-modal');
             const container = modal.querySelector('.map-container');
             modal.classList.remove('open');
+            modal.classList.remove('show-content');
             container.classList.remove('revealed');
             
             // Remove story from URL
