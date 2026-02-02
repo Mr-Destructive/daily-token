@@ -238,9 +238,74 @@ class NewsExporter:
                 ET.SubElement(item, "description").text = description
                 ET.SubElement(item, "pubDate").text = str(story.get('published', self.timestamp))
         
-        tree = ET.ElementTree(root)
-        tree.write(output_path, encoding="utf-8", xml_declaration=True)
+    def export_archive_index(self, archive_root: str, output_path: str) -> str:
+        """Scan archive folder and generate a historical index page"""
+        root_path = Path(archive_root)
+        if not root_path.exists():
+            return ""
+
+        archive_data = {} # {year: {month: [days]}}
         
+        # Scan directories
+        for year_dir in sorted(root_path.iterdir(), reverse=True):
+            if not year_dir.is_dir() or not year_dir.name.isdigit(): continue
+            year = year_dir.name
+            archive_data[year] = {}
+            
+            for month_dir in sorted(year_dir.iterdir(), reverse=True):
+                if not month_dir.is_dir() or not month_dir.name.isdigit(): continue
+                month = month_dir.name
+                archive_data[year][month] = []
+                
+                for day_dir in sorted(month_dir.iterdir(), reverse=True):
+                    if not day_dir.is_dir() or not day_dir.name.isdigit(): continue
+                    day = day_dir.name
+                    archive_data[year][month].append(day)
+
+        # Generate HTML
+        html_lines = []
+        for year in archive_data:
+            html_lines.append(f'<div class="archive-year"><h2>{year}</h2>')
+            for month in archive_data[year]:
+                month_name = datetime.strptime(month, "%m").strftime("%B").upper()
+                html_lines.append(f'<div class="archive-month"><h3>{month_name}</h3><ul class="archive-days">')
+                for day in archive_data[year][month]:
+                    date_str = f"{year}-{month}-{day}"
+                    display_date = datetime.strptime(date_str, "%Y-%m-%d").strftime("%b %d, %Y").upper()
+                    html_lines.append(f'<li><a href="{year}/{month}/{day}/newspaper.html">{display_date}</a></li>')
+                html_lines.append('</ul></div>')
+            html_lines.append('</div>')
+
+        archive_list_html = "\n".join(html_lines)
+
+        full_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archives | The Daily Token</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {{ background-color: #fdfdfb; font-family: 'Lora', serif; color: #111; padding: 40px 20px; max-width: 800px; margin: 0 auto; }}
+        h1 {{ font-family: 'Oswald', sans-serif; font-size: 3rem; text-transform: uppercase; border-bottom: 4px solid #111; padding-bottom: 10px; margin-bottom: 40px; text-align: center; }}
+        .archive-year h2 {{ font-family: 'Oswald', sans-serif; font-size: 2rem; background: #111; color: #fff; padding: 5px 15px; }}
+        .archive-month {{ margin-left: 20px; margin-bottom: 30px; }}
+        .archive-month h3 {{ font-family: 'Oswald', sans-serif; border-bottom: 1px solid #ccc; padding-bottom: 5px; color: #a00; }}
+        .archive-days {{ list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }}
+        .archive-days li a {{ text-decoration: none; color: #111; border: 1px solid #ccc; padding: 8px; display: block; text-align: center; font-size: 0.85rem; font-family: 'Oswald', sans-serif; transition: all 0.2s; }}
+        .archive-days li a:hover {{ background: #111; color: #fff; border-color: #111; }}
+        .back-home {{ display: block; text-align: center; margin-bottom: 40px; text-decoration: none; color: #a00; font-family: 'Oswald'; font-weight: 700; letter-spacing: 1px; }}
+    </style>
+</head>
+<body>
+    <a href="../../newspaper.html" class="back-home">← BACK TO LATEST EDITION</a>
+    <h1>Historical Archives</h1>
+    {archive_list_html}
+</body>
+</html>"""
+        
+        with open(output_path, 'w') as f:
+            f.write(full_html)
         return output_path
     
     def _generate_html(self) -> str:
@@ -569,6 +634,7 @@ class NewsExporter:
             <div class="archive-title">RECENT EDITIONS</div>
             <div class="archive-links">
                 {archive_links_html}
+                <a href="archive/index.html" class="archive-link" style="background:#111; color:#fff;">ALL ARCHIVES</a>
             </div>
         </div>
 

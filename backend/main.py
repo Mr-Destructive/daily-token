@@ -161,6 +161,12 @@ def generate_daily_newspaper() -> Dict:
     txt_file = exporter.export_text(str(output_dir / "newspaper.txt"))
     rss_file = exporter.export_rss_feed(str(output_dir / "feed.xml"))
     
+    # Generate the main archive index page (historical list)
+    archive_index = exporter.export_archive_index(
+        str(repo_root / "output" / "archive"),
+        str(repo_root / "output" / "archive" / "index.html")
+    )
+    
     import shutil
     landing_src = repo_root / "frontend" / "index.html"
     if landing_src.exists():
