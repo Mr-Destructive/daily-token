@@ -1,6 +1,7 @@
 """HackerNews scraper with RSS feed support for major AI labs"""
 import requests
 import feedparser
+import re
 from typing import List, Dict
 from datetime import datetime
 import json
@@ -24,7 +25,7 @@ class ImageFetcher:
     
     @staticmethod
     def get_candidate_images(url: str) -> List[str]:
-        """Extract all potential raster cover images from URL (SEO, OpenGraph, Thumbnails)"""
+        """Extract potential raster cover images from URL (SEO, OpenGraph, Thumbnails)"""
         if not url or not url.startswith('http'):
             return []
             
@@ -42,42 +43,48 @@ class ImageFetcher:
             
             # Helper to check if URL is a valid raster image
             def is_valid(img_url):
-                img_url = img_url.lower()
-                # Must be one of our extensions
-                if not any(img_url.endswith(ext) for ext in valid_exts):
-                    # Also check if it's a dynamic URL that might be an image but lacks extension
-                    if '?' not in img_url and not any(ext in img_url for ext in valid_exts):
-                        return False
-                # Filter out obvious small icons/logos even if they are PNG
-                if any(x in img_url for x in ['icon', 'logo', 'avatar', 'sprite', 'pixel', 'tracker', 'ad', 'btn', 'nav']):
+                img_url_lower = img_url.lower()
+                # 1. Reject SVGs and Icons immediately
+                if any(x in img_url_lower for x in ['.svg', '.ico', 'sprite', 'pixel', 'tracker', 'ad', 'btn', 'nav']):
                     return False
-                return True
+                
+                # 2. Check for standard image extensions using regex (handles width-800.format-jpg etc)
+                # Look for extension followed by either nothing, a dot, a slash, or a question mark
+                if re.search(r'\.(jpg|jpeg|png|webp)($|\.|\/|\?)', img_url_lower):
+                    return True
+                
+                # 3. If it's from a known image CDN, it's likely an image
+                if any(cdn in img_url_lower for cdn in ['gstatic.com', 'githubusercontent.com', 'medium.com', 'substack-post-media', 'sanity.io']):
+                    return True
+                return False
 
-            # 1. OpenGraph Image
-            for og in soup.find_all('meta', property=re.compile(r'^og:image', re.I)):
-                c = og.get('content')
-                if c and is_valid(c):
-                    candidates.append(urljoin(url, c))
-            
-            # 2. Twitter Image
-            for tw in soup.find_all('meta', name=re.compile(r'^twitter:image', re.I)):
-                c = tw.get('content')
-                if c and is_valid(c):
-                    candidates.append(urljoin(url, c))
-            
-            # 3. Schema.org Image
-            for schema in soup.find_all('meta', itemprop='image'):
-                c = schema.get('content')
-                if c and is_valid(c):
-                    candidates.append(urljoin(url, c))
+            # 1. Meta Tag extraction (OG, Twitter, Schema)
+            for meta in soup.find_all('meta'):
+                # Check ALL attributes for 'image' related content in keys/values
+                meta_str = str(meta).lower()
+                if 'image' not in meta_str: continue
+                
+                content = meta.get('content')
+                if not content: continue
+                
+                prop = meta.get('property', '').lower()
+                name = meta.get('name', '').lower()
+                itemprop = meta.get('itemprop', '').lower()
+                
+                if any(x in prop or x in name for x in ['og:image', 'twitter:image']) or itemprop == 'image' or 'og:image' in prop:
+                    full_url = urljoin(url, content)
+                    if is_valid(full_url):
+                        candidates.append(full_url)
 
-            # 4. Article Thumbnails
-            for link in soup.find_all('link', rel=re.compile(r'image_src|thumbnail', re.I)):
+            # 2. Article Thumbnails & Icons
+            for link in soup.find_all('link', rel=re.compile(r'image_src|thumbnail|icon', re.I)):
                 c = link.get('href')
-                if c and is_valid(c):
-                    candidates.append(urljoin(url, c))
+                if c:
+                    full_url = urljoin(url, c)
+                    if is_valid(full_url):
+                        candidates.append(full_url)
 
-            # 5. Large images in article body
+            # 3. Large images in article body
             for img in soup.find_all('img'):
                 src = img.get('src') or img.get('data-src') or img.get('data-original-src')
                 if not src: continue
