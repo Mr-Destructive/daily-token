@@ -1,166 +1,155 @@
 # Daily AI Newspaper
-_Generated: 2026-02-02T07:27:59.892894_
+_Generated: 2026-02-02T07:56:07.379851_
 
 ## Page 1: Breaking Vectors
 
-### 1. Tesla's Robotaxi Ambitions Hit Reality Check Amid Regulatory Scrutiny
+### 1. Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks
 
 **Source:** HackerNews
-**Link:** https://electrek.co/2026/01/28/tesla-is-still-trying-to-deceive-investors-into-thinking-it-has-sf-robotaxis/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46844257
+**Link:** https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys
+**Discuss on HN:** https://news.ycombinator.com/item?id=46848769
 **Category:** Breaking Vectors
 
-Tesla has launched a limited robotaxi service in Austin, Texas, using Model Y vehicles without human safety drivers, but faces challenges with regulatory approval and safety concerns.
+A newly discovered security flaw allows attackers to execute remote code and steal sensitive Moltbot data with a single click, posing significant risks to user privacy.
 
 ---
 
 ## Page 2: Model Architectures
 
-### 1. Pioneering Concurrent Computation: The Actors Model Reimagined
+### 1. Pioneering Concurrent Computation: The Actors Model Reexamined
 
 **Source:** HackerNews
 **Link:** https://apps.dtic.mil/sti/tr/pdf/ADA157917.pdf
 **Discuss on HN:** https://news.ycombinator.com/item?id=46851192
 **Category:** Model Architectures
 
-Carl Hewitt's seminal 1985 paper introduces the Actors model, a groundbreaking framework for concurrent computation that redefined the boundaries of parallel processing. This influential work laid the foundation for modern distributed systems and AI architectures.
+This seminal 1985 paper introduces the Actors model, a foundational framework for concurrent computation that continues to influence modern AI architectures. The model provides a robust foundation for understanding and designing concurrent systems.
 
 ---
 
 ## Page 3: Neural Horizons
 
-### 1. Breakthrough in AI Autonomy: Zuckerman Agent Demonstrates Self-Editing Code Capabilities
-
-**Source:** HackerNews
-**Link:** https://github.com/zuckermanai/zuckerman
-**Discuss on HN:** https://news.ycombinator.com/item?id=46846210
-**Category:** Neural Horizons
-
-Zuckerman, a minimalist personal AI agent, showcases its ability to self-edit its own code, marking a significant milestone in AI autonomy and potentially revolutionizing how AI systems are developed and maintained.
-
----
-
 ## Page 4: Lab Outputs
 
-### 1. Open-Source AI Research Tool Claims Superiority Over Google's Proprietary Technology
+### 1. Open-Source Research Tool Claims Superiority Over Google's Proprietary Technology
 
 **Source:** HackerNews
 **Link:** https://github.com/IamLumae/Project-Lutum-Veritas
 **Discuss on HN:** https://news.ycombinator.com/item?id=46848479
 **Category:** Lab Outputs
 
-A developer has released an open-source deep research tool that reportedly outperforms Google's offerings, sparking interest in the potential of community-driven AI innovation.
+A developer has released an open-source deep research tool, claiming it outperforms Google's offerings, with evidence to support the bold assertion. The tool's capabilities and potential impact on the research community are generating significant interest.
 
 ---
 
-### 2. Unlocking the Secrets of Scalable AI: Researchers Uncover Key to Effective Agent Systems
+### 2. Unlocking the Secrets of Scalable Agent Systems: A Scientific Approach
 
 **Source:** HackerNews
 **Link:** https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/
 **Discuss on HN:** https://news.ycombinator.com/item?id=46847958
 **Category:** Lab Outputs
 
-A new study sheds light on the science behind scaling agent systems, revealing crucial factors that determine their success or failure. By understanding these dynamics, researchers aim to pave the way for more efficient and reliable AI applications.
+Researchers explore the science behind scaling agent systems, shedding light on when and why these systems succeed, paving the way for more efficient AI development.
 
 ---
 
-### 3. Breakthrough in Compact Robotics: NanoClaw Emerges as a Game-Changer in 500 Lines of TypeScript
+### 3. Clearspace Seeks Applied Researcher to Drive AI Innovation
 
 **Source:** HackerNews
-**Link:** https://github.com/gavrielc/nanoclaw
-**Discuss on HN:** https://news.ycombinator.com/item?id=46850205
+**Link:** https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace
+**Discuss on HN:** https://news.ycombinator.com/item?id=46848260
 **Category:** Lab Outputs
 
-NanoClaw, a revolutionary "Clawdbot" developed using Apple's container isolation, showcases exceptional efficiency and compactness in its 500 lines of TypeScript code.
-
----
-
-### 4. Deciphering the Shift: Aging Stem Cells Prioritize Endurance Over Rapid Repair
-
-**Source:** HackerNews
-**Link:** https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html
-**Discuss on HN:** https://news.ycombinator.com/item?id=46847746
-**Category:** Lab Outputs
-
-Researchers uncover the metabolic changes driving aged muscle stem cells to favor long-term survival over swift regeneration, offering insights into age-related muscle decline. This shift may hold keys to future therapies targeting stem cell rejuvenation.
+Clearspace, a Y Combinator-backed startup, is looking for an applied researcher to join its team and advance its machine learning capabilities. The role promises opportunities to work on cutting-edge AI projects.
 
 ---
 
 ## Page 5: Inference Corner
 
-### 1. The Great Divide: Two Distinct Profiles of AI Adopters Take Shape
-
-**Source:** HackerNews
-**Link:** https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46850588
-**Category:** Inference Corner
-
-As AI technologies continue to proliferate, users are splitting into two distinct camps, each with unique characteristics and approaches to leveraging AI capabilities.
-
----
-
-### 2. Crafting a Focused Coding Agent: Lessons in Minimalist Design
+### 1. Crafting a Coding Agent: Balancing Opinion and Minimalism
 
 **Source:** HackerNews
 **Link:** https://mariozechner.at/posts/2025-11-30-pi-coding-agent/
 **Discuss on HN:** https://news.ycombinator.com/item?id=46844822
 **Category:** Inference Corner
 
-The author shares insights from building a streamlined coding agent, highlighting the benefits of opinionated and minimal design in achieving efficient development workflows.
+This article explores the development of a coding agent that combines opinionated decision-making with a minimalistic approach, highlighting key lessons learned along the way. The author's experience sheds light on the challenges and benefits of this unique approach to AI-driven coding.
 
 ---
 
-### 3. Exercise Linked to Younger-Looking Brain Structure in Groundbreaking Study
+### 2. iPhone 16 Pro Max Struggles with MLX LLMs, Produces Garbage Output
+
+**Source:** HackerNews
+**Link:** https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/
+**Discuss on HN:** https://news.ycombinator.com/item?id=46849258
+**Category:** Inference Corner
+
+A user reports issues with running large language models on their iPhone 16 Pro Max using MLX, resulting in poor output quality. The problem may be related to model compatibility or device limitations.
+
+---
+
+### 3. The Great Divide: Two Distinct Profiles of AI Users Take Shape
+
+**Source:** HackerNews
+**Link:** https://martinalderson.com/posts/two-kinds-of-ai-users-are-emerging/
+**Discuss on HN:** https://news.ycombinator.com/item?id=46850588
+**Category:** Inference Corner
+
+As AI adoption accelerates, research reveals a stark contrast between 'explorers' and 'implementers', two distinct user groups with differing approaches to artificial intelligence.
+
+---
+
+### 4. Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents
+
+**Source:** HackerNews
+**Link:** https://github.com/zuckermanai/zuckerman
+**Discuss on HN:** https://news.ycombinator.com/item?id=46846210
+**Category:** Inference Corner
+
+Zuckerman is a cutting-edge, minimalist AI agent capable of self-editing its own code, marking a significant leap in artificial intelligence autonomy. This innovation has the potential to revolutionize how AI systems are developed and deployed.
+
+---
+
+### 5. Stem Cell Senescence: The Trade-Off Between Rapid Repair and Longevity
+
+**Source:** HackerNews
+**Link:** https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html
+**Discuss on HN:** https://news.ycombinator.com/item?id=46847746
+**Category:** Inference Corner
+
+Researchers have discovered that aging muscle stem cells undergo a shift in priority from rapid tissue repair to long-term survival, revealing a complex trade-off between short-term functionality and cellular longevity. This finding has significant implications for the development of therapies aimed at maintaining muscle health in older adults.
+
+---
+
+### 6. Breakthrough in Compact Robotics: NanoClaw Redefines Autonomous Agent Development
+
+**Source:** HackerNews
+**Link:** https://github.com/gavrielc/nanoclaw
+**Discuss on HN:** https://news.ycombinator.com/item?id=46850205
+**Category:** Inference Corner
+
+NanoClaw, a 500-line TypeScript project, leverages Apple container isolation to create a compact, efficient robotics framework, opening new avenues for AI-driven robotics innovation.
+
+---
+
+### 7. Exercise Linked to Younger-Looking Brain Scans, Study Finds
 
 **Source:** HackerNews
 **Link:** https://www.sciencedaily.com/releases/2026/01/260121034130.htm
 **Discuss on HN:** https://news.ycombinator.com/item?id=46849630
 **Category:** Inference Corner
 
-A new study using MRI scans reveals that regular exercise can make the brain appear younger, potentially reversing age-related cognitive decline. The findings suggest a promising avenue for promoting brain health and preventing neurodegenerative diseases.
+Researchers have discovered that regular exercise can lead to brain scans that resemble those of younger individuals, shedding light on the cognitive benefits of physical activity.
 
 ---
 
-### 4. Wordle Shifts Strategy: Previously Used Words to Reappear in Daily Puzzle
-
-**Source:** HackerNews
-**Link:** https://forkingmad.blog/wordle-crisis/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46847924
-**Category:** Inference Corner
-
-The New York Times, owner of Wordle, announced that it will start reusing previously played words in the popular daily word game, aiming to extend its lifespan and create more delightful coincidences.
-
----
-
-### 5. The Dark Side of Innovation: Uncovering the Value of Engineering Failures
-
-**Source:** HackerNews
-**Link:** https://failhub.substack.com/p/failhub-issue-1
-**Discuss on HN:** https://news.ycombinator.com/item?id=46847456
-**Category:** Inference Corner
-
-A closer look at the often-overlooked failures in engineering reveals valuable lessons that can inform and improve future projects. By examining what went wrong, we can gain a deeper understanding of what it takes to succeed.
-
----
-
-### 6. States Consider 'Right-to-Compute' Laws to Shield AI and Computational Systems from Regulations
+### 8. States Consider 'Right-to-Compute' Laws to Shield AI and Computational Systems from Regulations
 
 **Source:** HackerNews
 **Link:** https://www.vktr.com/ai-ethics-law-risk/right-to-compute-laws/
 **Discuss on HN:** https://news.ycombinator.com/item?id=46848594
 **Category:** Inference Corner
 
-Montana has already passed a "right-to-compute" law, and similar bills are advancing in multiple statehouses, aiming to protect AI development and computational resources from government restrictions.
-
----
-
-### 7. Clearspace Expands AI Research Capabilities with New Applied Researcher Hiring
-
-**Source:** HackerNews
-**Link:** https://www.ycombinator.com/companies/clearspace/jobs/GOWiDwp-research-engineer-at-clearspace
-**Discuss on HN:** https://news.ycombinator.com/item?id=46848260
-**Category:** Inference Corner
-
-Clearspace, a Y Combinator-backed startup, is seeking an applied researcher to drive innovation in machine learning applications. This hire underscores the company's commitment to advancing AI-driven solutions.
+Montana has already passed a "right-to-compute" law, and other states are likely to follow suit, aiming to protect AI development and computational resources from government restrictions.
 
 ---
