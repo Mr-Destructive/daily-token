@@ -314,11 +314,18 @@ class NewsExporter:
     
     def _generate_html(self, image_prefix: str = "images/") -> str:
         """Generate professional, dense, adaptive newspaper-style HTML"""
+        print(f"DEBUG: organized keys: {list(self.organized.keys())}")
         
         # Collect all stories and sort by significance
         all_stories = []
         for page_num in range(1, 6):
-            all_stories.extend(self.organized[page_num])
+            if page_num in self.organized:
+                all_stories.extend(self.organized[page_num])
+            elif str(page_num) in self.organized:
+                # Handle string keys if they exist
+                all_stories.extend(self.organized[str(page_num)])
+        
+        print(f"DEBUG: all_stories length: {len(all_stories)}")
         
         all_stories.sort(key=lambda x: x.get('significance_score', 0), reverse=True)
         
