@@ -1,0 +1,18 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#grad1)"/>
+  <circle cx="200" cy="80" r="50" fill="#00d4ff" opacity="0.3"/>
+  <circle cx="100" cy="150" r="30" fill="#00d4ff" opacity="0.2"/>
+  <circle cx="350" cy="200" r="40" fill="#00d4ff" opacity="0.15"/>
+  <text x="200" y="220" text-anchor="middle" fill="white" font-size="14" font-family="Arial">
+    nanochat can now train GPT-2 grade LLM f...
+  </text>
+  <text x="200" y="240" text-anchor="middle" fill="#aaa" font-size="10" font-family="Arial">
+    Model Architectures
+  </text>
+</svg>
