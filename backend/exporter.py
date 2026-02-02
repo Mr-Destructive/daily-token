@@ -836,7 +836,7 @@ class NewsExporter:
             left: 0; top: 0;
             width: 100%; height: 100%;
             background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
-            overflow-y: auto;
+            overflow: hidden;
             opacity: 0;
             transition: opacity 0.5s;
         }}
@@ -847,10 +847,10 @@ class NewsExporter:
         }}
 
         .clipping-sheet {{
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
-            min-height: 100vh;
+            padding: 30px;
+            height: 100vh;
             display: flex;
             flex-direction: column;
         }}
@@ -860,51 +860,80 @@ class NewsExporter:
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid #111;
-            padding-bottom: 15px;
-            margin-bottom: 50px;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
             font-family: 'Oswald', sans-serif;
+            flex-shrink: 0;
         }}
 
         .back-btn {{ text-decoration: none; color: #a00; font-weight: 700; letter-spacing: 1px; font-size: 0.9rem; }}
         .back-btn:hover {{ color: #111; }}
         .clipping-pub-tag {{ font-size: 0.8rem; color: #666; letter-spacing: 2px; }}
 
-        .clipping-layout {{ flex: 1; }}
+        .clipping-layout {{ 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden; 
+        }}
 
-        .clipping-header {{ margin-bottom: 40px; text-align: center; }}
+        .clipping-header {{ margin-bottom: 20px; text-align: center; flex-shrink: 0; }}
         .clipping-title {{ 
             font-family: 'Playfair Display', serif; 
-            font-size: 4rem; 
+            font-size: 3rem; 
             font-weight: 900; 
-            line-height: 0.95; 
-            margin: 0 0 20px 0; 
+            line-height: 1; 
+            margin: 0 0 10px 0; 
             color: #111;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
         }}
-        .clipping-meta {{ font-family: 'Oswald'; font-size: 1rem; color: #444; letter-spacing: 1px; text-transform: uppercase; }}
+        .clipping-meta {{ font-family: 'Oswald'; font-size: 0.9rem; color: #444; letter-spacing: 1px; text-transform: uppercase; }}
 
-        .clipping-main {{ display: flex; flex-direction: column; gap: 40px; }}
+        .clipping-main {{ 
+            flex: 1;
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+            overflow: hidden;
+            margin-bottom: 20px;
+        }}
         
+        .clipping-image {{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }}
+
         .clipping-image img {{ 
-            width: 100%; 
+            max-width: 100%; 
+            max-height: 100%;
+            object-fit: contain;
             border: 1px solid #111;
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.05);
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
         }}
 
         .clipping-body {{ 
             font-family: 'Lora', serif; 
-            font-size: 1.6rem; 
+            font-size: 1.3rem; 
             line-height: 1.6; 
             color: #111; 
             text-align: justify;
+            overflow-y: auto;
+            padding-right: 20px;
         }}
+        
+        /* Custom scrollbar for the body */
+        .clipping-body::-webkit-scrollbar {{ width: 4px; }}
+        .clipping-body::-webkit-scrollbar-track {{ background: rgba(0,0,0,0.05); }}
+        .clipping-body::-webkit-scrollbar-thumb {{ background: #111; }}
 
         .clipping-footer {{ 
-            margin-top: 60px; 
-            padding-top: 40px; 
+            padding-top: 20px; 
             border-top: 1px solid #ddd; 
             text-align: center;
-            padding-bottom: 100px;
+            flex-shrink: 0;
         }}
         
         .clipping-btn {{
@@ -912,14 +941,20 @@ class NewsExporter:
             background: #111;
             color: #fdfdfb;
             text-decoration: none;
-            padding: 15px 40px;
+            padding: 10px 30px;
             font-family: 'Oswald';
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: 2px;
             transition: all 0.3s;
             border: 1px solid #111;
         }}
         .clipping-btn:hover {{ background: transparent; color: #111; }}
+
+        @media (max-width: 900px) {{
+            .clipping-main {{ grid-template-columns: 1fr; }}
+            .clipping-image {{ display: none; }}
+            .clipping-title {{ font-size: 2rem; }}
+        }}
         
         .clipping-end-mark {{ margin-top: 40px; font-size: 1.5rem; color: #111; opacity: 0.3; }}
 

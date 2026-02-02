@@ -45,8 +45,14 @@ class ImageFetcher:
             # Helper to check if URL is a valid raster image
             def is_valid(img_url):
                 img_url_lower = img_url.lower()
-                # 1. Reject SVGs and Icons immediately
-                if any(x in img_url_lower for x in ['.svg', '.ico', 'sprite', 'pixel', 'tracker', 'ad', 'btn', 'nav']):
+                # 1. Reject SVGs, Icons, and Common Logos/UI elements
+                exclusions = [
+                    '.svg', '.ico', 'sprite', 'pixel', 'tracker', 'ad', 'btn', 'nav', 
+                    'logo', 'banner', 'header', 'footer', 'avatar', 'profile', 
+                    'menu', 'icon', 'button', 'search', 'social', 'sharing',
+                    'placeholder', 'transparent', 'spacer'
+                ]
+                if any(x in img_url_lower for x in exclusions):
                     return False
                 
                 # 2. Check for standard image extensions using regex (handles width-800.format-jpg etc)

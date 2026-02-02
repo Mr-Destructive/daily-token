@@ -57,10 +57,10 @@ SUMMARY: {summary}
 TASK:
 1. Write a professional, emoji-free newspaper headline.
 2. Write a 1-2 sentence summary.
-3. Select the best cover image URL from the candidates list at the bottom.
-   - Look for high-resolution photos or technical diagrams.
-   - Ignore logos, icons, or small graphics.
-   - If no good image exists, you MUST write "SELECTED_IMAGE_URL: NONE".
+3. Select the best cover image URL from the candidates list.
+   - MANDATORY: REJECT all logos, icons, avatars, or generic blog banners.
+   - FAVOR: High-resolution photos, technical diagrams, or research visualizations.
+   - If ALL candidates look like logos or UI elements, you MUST write "SELECTED_IMAGE_URL: NONE".
 
 RESPONSE FORMAT (EXACT):
 HEADLINE: [Your Headline]
