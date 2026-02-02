@@ -91,18 +91,22 @@ class NewsExporter:
     
     PAGE_NAMES = PAGE_CATEGORIES
     
-    def __init__(self, organized_stories: Dict[int, List[Dict]]):
+    def __init__(self, organized_stories: Dict[int, List[Dict]], location: str = None):
         self.organized = organized_stories
         self.timestamp = datetime.now().isoformat()
-        self.location = self._determine_location()
+        self.location = location if location else self._determine_location()
     
     def _determine_location(self) -> str:
         """Get newspaper location based on today's news vibes"""
+        if not self.organized or not self.organized.get(1):
+            return "THE CLOUD"
+            
         # Build a summary of today's stories
         headlines = []
         for page_num in range(1, 6):
-            for story in self.organized[page_num][:2]:  # Top 2 per page
-                headlines.append(story.get('generated_headline', story['original_title']))
+            if page_num in self.organized:
+                for story in self.organized[page_num][:2]:  # Top 2 per page
+                    headlines.append(story.get('generated_headline', story['original_title']))
         
         summary = " | ".join(headlines[:10])  # Top 10 headlines
         
@@ -352,7 +356,7 @@ class NewsExporter:
                         <div class="metadata">SOURCE: {story['source'].upper()} // {str(story.get('published', ''))[:10]}</div>
                         {image_html if idx != 0 else ""}
                         <p class="summary">{" ".join(story['summary'].split()[:60]) + "..." if idx == 0 else story['summary']}</p>
-                        <div class="footer-links"><a href="{story.get('url', '#')}">READ ARTICLE</a> | <a href="{story.get('hn_url', '#')}">HN</a></div>
+                        <div class="footer-links"><a href="javascript:void(0)" onclick='openMap("{story.get('generated_headline', story['original_title']).replace("'", "\\'")}", "{story['summary'].replace("'", "\\'").replace('"', '&quot;')}")'>READ ARTICLE</a> | <a href="{story.get('hn_url', '#')}">HN</a></div>
                     </div>
                 </article>
             '''
@@ -403,7 +407,7 @@ class NewsExporter:
                             <h3 class="headline-sm"><a href="{story.get('url', '#')}">{story.get('generated_headline', story['original_title'])}</a></h3>
                             <div class="metadata">{story['source'].upper()}</div>
                             <p class="summary-sm">{story['summary']}</p>
-                            <div class="footer-links-sm"><a href="{story.get('url', '#')}">LINK</a> // <a href="{story.get('hn_url', '#')}">HN</a></div>
+                            <div class="footer-links-sm"><a href="javascript:void(0)" onclick='openMap("{story.get('generated_headline', story['original_title']).replace("'", "\\'")}", "{story['summary'].replace("'", "\\'").replace('"', '&quot;')}")'>LINK</a> // <a href="{story.get('hn_url', '#')}">HN</a></div>
                         </div>
                     </article>
                 '''
@@ -559,6 +563,102 @@ class NewsExporter:
             transition: filter 0.3s ease;
         }}
         .news-img:hover {{ filter: none; }}
+
+        /* --- MARAUDER'S MAP MODAL --- */
+        #marauders-modal {{
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+            backdrop-filter: blur(5px);
+        }}
+
+        .map-content {{
+            position: relative;
+            background: #e9dcc9; /* Parchment color */
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+            margin: 5% auto;
+            padding: 50px;
+            width: 70%;
+            max-width: 900px;
+            min-height: 500px;
+            border: 20px solid transparent;
+            border-image: url('https://www.transparenttextures.com/patterns/pinstripe.png') 30 round;
+            box-shadow: 0 0 100px rgba(0,0,0,0.5);
+            font-family: 'Playfair Display', serif;
+            color: #4a3728;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }}
+
+        #marauders-modal.open .map-content {{
+            transform: scale(1);
+            opacity: 1;
+        }}
+
+        .map-header {{
+            text-align: center;
+            border-bottom: 2px solid #4a3728;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }}
+
+        .map-title {{ font-size: 3rem; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -1px; }}
+        .map-subtitle {{ font-family: 'Oswald'; text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; }}
+
+        .map-body {{
+            font-size: 1.4rem;
+            line-height: 1.6;
+            text-align: justify;
+            position: relative;
+            filter: url('#ink-bleed');
+        }}
+
+        /* Footprints Animation */
+        .footprint {{
+            position: absolute;
+            width: 30px;
+            height: 15px;
+            background: #4a3728;
+            opacity: 0;
+            border-radius: 50% 50% 40% 40%;
+            pointer-events: none;
+        }}
+        
+        @keyframes walk-left {{
+            0% {{ opacity: 0; transform: translate(0,0) rotate(-20deg); }}
+            20% {{ opacity: 0.6; }}
+            80% {{ opacity: 0.6; }}
+            100% {{ opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }}
+        }}
+
+        @keyframes walk-right {{
+            0% {{ opacity: 0; transform: translate(20px,20px) rotate(20deg); }}
+            20% {{ opacity: 0.6; }}
+            80% {{ opacity: 0.6; }}
+            100% {{ opacity: 0; transform: translate(60px, -40px) rotate(20deg); }}
+        }}
+
+        .map-close {{
+            position: absolute;
+            top: 20px; right: 30px;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 900;
+        }}
+
+        .ink-spread {{
+            animation: inkSpread 2s forwards;
+        }}
+
+        @keyframes inkSpread {{
+            from {{ opacity: 0; filter: blur(20px); }}
+            to {{ opacity: 1; filter: blur(0); }}
+        }}
         
         /* Section Pulse */
         .section-pulse-grid {{
@@ -651,6 +751,81 @@ class NewsExporter:
             VERIFIED BY NEURAL CONSENSUS // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
         </footer>
     </div>
+
+    <!-- MARAUDER'S MAP MODAL -->
+    <div id="marauders-modal">
+        <div class="map-content">
+            <span class="map-close" onclick="closeMap()">&times;</span>
+            <div class="map-header">
+                <div class="map-subtitle">Mischief Managed</div>
+                <h2 class="map-title" id="modal-title">Article Detail</h2>
+            </div>
+            <div class="map-body" id="modal-summary">
+                Summary goes here...
+            </div>
+        </div>
+    </div>
+
+    <!-- SVG Filters for Ink Bleed -->
+    <svg style="display:none;">
+        <defs>
+            <filter id="ink-bleed">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
+            </filter>
+        </defs>
+    </svg>
+
+    <script>
+        function openMap(title, summary) {{
+            const modal = document.getElementById('marauders-modal');
+            const titleEl = document.getElementById('modal-title');
+            const summaryEl = document.getElementById('modal-summary');
+            
+            titleEl.innerText = title;
+            summaryEl.innerText = summary;
+            
+            modal.style.display = 'block';
+            
+            // Add footprints
+            for(let i=0; i<6; i++) {{
+                setTimeout(() => createFootprint(i), i * 300);
+            }}
+            
+            setTimeout(() => {{
+                modal.classList.add('open');
+                summaryEl.classList.add('ink-spread');
+            }}, 1000);
+        }}
+
+        function closeMap() {{
+            const modal = document.getElementById('marauders-modal');
+            modal.classList.remove('open');
+            setTimeout(() => {{
+                modal.style.display = 'none';
+                document.getElementById('modal-summary').classList.remove('ink-spread');
+            }}, 500);
+        }}
+
+        function createFootprint(i) {{
+            const content = document.querySelector('.map-content');
+            const fp = document.createElement('div');
+            fp.className = 'footprint';
+            fp.style.left = (20 + (i * 10)) + '%';
+            fp.style.top = (80 - (i * 10)) + '%';
+            fp.style.animation = (i % 2 === 0 ? 'walk-left' : 'walk-right') + ' 1.5s forwards';
+            content.appendChild(fp);
+            setTimeout(() => fp.remove(), 1500);
+        }}
+
+        // Close on outside click
+        window.onclick = function(event) {{
+            const modal = document.getElementById('marauders-modal');
+            if (event.target == modal) {{
+                closeMap();
+            }}
+        }}
+    </script>
 </body>
 </html>
 """
