@@ -53,13 +53,11 @@ If the story is not about AI/ML, respond with "0 | 0.5"
 ARTICLE TITLE: {title}
 CATEGORY: {category}
 SUMMARY: {summary}
-IMAGE CANDIDATES:
-{image_urls}
 
 TASK:
 1. Write a professional, emoji-free newspaper headline.
 2. Write a 1-2 sentence summary.
-3. Select the best image URL from the candidates above.
+3. Select the best cover image URL from the candidates list at the bottom.
    - Look for high-resolution photos or technical diagrams.
    - Ignore logos, icons, or small graphics.
    - If no good image exists, you MUST write "SELECTED_IMAGE_URL: NONE".
@@ -68,8 +66,11 @@ RESPONSE FORMAT (EXACT):
 HEADLINE: [Your Headline]
 SUMMARY: [Your Summary]
 SIGNIFICANCE_SCORE: [1-100]
-SELECTED_IMAGE_URL: [The full http URL from the list above, or NONE]
+SELECTED_IMAGE_URL: [The full http URL from the list below, or NONE]
 IMAGE_LAYOUT: [WIDE, TALL, or SQUARE]
+
+IMAGE CANDIDATES (PICK ONE):
+{image_urls}
 """
     
     LLM_TIMEOUT = 30
@@ -245,6 +246,11 @@ class NewsProcessorWithRouter:
             urls = re.findall(r'https?://\S+', raw_response)
             if urls:
                 image_url = urls[0]
+        
+        # FINAL FALLBACK: If still no URL but we had candidates, just take the first one
+        if (not image_url or image_url.upper() == "NONE") and image_urls:
+            image_url = image_urls[0]
+            print(f"      (Auto-selected fallback image candidate)")
         
         return {
             'headline': headline,
