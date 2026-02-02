@@ -829,105 +829,123 @@ class NewsExporter:
             transform: scale(3) !important;
         }}
 
+    <!-- IMMERSIVE ARTICLE DETAIL (CLIPPING STYLE) -->
+    <div id="detail-screen">
+        <div class="clipping-sheet">
+            <span class="clipping-close" onclick="closeMap()">&times;</span>
+            <div class="clipping-header">
+                <div class="clipping-pub-tag">THE DAILY TOKEN // EXCLUSIVE CLIPPING</div>
+                <h1 class="clipping-title" id="modal-title"></h1>
+                <div class="clipping-meta" id="modal-meta"></div>
+            </div>
+            
+            <div class="clipping-content">
+                <div id="modal-image-container" class="clipping-image"></div>
+                <div class="clipping-body" id="modal-summary"></div>
+            </div>
+
+            <footer class="clipping-footer">
+                <a id="modal-hn-link" href="#" target="_blank" class="clipping-btn">READ ON HACKER NEWS</a>
+            </footer>
+        </div>
+    </div>
+
+    <style>
+        /* Base Newspaper Transition */
+        .newspaper {{
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s, filter 0.8s;
+            transform-origin: center center;
+        }}
+        
+        .newspaper.zoomed {{
+            opacity: 0.3 !important;
+            filter: blur(15px) grayscale(50%);
+            transform: scale(1.5);
+            pointer-events: none;
+        }}
+
         #detail-screen {{
             display: none;
             position: fixed;
             z-index: 10000;
             left: 0; top: 0;
             width: 100%; height: 100%;
-            background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
-            overflow: hidden;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity 0.4s;
+            pointer-events: none;
         }}
 
         #detail-screen.visible {{
-            display: block;
+            display: flex;
             opacity: 1;
+            pointer-events: auto;
         }}
 
         .clipping-sheet {{
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px;
-            height: 100vh;
+            width: 90%;
+            max-width: 750px;
+            max-height: 85vh;
+            background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
+            padding: 40px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+            border: 1px solid #ccc;
+            position: relative;
             display: flex;
             flex-direction: column;
+            transform: scale(0.8) translateY(30px);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Ragged edge effect */
+            clip-path: polygon(0% 2%, 100% 0%, 98% 100%, 2% 98%);
         }}
 
-        .clipping-nav {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #111;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-family: 'Oswald', sans-serif;
-            flex-shrink: 0;
+        #detail-screen.visible .clipping-sheet {{
+            transform: scale(1) translateY(0);
         }}
 
-        .back-btn {{ text-decoration: none; color: #a00; font-weight: 700; letter-spacing: 1px; font-size: 0.9rem; }}
-        .back-btn:hover {{ color: #111; }}
-        .clipping-pub-tag {{ font-size: 0.8rem; color: #666; letter-spacing: 2px; }}
-
-        .clipping-layout {{ 
-            flex: 1; 
-            display: flex; 
-            flex-direction: column; 
-            overflow: hidden; 
-        }}
-
-        .clipping-header {{ margin-bottom: 20px; text-align: center; flex-shrink: 0; }}
+        .clipping-header {{ margin-bottom: 25px; text-align: center; flex-shrink: 0; }}
+        .clipping-pub-tag {{ font-family: 'Oswald'; font-size: 0.75rem; color: #a00; letter-spacing: 3px; margin-bottom: 10px; }}
         .clipping-title {{ 
             font-family: 'Playfair Display', serif; 
-            font-size: 3rem; 
+            font-size: 2.8rem; 
             font-weight: 900; 
             line-height: 1; 
             margin: 0 0 10px 0; 
             color: #111;
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
         }}
-        .clipping-meta {{ font-family: 'Oswald'; font-size: 0.9rem; color: #444; letter-spacing: 1px; text-transform: uppercase; }}
+        .clipping-meta {{ font-family: 'Oswald'; font-size: 0.85rem; color: #666; text-transform: uppercase; }}
 
-        .clipping-main {{ 
+        .clipping-content {{ 
             flex: 1;
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 40px; 
-            overflow: hidden;
+            overflow-y: auto;
+            padding-right: 15px;
             margin-bottom: 20px;
         }}
         
-        .clipping-image {{
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }}
+        /* Custom scrollbar */
+        .clipping-content::-webkit-scrollbar {{ width: 4px; }}
+        .clipping-content::-webkit-scrollbar-track {{ background: rgba(0,0,0,0.05); }}
+        .clipping-content::-webkit-scrollbar-thumb {{ background: #111; }}
 
         .clipping-image img {{ 
-            max-width: 100%; 
-            max-height: 100%;
-            object-fit: contain;
-            border: 1px solid #111;
-            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
+            width: 100%; 
+            max-height: 350px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
         }}
 
         .clipping-body {{ 
             font-family: 'Lora', serif; 
-            font-size: 1.3rem; 
+            font-size: 1.4rem; 
             line-height: 1.6; 
-            color: #111; 
+            color: #222; 
             text-align: justify;
-            overflow-y: auto;
-            padding-right: 20px;
         }}
-        
-        /* Custom scrollbar for the body */
-        .clipping-body::-webkit-scrollbar {{ width: 4px; }}
-        .clipping-body::-webkit-scrollbar-track {{ background: rgba(0,0,0,0.05); }}
-        .clipping-body::-webkit-scrollbar-thumb {{ background: #111; }}
 
         .clipping-footer {{ 
             padding-top: 20px; 
@@ -941,20 +959,98 @@ class NewsExporter:
             background: #111;
             color: #fdfdfb;
             text-decoration: none;
-            padding: 10px 30px;
+            padding: 12px 35px;
             font-family: 'Oswald';
             font-size: 0.9rem;
             letter-spacing: 2px;
-            transition: all 0.3s;
-            border: 1px solid #111;
+            transition: background 0.2s;
         }}
-        .clipping-btn:hover {{ background: transparent; color: #111; }}
+        .clipping-btn:hover {{ background: #a00; }}
 
-        @media (max-width: 900px) {{
-            .clipping-main {{ grid-template-columns: 1fr; }}
-            .clipping-image {{ display: none; }}
-            .clipping-title {{ font-size: 2rem; }}
+        .clipping-close {{ 
+            position: absolute; 
+            top: 15px; right: 20px; 
+            font-size: 2.5rem; 
+            cursor: pointer; 
+            color: #111; 
+            opacity: 0.4;
+            transition: opacity 0.2s;
+            z-index: 10;
         }}
+        .clipping-close:hover {{ opacity: 1; }}
+
+        #detail-screen:not(.visible) {{
+            display: none !important;
+        }}
+    </style>
+
+    <script>
+        function openMap(triggerEl, title, summary, imgUrl, slug, source, hnUrl) {{
+            const screen = document.getElementById('detail-screen');
+            const newspaper = document.querySelector('.newspaper');
+            const titleEl = document.getElementById('modal-title');
+            const summaryEl = document.getElementById('modal-summary');
+            const metaEl = document.getElementById('modal-meta');
+            const hnLink = document.getElementById('modal-hn-link');
+            const imgContainer = document.getElementById('modal-image-container');
+            
+            // 1. Position-aware zoom origin
+            const rect = triggerEl.getBoundingClientRect();
+            newspaper.style.transformOrigin = `${{rect.left + rect.width/2}}px ${{rect.top + rect.height/2}}px`;
+            
+            // 2. Set content
+            titleEl.innerText = title;
+            summaryEl.innerText = summary;
+            metaEl.innerText = `SOURCE: ${{source}} // NEWS CLIPPING`;
+            hnLink.href = hnUrl;
+            imgContainer.innerHTML = imgUrl ? `<img src="${{imgUrl}}" alt="">` : '';
+            
+            // 3. Transitions
+            newspaper.classList.add('zoomed');
+            
+            setTimeout(() => {{
+                screen.classList.add('visible');
+                
+                const newUrl = new URL(window.location);
+                newUrl.searchParams.set('story', slug);
+                window.history.pushState({{}}, '', newUrl);
+            }}, 150);
+        }}
+
+        function closeMap() {{
+            const screen = document.getElementById('detail-screen');
+            const newspaper = document.querySelector('.newspaper');
+            
+            screen.classList.remove('visible');
+            
+            setTimeout(() => {{
+                newspaper.classList.remove('zoomed');
+                
+                const newUrl = new URL(window.location);
+                newUrl.searchParams.delete('story');
+                window.history.pushState({{}}, '', newUrl);
+            }}, 400);
+        }}
+
+        window.addEventListener('load', function() {{
+            const params = new URLSearchParams(window.location.search);
+            const storySlug = params.get('story');
+            if (storySlug) {{
+                const targetArticle = document.getElementById(`story-${{storySlug}}`);
+                if (targetArticle) {{
+                    const link = targetArticle.querySelector('a[onclick]');
+                    if (link) link.click();
+                }}
+            }}
+        }});
+
+        window.addEventListener('popstate', function() {{
+            const screen = document.getElementById('detail-screen');
+            if (screen.classList.contains('visible')) {{
+                closeMap();
+            }}
+        }});
+    </script>
         
         .clipping-end-mark {{ margin-top: 40px; font-size: 1.5rem; color: #111; opacity: 0.3; }}
 
