@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Token AI Newspaper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #111;
+            --paper: #fdfdfb;
+            --sep: #ccc;
+            --highlight: #a00;
+        }
+        
+        * { box-sizing: border-box; }
+        body {
+            background-color: #ddd;
+            margin: 0; padding: 10px;
+            font-family: 'Lora', serif;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+        
+        .newspaper {
+            background-color: var(--paper);
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+            border: 1px solid #aaa;
+        }
+        
+        /* Masthead */
+        header {
+            text-align: center;
+            border-bottom: 6px double var(--ink);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .masthead {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 6rem;
+            letter-spacing: -3px;
+            margin: 0;
+            line-height: 0.85;
+            text-transform: uppercase;
+        }
+        
+        .sub-masthead {
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+            margin-top: 15px;
+            padding: 4px 0;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: 1px;
+        }
+        
+        nav {
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--ink);
+            margin-bottom: 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+        }
+        nav a { text-decoration: none; color: var(--ink); font-weight: 700; }
+        nav a:hover { color: var(--highlight); }
+        .nav-sep { margin: 0 15px; color: var(--sep); }
+        
+        /* Sections */
+        .deck-header {
+            text-align: center;
+            border-bottom: 2px solid var(--ink);
+            line-height: 0.1em;
+            margin: 40px 0 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+        }
+        .deck-header span { background: var(--paper); padding: 0 20px; }
+        
+        /* Grid Engine */
+        .lead-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+            border-bottom: 3px solid var(--ink);
+            padding-bottom: 30px;
+        }
+        
+        .columns-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .span-8 { grid-column: span 8; border-right: 1px solid var(--sep); padding-right: 30px; }
+        .span-4 { grid-column: span 4; }
+        .span-2 { grid-column: span 2; }
+        .span-1 { grid-column: span 1; }
+        
+        /* Typography */
+        .headline-xl { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 0.95; margin: 0 0 15px 0; font-weight: 900; }
+        .headline-lg { font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1; margin: 0 0 10px 0; font-weight: 900; }
+        .headline-sm { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.1; margin: 0 0 8px 0; font-weight: 700; }
+        .article a { color: inherit; text-decoration: none; }
+        .article a:hover { text-decoration: underline; }
+        
+        .metadata {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            color: #555;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary { font-size: 1.1rem; text-align: justify; margin-bottom: 15px; line-height: 1.3; }
+        .summary-sm { font-size: 0.9rem; text-align: justify; margin-bottom: 10px; line-height: 1.3; }
+        
+        .footer-links { font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--highlight); }
+        .footer-links-sm { font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--highlight); }
+
+        /* Articles */
+        .article { margin-bottom: 20px; }
+        .news-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 15px;
+            filter: grayscale(100%) contrast(1.2);
+            border: 1px solid var(--ink);
+            transition: filter 0.3s ease;
+        }
+        .news-img:hover { filter: none; }
+
+        /* --- MARAUDER'S MAP MODAL --- */
+        #marauders-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .map-content {
+            position: relative;
+            background: #e9dcc9; /* Parchment color */
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+            margin: 5% auto;
+            padding: 50px;
+            width: 70%;
+            max-width: 900px;
+            min-height: 500px;
+            border: 20px solid transparent;
+            border-image: url('https://www.transparenttextures.com/patterns/pinstripe.png') 30 round;
+            box-shadow: 0 0 100px rgba(0,0,0,0.5);
+            font-family: 'Playfair Display', serif;
+            color: #4a3728;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #marauders-modal.open .map-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .map-header {
+            text-align: center;
+            border-bottom: 2px solid #4a3728;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        .map-title { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -1px; }
+        .map-subtitle { font-family: 'Oswald'; text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; }
+
+        .map-body {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            text-align: justify;
+            position: relative;
+            filter: url('#ink-bleed');
+        }
+
+        /* Footprints Animation */
+        .footprint {
+            position: absolute;
+            width: 30px;
+            height: 15px;
+            background: #4a3728;
+            opacity: 0;
+            border-radius: 50% 50% 40% 40%;
+            pointer-events: none;
+        }
+        
+        @keyframes walk-left {
+            0% { opacity: 0; transform: translate(0,0) rotate(-20deg); }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }
+        }
+
+        @keyframes walk-right {
+            0% { opacity: 0; transform: translate(20px,20px) rotate(20deg); }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { opacity: 0; transform: translate(60px, -40px) rotate(20deg); }
+        }
+
+        .map-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 900;
+        }
+
+        .ink-spread {
+            animation: inkSpread 2s forwards;
+        }
+
+        @keyframes inkSpread {
+            from { opacity: 0; filter: blur(20px); }
+            to { opacity: 1; filter: blur(0); }
+        }
+        
+        /* Section Pulse */
+        .section-pulse-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            background: #f4f4f2;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid var(--sep);
+        }
+        .pulse-block { border-right: 1px solid var(--sep); padding-right: 10px; }
+        .pulse-block:last-child { border-right: none; }
+        .pulse-tag { font-family: 'Oswald', sans-serif; font-size: 0.65rem; color: var(--highlight); }
+        .pulse-link { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; }
+        .pulse-link a { color: var(--ink); text-decoration: none; }
+
+        /* Archive Strip */
+        .archive-strip {
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid var(--sep);
+            text-align: center;
+        }
+        .archive-title { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px; color: #777; }
+        .archive-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+        .archive-link { 
+            font-family: 'Oswald', sans-serif; 
+            font-size: 0.75rem; 
+            color: var(--ink); 
+            text-decoration: none; 
+            border: 1px solid var(--sep);
+            padding: 5px 10px;
+            transition: all 0.2s;
+        }
+        .archive-link:hover { border-color: var(--highlight); color: var(--highlight); }
+
+        @media (max-width: 900px) {
+            .newspaper { padding: 15px 20px; }
+            .masthead { font-size: 3rem; letter-spacing: -1px; }
+            .sub-masthead { font-size: 0.7rem; flex-direction: column; align-items: center; gap: 5px; }
+            .lead-grid, .columns-4, .section-pulse-grid { grid-template-columns: 1fr !important; gap: 20px; }
+            .span-8, .span-4, .span-2 { grid-column: span 1 !important; border-right: none; padding-right: 0; }
+            .article { border-bottom: 1px solid var(--sep); padding-bottom: 25px; margin-bottom: 25px; }
+            .headline-xl { font-size: 2rem; }
+            .headline-lg { font-size: 1.6rem; }
+            .headline-sm { font-size: 1.2rem; }
+            nav { 
+                font-size: 0.75rem; 
+                display: flex; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 10px;
+                padding: 10px 0;
+            }
+            .nav-sep { display: none; }
+            .news-img { margin-top: 10px; filter: none; } /* Real colors on mobile for better visibility */
+        }
+    </style>
+</head>
+<body>
+    <div class="newspaper">
+        <header>
+            <h1 class="masthead">The Daily Token</h1>
+            <div class="sub-masthead">
+                <span>THE CLOUD, THURSDAY, FEBRUARY 05, 2026</span>
+                <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
+                <span>VOL. 2026.036</span>
+            </div>
+        </header>
+
+        <nav>
+            <a href="#front-page">THE FRONT PAGE</a>
+        </nav>
+
+        <main>
+            
+        <section id="front-page">
+            <div class="deck-header"><span>FRONT PAGE // KEY BREAKTHROUGHS</span></div>
+            <div class="lead-grid">
+        </div>
+            
+        </main>
+
+        <div class="archive-strip">
+            <div class="archive-title">RECENT EDITIONS</div>
+            <div class="archive-links">
+                <a href="/daily-token/archive/2026/02/04/newspaper.html" class="archive-link">FEB 04, 2026</a><a href="/daily-token/archive/2026/02/03/newspaper.html" class="archive-link">FEB 03, 2026</a><a href="/daily-token/archive/2026/02/02/newspaper.html" class="archive-link">FEB 02, 2026</a><a href="/daily-token/archive/2026/02/01/newspaper.html" class="archive-link">FEB 01, 2026</a><a href="/daily-token/archive/2026/01/31/newspaper.html" class="archive-link">JAN 31, 2026</a><a href="/daily-token/archive/2026/01/30/newspaper.html" class="archive-link">JAN 30, 2026</a><a href="/daily-token/archive/2026/01/29/newspaper.html" class="archive-link">JAN 29, 2026</a>
+                <a href="/daily-token/archive/index.html" class="archive-link" style="background:#111; color:#fff;">ALL ARCHIVES</a>
+            </div>
+        </div>
+
+        <footer style="text-align: center; border-top: 4px double var(--ink); margin-top: 60px; padding-top: 20px; font-family: 'Oswald'; font-size: 0.8rem;">
+            VERIFIED BY NEURAL CONSENSUS // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
+        </footer>
+    </div>
+
+    <!-- IMMERSIVE ARTICLE DETAIL (FULL SCREEN CLIPPING) -->
+    <div id="detail-screen">
+        <div class="clipping-sheet">
+            <nav class="clipping-nav">
+                <a href="javascript:void(0)" onclick="closeMap()" class="back-btn">← BACK TO NEWSPAPER</a>
+                <div class="clipping-pub-tag">THE DAILY TOKEN // SPECIAL EDITION</div>
+            </nav>
+            
+            <div class="clipping-layout">
+                <header class="clipping-header">
+                    <h1 class="clipping-title" id="modal-title"></h1>
+                    <div class="clipping-meta" id="modal-meta"></div>
+                </header>
+                
+                <div class="clipping-main">
+                    <div id="modal-image-container" class="clipping-image"></div>
+                    <div class="clipping-body" id="modal-summary"></div>
+                </div>
+
+                <footer class="clipping-footer">
+                    <a id="modal-hn-link" href="#" target="_blank" class="clipping-btn">OPEN DISCUSSION ON HACKER NEWS</a>
+                    <div class="clipping-end-mark">■</div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Base Newspaper Transition */
+        .newspaper {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s, filter 0.8s;
+            transform-origin: center center;
+        }
+        
+        .newspaper.zoomed {
+            opacity: 0 !important;
+            filter: blur(30px);
+            pointer-events: none;
+            transform: scale(3) !important;
+        }
+
+    <!-- ARTICLE FOCUS OVERLAY -->
+    <div id="focus-overlay" onclick="closeMap()">
+        <div id="focused-article-container" onclick="event.stopPropagation()">
+            <!-- Cloned article content will be injected here -->
+        </div>
+    </div>
+
+    <style>
+        /* Base Newspaper Transition */
+        .newspaper {
+            transition: filter 0.8s, opacity 0.8s;
+        }
+        
+        .newspaper.blurred {
+            filter: blur(15px) grayscale(80%);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        #focus-overlay {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.5s;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #focus-overlay.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+        #focused-article-container {
+            background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
+            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+            padding: 50px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: absolute;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #ccc;
+            z-index: 10001;
+        }
+
+        /* Styles for the zoomed-in content */
+        .focused-headline { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            margin-bottom: 20px; 
+            line-height: 1;
+            color: #111;
+        }
+        
+        .focused-image { 
+            width: 100%; 
+            margin-bottom: 30px; 
+            border: 1px solid #ddd;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
+        }
+
+        .focused-summary { 
+            font-family: 'Lora', serif; 
+            font-size: 1.5rem; 
+            line-height: 1.6; 
+            color: #222; 
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .focused-footer {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .clipping-btn {
+            display: inline-block;
+            background: #111;
+            color: #fdfdfb;
+            text-decoration: none;
+            padding: 12px 35px;
+            font-family: 'Oswald';
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: background 0.2s;
+        }
+        .clipping-btn:hover { background: #a00; }
+
+        .close-focus {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #111;
+            opacity: 0.3;
+        }
+        .close-focus:hover { opacity: 1; }
+
+        /* Hide original elements we don't want in focus */
+        #focused-article-container .footer-links,
+        #focused-article-container .footer-links-sm {
+            display: none;
+        }
+    </style>
+
+    <script>
+        function openMap(triggerEl, title, summary, imgUrl, slug, source, hnUrl) {
+            const screen = document.getElementById('detail-screen');
+            const newspaper = document.querySelector('.newspaper');
+            const titleEl = document.getElementById('modal-title');
+            const summaryEl = document.getElementById('modal-summary');
+            const metaEl = document.getElementById('modal-meta');
+            const hnLink = document.getElementById('modal-hn-link');
+            const imgContainer = document.getElementById('modal-image-container');
+            
+            // 1. Position-aware zoom origin
+            const rect = triggerEl.getBoundingClientRect();
+            newspaper.style.transformOrigin = `${rect.left + rect.width/2}px ${rect.top + rect.height/2}px`;
+            
+            // 2. Set content
+            titleEl.innerText = title;
+            summaryEl.innerText = summary;
+            metaEl.innerText = `SOURCE: ${source} // NEWS CLIPPING`;
+            hnLink.href = hnUrl;
+            imgContainer.innerHTML = imgUrl ? `<img src="${imgUrl}" alt="">` : '';
+            
+            // 3. Transitions
+            newspaper.classList.add('zoomed');
+            
+            setTimeout(() => {
+                screen.classList.add('visible');
+                
+                const newUrl = new URL(window.location);
+                newUrl.searchParams.set('story', slug);
+                window.history.pushState({}, '', newUrl);
+            }, 150);
+        }
+
+        function closeMap() {
+            const screen = document.getElementById('detail-screen');
+            const newspaper = document.querySelector('.newspaper');
+            
+            screen.classList.remove('visible');
+            
+            setTimeout(() => {
+                newspaper.classList.remove('zoomed');
+                
+                const newUrl = new URL(window.location);
+                newUrl.searchParams.delete('story');
+                window.history.pushState({}, '', newUrl);
+            }, 400);
+        }
+
+        window.addEventListener('load', function() {
+            const params = new URLSearchParams(window.location.search);
+            const storySlug = params.get('story');
+            if (storySlug) {
+                const targetArticle = document.getElementById(`story-${storySlug}`);
+                if (targetArticle) {
+                    const link = targetArticle.querySelector('a[onclick]');
+                    if (link) link.click();
+                }
+            }
+        });
+
+        window.addEventListener('popstate', function() {
+            const screen = document.getElementById('detail-screen');
+            if (screen.classList.contains('visible')) {
+                closeMap();
+            }
+        });
+    </script>
+        
+        .clipping-end-mark { margin-top: 40px; font-size: 1.5rem; color: #111; opacity: 0.3; }
+
+        @media (max-width: 800px) {
+            .clipping-title { font-size: 2.5rem; letter-spacing: -1px; }
+            .clipping-body { font-size: 1.2rem; }
+            .clipping-sheet { padding: 20px; }
+        }
+    </style>
+
+    <script>
+        function openMap(triggerEl, title, summary, imgUrl, slug, source, hnUrl) {
+            const overlay = document.getElementById('focus-overlay');
+            const container = document.getElementById('focused-article-container');
+            const newspaper = document.querySelector('.newspaper');
+            
+            // 1. Calculate the exact position of the clicked article piece
+            const rect = triggerEl.closest('.article').getBoundingClientRect();
+            
+            // 2. Prepare the focused container with the content
+            container.innerHTML = `
+                <span class="close-focus" onclick="closeMap()">&times;</span>
+                <div class="clipping-pub-tag">THE DAILY TOKEN // NEWS CLIPPING</div>
+                <h1 class="focused-headline">${title}</h1>
+                <div class="clipping-meta">SOURCE: ${source} // EXCLUSIVE REPORT</div>
+                ${imgUrl ? `<img src="${imgUrl}" class="focused-image" alt="">` : ''}
+                <div class="focused-summary">${summary}</div>
+                <div class="focused-footer">
+                    <a href="${hnUrl}" target="_blank" class="clipping-btn">DISCUSS ON HACKER NEWS</a>
+                </div>
+            `;
+            
+            // 3. Set the initial position of the container to match the article piece exactly
+            container.style.transition = 'none';
+            container.style.top = rect.top + 'px';
+            container.style.left = rect.left + 'px';
+            container.style.width = rect.width + 'px';
+            container.style.height = rect.height + 'px';
+            container.style.padding = '20px';
+            
+            // 4. Show the overlay and blur background
+            overlay.classList.add('visible');
+            newspaper.classList.add('blurred');
+            
+            // 5. Animate to full focus after a frame
+            requestAnimationFrame(() => {
+                container.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                container.style.top = '5vh';
+                container.style.left = '5%';
+                container.style.width = '90%';
+                container.style.height = '90vh';
+                container.style.padding = '50px';
+                
+                const newUrl = new URL(window.location);
+                newUrl.searchParams.set('story', slug);
+                window.history.pushState({}, '', newUrl);
+            });
+        }
+
+        function closeMap() {
+            const overlay = document.getElementById('focus-overlay');
+            const container = document.getElementById('focused-article-container');
+            const newspaper = document.querySelector('.newspaper');
+            
+            overlay.classList.remove('visible');
+            newspaper.classList.remove('blurred');
+            
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.delete('story');
+            window.history.pushState({}, '', newUrl);
+            
+            setTimeout(() => {
+                container.innerHTML = '';
+            }, 800);
+        }
+
+        window.addEventListener('load', function() {
+            const params = new URLSearchParams(window.location.search);
+            const storySlug = params.get('story');
+            if (storySlug) {
+                const targetArticle = document.getElementById(`story-${storySlug}`);
+                if (targetArticle) {
+                    const link = targetArticle.querySelector('a[onclick]');
+                    if (link) link.click();
+                }
+            }
+        });
+
+        window.addEventListener('popstate', function() {
+            const overlay = document.getElementById('focus-overlay');
+            if (overlay.classList.contains('visible')) {
+                closeMap();
+            }
+        });
+    </script>
+</body>
+</html>
