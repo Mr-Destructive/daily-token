@@ -60,51 +60,7 @@ class LLMRouter:
     
     # Available models (HuggingFace Inference API)
     MODELS: List[LLMModel] = [
-        # Tier 1: Best value
-        LLMModel(
-            name="Qwen3-235B-A22B",
-            provider="huggingface",
-            model_id="Qwen/Qwen3-235B-A22B-Instruct-2507",
-            input_cost=0.09,
-            output_cost=0.58,
-            context_window=131072,
-            quality_score=5,
-            timeout=30
-        ),
-        # Tier 2: Fast & cheap
-        LLMModel(
-            name="GPT-OSS-120B",
-            provider="huggingface",
-            model_id="openai/gpt-oss-120b",
-            input_cost=0.05,
-            output_cost=0.25,
-            context_window=131072,
-            quality_score=4,
-            timeout=30
-        ),
-        # Tier 3: Best reasoning
-        LLMModel(
-            name="DeepSeek-V3.2",
-            provider="huggingface",
-            model_id="deepseek-ai/DeepSeek-V3.2-Exp",
-            input_cost=0.27,
-            output_cost=0.41,
-            context_window=163840,
-            quality_score=5,
-            timeout=30
-        ),
-        # Tier 4: Budget fallback
-        LLMModel(
-            name="Llama-3.1-70B",
-            provider="huggingface",
-            model_id="meta-llama/Llama-3.1-70B-Instruct",
-            input_cost=0.14,
-            output_cost=0.40,
-            context_window=131072,
-            quality_score=4,
-            timeout=30
-        ),
-        # Tier 5: OpenRouter High-Reasoning Free Fallback
+        # Tier 1: OpenRouter High-Reasoning Free Fallback (PRIORITY)
         LLMModel(
             name="OpenRouter-DeepSeek-R1",
             provider="openrouter",
@@ -115,15 +71,59 @@ class LLMRouter:
             quality_score=5,
             timeout=60
         ),
+        # Tier 2: Best value
+        LLMModel(
+            name="Qwen3-235B-A22B",
+            provider="huggingface",
+            model_id="Qwen/Qwen3-235B-A22B-Instruct-2507",
+            input_cost=0.09,
+            output_cost=0.58,
+            context_window=131072,
+            quality_score=5,
+            timeout=30
+        ),
+        # Tier 3: Fast & cheap
+        LLMModel(
+            name="GPT-OSS-120B",
+            provider="huggingface",
+            model_id="openai/gpt-oss-120b",
+            input_cost=0.05,
+            output_cost=0.25,
+            context_window=131072,
+            quality_score=4,
+            timeout=30
+        ),
+        # Tier 4: Best reasoning
+        LLMModel(
+            name="DeepSeek-V3.2",
+            provider="huggingface",
+            model_id="deepseek-ai/DeepSeek-V3.2-Exp",
+            input_cost=0.27,
+            output_cost=0.41,
+            context_window=163840,
+            quality_score=5,
+            timeout=30
+        ),
+        # Tier 5: Budget fallback
+        LLMModel(
+            name="Llama-3.1-70B",
+            provider="huggingface",
+            model_id="meta-llama/Llama-3.1-70B-Instruct",
+            input_cost=0.14,
+            output_cost=0.40,
+            context_window=131072,
+            quality_score=4,
+            timeout=30
+        ),
     ]
     
-    # Weight distribution
+    # Weight distribution (Heavily favor OpenRouter)
     WEIGHTS = [
-        0.35,  # Qwen3-235B
-        0.30,  # GPT-OSS-120B
-        0.15,  # DeepSeek HF
-        0.10,  # Llama HF
-        0.10,  # OpenRouter Free
+        0.50,  # OpenRouter Free
+        0.20,  # Qwen3-235B
+        0.15,  # GPT-OSS-120B
+        0.10,  # DeepSeek HF
+        0.05,  # Llama HF
     ]
     
     def __init__(self):
