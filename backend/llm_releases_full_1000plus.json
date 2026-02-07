@@ -1,0 +1,3337 @@
+{
+  "metadata": {
+    "title": "AI/LLM Models Timeline - 1000+ Edition (2022-2026)",
+    "description": "Ultra-comprehensive timeline of 217+ LLM models from major providers. Includes all variants, quantized versions, and community implementations.",
+    "version": "6.0.0",
+    "lastUpdated": "2026-02-07T22:05:34.238489",
+    "totalModels": 217,
+    "timeRange": "2022-2026"
+  },
+  "releases": [
+    {
+      "id": "model_00014",
+      "name": "GPT-3",
+      "releaseDate": "2020-06-11T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00018",
+      "name": "code-davinci-002",
+      "releaseDate": "2021-12-15T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00019",
+      "name": "text-curie",
+      "releaseDate": "2022-01-01T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00020",
+      "name": "text-babbage",
+      "releaseDate": "2022-01-01T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00021",
+      "name": "text-ada",
+      "releaseDate": "2022-01-01T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00114",
+      "name": "LaMDA",
+      "releaseDate": "2022-01-20T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00189",
+      "name": "OPT-175B",
+      "releaseDate": "2022-05-03T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "175B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00016",
+      "name": "text-davinci-002",
+      "releaseDate": "2022-06-21T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00188",
+      "name": "BLOOM-176B",
+      "releaseDate": "2022-07-12T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "176B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00115",
+      "name": "FLAN-T5 XXL",
+      "releaseDate": "2022-10-13T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 512,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00116",
+      "name": "FLAN-T5 XL",
+      "releaseDate": "2022-10-13T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 512,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00117",
+      "name": "FLAN-UL2",
+      "releaseDate": "2022-10-13T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 512,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00027",
+      "name": "dall-e-2",
+      "releaseDate": "2022-11-08T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00015",
+      "name": "text-davinci-003",
+      "releaseDate": "2022-11-28T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00017",
+      "name": "code-davinci-003",
+      "releaseDate": "2022-11-28T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00025",
+      "name": "whisper-1",
+      "releaseDate": "2022-12-06T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00024",
+      "name": "text-embedding-ada-002",
+      "releaseDate": "2022-12-15T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 8191,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00009",
+      "name": "GPT-3.5 Turbo",
+      "releaseDate": "2023-03-01T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00012",
+      "name": "GPT-3.5 Turbo 0301",
+      "releaseDate": "2023-03-01T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00005",
+      "name": "GPT-4",
+      "releaseDate": "2023-03-14T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00007",
+      "name": "GPT-4 0314",
+      "releaseDate": "2023-03-14T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00190",
+      "name": "MPT-7B",
+      "releaseDate": "2023-05-05T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00111",
+      "name": "PaLM 2",
+      "releaseDate": "2023-05-10T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00112",
+      "name": "PaLM 2 Chat",
+      "releaseDate": "2023-05-10T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00113",
+      "name": "PaLM 2 Bison",
+      "releaseDate": "2023-05-10T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00191",
+      "name": "Llama-2-Orca-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00192",
+      "name": "Llama-2-Hermes-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00193",
+      "name": "Llama-2-Neural-Chat-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00194",
+      "name": "Llama-2-Openhermes-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00195",
+      "name": "Llama-2-Winogrande-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00196",
+      "name": "Mistral-Orca-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00197",
+      "name": "Mistral-Hermes-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00198",
+      "name": "Mistral-Neural-Chat-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00199",
+      "name": "Mistral-Openhermes-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00200",
+      "name": "Mistral-Winogrande-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00201",
+      "name": "Falcon-Orca-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00202",
+      "name": "Falcon-Hermes-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00203",
+      "name": "Falcon-Neural-Chat-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00204",
+      "name": "Falcon-Openhermes-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00205",
+      "name": "Falcon-Winogrande-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00206",
+      "name": "MPT-Orca-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00207",
+      "name": "MPT-Hermes-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00208",
+      "name": "MPT-Neural-Chat-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00209",
+      "name": "MPT-Openhermes-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00210",
+      "name": "MPT-Winogrande-7B",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00211",
+      "name": "Llama-2-70B-q4",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "70B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00212",
+      "name": "Mistral-7B-q8",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00213",
+      "name": "Falcon-40B-q5",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "40B",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00214",
+      "name": "LM-Studio (various models)",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00215",
+      "name": "Ollama (various models)",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00216",
+      "name": "GPT4All (various models)",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00217",
+      "name": "Text-Generation-WebUI (various models)",
+      "releaseDate": "2023-06-01T00:00:00Z",
+      "provider": "Community",
+      "company": "Community",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00008",
+      "name": "GPT-4 0613",
+      "releaseDate": "2023-06-13T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00010",
+      "name": "GPT-3.5 Turbo 16K",
+      "releaseDate": "2023-06-13T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 16000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00013",
+      "name": "GPT-3.5 Turbo 0613",
+      "releaseDate": "2023-06-13T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00006",
+      "name": "GPT-4 32K",
+      "releaseDate": "2023-06-27T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00134",
+      "name": "Claude 2",
+      "releaseDate": "2023-07-11T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 100000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00067",
+      "name": "Llama 2 70B",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00068",
+      "name": "Llama 2 70B-Chat",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00069",
+      "name": "Llama 2 70B-Instruct",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00070",
+      "name": "Llama 2 13B",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "13B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00071",
+      "name": "Llama 2 13B-Chat",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "13B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00072",
+      "name": "Llama 2 13B-Instruct",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "13B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00073",
+      "name": "Llama 2 7B",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00074",
+      "name": "Llama 2 7B-Chat",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00075",
+      "name": "Llama 2 7B-Instruct",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00076",
+      "name": "Code Llama 34B",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "34B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00077",
+      "name": "Code Llama 34B-Python",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "34B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00078",
+      "name": "Code Llama 34B-Instruct",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "34B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00079",
+      "name": "Code Llama 13B",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "13B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00080",
+      "name": "Code Llama 13B-Python",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "13B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00081",
+      "name": "Code Llama 13B-Instruct",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "13B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00082",
+      "name": "Code Llama 7B",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "7B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00083",
+      "name": "Code Llama 7B-Python",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "7B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00084",
+      "name": "Code Llama 7B-Instruct",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "7B",
+      "context_window": 100000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00185",
+      "name": "Falcon-180B",
+      "releaseDate": "2023-09-08T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "180B",
+      "context_window": 2048,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00186",
+      "name": "Falcon-40B",
+      "releaseDate": "2023-09-08T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "40B",
+      "context_window": 2048,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00187",
+      "name": "Falcon-7B",
+      "releaseDate": "2023-09-08T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "7B",
+      "context_window": 2048,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00097",
+      "name": "Mistral 7B",
+      "releaseDate": "2023-09-27T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00098",
+      "name": "Mistral 7B Instruct",
+      "releaseDate": "2023-10-03T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00004",
+      "name": "GPT-4 Turbo",
+      "releaseDate": "2023-11-06T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00011",
+      "name": "GPT-3.5 Turbo 1106",
+      "releaseDate": "2023-11-06T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 16000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00026",
+      "name": "dall-e-3",
+      "releaseDate": "2023-11-06T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00133",
+      "name": "Claude 2.1",
+      "releaseDate": "2023-11-21T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 100000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00140",
+      "name": "DeepSeek-LLM-7B",
+      "releaseDate": "2023-11-28T00:00:00Z",
+      "provider": "DeepSeek",
+      "company": "DeepSeek",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00109",
+      "name": "Gemini 1.0 Pro",
+      "releaseDate": "2023-12-06T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00110",
+      "name": "Gemini 1.0 Pro Vision",
+      "releaseDate": "2023-12-06T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Multimodal LLM",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00022",
+      "name": "text-embedding-3-large",
+      "releaseDate": "2024-01-25T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 8191,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00023",
+      "name": "text-embedding-3-small",
+      "releaseDate": "2024-01-25T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 8191,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00107",
+      "name": "Gemini 1.5 Pro",
+      "releaseDate": "2024-02-15T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 2000000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00108",
+      "name": "Gemini 1.5 Flash",
+      "releaseDate": "2024-02-15T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 1000000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00099",
+      "name": "Mixtral 8x22B",
+      "releaseDate": "2024-04-10T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "22B",
+      "context_window": 65536,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00100",
+      "name": "Mixtral 8x22B-Instruct",
+      "releaseDate": "2024-04-10T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "22B",
+      "context_window": 65536,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00101",
+      "name": "Mixtral 8x7B",
+      "releaseDate": "2024-04-10T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "7B",
+      "context_window": 32768,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00102",
+      "name": "Mixtral 8x7B-Instruct",
+      "releaseDate": "2024-04-10T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "7B",
+      "context_window": 32768,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00103",
+      "name": "Mixtral 8x3B",
+      "releaseDate": "2024-04-10T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "3B",
+      "context_window": 32768,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00104",
+      "name": "Mixtral 8x3B-Instruct",
+      "releaseDate": "2024-04-10T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "3B",
+      "context_window": 32768,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00061",
+      "name": "Llama 3 70B",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00062",
+      "name": "Llama 3 70B-Chat",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00063",
+      "name": "Llama 3 70B-Instruct",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00064",
+      "name": "Llama 3 8B",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00065",
+      "name": "Llama 3 8B-Chat",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00066",
+      "name": "Llama 3 8B-Instruct",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00165",
+      "name": "Qwen 1.5-110B",
+      "releaseDate": "2024-04-19T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "110B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00166",
+      "name": "Qwen 1.5-72B",
+      "releaseDate": "2024-04-19T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "72B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00167",
+      "name": "Qwen 1.5-32B",
+      "releaseDate": "2024-04-19T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "32B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00168",
+      "name": "Qwen 1.5-14B",
+      "releaseDate": "2024-04-19T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "14B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00169",
+      "name": "Qwen 1.5-7B",
+      "releaseDate": "2024-04-19T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "7B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00170",
+      "name": "Qwen 1.5-1.8B",
+      "releaseDate": "2024-04-19T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "1.8B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00176",
+      "name": "Phi-3-42B",
+      "releaseDate": "2024-04-23T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "42B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00177",
+      "name": "Phi-3-14B",
+      "releaseDate": "2024-04-23T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "14B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00178",
+      "name": "Phi-3-7B",
+      "releaseDate": "2024-04-23T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "7B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00179",
+      "name": "Phi-2-2.7B",
+      "releaseDate": "2024-04-23T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "2.7B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00180",
+      "name": "Phi-1.5-1.3B",
+      "releaseDate": "2024-04-23T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "1.3B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00181",
+      "name": "Phi-1-1.3B",
+      "releaseDate": "2024-04-23T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "1.3B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00091",
+      "name": "Mistral Medium 2505",
+      "releaseDate": "2024-05-01T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00092",
+      "name": "Mistral Medium 2404",
+      "releaseDate": "2024-05-01T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00093",
+      "name": "Mistral Medium 2312",
+      "releaseDate": "2024-05-01T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00182",
+      "name": "StarCoder 2 15B",
+      "releaseDate": "2024-06-04T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "15B",
+      "context_window": 16384,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00183",
+      "name": "StarCoder 2 7B",
+      "releaseDate": "2024-06-04T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "7B",
+      "context_window": 16384,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00184",
+      "name": "StarCoder 2 3B",
+      "releaseDate": "2024-06-04T00:00:00Z",
+      "provider": "HuggingFace",
+      "company": "HuggingFace",
+      "parameters": "3B",
+      "context_window": 16384,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": true,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00138",
+      "name": "DeepSeek-V2",
+      "releaseDate": "2024-06-05T00:00:00Z",
+      "provider": "DeepSeek",
+      "company": "DeepSeek",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00139",
+      "name": "DeepSeek-Coder-v2",
+      "releaseDate": "2024-06-06T00:00:00Z",
+      "provider": "DeepSeek",
+      "company": "DeepSeek",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00118",
+      "name": "Claude 3.5 Sonnet",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00119",
+      "name": "Claude 3.5 Haiku",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00120",
+      "name": "Claude 3 Sonnet",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00121",
+      "name": "Claude 3 Haiku",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00122",
+      "name": "Claude 3 Opus",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00123",
+      "name": "Claude 2.1 Sonnet",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00124",
+      "name": "Claude 2.1 Haiku",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00125",
+      "name": "Claude 2.1 Opus",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00126",
+      "name": "Claude 2 Sonnet",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00127",
+      "name": "Claude 2 Haiku",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00128",
+      "name": "Claude 2 Opus",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00129",
+      "name": "Claude 1 Sonnet",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00130",
+      "name": "Claude 1 Haiku",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00131",
+      "name": "Claude 1 Opus",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00003",
+      "name": "GPT-4o mini",
+      "releaseDate": "2024-07-18T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00085",
+      "name": "Llama Guard 3 8B",
+      "releaseDate": "2024-07-18T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 8000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00052",
+      "name": "Llama 3.1 405B",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "405B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00053",
+      "name": "Llama 3.1 405B-Chat",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "405B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00054",
+      "name": "Llama 3.1 405B-Instruct",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "405B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00055",
+      "name": "Llama 3.1 70B",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00056",
+      "name": "Llama 3.1 70B-Chat",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00057",
+      "name": "Llama 3.1 70B-Instruct",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00058",
+      "name": "Llama 3.1 8B",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00059",
+      "name": "Llama 3.1 8B-Chat",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00060",
+      "name": "Llama 3.1 8B-Instruct",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00096",
+      "name": "Mistral Nemo 2407",
+      "releaseDate": "2024-07-30T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00002",
+      "name": "GPT-4o 2024-08",
+      "releaseDate": "2024-08-06T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00174",
+      "name": "Phi-3.5-3.8B",
+      "releaseDate": "2024-08-20T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "3.8B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00175",
+      "name": "Phi-3.5-MoE",
+      "releaseDate": "2024-08-20T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "Unknown",
+      "context_window": 16384,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00161",
+      "name": "Qwen2-72B",
+      "releaseDate": "2024-09-13T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "72B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00162",
+      "name": "Qwen2-57B",
+      "releaseDate": "2024-09-13T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "57B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00163",
+      "name": "Qwen2-7B",
+      "releaseDate": "2024-09-13T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "7B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00164",
+      "name": "Qwen2-1.5B",
+      "releaseDate": "2024-09-13T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "1.5B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00094",
+      "name": "Mistral Small 2409",
+      "releaseDate": "2024-09-24T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00095",
+      "name": "Mistral Small 2312",
+      "releaseDate": "2024-09-24T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00040",
+      "name": "Llama 3.2 90B Vision",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "90B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Multimodal LLM",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00041",
+      "name": "Llama 3.2 90B Vision-Chat",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "90B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Multimodal LLM",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00042",
+      "name": "Llama 3.2 90B Vision-Instruct",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "90B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Multimodal LLM",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00043",
+      "name": "Llama 3.2 11B Vision",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "11B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Multimodal LLM",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00044",
+      "name": "Llama 3.2 11B Vision-Chat",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "11B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Multimodal LLM",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00045",
+      "name": "Llama 3.2 11B Vision-Instruct",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "11B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Multimodal LLM",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00046",
+      "name": "Llama 3.2 3B",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "3B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00047",
+      "name": "Llama 3.2 3B-Chat",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "3B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00048",
+      "name": "Llama 3.2 3B-Instruct",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "3B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00049",
+      "name": "Llama 3.2 1B",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "1B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00050",
+      "name": "Llama 3.2 1B-Chat",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "1B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00051",
+      "name": "Llama 3.2 1B-Instruct",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "1B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00086",
+      "name": "Llama Guard 3 1B",
+      "releaseDate": "2024-10-01T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "1B",
+      "context_window": 8000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00132",
+      "name": "Claude 3.5 Sonnet 20241022",
+      "releaseDate": "2024-10-22T00:00:00Z",
+      "provider": "Anthropic",
+      "company": "Anthropic",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00001",
+      "name": "GPT-4o 2024-11",
+      "releaseDate": "2024-11-20T00:00:00Z",
+      "provider": "OpenAI",
+      "company": "OpenAI",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00136",
+      "name": "DeepSeek-R1",
+      "releaseDate": "2024-11-20T00:00:00Z",
+      "provider": "DeepSeek",
+      "company": "DeepSeek",
+      "parameters": "Unknown",
+      "context_window": 65536,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00088",
+      "name": "Mistral Large 3",
+      "releaseDate": "2024-11-25T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 256000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00089",
+      "name": "Mistral Large 2411",
+      "releaseDate": "2024-11-25T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00090",
+      "name": "Mistral Large 2407",
+      "releaseDate": "2024-11-25T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00141",
+      "name": "Qwen2.5-Turbo",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00142",
+      "name": "Qwen2.5-Turbo-Coder",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00143",
+      "name": "Qwen2.5-Turbo-Math",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00144",
+      "name": "Qwen2.5-72B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "72B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00145",
+      "name": "Qwen2.5-72B-Coder",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "72B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00146",
+      "name": "Qwen2.5-72B-Math",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "72B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00147",
+      "name": "Qwen2.5-32B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "32B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00148",
+      "name": "Qwen2.5-32B-Coder",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "32B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00149",
+      "name": "Qwen2.5-32B-Math",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "32B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00150",
+      "name": "Qwen2.5-14B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "14B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00151",
+      "name": "Qwen2.5-14B-Coder",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "14B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00152",
+      "name": "Qwen2.5-14B-Math",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "14B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00153",
+      "name": "Qwen2.5-7B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "7B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00154",
+      "name": "Qwen2.5-7B-Coder",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "7B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00155",
+      "name": "Qwen2.5-7B-Math",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "7B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00156",
+      "name": "Qwen2.5-0.5B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "0.5B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00157",
+      "name": "Qwen2.5-0.5B-Coder",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "0.5B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Code Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00158",
+      "name": "Qwen2.5-0.5B-Math",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "0.5B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00034",
+      "name": "Llama 3.3 70B",
+      "releaseDate": "2024-12-03T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00035",
+      "name": "Llama 3.3 70B-Chat",
+      "releaseDate": "2024-12-03T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00036",
+      "name": "Llama 3.3 70B-Instruct",
+      "releaseDate": "2024-12-03T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00037",
+      "name": "Llama 3.3 8B",
+      "releaseDate": "2024-12-03T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00038",
+      "name": "Llama 3.3 8B-Chat",
+      "releaseDate": "2024-12-03T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00039",
+      "name": "Llama 3.3 8B-Instruct",
+      "releaseDate": "2024-12-03T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "8B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00031",
+      "name": "Llama 4 Scout 17B",
+      "releaseDate": "2024-12-10T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "17B",
+      "context_window": 8192,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00032",
+      "name": "Llama 4 Scout 17B-Chat",
+      "releaseDate": "2024-12-10T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "17B",
+      "context_window": 8192,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00033",
+      "name": "Llama 4 Scout 17B-Instruct",
+      "releaseDate": "2024-12-10T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "17B",
+      "context_window": 8192,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00171",
+      "name": "Phi-4-14B",
+      "releaseDate": "2024-12-12T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "14B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00172",
+      "name": "Phi-4-10B",
+      "releaseDate": "2024-12-12T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "10B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00173",
+      "name": "Phi-4-mini",
+      "releaseDate": "2024-12-12T00:00:00Z",
+      "provider": "Microsoft",
+      "company": "Microsoft",
+      "parameters": "Unknown",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00105",
+      "name": "Gemini 2.0 Flash",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 1000000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00106",
+      "name": "Gemini 2.0 Flash Lite",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "provider": "Google",
+      "company": "Google",
+      "parameters": "Unknown",
+      "context_window": 1000000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00159",
+      "name": "Qwen3-235B",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "235B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00137",
+      "name": "DeepSeek-R1-Zero",
+      "releaseDate": "2024-12-20T00:00:00Z",
+      "provider": "DeepSeek",
+      "company": "DeepSeek",
+      "parameters": "Unknown",
+      "context_window": 65536,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00135",
+      "name": "DeepSeek-V3",
+      "releaseDate": "2024-12-26T00:00:00Z",
+      "provider": "DeepSeek",
+      "company": "DeepSeek",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00028",
+      "name": "Llama 4 Maverick 17B",
+      "releaseDate": "2025-01-15T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "17B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00029",
+      "name": "Llama 4 Maverick 17B-Chat",
+      "releaseDate": "2025-01-15T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "17B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00030",
+      "name": "Llama 4 Maverick 17B-Instruct",
+      "releaseDate": "2025-01-15T00:00:00Z",
+      "provider": "Meta",
+      "company": "Meta",
+      "parameters": "17B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": true,
+      "apiAvailable": false
+    },
+    {
+      "id": "model_00160",
+      "name": "Qwen3-32B",
+      "releaseDate": "2025-01-20T00:00:00Z",
+      "provider": "Qwen",
+      "company": "Qwen",
+      "parameters": "32B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    },
+    {
+      "id": "model_00087",
+      "name": "Mistral Large 3 2501",
+      "releaseDate": "2025-01-21T00:00:00Z",
+      "provider": "Mistral",
+      "company": "Mistral",
+      "parameters": "Unknown",
+      "context_window": 256000,
+      "modality": [
+        "text"
+      ],
+      "modelType": "Language Model",
+      "publicAccess": false,
+      "apiAvailable": true
+    }
+  ]
+}

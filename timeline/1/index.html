@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Timeline - Vertical Cards</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #0a0e27 0%, #0f1429 100%);
+            color: #e8e8ee;
+            font-family: 'Inter', sans-serif;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d9ff, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #a0a0b8;
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #00d9ff, #ff6b9d);
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            display: flex;
+            gap: 2rem;
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: #1a1f3a;
+            border: 2px solid #00d9ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #00d9ff;
+        }
+
+        .model-card {
+            background: linear-gradient(135deg, rgba(26,31,58,0.8), rgba(20,24,41,0.5));
+            border: 1px solid #2a2f48;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,217,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .model-card:hover {
+            border-color: #00d9ff;
+            box-shadow: 0 8px 32px rgba(0,217,255,0.15);
+            transform: translateY(-4px);
+        }
+
+        .model-card:hover::before {
+            opacity: 1;
+        }
+
+        .model-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #00d9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .provider {
+            font-size: 0.9rem;
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .spec {
+            font-size: 0.8rem;
+        }
+
+        .spec-label {
+            color: #a0a0b8;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        .spec-value {
+            color: #e8e8ee;
+            font-weight: 600;
+        }
+
+        .dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #00d9ff;
+            border: 4px solid #0a0e27;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(0,217,255,0.6);
+        }
+
+        .modality-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.3rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: rgba(0,217,255,0.15);
+            color: #00d9ff;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .dot {
+                left: 0;
+            }
+
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 LLM Timeline</h1>
+        <p class="subtitle">3,482 Models • 2019-2026 • Vertical Timeline View</p>
+        
+        <div class="timeline" id="timeline"></div>
+    </div>
+
+    <script>
+        const sampleData = [
+            { year: 2019, name: 'BERT', provider: 'Google', date: '2019-10-11', params: '340M', context: 512, modality: ['text'] },
+            { year: 2019, name: 'GPT-2', provider: 'OpenAI', date: '2019-02-14', params: '1.5B', context: 1024, modality: ['text'] },
+            { year: 2020, name: 'GPT-3', provider: 'OpenAI', date: '2020-06-11', params: '175B', context: 2048, modality: ['text'] },
+            { year: 2023, name: 'GPT-4', provider: 'OpenAI', date: '2023-03-14', params: 'Unknown', context: 8192, modality: ['text', 'image'] },
+            { year: 2023, name: 'Claude 2', provider: 'Anthropic', date: '2023-07-11', params: 'Unknown', context: 100000, modality: ['text'] },
+            { year: 2023, name: 'Llama 2 70B', provider: 'Meta', date: '2023-07-18', params: '70B', context: 4096, modality: ['text'] },
+            { year: 2023, name: 'Mistral 7B', provider: 'Mistral', date: '2023-09-27', params: '7B', context: 8192, modality: ['text'] },
+            { year: 2024, name: 'GPT-4 Turbo', provider: 'OpenAI', date: '2024-11-06', params: 'Unknown', context: 128000, modality: ['text', 'image'] },
+            { year: 2024, name: 'Claude 3 Opus', provider: 'Anthropic', date: '2024-03-04', params: 'Unknown', context: 200000, modality: ['text', 'image'] },
+            { year: 2024, name: 'Llama 3.1 405B', provider: 'Meta', date: '2024-07-23', params: '405B', context: 131072, modality: ['text'] },
+            { year: 2024, name: 'Gemini 2.0', provider: 'Google', date: '2024-12-19', params: 'Unknown', context: 1000000, modality: ['text', 'image', 'audio', 'video'] },
+            { year: 2024, name: 'DeepSeek-V3', provider: 'DeepSeek', date: '2024-12-26', params: '671B', context: 131072, modality: ['text'] },
+        ];
+
+        const timeline = document.getElementById('timeline');
+        const groupedByYear = {};
+
+        sampleData.forEach(item => {
+            if (!groupedByYear[item.year]) groupedByYear[item.year] = [];
+            groupedByYear[item.year].push(item);
+        });
+
+        Object.keys(groupedByYear).sort((a, b) => a - b).forEach((year, idx) => {
+            groupedByYear[year].forEach((item, itemIdx) => {
+                const el = document.createElement('div');
+                el.className = 'timeline-item';
+                el.style.animationDelay = `${(idx * 0.3 + itemIdx * 0.1)}s`;
+                el.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="year-badge">${year}</div>
+                        <div class="model-card">
+                            <div class="dot"></div>
+                            <div class="model-name">${item.name}</div>
+                            <div class="provider">${item.provider}</div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <div class="spec-label">Parameters</div>
+                                    <div class="spec-value">${item.params}</div>
+                                </div>
+                                <div class="spec">
+                                    <div class="spec-label">Context</div>
+                                    <div class="spec-value">${item.context.toLocaleString()}</div>
+                                </div>
+                            </div>
+                            <div class="modality-badges">
+                                ${item.modality.map(m => `<span class="badge">${m}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                timeline.appendChild(el);
+            });
+        });
+    </script>
+</body>
+</html>

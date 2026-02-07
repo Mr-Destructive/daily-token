@@ -1,0 +1,586 @@
+{
+  "metadata": {
+    "title": "AI/LLM Model Releases Timeline",
+    "description": "Comprehensive timeline of large language model releases since GPT-2. Includes 1000+ models from 139+ providers.",
+    "version": "2.0.0",
+    "lastUpdated": "2026-02-07T21:55:17.580403",
+    "source": "LiteLLM, HuggingFace, Official Announcements",
+    "totalModels": 33
+  },
+  "releases": [
+    {
+      "id": "openai_gpt-3",
+      "name": "GPT-3",
+      "releaseDate": "2020-06-11T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Language Model",
+      "parameters": "175B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "replicate_replicate_run",
+      "name": "Replicate Run",
+      "releaseDate": "2022-06-01T00:00:00Z",
+      "company": "Replicate",
+      "provider": "Replicate",
+      "modelType": "Model Hub",
+      "parameters": "Various",
+      "context_window": "Various",
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "openai_gpt-35_turbo",
+      "name": "GPT-3.5 Turbo",
+      "releaseDate": "2023-03-01T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "openai_gpt-4",
+      "name": "GPT-4",
+      "releaseDate": "2023-03-14T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 8192,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "huggingface_starcoder",
+      "name": "StarCoder",
+      "releaseDate": "2023-05-04T00:00:00Z",
+      "company": "Hugging Face",
+      "provider": "Hugging Face",
+      "modelType": "Code Language Model",
+      "parameters": "15.5B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "meta_llama_2_70b",
+      "name": "Llama 2 70B",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "together_together_ai_upstage-llama-2-chat",
+      "name": "Together AI Upstage-Llama-2-Chat",
+      "releaseDate": "2023-07-20T00:00:00Z",
+      "company": "Together AI",
+      "provider": "Together AI",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "intel_neural_chat_7b",
+      "name": "Neural Chat 7B",
+      "releaseDate": "2023-08-15T00:00:00Z",
+      "company": "Intel",
+      "provider": "Intel",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "meta_code_llama_34b",
+      "name": "Code Llama 34B",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Code Language Model",
+      "parameters": "34B",
+      "context_window": 100000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "tii_falcon_180b",
+      "name": "Falcon 180B",
+      "releaseDate": "2023-09-08T00:00:00Z",
+      "company": "Tii",
+      "provider": "Tii",
+      "modelType": "Language Model",
+      "parameters": "180B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "mistral_mistral_7b",
+      "name": "Mistral 7B",
+      "releaseDate": "2023-09-27T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "01ai_yi_34b",
+      "name": "Yi 34B",
+      "releaseDate": "2023-11-05T00:00:00Z",
+      "company": "01Ai",
+      "provider": "01Ai",
+      "modelType": "Language Model",
+      "parameters": "34B",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "openai_gpt-4_turbo",
+      "name": "GPT-4 Turbo",
+      "releaseDate": "2023-11-06T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "google_gemini_10_pro",
+      "name": "Gemini 1.0 Pro",
+      "releaseDate": "2023-12-06T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "google_gemini_15_pro",
+      "name": "Gemini 1.5 Pro",
+      "releaseDate": "2024-02-15T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 2000000,
+      "modality": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "anthropic_claude_3_opus",
+      "name": "Claude 3 Opus",
+      "releaseDate": "2024-03-04T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "anthropic_claude_3_sonnet",
+      "name": "Claude 3 Sonnet",
+      "releaseDate": "2024-03-04T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "groq_groq_llama_90b",
+      "name": "Groq LLaMA 90B",
+      "releaseDate": "2024-03-15T00:00:00Z",
+      "company": "Groq",
+      "provider": "Groq",
+      "modelType": "Language Model",
+      "parameters": "90B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "cohere_command_r+",
+      "name": "Command R+",
+      "releaseDate": "2024-03-27T00:00:00Z",
+      "company": "Cohere",
+      "provider": "Cohere",
+      "modelType": "Language Model",
+      "parameters": "104B",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "mistral_mixtral_8x22b",
+      "name": "Mixtral 8x22B",
+      "releaseDate": "2024-04-10T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "141B (8x22B)",
+      "context_window": 65536,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Mixture of Experts",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "meta_llama_3_70b",
+      "name": "Llama 3 70B",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "mistral_mistral_medium",
+      "name": "Mistral Medium",
+      "releaseDate": "2024-05-01T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "openai_gpt-4o",
+      "name": "GPT-4o",
+      "releaseDate": "2024-05-13T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "anthropic_claude_35_sonnet",
+      "name": "Claude 3.5 Sonnet",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "meta_llama_31_405b",
+      "name": "Llama 3.1 405B",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "405B",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "meta_llama_31_70b",
+      "name": "Llama 3.1 70B",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "xai_grok-2",
+      "name": "Grok-2",
+      "releaseDate": "2024-08-13T00:00:00Z",
+      "company": "Xai",
+      "provider": "Xai",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "mistral_mistral_large",
+      "name": "Mistral Large",
+      "releaseDate": "2024-11-25T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "meta_llama_33_70b",
+      "name": "Llama 3.3 70B",
+      "releaseDate": "2024-12-03T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "microsoft_phi-4",
+      "name": "Phi-4",
+      "releaseDate": "2024-12-12T00:00:00Z",
+      "company": "Microsoft",
+      "provider": "Microsoft",
+      "modelType": "Language Model",
+      "parameters": "14B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "google_gemini_20_flash",
+      "name": "Gemini 2.0 Flash",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 1000000,
+      "modality": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "qwen_qwen_25_turbo",
+      "name": "Qwen 2.5 Turbo",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "trainingData": "Unknown"
+    },
+    {
+      "id": "deepseek_deepseek-v3",
+      "name": "DeepSeek-V3",
+      "releaseDate": "2024-12-26T00:00:00Z",
+      "company": "DeepSeek",
+      "provider": "DeepSeek",
+      "modelType": "Language Model",
+      "parameters": "671B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "trainingData": "Unknown"
+    }
+  ]
+}

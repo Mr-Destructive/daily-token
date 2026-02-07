@@ -1,0 +1,1960 @@
+{
+  "metadata": {
+    "title": "AI/LLM Models Timeline - Comprehensive Edition",
+    "description": "Complete timeline of 107 LLM models from 23 providers. Includes latest models from GPT-2 era to December 2024.",
+    "version": "3.0.0",
+    "lastUpdated": "2026-02-07T21:55:52.191572",
+    "dataSource": "LiteLLM, HuggingFace, Official Announcements",
+    "totalProviders": 23,
+    "totalModels": 107
+  },
+  "releases": [
+    {
+      "id": "model_0010",
+      "name": "GPT-3",
+      "releaseDate": "2020-06-11T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Language Model",
+      "parameters": "175B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0009",
+      "name": "text-davinci-002",
+      "releaseDate": "2022-06-21T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0087",
+      "name": "BLOOM-176B",
+      "releaseDate": "2022-07-12T00:00:00Z",
+      "company": "HuggingFace",
+      "provider": "HuggingFace",
+      "modelType": "Language Model",
+      "parameters": "176B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0041",
+      "name": "FLAN-T5 XL",
+      "releaseDate": "2022-10-13T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Language Model",
+      "parameters": "3B",
+      "context_window": 512,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0042",
+      "name": "FLAN-UL2",
+      "releaseDate": "2022-10-13T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Language Model",
+      "parameters": "20B",
+      "context_window": 512,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0008",
+      "name": "text-davinci-003",
+      "releaseDate": "2022-11-28T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0093",
+      "name": "Local models via LM Studio",
+      "releaseDate": "2023-01-01T00:00:00Z",
+      "company": "LM Studio",
+      "provider": "LM Studio",
+      "modelType": "Language Model",
+      "parameters": "Various",
+      "context_window": "Various",
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0006",
+      "name": "GPT-3.5 Turbo",
+      "releaseDate": "2023-03-01T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0004",
+      "name": "GPT-4",
+      "releaseDate": "2023-03-14T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 8192,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0097",
+      "name": "Falcon-7B",
+      "releaseDate": "2023-03-24T00:00:00Z",
+      "company": "TII Falcon",
+      "provider": "TII Falcon",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0088",
+      "name": "MPT-7B",
+      "releaseDate": "2023-05-05T00:00:00Z",
+      "company": "HuggingFace",
+      "provider": "HuggingFace",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0040",
+      "name": "PaLM 2",
+      "releaseDate": "2023-05-10T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0007",
+      "name": "GPT-3.5 Turbo 16K",
+      "releaseDate": "2023-06-13T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 16000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0096",
+      "name": "Falcon-40B",
+      "releaseDate": "2023-06-23T00:00:00Z",
+      "company": "TII Falcon",
+      "provider": "TII Falcon",
+      "modelType": "Language Model",
+      "parameters": "40B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0094",
+      "name": "Ollama Local Models",
+      "releaseDate": "2023-06-26T00:00:00Z",
+      "company": "Ollama",
+      "provider": "Ollama",
+      "modelType": "Language Model",
+      "parameters": "Various",
+      "context_window": "Various",
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0005",
+      "name": "GPT-4 32K",
+      "releaseDate": "2023-06-27T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0033",
+      "name": "Claude 2",
+      "releaseDate": "2023-07-11T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 100000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0034",
+      "name": "Claude Instant",
+      "releaseDate": "2023-07-11T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 100000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0022",
+      "name": "Llama 2 Chat 70B",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0023",
+      "name": "Llama 2 Chat 13B",
+      "releaseDate": "2023-07-18T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "13B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0080",
+      "name": "Llama-2-70B-chat",
+      "releaseDate": "2023-08-01T00:00:00Z",
+      "company": "Together AI",
+      "provider": "Together AI",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0091",
+      "name": "NeuralChat-7B",
+      "releaseDate": "2023-08-15T00:00:00Z",
+      "company": "NeuralHub",
+      "provider": "NeuralHub",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0024",
+      "name": "Code Llama 34B",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "34B",
+      "context_window": 100000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0025",
+      "name": "Code Llama 13B",
+      "releaseDate": "2023-08-24T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "13B",
+      "context_window": 100000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0082",
+      "name": "Upstage-Llama-2-Chat",
+      "releaseDate": "2023-09-01T00:00:00Z",
+      "company": "Together AI",
+      "provider": "Together AI",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0086",
+      "name": "Falcon-180B",
+      "releaseDate": "2023-09-08T00:00:00Z",
+      "company": "HuggingFace",
+      "provider": "HuggingFace",
+      "modelType": "Language Model",
+      "parameters": "180B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0095",
+      "name": "Falcon-180B",
+      "releaseDate": "2023-09-08T00:00:00Z",
+      "company": "TII Falcon",
+      "provider": "TII Falcon",
+      "modelType": "Language Model",
+      "parameters": "180B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0059",
+      "name": "Command",
+      "releaseDate": "2023-09-21T00:00:00Z",
+      "company": "Cohere",
+      "provider": "Cohere",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0049",
+      "name": "Mistral 7B",
+      "releaseDate": "2023-09-27T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0085",
+      "name": "Zephyr-7B-beta",
+      "releaseDate": "2023-10-16T00:00:00Z",
+      "company": "HuggingFace",
+      "provider": "HuggingFace",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0102",
+      "name": "Yi-34B",
+      "releaseDate": "2023-11-05T00:00:00Z",
+      "company": "01.AI",
+      "provider": "01.AI",
+      "modelType": "Language Model",
+      "parameters": "34B",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0103",
+      "name": "Yi-6B",
+      "releaseDate": "2023-11-05T00:00:00Z",
+      "company": "01.AI",
+      "provider": "01.AI",
+      "modelType": "Language Model",
+      "parameters": "6B",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0003",
+      "name": "GPT-4 Turbo",
+      "releaseDate": "2023-11-06T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0032",
+      "name": "Claude 2.1",
+      "releaseDate": "2023-11-21T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 100000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0074",
+      "name": "Phi-2",
+      "releaseDate": "2023-11-22T00:00:00Z",
+      "company": "Microsoft",
+      "provider": "Microsoft",
+      "modelType": "Language Model",
+      "parameters": "2.7B",
+      "context_window": 2048,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0056",
+      "name": "DeepSeek-LLM-7B",
+      "releaseDate": "2023-11-28T00:00:00Z",
+      "company": "Deepseek",
+      "provider": "Deepseek",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0092",
+      "name": "Fireworks-LLaMA2-70B",
+      "releaseDate": "2023-12-01T00:00:00Z",
+      "company": "Fireflies AI",
+      "provider": "Fireflies AI",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0039",
+      "name": "Gemini 1.0 Pro",
+      "releaseDate": "2023-12-06T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0100",
+      "name": "Jamba",
+      "releaseDate": "2023-12-06T00:00:00Z",
+      "company": "AI21 Labs",
+      "provider": "AI21 Labs",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0051",
+      "name": "Mixtral 8x7B",
+      "releaseDate": "2023-12-11T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "47B",
+      "context_window": 32768,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0081",
+      "name": "Mixtral-8x7B",
+      "releaseDate": "2023-12-11T00:00:00Z",
+      "company": "Together AI",
+      "provider": "Together AI",
+      "modelType": "Language Model",
+      "parameters": "47B",
+      "context_window": 32768,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0077",
+      "name": "Mixtral 8x7B Groq",
+      "releaseDate": "2024-01-15T00:00:00Z",
+      "company": "Groq",
+      "provider": "Groq",
+      "modelType": "Language Model",
+      "parameters": "47B",
+      "context_window": 32768,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0078",
+      "name": "LLaMA 2 70B Groq",
+      "releaseDate": "2024-01-15T00:00:00Z",
+      "company": "Groq",
+      "provider": "Groq",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0079",
+      "name": "Whisper Groq",
+      "releaseDate": "2024-01-15T00:00:00Z",
+      "company": "Groq",
+      "provider": "Groq",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 4096,
+      "modality": [
+        "audio"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0058",
+      "name": "Command R",
+      "releaseDate": "2024-01-16T00:00:00Z",
+      "company": "Cohere",
+      "provider": "Cohere",
+      "modelType": "Language Model",
+      "parameters": "35B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0037",
+      "name": "Gemini 1.5 Pro",
+      "releaseDate": "2024-02-15T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 2000000,
+      "modality": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0060",
+      "name": "Rerank v3-multilingual",
+      "releaseDate": "2024-02-16T00:00:00Z",
+      "company": "Cohere",
+      "provider": "Cohere",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 10000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0029",
+      "name": "Claude 3 Opus",
+      "releaseDate": "2024-03-04T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0030",
+      "name": "Claude 3 Sonnet",
+      "releaseDate": "2024-03-04T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0031",
+      "name": "Claude 3 Haiku",
+      "releaseDate": "2024-03-04T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0090",
+      "name": "Sonar",
+      "releaseDate": "2024-03-20T00:00:00Z",
+      "company": "Perplexity",
+      "provider": "Perplexity",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 127072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0057",
+      "name": "Command R+",
+      "releaseDate": "2024-03-27T00:00:00Z",
+      "company": "Cohere",
+      "provider": "Cohere",
+      "modelType": "Language Model",
+      "parameters": "104B",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0050",
+      "name": "Mixtral 8x22B",
+      "releaseDate": "2024-04-10T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "141B",
+      "context_window": 65536,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0020",
+      "name": "Llama 3 70B",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0021",
+      "name": "Llama 3 8B",
+      "releaseDate": "2024-04-18T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "8B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0069",
+      "name": "Qwen 1.5-110B",
+      "releaseDate": "2024-04-19T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "110B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0072",
+      "name": "Phi-3-small",
+      "releaseDate": "2024-04-23T00:00:00Z",
+      "company": "Microsoft",
+      "provider": "Microsoft",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0073",
+      "name": "Phi-3-medium",
+      "releaseDate": "2024-04-23T00:00:00Z",
+      "company": "Microsoft",
+      "provider": "Microsoft",
+      "modelType": "Language Model",
+      "parameters": "14B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0046",
+      "name": "Mistral Medium 2505",
+      "releaseDate": "2024-05-01T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0001",
+      "name": "GPT-4o",
+      "releaseDate": "2024-05-13T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0038",
+      "name": "Gemini 1.5 Flash",
+      "releaseDate": "2024-05-14T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 1000000,
+      "modality": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0101",
+      "name": "Yi-1.5-34B",
+      "releaseDate": "2024-05-21T00:00:00Z",
+      "company": "01.AI",
+      "provider": "01.AI",
+      "modelType": "Language Model",
+      "parameters": "34B",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0083",
+      "name": "StarCoder 2 15B",
+      "releaseDate": "2024-06-04T00:00:00Z",
+      "company": "HuggingFace",
+      "provider": "HuggingFace",
+      "modelType": "Language Model",
+      "parameters": "15B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0084",
+      "name": "StarCoder 2 3B",
+      "releaseDate": "2024-06-04T00:00:00Z",
+      "company": "HuggingFace",
+      "provider": "HuggingFace",
+      "modelType": "Language Model",
+      "parameters": "3B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0055",
+      "name": "DeepSeek-Coder-v2",
+      "releaseDate": "2024-06-06T00:00:00Z",
+      "company": "Deepseek",
+      "provider": "Deepseek",
+      "modelType": "Language Model",
+      "parameters": "236B",
+      "context_window": 4096,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0027",
+      "name": "Claude 3.5 Sonnet",
+      "releaseDate": "2024-06-20T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0002",
+      "name": "GPT-4o mini",
+      "releaseDate": "2024-07-18T00:00:00Z",
+      "company": "OpenAI",
+      "provider": "OpenAI",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0026",
+      "name": "Llama Guard 3",
+      "releaseDate": "2024-07-18T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "8B",
+      "context_window": 8000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0017",
+      "name": "Llama 3.1 405B",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "405B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0018",
+      "name": "Llama 3.1 70B",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0019",
+      "name": "Llama 3.1 8B",
+      "releaseDate": "2024-07-23T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "8B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0045",
+      "name": "Mistral Large 2407",
+      "releaseDate": "2024-07-30T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0075",
+      "name": "Grok-2",
+      "releaseDate": "2024-08-13T00:00:00Z",
+      "company": "xAI",
+      "provider": "xAI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0071",
+      "name": "Phi-3.5-mini",
+      "releaseDate": "2024-08-20T00:00:00Z",
+      "company": "Microsoft",
+      "provider": "Microsoft",
+      "modelType": "Language Model",
+      "parameters": "3.8B",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0067",
+      "name": "Qwen 2 72B",
+      "releaseDate": "2024-09-13T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "72B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0068",
+      "name": "Qwen 2 7B",
+      "releaseDate": "2024-09-13T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0047",
+      "name": "Mistral Small 2409",
+      "releaseDate": "2024-09-24T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 32000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0014",
+      "name": "Llama 3.2 90B Vision",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Multimodal LLM",
+      "parameters": "90B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0015",
+      "name": "Llama 3.2 11B Vision",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Multimodal LLM",
+      "parameters": "11B",
+      "context_window": 131072,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0016",
+      "name": "Llama 3.2 3B",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "3B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0105",
+      "name": "Hermes-3-70B",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "company": "NousResearch",
+      "provider": "NousResearch",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0106",
+      "name": "Hermes-3-8B",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "company": "NousResearch",
+      "provider": "NousResearch",
+      "modelType": "Language Model",
+      "parameters": "8B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0107",
+      "name": "Llama-3.2-8B",
+      "releaseDate": "2024-09-27T00:00:00Z",
+      "company": "Nebius",
+      "provider": "Nebius",
+      "modelType": "Language Model",
+      "parameters": "8B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0028",
+      "name": "Claude 3.5 Haiku",
+      "releaseDate": "2024-11-15T00:00:00Z",
+      "company": "Anthropic",
+      "provider": "Anthropic",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0048",
+      "name": "Mistral Nemo",
+      "releaseDate": "2024-11-20T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "12B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0053",
+      "name": "DeepSeek-R1",
+      "releaseDate": "2024-11-20T00:00:00Z",
+      "company": "Deepseek",
+      "provider": "Deepseek",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 65536,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0043",
+      "name": "Mistral Large 3",
+      "releaseDate": "2024-11-25T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 256000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0044",
+      "name": "Mistral Large 2411",
+      "releaseDate": "2024-11-25T00:00:00Z",
+      "company": "Mistral AI",
+      "provider": "Mistral AI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 128000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0062",
+      "name": "Qwen2.5-72B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "72B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0063",
+      "name": "Qwen2.5-32B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "32B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0064",
+      "name": "Qwen2.5-14B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "14B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0065",
+      "name": "Qwen2.5-7B",
+      "releaseDate": "2024-12-02T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "7B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0013",
+      "name": "Llama 3.3 70B",
+      "releaseDate": "2024-12-03T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "70B",
+      "context_window": 8192,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0104",
+      "name": "Hermes-3-405B",
+      "releaseDate": "2024-12-09T00:00:00Z",
+      "company": "NousResearch",
+      "provider": "NousResearch",
+      "modelType": "Language Model",
+      "parameters": "405B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0011",
+      "name": "Llama 4 Scout 17B",
+      "releaseDate": "2024-12-10T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "17B",
+      "context_window": 10000000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0012",
+      "name": "Llama 4 Maverick 17B",
+      "releaseDate": "2024-12-10T00:00:00Z",
+      "company": "Meta",
+      "provider": "Meta",
+      "modelType": "Language Model",
+      "parameters": "17B",
+      "context_window": 1000000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": true,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0070",
+      "name": "Phi-4",
+      "releaseDate": "2024-12-12T00:00:00Z",
+      "company": "Microsoft",
+      "provider": "Microsoft",
+      "modelType": "Language Model",
+      "parameters": "14B",
+      "context_window": 16384,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0098",
+      "name": "Jamba-1.5-large",
+      "releaseDate": "2024-12-16T00:00:00Z",
+      "company": "AI21 Labs",
+      "provider": "AI21 Labs",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 256000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0099",
+      "name": "Jamba-1.5-mini",
+      "releaseDate": "2024-12-16T00:00:00Z",
+      "company": "AI21 Labs",
+      "provider": "AI21 Labs",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 256000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0076",
+      "name": "Grok-3",
+      "releaseDate": "2024-12-17T00:00:00Z",
+      "company": "xAI",
+      "provider": "xAI",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0089",
+      "name": "Sonar Pro",
+      "releaseDate": "2024-12-18T00:00:00Z",
+      "company": "Perplexity",
+      "provider": "Perplexity",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 200000,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0035",
+      "name": "Gemini 2.0 Flash",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 1000000,
+      "modality": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0036",
+      "name": "Gemini 2.0 Flash Lite",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "company": "Google",
+      "provider": "Google",
+      "modelType": "Multimodal LLM",
+      "parameters": "Unknown",
+      "context_window": 1000000,
+      "modality": [
+        "text",
+        "image"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": true,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0061",
+      "name": "Qwen2.5 Turbo",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0066",
+      "name": "Qwen3-235B",
+      "releaseDate": "2024-12-19T00:00:00Z",
+      "company": "Alibaba Qwen",
+      "provider": "Alibaba Qwen",
+      "modelType": "Language Model",
+      "parameters": "235B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0054",
+      "name": "DeepSeek-R1-Zero",
+      "releaseDate": "2024-12-20T00:00:00Z",
+      "company": "Deepseek",
+      "provider": "Deepseek",
+      "modelType": "Language Model",
+      "parameters": "Unknown",
+      "context_window": 65536,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    },
+    {
+      "id": "model_0052",
+      "name": "DeepSeek-V3",
+      "releaseDate": "2024-12-26T00:00:00Z",
+      "company": "Deepseek",
+      "provider": "Deepseek",
+      "modelType": "Language Model",
+      "parameters": "671B",
+      "context_window": 131072,
+      "modality": [
+        "text"
+      ],
+      "architecture": "Transformer",
+      "publicAccess": false,
+      "apiAvailable": false,
+      "features": [],
+      "notableAchievements": []
+    }
+  ]
+}
