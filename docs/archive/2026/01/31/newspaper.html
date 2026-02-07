@@ -3,864 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Daily Token AI Newspaper</title>
+    <title>The Daily Token</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --ink: #111;
-            --paper: #fdfdfb;
-            --sep: #ccc;
-            --highlight: #a00;
-        }
-        
+        :root { --ink: #111; --paper: #fdfdfb; --sep: #ccc; --highlight: #a00; }
         * { box-sizing: border-box; }
-        body {
-            background-color: #ddd;
-            margin: 0; padding: 10px;
-            font-family: 'Lora', serif;
-            color: var(--ink);
-            line-height: 1.2;
-        }
-        
-        .newspaper {
-            background-color: var(--paper);
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.3);
-            border: 1px solid #aaa;
-        }
-        
-        /* Masthead */
-        header {
-            text-align: center;
-            border-bottom: 6px double var(--ink);
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-        
-        .masthead {
-            font-family: 'Playfair Display', serif;
-            font-weight: 900;
-            font-size: 6rem;
-            letter-spacing: -3px;
-            margin: 0;
-            line-height: 0.85;
-            text-transform: uppercase;
-        }
-        
-        .sub-masthead {
-            border-top: 1px solid var(--ink);
-            border-bottom: 1px solid var(--ink);
-            margin-top: 15px;
-            padding: 4px 0;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            letter-spacing: 1px;
-        }
-        
-        nav {
-            text-align: center;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--ink);
-            margin-bottom: 30px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.8rem;
-        }
-        nav a { text-decoration: none; color: var(--ink); font-weight: 700; }
-        nav a:hover { color: var(--highlight); }
-        .nav-sep { margin: 0 15px; color: var(--sep); }
-        
-        /* Sections */
-        .deck-header {
-            text-align: center;
-            border-bottom: 2px solid var(--ink);
-            line-height: 0.1em;
-            margin: 40px 0 25px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-        }
-        .deck-header span { background: var(--paper); padding: 0 20px; }
-        
-        /* Grid Engine */
-        .lead-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 30px;
-            border-bottom: 3px solid var(--ink);
-            padding-bottom: 30px;
-        }
-        
-        .columns-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        
-        .span-8 { grid-column: span 8; border-right: 1px solid var(--sep); padding-right: 30px; }
-        .span-4 { grid-column: span 4; }
-        .span-2 { grid-column: span 2; }
-        .span-1 { grid-column: span 1; }
-        
-        /* Typography */
-        .headline-xl { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 0.95; margin: 0 0 15px 0; font-weight: 900; }
-        .headline-lg { font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1; margin: 0 0 10px 0; font-weight: 900; }
-        .headline-sm { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.1; margin: 0 0 8px 0; font-weight: 700; }
+        body { background-color: #ddd; margin: 0; padding: 0; font-family: 'Lora', serif; color: var(--ink); line-height: 1.2; overflow-x: hidden; }
+        .newspaper-container { background-color: var(--paper); max-width: 1300px; margin: 0 auto; padding: 40px; box-shadow: 0 0 100px rgba(0,0,0,0.2); min-height: 100vh; transition: opacity 0.3s ease; }
+        .page-turn-out { opacity: 0; }
+        header { text-align: center; border-bottom: 6px double var(--ink); padding-bottom: 20px; }
+        .masthead-title { font-family: 'Playfair Display'; font-weight: 900; font-size: 6rem; letter-spacing: -3px; margin: 0; text-transform: uppercase; }
+        .sub-masthead { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin-top: 15px; padding: 6px 0; font-family: 'Oswald'; text-transform: uppercase; font-size: 0.9rem; display: flex; justify-content: center; gap: 40px; }
+        nav.sticky-nav { position: sticky; top: 0; background: var(--paper); z-index: 100; text-align: center; padding: 15px 0; border-bottom: 1px solid var(--ink); margin-bottom: 40px; }
+        .nav-item { text-decoration: none; color: var(--ink); font-family: 'Oswald'; font-weight: 700; font-size: 0.85rem; margin: 0 15px; transition: 0.2s; border-bottom: 2px solid transparent; }
+        .nav-item.active { color: var(--highlight); border-bottom: 2px solid var(--highlight); }
+        .page-title { text-align: center; border-bottom: 3px solid var(--ink); line-height: 0.1em; margin: 60px 0 40px; font-family: 'Oswald'; font-size: 1.5rem; }
+        .page-title span { background: var(--paper); padding: 0 30px; }
+        .section-sub-header { text-align: left; border-bottom: 1px solid var(--sep); line-height: 0.1em; margin: 40px 0 20px; font-family: 'Oswald'; font-size: 0.9rem; color: var(--highlight); }
+        .section-sub-header span { background: var(--paper); padding-right: 15px; }
+        .columns-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-bottom: 40px; }
+        .headline-sm { font-family: 'Playfair Display'; font-size: 1.5rem; line-height: 1.1; margin: 0 0 10px 0; font-weight: 700; }
         .article a { color: inherit; text-decoration: none; }
-        .article a:hover { text-decoration: underline; }
-        
-        .metadata {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.75rem;
-            color: #555;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-        
-        .summary { font-size: 1.1rem; text-align: justify; margin-bottom: 15px; line-height: 1.3; }
-        .summary-sm { font-size: 0.9rem; text-align: justify; margin-bottom: 10px; line-height: 1.3; }
-        
-        .footer-links { font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--highlight); }
-        .footer-links-sm { font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--highlight); }
-
-        /* Articles */
-        .article { margin-bottom: 20px; }
-        .news-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 15px;
-            filter: grayscale(100%) contrast(1.2);
-            border: 1px solid var(--ink);
-            transition: filter 0.3s ease;
-        }
-        .news-img:hover { filter: none; }
-
-        /* --- MARAUDER'S MAP MODAL --- */
-        #marauders-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            overflow: auto;
-            backdrop-filter: blur(5px);
-        }
-
-        .map-content {
-            position: relative;
-            background: #e9dcc9; /* Parchment color */
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-            margin: 5% auto;
-            padding: 50px;
-            width: 70%;
-            max-width: 900px;
-            min-height: 500px;
-            border: 20px solid transparent;
-            border-image: url('https://www.transparenttextures.com/patterns/pinstripe.png') 30 round;
-            box-shadow: 0 0 100px rgba(0,0,0,0.5);
-            font-family: 'Playfair Display', serif;
-            color: #4a3728;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        #marauders-modal.open .map-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .map-header {
-            text-align: center;
-            border-bottom: 2px solid #4a3728;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-        }
-
-        .map-title { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -1px; }
-        .map-subtitle { font-family: 'Oswald'; text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; }
-
-        .map-body {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            text-align: justify;
-            position: relative;
-            filter: url('#ink-bleed');
-        }
-
-        /* Footprints Animation */
-        .footprint {
-            position: absolute;
-            width: 30px;
-            height: 15px;
-            background: #4a3728;
-            opacity: 0;
-            border-radius: 50% 50% 40% 40%;
-            pointer-events: none;
-        }
-        
-        @keyframes walk-left {
-            0% { opacity: 0; transform: translate(0,0) rotate(-20deg); }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }
-        }
-
-        @keyframes walk-right {
-            0% { opacity: 0; transform: translate(20px,20px) rotate(20deg); }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(60px, -40px) rotate(20deg); }
-        }
-
-        .map-close {
-            position: absolute;
-            top: 20px; right: 30px;
-            font-size: 2rem;
-            cursor: pointer;
-            font-weight: 900;
-        }
-
-        .ink-spread {
-            animation: inkSpread 2s forwards;
-        }
-
-        @keyframes inkSpread {
-            from { opacity: 0; filter: blur(20px); }
-            to { opacity: 1; filter: blur(0); }
-        }
-        
-        /* Section Pulse */
-        .section-pulse-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            background: #f4f4f2;
-            padding: 15px;
-            margin-top: 20px;
-            border: 1px solid var(--sep);
-        }
-        .pulse-block { border-right: 1px solid var(--sep); padding-right: 10px; }
-        .pulse-block:last-child { border-right: none; }
-        .pulse-tag { font-family: 'Oswald', sans-serif; font-size: 0.65rem; color: var(--highlight); }
-        .pulse-link { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; }
-        .pulse-link a { color: var(--ink); text-decoration: none; }
-
-        /* Archive Strip */
-        .archive-strip {
-            margin-top: 40px;
-            padding: 20px 0;
-            border-top: 1px solid var(--sep);
-            text-align: center;
-        }
-        .archive-title { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px; color: #777; }
-        .archive-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
-        .archive-link { 
-            font-family: 'Oswald', sans-serif; 
-            font-size: 0.75rem; 
-            color: var(--ink); 
-            text-decoration: none; 
-            border: 1px solid var(--sep);
-            padding: 5px 10px;
-            transition: all 0.2s;
-        }
-        .archive-link:hover { border-color: var(--highlight); color: var(--highlight); }
-
-        @media (max-width: 900px) {
-            .newspaper { padding: 15px 20px; }
-            .masthead { font-size: 3rem; letter-spacing: -1px; }
-            .sub-masthead { font-size: 0.7rem; flex-direction: column; align-items: center; gap: 5px; }
-            .lead-grid, .columns-4, .section-pulse-grid { grid-template-columns: 1fr !important; gap: 20px; }
-            .span-8, .span-4, .span-2 { grid-column: span 1 !important; border-right: none; padding-right: 0; }
-            .article { border-bottom: 1px solid var(--sep); padding-bottom: 25px; margin-bottom: 25px; }
-            .headline-xl { font-size: 2rem; }
-            .headline-lg { font-size: 1.6rem; }
-            .headline-sm { font-size: 1.2rem; }
-            nav { 
-                font-size: 0.75rem; 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-                gap: 10px;
-                padding: 10px 0;
-            }
-            .nav-sep { display: none; }
-            .news-img { margin-top: 10px; filter: none; } /* Real colors on mobile for better visibility */
-        }
+        .article a:hover { color: var(--highlight); }
+        .metadata { font-family: 'Oswald'; font-size: 0.75rem; color: #666; margin-bottom: 10px; }
+        .news-img { width: 100%; height: auto; display: block; margin-bottom: 20px; filter: grayscale(100%); border: 1px solid #ddd; transition: 0.4s; cursor: pointer; box-shadow: 5px 5px 0 rgba(0,0,0,0.05); }
+        .news-img:hover { filter: none; transform: translateY(-2px); }
+        .page-footer-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--ink); }
+        .nav-btn { font-family: 'Oswald'; font-weight: 700; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 20px; transition: 0.2s; }
+        .nav-btn:hover { background: var(--ink); color: #fff; }
+        .edition-nav { display: flex; justify-content: center; align-items: center; background: #eee; padding: 10px; font-family: 'Oswald'; font-size: 0.8rem; gap: 30px; border-bottom: 1px solid #ccc; }
+        .edition-link { color: #666; text-decoration: none; }
+        .editors-note { margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; font-style: italic; background: #f9f9f9; text-align: center; border-left: 5px solid var(--highlight); }
+        .insights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .insight-card { padding: 30px; border: 1px solid #eee; background: #fff; box-shadow: 8px 8px 0 rgba(0,0,0,0.05); transition: 0.3s; }
+        .insight-card:hover { transform: translateY(-5px); box-shadow: 12px 12px 0 rgba(0,0,0,0.08); }
+        .insight-author { font-family: 'Oswald'; font-size: 0.7rem; color: var(--highlight); margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .insight-headline { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 15px; }
+        .insight-summary { font-family: 'Lora'; line-height: 1.6; font-size: 1.1rem; font-style: italic; }
+        .insight-footer { margin-top: 20px; font-family: 'Oswald'; font-size: 0.8rem; font-weight: 700; }
+        .hn-link { color: var(--highlight); text-decoration: none; font-weight: 700; }
+        @media (max-width: 1000px) { .masthead-title { font-size: 3.5rem; } .columns-3, .insights-grid { grid-template-columns: 1fr !important; } .sub-masthead { flex-direction: column; gap: 5px; } }
     </style>
 </head>
 <body>
-    <div class="newspaper">
+    <div class="edition-nav">
+        <a href="../../../../archive/2026/01/30/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+        <span style="font-weight:700; color:#111;">EDITION: JAN 31, 2026</span>
+        <a href="../../../../archive/2026/02/01/newspaper.html" class="edition-link">NEXT EDITION →</a>
+        <span style="color:#ccc">|</span>
+        <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+    </div>
+    <div class="newspaper-container" id="newspaper-main">
         <header>
-            <h1 class="masthead">The Daily Token</h1>
+            <h1 class="masthead-title">The Daily Token</h1>
             <div class="sub-masthead">
-                <span>PARAMETER PARK, MONDAY, FEBRUARY 02, 2026</span>
-                <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
-                <span>VOL. 2026.033</span>
+                <span>INFERENCE ISLAND</span>
+                <span>SATURDAY, JANUARY 31, 2026</span>
+                <span>GLOBAL AI TECHNOLOGY REPORT</span>
+                <span>VOL. 2026.031</span>
             </div>
         </header>
-
-        <nav>
-            <a href="#front-page">THE FRONT PAGE</a> <span class="nav-sep">|</span> <a href="#section-1">BREAKING VECTORS</a> <span class="nav-sep">|</span> <a href="#section-2">MODEL ARCHITECTURES</a> <span class="nav-sep">|</span> <a href="#section-3">NEURAL HORIZONS</a> <span class="nav-sep">|</span> <a href="#section-4">LAB OUTPUTS</a> <span class="nav-sep">|</span> <a href="#section-5">INFERENCE CORNER</a>
-        </nav>
-
-        <main>
-            
-        <section id="front-page">
-            <div class="deck-header"><span>FRONT PAGE // KEY BREAKTHROUGHS</span></div>
-            <div class="lead-grid">
+        <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class="editors-note"><strong>EDITOR'S NOTE:</strong> Today’s tech landscape is a high-stakes balancing act: while AI revolutionizes healthcare and creativity, a critical exploit reminds us that innovation demands vigilance—*progress at any cost isn’t progress at all*. <span class="emphasis" style="color:var(--highlight); font-weight:700;">#Security vs. AI acceleration</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22197" target="_blank">AI Transforms Clinical Workflows: Neural Models Auto-Generate Patient Notes in Real-World Settings</a></h3>
+                    <div class="metadata">SOURCE: ARXIV_LG | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A breakthrough AI system demonstrates the ability to interpret neural signals and autonomously generate accurate clinical notes during live patient consultations, marking a leap toward seamless human-AI collaboration in healthcare documentation.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22195" target="_blank">Hybrid Quantum Networks Advance Earth Observation via Multitask Learning</a></h3>
+                    <div class="metadata">SOURCE: ARXIV_LG | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">This research introduces a hybrid quantum-classical architecture to improve classification of satellite and remote sensing data, demonstrating efficiency gains in handling high-dimensional geospatial datasets.</p>
+                </div>
+            </article>
         
-                <article class="article span-8 main-story" id="story-critical-moltbot-vulnerability-exposes-user-data-t">
-                    <div class="article-body">
-                        
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="javascript:void(0)" onclick='openMap("Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks", "A newly discovered security flaw allows attackers to steal sensitive Moltbot data and keys with a single click, putting countless users at risk of exploitation.", "", "critical-moltbot-vulnerability-exposes-user-data-t")'>Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks</a></h2>
-                        <div class="metadata">SOURCE: HACKERNEWS // 1769975267</div>
-                        
-                        <p class="summary">A newly discovered security flaw allows attackers to steal sensitive Moltbot data and keys with a single click, putting countless users at risk of exploitation....</p>
-                        <div class="footer-links">
-                            <a href="javascript:void(0)" onclick='openMap("Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks", "A newly discovered security flaw allows attackers to steal sensitive Moltbot data and keys with a single click, putting countless users at risk of exploitation.", "", "critical-moltbot-vulnerability-exposes-user-data-t")'>READ ARTICLE</a> | 
-                            <a href="https://news.ycombinator.com/item?id=46848769">HN</a>
-                        </div>
-                    </div>
-                </article>
-            
-                <article class="article span-4 side-story" id="story-neural-horizons--unveiling-the-future-of-ai-model">
-                    <div class="article-body">
-                        
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="javascript:void(0)" onclick='openMap("Neural Horizons: Unveiling the Future of AI Model Development", "&quot;Discover the latest advancements in AI model development, as showcased in the Neural Horizons category, and explore the innovative approaches shaping the future of artificial intelligence. From cutting-edge models to expert insights, stay ahead of the curve with the latest news and updates.&quot;", "", "neural-horizons--unveiling-the-future-of-ai-model")'>Neural Horizons: Unveiling the Future of AI Model Development</a></h2>
-                        <div class="metadata">SOURCE: OLLAMA // Recently</div>
-                        
-                        <p class="summary">"Discover the latest advancements in AI model development, as showcased in the Neural Horizons category, and explore the innovative approaches shaping the future of artificial intelligence. From cutting-edge models to expert insights, stay ahead of the curve with the latest news and updates."</p>
-                        <div class="footer-links">
-                            <a href="javascript:void(0)" onclick='openMap("Neural Horizons: Unveiling the Future of AI Model Development", "&quot;Discover the latest advancements in AI model development, as showcased in the Neural Horizons category, and explore the innovative approaches shaping the future of artificial intelligence. From cutting-edge models to expert insights, stay ahead of the curve with the latest news and updates.&quot;", "", "neural-horizons--unveiling-the-future-of-ai-model")'>READ ARTICLE</a> | 
-                            <a href="">HN</a>
-                        </div>
-                    </div>
-                </article>
-            
-                <article class="article span-4 side-story" id="story-breakthrough-in-ai-autonomy--zuckerman-emerges-as">
-                    <div class="article-body">
-                        
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="javascript:void(0)" onclick='openMap("Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents", "Zuckerman is a minimalist personal AI agent that pushes the boundaries of AI autonomy by self-editing its own code, potentially revolutionizing the way AI models are developed and deployed.", "", "breakthrough-in-ai-autonomy--zuckerman-emerges-as")'>Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents</a></h2>
-                        <div class="metadata">SOURCE: HACKERNEWS // 1769953815</div>
-                        
-                        <p class="summary">Zuckerman is a minimalist personal AI agent that pushes the boundaries of AI autonomy by self-editing its own code, potentially revolutionizing the way AI models are developed and deployed.</p>
-                        <div class="footer-links">
-                            <a href="javascript:void(0)" onclick='openMap("Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents", "Zuckerman is a minimalist personal AI agent that pushes the boundaries of AI autonomy by self-editing its own code, potentially revolutionizing the way AI models are developed and deployed.", "", "breakthrough-in-ai-autonomy--zuckerman-emerges-as")'>READ ARTICLE</a> | 
-                            <a href="https://news.ycombinator.com/item?id=46846210">HN</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            
-            <section id="section-1">
-                <div class="deck-header"><span>BREAKING VECTORS</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1" id="story-critical-moltbot-vulnerability-exposes-user-data-t">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks", "A newly discovered security flaw allows attackers to steal sensitive Moltbot data and keys with a single click, putting countless users at risk of exploitation.", "", "critical-moltbot-vulnerability-exposes-user-data-t")'>Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A newly discovered security flaw allows attackers to steal sensitive Moltbot data and keys with a single click, putting countless users at risk of exploitation.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks", "A newly discovered security flaw allows attackers to steal sensitive Moltbot data and keys with a single click, putting countless users at risk of exploitation.", "", "critical-moltbot-vulnerability-exposes-user-data-t")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46848769">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-            <section id="section-2">
-                <div class="deck-header"><span>MODEL ARCHITECTURES</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1" id="story-breakthrough-in-ai-autonomy--zuckerman-emerges-as">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents", "Zuckerman is a minimalist personal AI agent that pushes the boundaries of AI autonomy by self-editing its own code, potentially revolutionizing the way AI models are developed and deployed.", "", "breakthrough-in-ai-autonomy--zuckerman-emerges-as")'>Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Zuckerman is a minimalist personal AI agent that pushes the boundaries of AI autonomy by self-editing its own code, potentially revolutionizing the way AI models are developed and deployed.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents", "Zuckerman is a minimalist personal AI agent that pushes the boundaries of AI autonomy by self-editing its own code, potentially revolutionizing the way AI models are developed and deployed.", "", "breakthrough-in-ai-autonomy--zuckerman-emerges-as")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46846210">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-            <section id="section-3">
-                <div class="deck-header"><span>NEURAL HORIZONS</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-2" id="story-breakthrough-in-ai-model-development--new-techniqu">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough in AI Model Development: New Techniques Emerge for Enhanced Performance", "Researchers have made significant strides in AI model development, introducing innovative methods to boost performance and efficiency. These advancements are expected to have far-reaching implications for various industries.", "", "breakthrough-in-ai-model-development--new-techniqu")'>Breakthrough in AI Model Development: New Techniques Emerge for Enhanced Performance</a></h3>
-                            <div class="metadata">OLLAMA</div>
-                            <p class="summary-sm">Researchers have made significant strides in AI model development, introducing innovative methods to boost performance and efficiency. These advancements are expected to have far-reaching implications for various industries.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Breakthrough in AI Model Development: New Techniques Emerge for Enhanced Performance", "Researchers have made significant strides in AI model development, introducing innovative methods to boost performance and efficiency. These advancements are expected to have far-reaching implications for various industries.", "", "breakthrough-in-ai-model-development--new-techniqu")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-neural-horizons--unveiling-the-future-of-ai-model">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Neural Horizons: Unveiling the Future of AI Model Development", "&quot;Discover the latest advancements in AI model development, as showcased in the Neural Horizons category, and explore the innovative approaches shaping the future of artificial intelligence. From cutting-edge models to expert insights, stay ahead of the curve with the latest news and updates.&quot;", "", "neural-horizons--unveiling-the-future-of-ai-model")'>Neural Horizons: Unveiling the Future of AI Model Development</a></h3>
-                            <div class="metadata">OLLAMA</div>
-                            <p class="summary-sm">"Discover the latest advancements in AI model development, as showcased in the Neural Horizons category, and explore the innovative approaches shaping the future of artificial intelligence. From cutting-edge models to expert insights, stay ahead of the curve with the latest news and updates."</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Neural Horizons: Unveiling the Future of AI Model Development", "&quot;Discover the latest advancements in AI model development, as showcased in the Neural Horizons category, and explore the innovative approaches shaping the future of artificial intelligence. From cutting-edge models to expert insights, stay ahead of the curve with the latest news and updates.&quot;", "", "neural-horizons--unveiling-the-future-of-ai-model")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-hybrid-quantum-networks-revolutionize-earth-observ">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Hybrid Quantum Networks Revolutionize Earth Observation Data Classification", "Researchers explore the potential of quantum machine learning to tackle computation challenges in Earth observation data classification, proposing a multitask learning approach with hybrid quantum networks.", "", "hybrid-quantum-networks-revolutionize-earth-observ")'>Hybrid Quantum Networks Revolutionize Earth Observation Data Classification</a></h3>
-                            <div class="metadata">ARXIV_LG</div>
-                            <p class="summary-sm">Researchers explore the potential of quantum machine learning to tackle computation challenges in Earth observation data classification, proposing a multitask learning approach with hybrid quantum networks.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Hybrid Quantum Networks Revolutionize Earth Observation Data Classification", "Researchers explore the potential of quantum machine learning to tackle computation challenges in Earth observation data classification, proposing a multitask learning approach with hybrid quantum networks.", "", "hybrid-quantum-networks-revolutionize-earth-observ")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-            <section id="section-4">
-                <div class="deck-header"><span>LAB OUTPUTS</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1" id="story-domain-features-outperform-transformers-in-emotion">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Domain Features Outperform Transformers in Emotion Recognition Study", "Researchers investigate the efficacy of attention mechanisms in multimodal emotion recognition, finding that domain features yield better results on the EAV dataset.", "", "domain-features-outperform-transformers-in-emotion")'>Domain Features Outperform Transformers in Emotion Recognition Study</a></h3>
-                            <div class="metadata">ARXIV_LG</div>
-                            <p class="summary-sm">Researchers investigate the efficacy of attention mechanisms in multimodal emotion recognition, finding that domain features yield better results on the EAV dataset.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Domain Features Outperform Transformers in Emotion Recognition Study", "Researchers investigate the efficacy of attention mechanisms in multimodal emotion recognition, finding that domain features yield better results on the EAV dataset.", "", "domain-features-outperform-transformers-in-emotion")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-neural-signals-translate-into-clinical-notes--ai-b">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Neural Signals Translate into Clinical Notes: AI Breakthrough in EEG Analysis", "Researchers have developed an AI system that generates clinical reports from long-term EEG recordings, streamlining the diagnosis process and improving patient care.", "", "neural-signals-translate-into-clinical-notes--ai-b")'>Neural Signals Translate into Clinical Notes: AI Breakthrough in EEG Analysis</a></h3>
-                            <div class="metadata">ARXIV_LG</div>
-                            <p class="summary-sm">Researchers have developed an AI system that generates clinical reports from long-term EEG recordings, streamlining the diagnosis process and improving patient care.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Neural Signals Translate into Clinical Notes: AI Breakthrough in EEG Analysis", "Researchers have developed an AI system that generates clinical reports from long-term EEG recordings, streamlining the diagnosis process and improving patient care.", "", "neural-signals-translate-into-clinical-notes--ai-b")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-unlocking-the-secrets-of-scalable-ai--researchers">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Unlocking the Secrets of Scalable AI: Researchers Uncover Key to Building Effective Agent Systems", "A new study sheds light on the science of scaling agent systems, revealing crucial insights into when and why these systems succeed or fail. The findings have significant implications for the development of more efficient and reliable AI applications.", "", "unlocking-the-secrets-of-scalable-ai--researchers")'>Unlocking the Secrets of Scalable AI: Researchers Uncover Key to Building Effective Agent Systems</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A new study sheds light on the science of scaling agent systems, revealing crucial insights into when and why these systems succeed or fail. The findings have significant implications for the development of more efficient and reliable AI applications.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Unlocking the Secrets of Scalable AI: Researchers Uncover Key to Building Effective Agent Systems", "A new study sheds light on the science of scaling agent systems, revealing crucial insights into when and why these systems succeed or fail. The findings have significant implications for the development of more efficient and reliable AI applications.", "", "unlocking-the-secrets-of-scalable-ai--researchers")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46847958">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-advancements-in-egocentric-video-prediction--whole">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Advancements in Egocentric Video Prediction: Whole-Body Conditioned Models", "Researchers have made significant breakthroughs in predicting egocentric video sequences using whole-body conditioned models, paving the way for improved augmented reality and robotics applications. This innovative approach enables more accurate forecasting of human movements and interactions.", "", "advancements-in-egocentric-video-prediction--whole")'>Advancements in Egocentric Video Prediction: Whole-Body Conditioned Models</a></h3>
-                            <div class="metadata">BAIR</div>
-                            <p class="summary-sm">Researchers have made significant breakthroughs in predicting egocentric video sequences using whole-body conditioned models, paving the way for improved augmented reality and robotics applications. This innovative approach enables more accurate forecasting of human movements and interactions.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Advancements in Egocentric Video Prediction: Whole-Body Conditioned Models", "Researchers have made significant breakthroughs in predicting egocentric video sequences using whole-body conditioned models, paving the way for improved augmented reality and robotics applications. This innovative approach enables more accurate forecasting of human movements and interactions.", "", "advancements-in-egocentric-video-prediction--whole")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-breaking-down-digital-walls--microsoft-envisions-o">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Breaking Down Digital Walls: Microsoft Envisions Open Agentic Economy for AI-Driven Commerce", "Microsoft researchers propose an open agentic economy where AI agents can interact freely, promoting innovation and competition in digital markets. This vision aims to shift power from walled gardens to a decentralized ecosystem, benefiting both businesses and individuals.", "", "breaking-down-digital-walls--microsoft-envisions-o")'>Breaking Down Digital Walls: Microsoft Envisions Open Agentic Economy for AI-Driven Commerce</a></h3>
-                            <div class="metadata">MICROSOFT_AI</div>
-                            <p class="summary-sm">Microsoft researchers propose an open agentic economy where AI agents can interact freely, promoting innovation and competition in digital markets. This vision aims to shift power from walled gardens to a decentralized ecosystem, benefiting both businesses and individuals.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Breaking Down Digital Walls: Microsoft Envisions Open Agentic Economy for AI-Driven Commerce", "Microsoft researchers propose an open agentic economy where AI agents can interact freely, promoting innovation and competition in digital markets. This vision aims to shift power from walled gardens to a decentralized ecosystem, benefiting both businesses and individuals.", "", "breaking-down-digital-walls--microsoft-envisions-o")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-apple-s-macbook-pro-dfu-port-documentation-found-t">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Apple\'s MacBook Pro DFU Port Documentation Found to be Incorrect, Causing Update Issues", "A developer discovered that Apple\'s documentation for the Device Firmware Update (DFU) port on MacBook Pro models with Apple silicon is incorrect, leading to failed macOS updates and other issues. The mistake has caused frustration among users who have struggled to update their systems.", "", "apple-s-macbook-pro-dfu-port-documentation-found-t")'>Apple's MacBook Pro DFU Port Documentation Found to be Incorrect, Causing Update Issues</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">A developer discovered that Apple's documentation for the Device Firmware Update (DFU) port on MacBook Pro models with Apple silicon is incorrect, leading to failed macOS updates and other issues. The mistake has caused frustration among users who have struggled to update their systems.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Apple\'s MacBook Pro DFU Port Documentation Found to be Incorrect, Causing Update Issues", "A developer discovered that Apple\'s documentation for the Device Firmware Update (DFU) port on MacBook Pro models with Apple silicon is incorrect, leading to failed macOS updates and other issues. The mistake has caused frustration among users who have struggled to update their systems.", "", "apple-s-macbook-pro-dfu-port-documentation-found-t")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46852096">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-stem-cell-senescence--the-trade-off-between-rapid">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Stem Cell Senescence: The Trade-Off Between Rapid Repair and Longevity", "Researchers have discovered that aging muscle stem cells undergo a shift in priority from rapid tissue repair to long-term survival, potentially contributing to the decline in muscle regeneration associated with aging. This finding may have implications for the development of therapies aimed at maintaining muscle health in older adults.", "", "stem-cell-senescence--the-trade-off-between-rapid")'>Stem Cell Senescence: The Trade-Off Between Rapid Repair and Longevity</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Researchers have discovered that aging muscle stem cells undergo a shift in priority from rapid tissue repair to long-term survival, potentially contributing to the decline in muscle regeneration associated with aging. This finding may have implications for the development of therapies aimed at maintaining muscle health in older adults.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Stem Cell Senescence: The Trade-Off Between Rapid Repair and Longevity", "Researchers have discovered that aging muscle stem cells undergo a shift in priority from rapid tissue repair to long-term survival, potentially contributing to the decline in muscle regeneration associated with aging. This finding may have implications for the development of therapies aimed at maintaining muscle health in older adults.", "", "stem-cell-senescence--the-trade-off-between-rapid")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46847746">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-            <section id="section-5">
-                <div class="deck-header"><span>INFERENCE CORNER</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1" id="story-openclaw-launches-prompt-injection-firewall-to-saf">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("OpenClaw Launches Prompt Injection Firewall to Safeguard AI Agents", "The new firewall solution protects OpenClaw agents from prompt injection attacks, ensuring the security and reliability of AI-driven applications.", "", "openclaw-launches-prompt-injection-firewall-to-saf")'>OpenClaw Launches Prompt Injection Firewall to Safeguard AI Agents</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">The new firewall solution protects OpenClaw agents from prompt injection attacks, ensuring the security and reliability of AI-driven applications.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("OpenClaw Launches Prompt Injection Firewall to Safeguard AI Agents", "The new firewall solution protects OpenClaw agents from prompt injection attacks, ensuring the security and reliability of AI-driven applications.", "", "openclaw-launches-prompt-injection-firewall-to-saf")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46854807">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-iphone-16-pro-max-mlx-llm-performance-issues-spark">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("iPhone 16 Pro Max MLX LLM Performance Issues Spark Concerns Among Developers", "Users report garbage output when running MLX large language models on the iPhone 16 Pro Max, raising questions about device capability and software optimization. Further investigation is needed to determine the cause and potential fixes.", "", "iphone-16-pro-max-mlx-llm-performance-issues-spark")'>iPhone 16 Pro Max MLX LLM Performance Issues Spark Concerns Among Developers</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Users report garbage output when running MLX large language models on the iPhone 16 Pro Max, raising questions about device capability and software optimization. Further investigation is needed to determine the cause and potential fixes.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("iPhone 16 Pro Max MLX LLM Performance Issues Spark Concerns Among Developers", "Users report garbage output when running MLX large language models on the iPhone 16 Pro Max, raising questions about device capability and software optimization. Further investigation is needed to determine the cause and potential fixes.", "", "iphone-16-pro-max-mlx-llm-performance-issues-spark")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46849258">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-local-llms-meet-postgresql--building-conversationa">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Local LLMs Meet PostgreSQL: Building Conversational Interfaces for Database Querying", "This article explores the integration of local Large Language Models with PostgreSQL databases, enabling users to interact with their data through conversational interfaces. The approach leverages Python and open-source tools for a seamless user experience.", "", "local-llms-meet-postgresql--building-conversationa")'>Local LLMs Meet PostgreSQL: Building Conversational Interfaces for Database Querying</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">This article explores the integration of local Large Language Models with PostgreSQL databases, enabling users to interact with their data through conversational interfaces. The approach leverages Python and open-source tools for a seamless user experience.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Local LLMs Meet PostgreSQL: Building Conversational Interfaces for Database Querying", "This article explores the integration of local Large Language Models with PostgreSQL databases, enabling users to interact with their data through conversational interfaces. The approach leverages Python and open-source tools for a seamless user experience.", "", "local-llms-meet-postgresql--building-conversationa")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46854722">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-taisei-corporation-harnesses-generative-ai-to-revo">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Taisei Corporation Harnesses Generative AI to Revolutionize Talent Development", "Taisei Corporation leverages ChatGPT Enterprise to drive HR-led talent development and scale generative AI across its global construction business, setting a new benchmark for industry innovation.", "", "taisei-corporation-harnesses-generative-ai-to-revo")'>Taisei Corporation Harnesses Generative AI to Revolutionize Talent Development</a></h3>
-                            <div class="metadata">OPENAI</div>
-                            <p class="summary-sm">Taisei Corporation leverages ChatGPT Enterprise to drive HR-led talent development and scale generative AI across its global construction business, setting a new benchmark for industry innovation.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Taisei Corporation Harnesses Generative AI to Revolutionize Talent Development", "Taisei Corporation leverages ChatGPT Enterprise to drive HR-led talent development and scale generative AI across its global construction business, setting a new benchmark for industry innovation.", "", "taisei-corporation-harnesses-generative-ai-to-revo")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-streamlining-modelops-with-amazon-sagemaker-s-s3-b">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Streamlining ModelOps with Amazon SageMaker\'s S3-Based Templates", "Amazon SageMaker\'s new S3-based templates simplify ModelOps workflows, offering a more efficient alternative to Service Catalog approaches. This innovation enhances deployment and management of machine learning models.", "", "streamlining-modelops-with-amazon-sagemaker-s-s3-b")'>Streamlining ModelOps with Amazon SageMaker's S3-Based Templates</a></h3>
-                            <div class="metadata">AWS_AI</div>
-                            <p class="summary-sm">Amazon SageMaker's new S3-based templates simplify ModelOps workflows, offering a more efficient alternative to Service Catalog approaches. This innovation enhances deployment and management of machine learning models.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Streamlining ModelOps with Amazon SageMaker\'s S3-Based Templates", "Amazon SageMaker\'s new S3-based templates simplify ModelOps workflows, offering a more efficient alternative to Service Catalog approaches. This innovation enhances deployment and management of machine learning models.", "", "streamlining-modelops-with-amazon-sagemaker-s-s3-b")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-nanoclaw--a-lightweight--isolated-clawdbot-impleme">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("NanoClaw: A Lightweight, Isolated Clawdbot Implementation in 500 Lines of TypeScript", "&quot;NanoClaw is a novel, compact Clawdbot implementation leveraging Apple container isolation, developed in just 500 lines of TypeScript. This project showcases innovative approaches to efficient and secure bot development.&quot;", "", "nanoclaw--a-lightweight--isolated-clawdbot-impleme")'>NanoClaw: A Lightweight, Isolated Clawdbot Implementation in 500 Lines of TypeScript</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">"NanoClaw is a novel, compact Clawdbot implementation leveraging Apple container isolation, developed in just 500 lines of TypeScript. This project showcases innovative approaches to efficient and secure bot development."</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("NanoClaw: A Lightweight, Isolated Clawdbot Implementation in 500 Lines of TypeScript", "&quot;NanoClaw is a novel, compact Clawdbot implementation leveraging Apple container isolation, developed in just 500 lines of TypeScript. This project showcases innovative approaches to efficient and secure bot development.&quot;", "", "nanoclaw--a-lightweight--isolated-clawdbot-impleme")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46850205">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-        </main>
-
-        <div class="archive-strip">
-            <div class="archive-title">RECENT EDITIONS</div>
-            <div class="archive-links">
-                <a href="/daily-token/archive/2026/02/01/newspaper.html" class="archive-link">FEB 01, 2026</a><a href="/daily-token/archive/2026/01/31/newspaper.html" class="archive-link">JAN 31, 2026</a><a href="/daily-token/archive/2026/01/30/newspaper.html" class="archive-link">JAN 30, 2026</a><a href="/daily-token/archive/2026/01/29/newspaper.html" class="archive-link">JAN 29, 2026</a><a href="/daily-token/archive/2026/01/28/newspaper.html" class="archive-link">JAN 28, 2026</a><a href="/daily-token/archive/2026/01/27/newspaper.html" class="archive-link">JAN 27, 2026</a><a href="/daily-token/archive/2026/01/26/newspaper.html" class="archive-link">JAN 26, 2026</a>
-                <a href="/daily-token/archive/index.html" class="archive-link" style="background:#111; color:#fff;">ALL ARCHIVES</a>
-            </div>
-        </div>
-
-        <footer style="text-align: center; border-top: 4px double var(--ink); margin-top: 60px; padding-top: 20px; font-family: 'Oswald'; font-size: 0.8rem;">
-            VERIFIED BY NEURAL CONSENSUS // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22161" target="_blank">Domain-Specific Features Outperform Transformers in Emotion Recognition: Breakthrough on EAV Dataset Challenges 'Attention-Only' Paradigm</a></h3>
+                    <div class="metadata">SOURCE: ARXIV_LG | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A new study reveals that traditional domain-specific feature engineering surpasses transformer-based models (e.g., attention mechanisms) in emotion recognition tasks, achieving state-of-the-art results on the EAV dataset—questioning the universal dominance of attention architectures for affective computing.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://github.com/zuckermanai/zuckerman" target="_blank">Zuckerman: A Self-Editing Minimalist AI Agent for Personal Use</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46846210" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">An open-source AI agent that autonomously refines its own codebase, prioritizing simplicity and user control in personal automation tasks. Challenges traditional agent architectures with a lightweight, self-modifying design.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/" target="_blank">Decoding the Science of Scaling Agent Systems: Key Insights on Efficacy and Limitations</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46847958" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">This *Neural Horizons* piece explores the empirical and theoretical foundations of agent-based AI systems, examining the conditions under which they succeed or fail at scale—bridging gaps between isolated benchmarks and real-world deployment.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html" target="_blank">Muscle Stem Cells Prioritize Longevity Over Rapid Repair as They Age, Study Reveals</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46847746" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">New research uncovers how aging muscle stem cells transition from quick tissue regeneration to mechanisms favoring long-term survival, reshaping approaches to age-related muscle decline.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/07/01/peva/" target="_blank">AI Breakthrough: Predicting First-Person Video Frames from Whole-Body Motion</a></h3>
+                    <div class="metadata">SOURCE: BAIR | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Researchers developed a model that generates realistic egocentric (first-person) video predictions by conditioning on full-body movements, enabling applications in robotics, AR/VR, and human-AI interaction. The work bridges embodied cognition with dynamic visual synthesis.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://github.com/ContextFort-AI/clawdbot-runtime-controls" target="_blank">OpenClaw Agents Introduce Prompt-Injection Firewall to Mitigate AI Vulnerabilities</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854807" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A new security layer for OpenClaw AI agents aims to block prompt-injection attacks, addressing a critical gap in agentic system defenses. The firewall filters malicious inputs in real-time, though its effectiveness against evolving threats remains untested at scale.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://mljar.com/blog/chatbot-python-postgresql-local-llm/" target="_blank">Build a PostgreSQL Chatbot with Python and Local LLMs: A Hands-On Guide</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854722" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A step-by-step tutorial demonstrating how to create a conversational interface for querying PostgreSQL databases using Python, leveraging locally hosted large language models (LLMs) for privacy and efficiency. Covers setup, integration, and deployment with practical examples like data visualization and business Q&A.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://ollama.com/search" target="_blank">Ollama Unveils 'Models': A Lab Output for AI Model Exploration and Deployment</a></h3>
+                    <div class="metadata">SOURCE: OLLAMA | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Ollama's *Models* appears to be a technical resource (GitHub/Discord/Docs linked) focused on AI model outputs, likely offering tools, frameworks, or pre-trained models for developers—though the provided summary is empty, suggesting early-stage or placeholder content.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/" target="_blank">iPhone 16 Pro Max Struggles with MLX LLM Inference: Performance Issues Exposed in Latest Benchmarks</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46849258" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A user reports unexpectedly poor output quality when running MLX-based large language models on Apple’s newest flagship device, raising questions about the iPhone 16 Pro Max’s AI inference capabilities despite its advertised hardware upgrades.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/simplify-modelops-with-amazon-sagemaker-ai-projects-using-amazon-s3-based-templates/" target="_blank">Streamline ModelOps: Amazon SageMaker AI Projects Leverages S3 Templates for Efficiency</a></h3>
+                    <div class="metadata">SOURCE: AWS_AI | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">The article explores how Amazon SageMaker AI Projects simplifies ModelOps workflows by using pre-built S3-based templates, reducing deployment complexity and accelerating AI project lifecycles.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://lapcatsoftware.com/articles/2026/2/1.html" target="_blank">Apple’s MacBook Pro DFU Port Documentation Contains Critical Errors, Engineers Warn</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46852096" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A deep dive by Lapcat Software reveals inaccuracies in Apple’s official documentation for the MacBook Pro’s DFU (Device Firmware Update) port, potentially misguiding developers and repair technicians. The findings highlight discrepancies between Apple’s specs and real-world hardware behavior, raising concerns for low-level firmware operations.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://openai.com/index/taisei" target="_blank">Taisei Corporation Leverages ChatGPT to Cultivate Future Talent in AI-Driven Workforce</a></h3>
+                    <div class="metadata">SOURCE: OPENAI | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Taisei Corporation integrates ChatGPT into its talent development strategy, using AI to upskill employees and prepare the next generation for evolving industry demands.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys" target="_blank">Critical 1-Click Exploit Exposes Moltbot Data and Cryptographic Keys to Remote Attacks</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46848769" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Researchers uncovered a severe remote code execution (RCE) vulnerability in Moltbot systems, allowing attackers to exfiltrate sensitive data and private keys with a single user interaction. The flaw underscores urgent patching needs in automated bot infrastructures.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align: center; padding: 60px 0; font-family: 'Oswald'; border-top: 4px double var(--ink); margin-top: 100px;">
+            THE DAILY TOKEN // PRODUCED BY NEURAL AGENTS // &copy; 2026
         </footer>
     </div>
-
-    <!-- MARAUDER'S MAP MODAL -->
-    <div id="marauders-modal">
-        <div class="map-container">
-            <div class="map-fold-left"></div>
-            <div class="map-content">
-                <span class="map-close" onclick="closeMap()">&times;</span>
-                <div class="map-header">
-                    <div class="map-subtitle">I solemnly swear that I am up to no good</div>
-                    <h2 class="map-title" id="modal-title">Article Detail</h2>
-                </div>
-                <div class="map-inner-content">
-                    <div id="modal-image-container"></div>
-                    <div class="map-body" id="modal-summary">
-                        Summary goes here...
-                    </div>
-                </div>
-                <div class="map-footer">Mischief Managed</div>
-            </div>
-            <div class="map-fold-right"></div>
-        </div>
-    </div>
-
-    <style>
-        #marauders-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            perspective: 2000px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .map-container {
-            position: relative;
-            width: 90%;
-            max-width: 1000px;
-            height: 80vh;
-            display: flex;
-            transform-style: preserve-3d;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s;
-            opacity: 0;
-            transform: scale(0.1) rotateX(20deg);
-        }
-
-        #marauders-modal.open .map-container {
-            opacity: 1;
-            transform: scale(1) rotateX(0deg);
-        }
-
-        .map-content {
-            flex: 2;
-            background: #e9dcc9;
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            padding: 40px;
-            position: relative;
-            overflow-y: auto;
-            border: 2px solid #4a3728;
-            z-index: 2;
-        }
-
-        .map-fold-left, .map-fold-right {
-            flex: 1;
-            background: #d9ccb9;
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-            border: 2px solid #4a3728;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1;
-        }
-
-        .map-fold-left { transform-origin: right; transform: rotateY(0deg); border-right: none; }
-        .map-fold-right { transform-origin: left; transform: rotateY(0deg); border-left: none; }
-
-        #marauders-modal:not(.open) .map-fold-left { transform: rotateY(-90deg); }
-        #marauders-modal:not(.open) .map-fold-right { transform: rotateY(90deg); }
-
-        .map-header { text-align: center; margin-bottom: 30px; border-bottom: 1px double #4a3728; padding-bottom: 20px; }
-        .map-subtitle { font-family: 'Oswald'; font-size: 0.8rem; letter-spacing: 3px; color: #842; text-transform: uppercase; }
-        .map-title { font-family: 'Playfair Display'; font-size: 2.5rem; color: #4a3728; margin: 10px 0; }
-        
-        .map-inner-content { display: flex; gap: 30px; flex-direction: column; align-items: center; }
-        #modal-image-container img { max-width: 100%; border: 5px solid #4a3728; filter: sepia(0.5) contrast(1.2); box-shadow: 5px 5px 15px rgba(0,0,0,0.3); }
-        
-        .map-body { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.3rem; 
-            line-height: 1.6; 
-            color: #4a3728; 
-            text-align: justify;
-            filter: url('#ink-bleed');
-            opacity: 0;
-            transition: opacity 2s;
-        }
-        
-        .map-container.revealed .map-body { opacity: 1; }
-
-        .map-footer { text-align: center; margin-top: 40px; font-family: 'Oswald'; color: #842; font-size: 0.9rem; letter-spacing: 5px; }
-        .map-close { position: absolute; top: 20px; right: 20px; font-size: 2.5rem; cursor: pointer; color: #4a3728; z-index: 10; }
-
-        /* Footprints */
-        .footprint {
-            position: absolute;
-            width: 25px; height: 12px;
-            background: #4a3728;
-            opacity: 0;
-            border-radius: 50% 50% 40% 40%;
-            pointer-events: none;
-            z-index: 10000;
-        }
-
-        @keyframes walk-left {
-            0% { opacity: 0; transform: translate(0,0) rotate(-20deg); }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }
-        }
-
-        @keyframes walk-right {
-            0% { opacity: 0; transform: translate(20px,20px) rotate(20deg); }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(60px, -40px) rotate(20deg); }
-        }
-
-        #marauders-modal:not(.visible) {
-            display: none !important;
-        }
-    </style>
-
-    <!-- SVG Filters for Ink Bleed -->
-    <svg style="display:none;">
-        <defs>
-            <filter id="ink-bleed">
-                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
-            </filter>
-        </defs>
-    </svg>
-
     <script>
-        function openMap(title, summary, imgUrl, slug) {
-            const modal = document.getElementById('marauders-modal');
-            const container = modal.querySelector('.map-container');
-            const titleEl = document.getElementById('modal-title');
-            const summaryEl = document.getElementById('modal-summary');
-            const imgContainer = document.getElementById('modal-image-container');
-            
-            // Set content
-            titleEl.innerText = title;
-            summaryEl.innerText = summary;
-            imgContainer.innerHTML = imgUrl ? `<img src="${imgUrl}" alt="">` : '';
-            
-            // Show modal
-            modal.classList.add('visible');
-            
-            // Update URL query param without reload
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.set('story', slug);
-            window.history.pushState({}, '', newUrl);
-
-            // Trigger animations
+        let currentPage = 1;
+        function goToPage(pageNum) {
+            if (pageNum < 1 || pageNum > 5 || pageNum === currentPage) return;
+            const container = document.getElementById('newspaper-main');
+            container.classList.add('page-turn-out');
             setTimeout(() => {
-                modal.classList.add('open');
-                
-                // Walking footprints across the newspaper first
-                for(let i=0; i<8; i++) {
-                    setTimeout(() => createFootprint(i), i * 250);
-                }
-                
-                // Reveal ink after unfold
-                setTimeout(() => {
-                    container.classList.add('revealed');
-                }, 1200);
-            }, 10);
+                document.querySelectorAll('.newspaper-page').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(`page-content-${pageNum}`).style.display = 'block';
+                document.getElementById(`nav-${pageNum}`).classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo(0, 0);
+                const url = new URL(window.location);
+                url.searchParams.set('page', pageNum);
+                window.history.pushState({}, '', url);
+                container.classList.remove('page-turn-out');
+            }, 300);
         }
-
-        function closeMap() {
-            const modal = document.getElementById('marauders-modal');
-            const container = modal.querySelector('.map-container');
-            modal.classList.remove('open');
-            container.classList.remove('revealed');
-            
-            // Remove story from URL
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.delete('story');
-            window.history.pushState({}, '', newUrl);
-
-            setTimeout(() => {
-                modal.classList.remove('visible');
-            }, 1000);
-        }
-
-        function createFootprint(i) {
-            const body = document.body;
-            const fp = document.createElement('div');
-            fp.className = 'footprint';
-            
-            // Start from bottom left and walk towards center
-            fp.style.left = (10 + (i * 8)) + '%';
-            fp.style.top = (90 - (i * 8)) + '%';
-            
-            const anim = i % 2 === 0 ? 'walk-left' : 'walk-right';
-            fp.style.animation = `${anim} 1s forwards`;
-            
-            body.appendChild(fp);
-            setTimeout(() => fp.remove(), 1000);
-        }
-
-        // Check query params on load
-        window.onload = function() {
+        window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);
-            const storySlug = params.get('story');
-            if (storySlug) {
-                const targetArticle = document.getElementById(`story-${storySlug}`);
-                if (targetArticle) {
-                    // Try to find the trigger link
-                    const link = targetArticle.querySelector('a[onclick]');
-                    if (link) link.click();
-                }
-            }
-        };
-
-        // Close on outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('marauders-modal');
-            if (event.target == modal) {
-                closeMap();
-            }
-        }
+            const page = parseInt(params.get('page'));
+            if (page >= 1 && page <= 5) goToPage(page);
+            else document.getElementById('nav-1').classList.add('active');
+        });
     </script>
 </body>
 </html>

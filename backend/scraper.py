@@ -126,6 +126,38 @@ class HackerNewsScraper:
         self.hn_api = "https://hacker-news.firebaseio.com/v0"
         self.timeout = 10
         
+    def get_historical_stories(self, target_date: datetime, limit: int = 50) -> List[Dict]:
+        """Fetch top AI stories for a specific date using Algolia Search API"""
+        import time
+        start_ts = int(target_date.replace(hour=0, minute=0, second=0).timestamp())
+        end_ts = start_ts + 86400
+        
+        # Algolia search query for AI keywords on specific date
+        from config import AI_KEYWORDS
+        query = "(ai OR llm OR transformer OR gpt OR research OR model)"
+        url = f"https://hn.algolia.com/api/v1/search?query={query}&numericFilters=created_at_i>{start_ts},created_at_i<{end_ts},points>20&hitsPerPage={limit}"
+        
+        try:
+            print(f"      - Querying Algolia for {target_date.date()}...")
+            resp = requests.get(url, timeout=15)
+            data = resp.json()
+            
+            stories = []
+            for hit in data.get('hits', []):
+                stories.append({
+                    'id': int(hit['objectID']),
+                    'title': hit['title'],
+                    'url': hit['url'],
+                    'score': hit['points'],
+                    'by': hit['author'],
+                    'time': hit['created_at_i'],
+                    'kids': hit.get('children', [])
+                })
+            return stories
+        except Exception as e:
+            print(f"Error fetching historical HN: {e}")
+            return []
+
     def get_top_stories(self, limit: int = None) -> List[Dict]:
         """Fetch stories from Top, Best, and New pools to ensure depth and quality"""
         if limit is None:
@@ -152,24 +184,23 @@ class HackerNewsScraper:
                     seen_ids.add(s_id)
 
             import time
+            from concurrent.futures import ThreadPoolExecutor
             cutoff_time = time.time() - (24 * 3600)
             
             stories = []
-            # We check up to 400 unique candidates to find the best AI content
-            for story_id in unique_ids[:400]:
-                story = self._get_story(story_id)
-                
-                # Strict 24h filter
-                if story and story.get('time', 0) > cutoff_time:
-                    # We only keep stories with a URL (actual content)
-                    if story.get('url'):
-                        stories.append(story)
-                
-                # If we have a massive pool, stop early to keep the LLM phase fast
-                if len(stories) >= 100: 
-                    break
+            print(f"      - Fetching details for {min(len(unique_ids), 400)} HN candidates in parallel...")
             
-            return stories
+            def fetch_and_filter(s_id):
+                story = self._get_story(s_id)
+                if story and story.get('time', 0) > cutoff_time and story.get('url'):
+                    return story
+                return None
+
+            with ThreadPoolExecutor(max_workers=20) as executor:
+                results = list(executor.map(fetch_and_filter, unique_ids[:400]))
+            
+            stories = [r for r in results if r is not None]
+            return stories[:100]
         except Exception as e:
             print(f"Error fetching HackerNews: {e}")
             return []
@@ -196,10 +227,33 @@ class HackerNewsScraper:
                 'time': data.get('time', 0),
                 'descendants': data.get('descendants', 0),
                 'type': data.get('type', 'story'),
+                'kids': data.get('kids', [])
             }
         except Exception as e:
             print(f"Error fetching story {story_id}: {e}")
             return None
+
+    def fetch_hn_comments(self, kid_ids: List[int], limit: int = 5) -> List[str]:
+        """Fetch top-level comments for an HN item"""
+        comments = []
+        if not kid_ids: return []
+        
+        def fetch_comment(c_id):
+            try:
+                resp = requests.get(f"{self.hn_api}/item/{c_id}.json", timeout=5)
+                data = resp.json()
+                if data and not data.get('deleted') and not data.get('dead') and data.get('text'):
+                    # Clean HTML tags from HN comments
+                    text = BeautifulSoup(data['text'], 'html.parser').get_text()
+                    return text[:500] # Truncate long comments
+                return None
+            except: return None
+
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            results = list(executor.map(fetch_comment, kid_ids[:limit]))
+        
+        return [r for r in results if r]
 
 
 class RSSFeedScraper:
@@ -331,23 +385,36 @@ class NewsAggregator:
             
         return filtered
     
-    def aggregate_all(self) -> Dict:
+    def aggregate_all(self, target_date: datetime = None) -> Dict:
         """Aggregate HackerNews + RSS feeds + Scraped Blogs"""
-        print("Aggregating news...")
+        print(f"Aggregating news for {target_date.date() if target_date else 'Today'}...")
+        from concurrent.futures import ThreadPoolExecutor
         
         # Get HackerNews stories
-        hn_stories = self.hn_scraper.get_top_stories()
+        if target_date and target_date.date() < datetime.now().date():
+            hn_stories = self.hn_scraper.get_historical_stories(target_date)
+        else:
+            hn_stories = self.hn_scraper.get_top_stories()
+            
         hn_filtered = self.filter_ai_stories(hn_stories)
         
         # Get RSS feeds
         rss_results = self.rss_scraper.fetch_all_feeds(RSS_STORIES_PER_FEED)
         
-        # Get Scraped Blogs
+        # Get Scraped Blogs in parallel
         scraped_results = {}
         if self.labs_to_scrape:
-            print(f"Scraping {len(self.labs_to_scrape)} blogs without RSS...")
-            for name, url in self.labs_to_scrape.items():
-                scraped_results[name] = GenericWebScraper.scrape_blog(name, url, limit=3)
+            print(f"Scraping {len(self.labs_to_scrape)} blogs in parallel...")
+            
+            def scrape_one(item):
+                name, url = item
+                return name, GenericWebScraper.scrape_blog(name, url, limit=3)
+
+            with ThreadPoolExecutor(max_workers=10) as executor:
+                results = list(executor.map(scrape_one, self.labs_to_scrape.items()))
+            
+            for name, stories in results:
+                scraped_results[name] = stories
         
         # Combine all RSS + Scraped
         all_rss_combined = rss_results

@@ -13,8 +13,27 @@ try:
 except ImportError:
     HAS_META_AI = False
 
-# Import page categories from processor for consistency
-from processor import PAGE_CATEGORIES
+try:
+    from config import PAGE_CATEGORIES, PAGES_CONFIG
+except ImportError:
+    PAGE_CATEGORIES = {
+        1: "Breaking Vectors",
+        2: "Model Architectures",
+        3: "Neural Horizons",
+        4: "Lab Outputs",
+        5: "Inference Corner",
+        6: "AI Industry Overview",
+        7: "Model Release History",
+        8: "Top Insights & Advice",
+        9: "AI Safety & Lab Accidents"
+    }
+    PAGES_CONFIG = {
+        1: {"title": "The Front Page", "categories": [1, 2, 3, 4, 5]},
+        2: {"title": "AI Industry Overview", "categories": [6]},
+        3: {"title": "Model Release History", "categories": [7]},
+        4: {"title": "Top Insights & Advice", "categories": [8]},
+        5: {"title": "AI Safety & Lab Accidents", "categories": [9]}
+    }
 
 def _site_url():
     try:
@@ -26,64 +45,15 @@ def _site_url():
 
 def _get_llm_location_from_vibes(stories_summary: str) -> str:
     """Get LLM world location based on newspaper vibes using Meta AI"""
-    
-    available_locations = [
-        "TENSOR CITY",
-        "GRADIENT VALLEY",
-        "MODEL SQUARE",
-        "PROMPT BAY",
-        "VECTOR STATION",
-        "ATTENTION HEIGHTS",
-        "TRANSFORMER TOWER",
-        "NEURAL NEXUS",
-        "EMBEDDING ESTATES",
-        "INFERENCE ISLAND",
-        "QUANTIZATION QUARTER",
-        "TOKENVILLE",
-        "PARAMETER PARK",
-        "LAYER LAND",
-        "CONVERGENCE CENTRAL",
-        "BIAS BOROUGH",
-        "WEIGHT WARD",
-        "BACKPROP BAY",
-        "SOFTMAX SECTOR",
-        "ACTIVATION AVENUE"
-    ]
-    
-    if not HAS_META_AI:
-        return random.choice(available_locations)
-    
+    available_locations = ["TENSOR CITY", "GRADIENT VALLEY", "MODEL SQUARE", "PROMPT BAY", "VECTOR STATION", "ATTENTION HEIGHTS", "TRANSFORMER TOWER", "NEURAL NEXUS", "EMBEDDING ESTATES", "INFERENCE ISLAND"]
+    if not HAS_META_AI: return random.choice(available_locations)
     try:
         meta_ai = MetaAI()
-        prompt = f"""You are a creative news editor in an AI-themed world. Based on these today's AI news themes:
-
-{stories_summary}
-
-Which of these LLM-themed cities best captures the "vibe" of today's news edition?
-
-Locations: {', '.join(available_locations)}
-
-Respond with ONLY the city name. Examples:
-- If news is about new models: MODEL SQUARE or TRANSFORMER TOWER
-- If about optimization: QUANTIZATION QUARTER or CONVERGENCE CENTRAL  
-- If about inference/deployment: INFERENCE ISLAND or NEURAL NEXUS
-- If creative/vision work: PROMPT BAY or VECTOR STATION
-- If about training: GRADIENT VALLEY or PARAMETER PARK
-
-Choose one that fits the day's AI news vibe:"""
-        
+        prompt = f"Which of these LLM-themed cities best captures the vibe of today's news: {', '.join(available_locations)}? News: {stories_summary}. Respond with ONLY the city name."
         response = meta_ai.prompt(message=prompt)
         location = response.strip().upper()
-        
-        # Validate response is one of our locations
-        if location in available_locations:
-            return location
-        
-        # Fallback if Meta AI returns something else
-        return random.choice(available_locations)
-    except Exception as e:
-        print(f"⚠ Error getting location from Meta AI: {e}")
-        return random.choice(available_locations)
+        return location if location in available_locations else random.choice(available_locations)
+    except: return random.choice(available_locations)
 
 
 class NewsExporter:
@@ -91,1048 +61,325 @@ class NewsExporter:
     
     PAGE_NAMES = PAGE_CATEGORIES
     
-    def __init__(self, organized_stories: Dict[int, List[Dict]], location: str = None):
+    def __init__(self, organized_stories: Dict[int, List[Dict]], location: str = None, timestamp: str = None):
         self.organized = organized_stories
-        self.timestamp = datetime.now().isoformat()
+        self.timestamp = timestamp if timestamp else datetime.now().isoformat()
         self.location = location if location else self._determine_location()
+        self.editorial = {}
+        self.top_candidates = []
     
     def _determine_location(self) -> str:
-        """Get newspaper location based on today's news vibes"""
-        if not self.organized or not self.organized.get(1):
-            return "THE CLOUD"
-            
-        # Build a summary of today's stories
+        if not self.organized: return "THE CLOUD"
         headlines = []
-        for page_num in range(1, 6):
-            if page_num in self.organized:
-                for story in self.organized[page_num][:2]:  # Top 2 per page
-                    headlines.append(story.get('generated_headline', story['original_title']))
-        
-        summary = " | ".join(headlines[:10])  # Top 10 headlines
-        
-        print(f"\n[Determining location based on today's vibes...]")
-        location = _get_llm_location_from_vibes(summary)
-        print(f"   ✓ Today's edition location: {location}")
-        return location
+        for cat in range(1, 10):
+            for story in (self.organized.get(cat, []) or self.organized.get(str(cat), []))[:2]:
+                headlines.append(story.get('generated_headline', ''))
+        return _get_llm_location_from_vibes(" | ".join(headlines[:10]))
     
-    def export_json(self, output_path: str) -> str:
-        """Export as structured JSON"""
+    def _render_article(self, story: Dict, layout_class: str, headline_class: str, image_prefix: str) -> str:
+        """Helper to render a standard article block linking directly to source"""
+        headline = story.get('generated_headline', story['original_title'])
+        summary = story['summary']
+        img_path = story.get('generated_image_path', '')
+        final_img_src = f"{image_prefix}{os.path.basename(img_path)}" if img_path else ""
+        url = story.get('url') or story.get('hn_url', '#')
+        hn_url = story.get('hn_url', '#')
         
+        # Link images and headlines directly to original article
+        image_html = f'<a href="{url}" target="_blank"><img src="{final_img_src}" class="news-img" alt=""></a>' if final_img_src else ""
+        
+        return f'''
+            <article class="article {layout_class}">
+                <div class="article-body">
+                    {image_html}
+                    <h3 class="{headline_class}"><a href="{url}" target="_blank">{headline}</a></h3>
+                    <div class="metadata">SOURCE: {story["source"].upper()} | <a href="{hn_url}" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">{summary}</p>
+                </div>
+            </article>
+        '''
+
+    def export_json(self, output_path: str) -> str:
         data = {
             'metadata': {
                 'generated': self.timestamp,
-                'format_version': '1.0'
+                'format_version': '1.1',
+                'location': self.location,
+                'editorial': self.editorial,
+                'top_candidates': self.top_candidates
             },
-            'pages': {}
+            'pages': {str(page_id): {'title': self.PAGE_NAMES.get(int(page_id), 'Page'), 'stories': stories} for page_id, stories in self.organized.items()}
         }
-        
-        for page_num in range(1, 6):
-            stories = self.organized[page_num]
-            data['pages'][page_num] = {
-                'title': self.PAGE_NAMES[page_num],
-                'story_count': len(stories),
-                'stories': stories
-            }
-        
         with open(output_path, 'w') as f:
             json.dump(data, f, indent=2)
-        
-        return output_path
-    
-    def export_markdown(self, output_path: str) -> str:
-        """Export as readable Markdown"""
-        
-        lines = [
-            "# Daily AI Newspaper",
-            f"_Generated: {self.timestamp}_",
-            ""
-        ]
-        
-        for page_num in range(1, 6):
-            stories = self.organized[page_num]
-            
-            lines.append(f"## Page {page_num}: {self.PAGE_NAMES[page_num]}")
-            lines.append("")
-            
-            for i, story in enumerate(stories, 1):
-                lines.append(f"### {i}. {story.get('generated_headline', story['original_title'])}")
-                lines.append("")
-                lines.append(f"**Source:** {story['source']}")
-                if story.get('url'):
-                    lines.append(f"**Link:** {story['url']}")
-                if story.get('hn_url'):
-                    lines.append(f"**Discuss on HN:** {story['hn_url']}")
-                lines.append(f"**Category:** {story['category']}")
-                lines.append("")
-                lines.append(story['summary'])
-                lines.append("")
-                lines.append("---")
-                lines.append("")
-        
-        content = "\n".join(lines)
-        
-        with open(output_path, 'w') as f:
-            f.write(content)
-        
-        return output_path
-    
-    def export_text(self, output_path: str) -> str:
-        """Export as plain text"""
-        lines = [
-            f"THE DAILY TOKEN - {self.timestamp}",
-            f"LOCATION: {self.location}",
-            "=" * 60,
-            ""
-        ]
-        
-        for page_num in range(1, 6):
-            stories = self.organized[page_num]
-            lines.append(f"SECTION: {self.PAGE_NAMES[page_num].upper()}")
-            lines.append("-" * 60)
-            
-            for i, story in enumerate(stories, 1):
-                lines.append(f"{i}. {story.get('generated_headline', story['original_title']).upper()}")
-                lines.append(f"Source: {story['source']} | URL: {story.get('url', 'N/A')}")
-                lines.append(f"Summary: {story['summary']}")
-                lines.append("")
-            lines.append("")
-            
-        content = "\n".join(lines)
-        with open(output_path, 'w') as f:
-            f.write(content)
         return output_path
 
     def export_html(self, output_path: str, image_prefix: str = "images/") -> str:
-        """Export as interactive HTML newspaper"""
-        
         html_content = self._generate_html(image_prefix=image_prefix)
-        
         with open(output_path, 'w') as f:
             f.write(html_content)
-        
         return output_path
-    
-    def export_rss_feed(self, output_path: str) -> str:
-        """Export as RSS feed for subscriptions"""
-        
-        root = ET.Element("rss")
-        root.set("version", "2.0")
-        root.set("xmlns:content", "http://purl.org/rss/1.0/modules/content/")
-        
-        channel = ET.SubElement(root, "channel")
-        
-        ET.SubElement(channel, "title").text = "The Daily Token"
-        ET.SubElement(channel, "link").text = _site_url()
-        ET.SubElement(channel, "description").text = "The AI world's daily news."
-        ET.SubElement(channel, "language").text = "en-us"
-        ET.SubElement(channel, "pubDate").text = self.timestamp
-        
-        # Add stories from all pages
-        for page_num in range(1, 6):
-            for story in self.organized[page_num]:
-                item = ET.SubElement(channel, "item")
-                
-                ET.SubElement(item, "title").text = story.get('generated_headline', story['original_title'])
-                ET.SubElement(item, "link").text = story.get('url') or story.get('hn_url', '')
-                ET.SubElement(item, "source").text = story['source']
-                
-                description = f"<p><strong>Category:</strong> {story['category']}</p>"
-                description += f"<p>{story['summary']}</p>"
-                
-                ET.SubElement(item, "description").text = description
-                ET.SubElement(item, "pubDate").text = str(story.get('published', self.timestamp))
-        
-    def export_archive_index(self, archive_root: str, output_path: str) -> str:
-        """Scan archive folder and generate a historical index page"""
-        root_path = Path(archive_root)
-        if not root_path.exists():
-            return ""
 
-        archive_data = {} # {year: {month: [days]}}
-        
-        # Scan directories
-        for year_dir in sorted(root_path.iterdir(), reverse=True):
-            if not year_dir.is_dir() or not year_dir.name.isdigit(): continue
+    @staticmethod
+    def reconstruct_from_json(json_path: str, output_html_path: str, image_prefix: str = "images/"):
+        with open(json_path, 'r') as f:
+            data = json.load(f)
+        organized = {int(k): v['stories'] for k, v in data['pages'].items()}
+        gen_ts = data['metadata'].get('generated')
+        exporter = NewsExporter(organized, location=data['metadata'].get('location'), timestamp=gen_ts)
+        exporter.editorial = data['metadata'].get('editorial', {})
+        exporter.top_candidates = data['metadata'].get('top_candidates', [])
+        exporter.export_html(output_html_path, image_prefix=image_prefix)
+        return output_html_path
+
+    def export_archive_index(self, archive_root: str, output_path: str) -> str:
+        root_path = Path(archive_root)
+        if not root_path.exists(): return ""
+        archive_data = {}
+        # Scan year/month/day
+        years = sorted([d for d in root_path.iterdir() if d.is_dir() and d.name.isdigit()], reverse=True)
+        for year_dir in years:
             year = year_dir.name
             archive_data[year] = {}
-            
-            for month_dir in sorted(year_dir.iterdir(), reverse=True):
-                if not month_dir.is_dir() or not month_dir.name.isdigit(): continue
+            months = sorted([d for d in year_dir.iterdir() if d.is_dir() and d.name.isdigit()], reverse=True)
+            for month_dir in months:
                 month = month_dir.name
-                archive_data[year][month] = []
-                
-                for day_dir in sorted(month_dir.iterdir(), reverse=True):
-                    if not day_dir.is_dir() or not day_dir.name.isdigit(): continue
-                    day = day_dir.name
-                    archive_data[year][month].append(day)
-
-        # Generate HTML
+                days = sorted([d.name for d in month_dir.iterdir() if d.is_dir() and d.name.isdigit()], reverse=True)
+                archive_data[year][month] = days
+        
         html_lines = []
-        for year in archive_data:
-            html_lines.append(f'<div class="archive-year"><h2>{year}</h2>')
-            for month in archive_data[year]:
+        for year, months in archive_data.items():
+            html_lines.append(f'<div class="archive-year" style="margin-bottom:40px;">')
+            html_lines.append(f'<h2 style="font-family:\'Oswald\'; border-bottom:4px solid #111; padding-bottom:10px;">{year}</h2>')
+            for month, days in months.items():
                 month_name = datetime.strptime(month, "%m").strftime("%B").upper()
-                html_lines.append(f'<div class="archive-month"><h3>{month_name}</h3><ul class="archive-days">')
-                for day in archive_data[year][month]:
-                    date_str = f"{year}-{month}-{day}"
-                    display_date = datetime.strptime(date_str, "%Y-%m-%d").strftime("%b %d, %Y").upper()
-                    html_lines.append(f'<li><a href="/daily-token/archive/{year}/{month}/{day}/newspaper.html">{display_date}</a></li>')
+                html_lines.append(f'<div class="archive-month" style="margin-left:20px; margin-bottom:20px;">')
+                html_lines.append(f'<h3 style="font-family:\'Oswald\'; color:#a00;">{month_name}</h3>')
+                html_lines.append('<ul style="list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fill, minmax(120px, 1fr)); gap:10px;">')
+                for day in days:
+                    display_date = f"{month_name[:3]} {day}"
+                    html_lines.append(f'<li><a href="{year}/{month}/{day}/newspaper.html" style="text-decoration:none; color:#111; border:1px solid #ccc; padding:8px; display:block; text-align:center; font-family:\'Oswald\'; font-size:0.8rem;">{display_date}</a></li>')
                 html_lines.append('</ul></div>')
             html_lines.append('</div>')
-
-        archive_list_html = "\n".join(html_lines)
-
+        
         full_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archives | The Daily Token</title>
+    <title>Historical Archives | The Daily Token</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {{ background-color: #fdfdfb; font-family: 'Lora', serif; color: #111; padding: 40px 20px; max-width: 800px; margin: 0 auto; }}
-        h1 {{ font-family: 'Oswald', sans-serif; font-size: 3rem; text-transform: uppercase; border-bottom: 4px solid #111; padding-bottom: 10px; margin-bottom: 40px; text-align: center; }}
-        .archive-year h2 {{ font-family: 'Oswald', sans-serif; font-size: 2rem; background: #111; color: #fff; padding: 5px 15px; }}
-        .archive-month {{ margin-left: 20px; margin-bottom: 30px; }}
-        .archive-month h3 {{ font-family: 'Oswald', sans-serif; border-bottom: 1px solid #ccc; padding-bottom: 5px; color: #a00; }}
-        .archive-days {{ list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }}
-        .archive-days li a {{ text-decoration: none; color: #111; border: 1px solid #ccc; padding: 8px; display: block; text-align: center; font-size: 0.85rem; font-family: 'Oswald', sans-serif; transition: all 0.2s; }}
-        .archive-days li a:hover {{ background: #111; color: #fff; border-color: #111; }}
-        .back-home {{ display: block; text-align: center; margin-bottom: 40px; text-decoration: none; color: #a00; font-family: 'Oswald'; font-weight: 700; letter-spacing: 1px; }}
+        body {{ background-color: #fdfdfb; font-family: 'Lora', serif; padding: 40px; max-width: 900px; margin: 0 auto; }}
+        a:hover {{ background: #111; color: #fff !important; border-color: #111 !important; }}
+        li a {{ transition: all 0.2s; }}
+        li a:hover {{ background: #111; color: #fff !important; border-color: #111 !important; }}
     </style>
 </head>
 <body>
-    <a href="/daily-token/newspaper.html" class="back-home">← BACK TO LATEST EDITION</a>
-    <h1>Historical Archives</h1>
-    {archive_list_html}
+    <a href="../index.html" style="display:block; margin-bottom:40px; text-decoration:none; color:#a00; font-family:'Oswald'; font-weight:700; letter-spacing:1px;">← BACK TO LATEST EDITION</a>
+    <h1 style="font-family:'Oswald'; font-size:3.5rem; text-transform:uppercase; text-align:center; margin-bottom:60px; border-bottom:8px double #111; padding-bottom:20px;">The Daily Token Archives</h1>
+    { "".join(html_lines) }
+    <footer style="text-align:center; margin-top:80px; font-family:'Oswald'; font-size:0.8rem; color:#888;">&copy; 2026 THE DAILY TOKEN</footer>
 </body>
 </html>"""
-        
-        with open(output_path, 'w') as f:
-            f.write(full_html)
+        with open(output_path, 'w') as f: f.write(full_html)
         return output_path
-    
+
     def _generate_html(self, image_prefix: str = "images/") -> str:
-        """Generate professional, dense, adaptive newspaper-style HTML"""
-        print(f"DEBUG: organized keys: {list(self.organized.keys())}")
-        
-        # Collect all stories and sort by significance
-        all_stories = []
-        for page_num in range(1, 6):
-            if page_num in self.organized:
-                all_stories.extend(self.organized[page_num])
-            elif str(page_num) in self.organized:
-                # Handle string keys if they exist
-                all_stories.extend(self.organized[str(page_num)])
-        
-        print(f"DEBUG: all_stories length: {len(all_stories)}")
-        
-        all_stories.sort(key=lambda x: x.get('significance_score', 0), reverse=True)
-        
-        # Front Page Selection
-        front_page_leads = all_stories[:3]
+        # Determine relative depth for navigation
+        is_archive = "../" in image_prefix
+        base_rel = "../../../../" if is_archive else ""
         
         # Navigation
-        nav_links = '<a href="#front-page">THE FRONT PAGE</a>'
-        for page_num in range(1, 6):
-            if self.organized[page_num]:
-                nav_links += f' <span class="nav-sep">|</span> <a href="#section-{page_num}">{self.PAGE_NAMES[page_num].upper()}</a>'
+        nav_links = "".join([f'<a href="javascript:void(0)" onclick="goToPage({p})" class="nav-item" id="nav-{p}">{PAGES_CONFIG[p]["title"].upper()}</a>' for p in sorted(PAGES_CONFIG.keys())])
 
-        # --- FRONT PAGE ---
-        front_page_html = f'''
-        <section id="front-page">
-            <div class="deck-header"><span>FRONT PAGE // KEY BREAKTHROUGHS</span></div>
-            <div class="lead-grid">
-        '''
-        
-        for idx, story in enumerate(front_page_leads):
-            layout = "span-8 main-story" if idx == 0 else "span-4 side-story"
-            img_path = story.get('generated_image_path', '')
+        # Build Pages
+        pages_html = ""
+        for page_num in sorted(PAGES_CONFIG.keys()):
+            config = PAGES_CONFIG[page_num]
+            is_first = (page_num == 1)
+            pages_html += f'<div id="page-content-{page_num}" class="newspaper-page" style="display: {"block" if is_first else "none"}">'
+            pages_html += f'<div class="page-title"><span>{config["title"].upper()}</span></div>'
             
-            headline = story.get('generated_headline', story['original_title'])
-            summary = story['summary']
-            img_path = story.get('generated_image_path', '')
-            final_img_src = ""
-            
-            if img_path:
-                img_filename = os.path.basename(img_path)
-                final_img_src = f"{image_prefix}{img_filename}"
-            
-            # Create a URL-safe slug
-            slug = "".join([c.lower() if c.isalnum() else "-" for c in headline[:50]]).strip("-")
-            
-            # Escape for JavaScript openMap call
-            js_headline = headline.replace("'", "\\'").replace('"', '&quot;')
-            js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
-            
-            if final_img_src:
-                image_html = f'<img src="{final_img_src}" class="news-img" alt="" style="cursor:pointer" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>'
+            if is_first:
+                # Editor's Note
+                if self.editorial.get('editors_note'):
+                    pages_html += f'<div class="editors-note"><strong>EDITOR\'S NOTE:</strong> {self.editorial["editors_note"]} <span class="emphasis" style="color:var(--highlight); font-weight:700;">#{self.editorial.get("emphasis", "AI")}</span></div>'
+                
+                # Multi-section overview for Front Page
+                for cat_id in config["categories"]:
+                    stories = self.organized.get(cat_id, []) or self.organized.get(str(cat_id), [])
+                    if not stories: continue
+                    pages_html += f'<div class="section-sub-header"><span>{PAGE_CATEGORIES[cat_id].upper()}</span></div>'
+                    pages_html += '<div class="columns-3">'
+                    for story in stories[:3]: # Top 3 per section
+                        pages_html += self._render_article(story, "span-1", "headline-sm", image_prefix)
+                    pages_html += '</div>'
+            elif page_num == 4:
+                # Top Insights Page (Community Wisdom Only)
+                cat_id = config["categories"][0]
+                stories = self.organized.get(cat_id, []) or self.organized.get(str(cat_id), [])
+                pages_html += '<div class="insights-grid">'
+                for story in stories:
+                    pages_html += f'''<div class="insight-card">
+                        <div class="insight-author">PERSPECTIVE: {story.get("source_author", "The Community")}</div>
+                        <h3 class="insight-headline">{story.get("generated_headline")}</h3>
+                        <p class="insight-summary">"{story["summary"]}"</p>
+                        <div class="insight-footer"><a href="{story.get("hn_url", "#")}" target="_blank">READ FULL DISCUSSION →</a></div>
+                    </div>'''
+                pages_html += '</div>'
+            elif page_num == 3:
+                # Model Release Page (Only day releases)
+                cat_id = config["categories"][0]
+                stories = self.organized.get(cat_id, []) or self.organized.get(str(cat_id), [])
+                pages_html += '<div class="columns-3">'
+                for story in stories:
+                    if story.get('detected_model') or "Release" in story.get('generated_headline', ''):
+                        pages_html += self._render_article(story, "span-1", "headline-sm", image_prefix)
+                pages_html += '</div>'
             else:
-                image_html = ""
-            
-            headline_class = "headline-xl" if idx == 0 else "headline-lg"
-            
-            front_page_html += f'''
-                <article class="article {layout}" id="story-{slug}">
-                    <div class="article-body">
-                        {image_html if idx == 0 else ""}
-                        <h2 class="{headline_class}"><a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}", "{story['source'].upper()}", "{story.get('hn_url', '#')}")\'>{headline}</a></h2>
-                        <div class="metadata">SOURCE: {story['source'].upper()} // {str(story.get('published', ''))[:10]}</div>
-                        {image_html if idx != 0 else ""}
-                        <p class="summary">{" ".join(summary.split()[:60]) + "..." if idx == 0 else summary}</p>
-                        <div class="footer-links">
-                            <a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}", "{story['source'].upper()}", "{story.get('hn_url', '#')}")\'>READ ARTICLE</a> | 
-                            <a href="{story.get('hn_url', '#')}">HN</a>
-                        </div>
-                    </div>
-                </article>
-            '''
-        front_page_html += '</div>'
-        
-        # Section Pulse (Compact)
-        pulse_html = '<div class="section-pulse-grid">'
-        for page_num in range(1, 6):
-            stories = self.organized[page_num]
-            if stories:
-                top = max(stories, key=lambda x: x.get('significance_score', 0))
-                pulse_html += f'''
-                    <div class="pulse-block">
-                        <div class="pulse-tag">{self.PAGE_NAMES[page_num].upper()}</div>
-                        <div class="pulse-link"><a href="#section-{page_num}">{top.get('generated_headline', top['original_title'])}</a></div>
-                    </div>
-                '''
-        pulse_html += '</div></section>'
+                # Regular specialized pages
+                cat_id = config["categories"][0]
+                stories = self.organized.get(cat_id, []) or self.organized.get(str(cat_id), [])
+                pages_html += '<div class="columns-3">'
+                for story in stories:
+                    pages_html += self._render_article(story, "span-1", "headline-sm", image_prefix)
+                pages_html += '</div>'
 
-        # --- SECTIONS ---
-        sections_html = ""
-        for page_num in range(1, 6):
-            stories = self.organized[page_num]
-            if not stories: continue
-                
-            sections_html += f'''
-            <section id="section-{page_num}">
-                <div class="deck-header"><span>{self.PAGE_NAMES[page_num].upper()}</span></div>
-                <div class="columns-4">
-            '''
-            
-            for idx, story in enumerate(stories):
-                headline = story.get('generated_headline', story['original_title'])
-                summary = story['summary']
-                img_path = story.get('generated_image_path', '')
-                final_img_src = ""
-                
-                if img_path:
-                    img_filename = os.path.basename(img_path)
-                    final_img_src = f"{image_prefix}{img_filename}"
-                
-                # Create a URL-safe slug
-                slug = "".join([c.lower() if c.isalnum() else "-" for c in headline[:50]]).strip("-")
-                
-                # Escape for JavaScript openMap call
-                js_headline = headline.replace("'", "\\'").replace('"', '&quot;')
-                js_summary = summary.replace("'", "\\'").replace('"', '&quot;')
-                
-                if final_img_src:
-                    image_html = f'<img src="{final_img_src}" class="news-img" alt="" style="cursor:pointer" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}")\'>'
-                else:
-                    image_html = ""
-                
-                layout_pref = story.get('image_layout', 'SQUARE')
-                col_span = "span-2" if layout_pref == "WIDE" else "span-1"
-                
-                sections_html += f'''
-                    <article class="article {col_span}" id="story-{slug}">
-                        <div class="article-body">
-                            {image_html if idx % 4 == 0 or layout_pref == "WIDE" else ""}
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}", "{story['source'].upper()}", "{story.get('hn_url', '#')}")\'>{headline}</a></h3>
-                            <div class="metadata">{story['source'].upper()}</div>
-                            <p class="summary-sm">{summary}</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick=\'openMap(this, "{js_headline}", "{js_summary}", "{final_img_src}", "{slug}", "{story['source'].upper()}", "{story.get('hn_url', '#')}")\'>LINK</a> // 
-                                <a href="{story.get('hn_url', '#')}">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                '''
-            sections_html += '</div></section>'
+            prev_btn = f'<a href="javascript:void(0)" onclick="goToPage({page_num-1})" class="nav-btn">← PREVIOUS</a>' if page_num > 1 else '<span></span>'
+            next_btn = f'<a href="javascript:void(0)" onclick="goToPage({page_num+1})" class="nav-btn">NEXT →</a>' if page_num < 5 else '<span></span>'
+            pages_html += f'<div class="page-footer-nav">{prev_btn}{next_btn}</div></div>'
 
-        archive_links_html = ""
+        # Edition Nav with relative paths
         import datetime as dt_mod
-        today = dt_mod.date.today()
-        for i in range(1, 8):
-            prev_date = today - dt_mod.timedelta(days=i)
-            date_path = prev_date.strftime('%Y/%m/%d')
-            display_date = prev_date.strftime('%b %d, %Y').upper()
-            archive_links_html += f'<a href="/daily-token/archive/{date_path}/newspaper.html" class="archive-link">{display_date}</a>'
+        dt = datetime.fromisoformat(self.timestamp)
+        prev_day = dt - dt_mod.timedelta(days=1)
+        next_day = dt + dt_mod.timedelta(days=1)
+        
+        edition_nav = f'''
+            <div class="edition-nav">
+                <a href="{base_rel}archive/{prev_day.strftime('%Y/%m/%d')}/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+                <span class="edition-current">EDITION: {dt.strftime('%b %d, %Y').upper()}</span>
+                <a href="{base_rel}archive/{next_day.strftime('%Y/%m/%d')}/newspaper.html" class="edition-link">NEXT EDITION →</a>
+                <span style="color:#ccc">|</span>
+                <a href="{base_rel}archive/index.html" class="edition-link">FULL ARCHIVES</a>
+            </div>
+        '''
 
-        # --- TEMPLATE ---
-        html = f"""<!DOCTYPE html>
+        return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Daily Token AI Newspaper</title>
+    <title>The Daily Token</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root {{
-            --ink: #111;
-            --paper: #fdfdfb;
-            --sep: #ccc;
-            --highlight: #a00;
-        }}
-        
+        :root {{ --ink: #111; --paper: #fdfdfb; --sep: #ccc; --highlight: #a00; }}
         * {{ box-sizing: border-box; }}
-        body {{
-            background-color: #ddd;
-            margin: 0; padding: 10px;
-            font-family: 'Lora', serif;
-            color: var(--ink);
-            line-height: 1.2;
-        }}
-        
-        .newspaper {{
-            background-color: var(--paper);
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.3);
-            border: 1px solid #aaa;
-        }}
-        
-        /* Masthead */
-        header {{
-            text-align: center;
-            border-bottom: 6px double var(--ink);
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }}
-        
-        .masthead {{
-            font-family: 'Playfair Display', serif;
-            font-weight: 900;
-            font-size: 6rem;
-            letter-spacing: -3px;
-            margin: 0;
-            line-height: 0.85;
-            text-transform: uppercase;
-        }}
-        
-        .sub-masthead {{
-            border-top: 1px solid var(--ink);
-            border-bottom: 1px solid var(--ink);
-            margin-top: 15px;
-            padding: 4px 0;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            letter-spacing: 1px;
-        }}
-        
-        nav {{
-            text-align: center;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--ink);
-            margin-bottom: 30px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.8rem;
-        }}
-        nav a {{ text-decoration: none; color: var(--ink); font-weight: 700; }}
-        nav a:hover {{ color: var(--highlight); }}
-        .nav-sep {{ margin: 0 15px; color: var(--sep); }}
-        
-        /* Sections */
-        .deck-header {{
-            text-align: center;
-            border-bottom: 2px solid var(--ink);
-            line-height: 0.1em;
-            margin: 40px 0 25px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-        }}
-        .deck-header span {{ background: var(--paper); padding: 0 20px; }}
-        
-        /* Grid Engine */
-        .lead-grid {{
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 30px;
-            border-bottom: 3px solid var(--ink);
-            padding-bottom: 30px;
-        }}
-        
-        .columns-4 {{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }}
-        
-        .span-8 {{ grid-column: span 8; border-right: 1px solid var(--sep); padding-right: 30px; }}
-        .span-4 {{ grid-column: span 4; }}
-        .span-2 {{ grid-column: span 2; }}
-        .span-1 {{ grid-column: span 1; }}
-        
-        /* Typography */
-        .headline-xl {{ font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 0.95; margin: 0 0 15px 0; font-weight: 900; }}
-        .headline-lg {{ font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1; margin: 0 0 10px 0; font-weight: 900; }}
-        .headline-sm {{ font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.1; margin: 0 0 8px 0; font-weight: 700; }}
+        body {{ background-color: #ddd; margin: 0; padding: 0; font-family: 'Lora', serif; color: var(--ink); line-height: 1.2; overflow-x: hidden; }}
+        .newspaper-container {{ background-color: var(--paper); max-width: 1300px; margin: 0 auto; padding: 40px; box-shadow: 0 0 100px rgba(0,0,0,0.2); min-height: 100vh; transition: opacity 0.3s ease; }}
+        .page-turn-out {{ opacity: 0; }}
+        header {{ text-align: center; border-bottom: 6px double var(--ink); padding-bottom: 20px; }}
+        .masthead-title {{ font-family: 'Playfair Display'; font-weight: 900; font-size: 6rem; letter-spacing: -3px; margin: 0; text-transform: uppercase; }}
+        .sub-masthead {{ border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin-top: 15px; padding: 6px 0; font-family: 'Oswald'; text-transform: uppercase; font-size: 0.9rem; display: flex; justify-content: center; gap: 40px; }}
+        nav.sticky-nav {{ position: sticky; top: 0; background: var(--paper); z-index: 100; text-align: center; padding: 15px 0; border-bottom: 1px solid var(--ink); margin-bottom: 40px; }}
+        .nav-item {{ text-decoration: none; color: var(--ink); font-family: 'Oswald'; font-weight: 700; font-size: 0.85rem; margin: 0 15px; transition: 0.2s; border-bottom: 2px solid transparent; }}
+        .nav-item.active {{ color: var(--highlight); border-bottom: 2px solid var(--highlight); }}
+        .page-title {{ text-align: center; border-bottom: 3px solid var(--ink); line-height: 0.1em; margin: 60px 0 40px; font-family: 'Oswald'; font-size: 1.5rem; }}
+        .page-title span {{ background: var(--paper); padding: 0 30px; }}
+        .section-sub-header {{ text-align: left; border-bottom: 1px solid var(--sep); line-height: 0.1em; margin: 40px 0 20px; font-family: 'Oswald'; font-size: 0.9rem; color: var(--highlight); }}
+        .section-sub-header span {{ background: var(--paper); padding-right: 15px; }}
+        .columns-3 {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-bottom: 40px; }}
+        .headline-sm {{ font-family: 'Playfair Display'; font-size: 1.5rem; line-height: 1.1; margin: 0 0 10px 0; font-weight: 700; }}
         .article a {{ color: inherit; text-decoration: none; }}
-        .article a:hover {{ text-decoration: underline; }}
-        
-        .metadata {{
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.75rem;
-            color: #555;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }}
-        
-        .summary {{ font-size: 1.1rem; text-align: justify; margin-bottom: 15px; line-height: 1.3; }}
-        .summary-sm {{ font-size: 0.9rem; text-align: justify; margin-bottom: 10px; line-height: 1.3; }}
-        
-        .footer-links {{ font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--highlight); }}
-        .footer-links-sm {{ font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--highlight); }}
-
-        /* Articles */
-        .article {{ margin-bottom: 20px; }}
-        .news-img {{
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 15px;
-            filter: grayscale(100%) contrast(1.2);
-            border: 1px solid var(--ink);
-            transition: filter 0.3s ease;
-        }}
-        .news-img:hover {{ filter: none; }}
-
-        /* --- MARAUDER'S MAP MODAL --- */
-        #marauders-modal {{
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            overflow: auto;
-            backdrop-filter: blur(5px);
-        }}
-
-        .map-content {{
-            position: relative;
-            background: #e9dcc9; /* Parchment color */
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-            margin: 5% auto;
-            padding: 50px;
-            width: 70%;
-            max-width: 900px;
-            min-height: 500px;
-            border: 20px solid transparent;
-            border-image: url('https://www.transparenttextures.com/patterns/pinstripe.png') 30 round;
-            box-shadow: 0 0 100px rgba(0,0,0,0.5);
-            font-family: 'Playfair Display', serif;
-            color: #4a3728;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }}
-
-        #marauders-modal.open .map-content {{
-            transform: scale(1);
-            opacity: 1;
-        }}
-
-        .map-header {{
-            text-align: center;
-            border-bottom: 2px solid #4a3728;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-        }}
-
-        .map-title {{ font-size: 3rem; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -1px; }}
-        .map-subtitle {{ font-family: 'Oswald'; text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; }}
-
-        .map-body {{
-            font-size: 1.4rem;
-            line-height: 1.6;
-            text-align: justify;
-            position: relative;
-            filter: url('#ink-bleed');
-        }}
-
-        /* Footprints Animation */
-        .footprint {{
-            position: absolute;
-            width: 30px;
-            height: 15px;
-            background: #4a3728;
-            opacity: 0;
-            border-radius: 50% 50% 40% 40%;
-            pointer-events: none;
-        }}
-        
-        @keyframes walk-left {{
-            0% {{ opacity: 0; transform: translate(0,0) rotate(-20deg); }}
-            20% {{ opacity: 0.6; }}
-            80% {{ opacity: 0.6; }}
-            100% {{ opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }}
-        }}
-
-        @keyframes walk-right {{
-            0% {{ opacity: 0; transform: translate(20px,20px) rotate(20deg); }}
-            20% {{ opacity: 0.6; }}
-            80% {{ opacity: 0.6; }}
-            100% {{ opacity: 0; transform: translate(60px, -40px) rotate(20deg); }}
-        }}
-
-        .map-close {{
-            position: absolute;
-            top: 20px; right: 30px;
-            font-size: 2rem;
-            cursor: pointer;
-            font-weight: 900;
-        }}
-
-        .ink-spread {{
-            animation: inkSpread 2s forwards;
-        }}
-
-        @keyframes inkSpread {{
-            from {{ opacity: 0; filter: blur(20px); }}
-            to {{ opacity: 1; filter: blur(0); }}
-        }}
-        
-        /* Section Pulse */
-        .section-pulse-grid {{
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            background: #f4f4f2;
-            padding: 15px;
-            margin-top: 20px;
-            border: 1px solid var(--sep);
-        }}
-        .pulse-block {{ border-right: 1px solid var(--sep); padding-right: 10px; }}
-        .pulse-block:last-child {{ border-right: none; }}
-        .pulse-tag {{ font-family: 'Oswald', sans-serif; font-size: 0.65rem; color: var(--highlight); }}
-        .pulse-link {{ font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; }}
-        .pulse-link a {{ color: var(--ink); text-decoration: none; }}
-
-        /* Archive Strip */
-        .archive-strip {{
-            margin-top: 40px;
-            padding: 20px 0;
-            border-top: 1px solid var(--sep);
-            text-align: center;
-        }}
-        .archive-title {{ font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px; color: #777; }}
-        .archive-links {{ display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }}
-        .archive-link {{ 
-            font-family: 'Oswald', sans-serif; 
-            font-size: 0.75rem; 
-            color: var(--ink); 
-            text-decoration: none; 
-            border: 1px solid var(--sep);
-            padding: 5px 10px;
-            transition: all 0.2s;
-        }}
-        .archive-link:hover {{ border-color: var(--highlight); color: var(--highlight); }}
-
-        @media (max-width: 900px) {{
-            .newspaper {{ padding: 15px 20px; }}
-            .masthead {{ font-size: 3rem; letter-spacing: -1px; }}
-            .sub-masthead {{ font-size: 0.7rem; flex-direction: column; align-items: center; gap: 5px; }}
-            .lead-grid, .columns-4, .section-pulse-grid {{ grid-template-columns: 1fr !important; gap: 20px; }}
-            .span-8, .span-4, .span-2 {{ grid-column: span 1 !important; border-right: none; padding-right: 0; }}
-            .article {{ border-bottom: 1px solid var(--sep); padding-bottom: 25px; margin-bottom: 25px; }}
-            .headline-xl {{ font-size: 2rem; }}
-            .headline-lg {{ font-size: 1.6rem; }}
-            .headline-sm {{ font-size: 1.2rem; }}
-            nav {{ 
-                font-size: 0.75rem; 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-                gap: 10px;
-                padding: 10px 0;
-            }}
-            .nav-sep {{ display: none; }}
-            .news-img {{ margin-top: 10px; filter: none; }} /* Real colors on mobile for better visibility */
-        }}
+        .article a:hover {{ color: var(--highlight); }}
+        .metadata {{ font-family: 'Oswald'; font-size: 0.75rem; color: #666; margin-bottom: 10px; }}
+        .news-img {{ width: 100%; height: auto; display: block; margin-bottom: 20px; filter: grayscale(100%); border: 1px solid #ddd; transition: 0.4s; cursor: pointer; box-shadow: 5px 5px 0 rgba(0,0,0,0.05); }}
+        .news-img:hover {{ filter: none; transform: translateY(-2px); }}
+        .page-footer-nav {{ display: flex; justify-content: space-between; align-items: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--ink); }}
+        .nav-btn {{ font-family: 'Oswald'; font-weight: 700; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 20px; transition: 0.2s; }}
+        .nav-btn:hover {{ background: var(--ink); color: #fff; }}
+        .edition-nav {{ display: flex; justify-content: center; align-items: center; background: #eee; padding: 10px; font-family: 'Oswald'; font-size: 0.8rem; gap: 30px; border-bottom: 1px solid #ccc; }}
+        .edition-link {{ color: #666; text-decoration: none; }}
+        .editors-note {{ margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; font-style: italic; background: #f9f9f9; text-align: center; border-left: 5px solid var(--highlight); }}
+        .insights-grid {{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }}
+        .insight-card {{ padding: 30px; border: 1px solid #eee; background: #fff; box-shadow: 8px 8px 0 rgba(0,0,0,0.05); transition: 0.3s; }}
+        .insight-card:hover {{ transform: translateY(-5px); box-shadow: 12px 12px 0 rgba(0,0,0,0.08); }}
+        .insight-author {{ font-family: 'Oswald'; font-size: 0.7rem; color: var(--highlight); margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }}
+        .insight-headline {{ font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 15px; }}
+        .insight-summary {{ font-family: 'Lora'; line-height: 1.6; font-size: 1.1rem; font-style: italic; }}
+        .insight-footer {{ margin-top: 20px; font-family: 'Oswald'; font-size: 0.8rem; font-weight: 700; }}
+        .hn-link {{ color: var(--highlight); text-decoration: none; font-weight: 700; }}
+        @media (max-width: 1000px) {{ .masthead-title {{ font-size: 3.5rem; }} .columns-3, .insights-grid {{ grid-template-columns: 1fr !important; }} .sub-masthead {{ flex-direction: column; gap: 5px; }} }}
     </style>
 </head>
 <body>
-    <div class="newspaper">
+    <div class="edition-nav">
+        <a href="{base_rel}archive/{prev_day.strftime('%Y/%m/%d')}/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+        <span style="font-weight:700; color:#111;">EDITION: {dt.strftime('%b %d, %Y').upper()}</span>
+        <a href="{base_rel}archive/{next_day.strftime('%Y/%m/%d')}/newspaper.html" class="edition-link">NEXT EDITION →</a>
+        <span style="color:#ccc">|</span>
+        <a href="{base_rel}archive/index.html" class="edition-link">FULL ARCHIVES</a>
+    </div>
+    <div class="newspaper-container" id="newspaper-main">
         <header>
-            <h1 class="masthead">The Daily Token</h1>
+            <h1 class="masthead-title">The Daily Token</h1>
             <div class="sub-masthead">
-                <span>{self.location}, {datetime.now().strftime('%A, %B %d, %Y').upper()}</span>
-                <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
-                <span>VOL. {datetime.now().strftime('%Y')}.{datetime.now().strftime('%j')}</span>
+                <span>{self.location}</span>
+                <span>{dt.strftime('%A, %B %d, %Y').upper()}</span>
+                <span>GLOBAL AI TECHNOLOGY REPORT</span>
+                <span>VOL. {dt.strftime('%Y')}.{dt.strftime('%j')}</span>
             </div>
         </header>
-
-        <nav>
-            {nav_links}
-        </nav>
-
-        <main>
-            {front_page_html}
-            {sections_html}
-        </main>
-
-        <div class="archive-strip">
-            <div class="archive-title">RECENT EDITIONS</div>
-            <div class="archive-links">
-                {archive_links_html}
-                <a href="/daily-token/archive/index.html" class="archive-link" style="background:#111; color:#fff;">ALL ARCHIVES</a>
-            </div>
-        </div>
-
-        <footer style="text-align: center; border-top: 4px double var(--ink); margin-top: 60px; padding-top: 20px; font-family: 'Oswald'; font-size: 0.8rem;">
-            VERIFIED BY NEURAL CONSENSUS // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
+        <nav class="sticky-nav">{nav_links}</nav>
+        <main id="pages-wrapper">{pages_html}</main>
+        <footer style="text-align: center; padding: 60px 0; font-family: 'Oswald'; border-top: 4px double var(--ink); margin-top: 100px;">
+            THE DAILY TOKEN // PRODUCED BY NEURAL AGENTS // &copy; 2026
         </footer>
     </div>
-
-    <!-- IMMERSIVE ARTICLE DETAIL (FULL SCREEN CLIPPING) -->
-    <div id="detail-screen">
-        <div class="clipping-sheet">
-            <nav class="clipping-nav">
-                <a href="javascript:void(0)" onclick="closeMap()" class="back-btn">← BACK TO NEWSPAPER</a>
-                <div class="clipping-pub-tag">THE DAILY TOKEN // SPECIAL EDITION</div>
-            </nav>
-            
-            <div class="clipping-layout">
-                <header class="clipping-header">
-                    <h1 class="clipping-title" id="modal-title"></h1>
-                    <div class="clipping-meta" id="modal-meta"></div>
-                </header>
-                
-                <div class="clipping-main">
-                    <div id="modal-image-container" class="clipping-image"></div>
-                    <div class="clipping-body" id="modal-summary"></div>
-                </div>
-
-                <footer class="clipping-footer">
-                    <a id="modal-hn-link" href="#" target="_blank" class="clipping-btn">OPEN DISCUSSION ON HACKER NEWS</a>
-                    <div class="clipping-end-mark">■</div>
-                </footer>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        /* Base Newspaper Transition */
-        .newspaper {{
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s, filter 0.8s;
-            transform-origin: center center;
-        }}
-        
-        .newspaper.zoomed {{
-            opacity: 0 !important;
-            filter: blur(30px);
-            pointer-events: none;
-            transform: scale(3) !important;
-        }}
-
-    <!-- ARTICLE FOCUS OVERLAY -->
-    <div id="focus-overlay" onclick="closeMap()">
-        <div id="focused-article-container" onclick="event.stopPropagation()">
-            <!-- Cloned article content will be injected here -->
-        </div>
-    </div>
-
-    <style>
-        /* Base Newspaper Transition */
-        .newspaper {{
-            transition: filter 0.8s, opacity 0.8s;
-        }}
-        
-        .newspaper.blurred {{
-            filter: blur(15px) grayscale(80%);
-            opacity: 0.3;
-            pointer-events: none;
-        }}
-
-        #focus-overlay {{
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.2);
-            opacity: 0;
-            transition: opacity 0.5s;
-            align-items: center;
-            justify-content: center;
-        }}
-
-        #focus-overlay.visible {{
-            display: flex;
-            opacity: 1;
-        }}
-
-        #focused-article-container {{
-            background: #fdfdfb url('https://www.transparenttextures.com/patterns/old-map.png');
-            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
-            padding: 50px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: absolute;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #ccc;
-            z-index: 10001;
-        }}
-
-        /* Styles for the zoomed-in content */
-        .focused-headline {{ 
-            font-family: 'Playfair Display', serif; 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            margin-bottom: 20px; 
-            line-height: 1;
-            color: #111;
-        }}
-        
-        .focused-image {{ 
-            width: 100%; 
-            margin-bottom: 30px; 
-            border: 1px solid #ddd;
-            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
-        }}
-
-        .focused-summary {{ 
-            font-family: 'Lora', serif; 
-            font-size: 1.5rem; 
-            line-height: 1.6; 
-            color: #222; 
-            text-align: justify;
-            margin-bottom: 30px;
-        }}
-
-        .focused-footer {{
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-            text-align: center;
-        }}
-
-        .clipping-btn {{
-            display: inline-block;
-            background: #111;
-            color: #fdfdfb;
-            text-decoration: none;
-            padding: 12px 35px;
-            font-family: 'Oswald';
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            transition: background 0.2s;
-        }}
-        .clipping-btn:hover {{ background: #a00; }}
-
-        .close-focus {{
-            position: absolute;
-            top: 20px; right: 25px;
-            font-size: 2.5rem;
-            cursor: pointer;
-            color: #111;
-            opacity: 0.3;
-        }}
-        .close-focus:hover {{ opacity: 1; }}
-
-        /* Hide original elements we don't want in focus */
-        #focused-article-container .footer-links,
-        #focused-article-container .footer-links-sm {{
-            display: none;
-        }}
-    </style>
-
     <script>
-        function openMap(triggerEl, title, summary, imgUrl, slug, source, hnUrl) {{
-            const screen = document.getElementById('detail-screen');
-            const newspaper = document.querySelector('.newspaper');
-            const titleEl = document.getElementById('modal-title');
-            const summaryEl = document.getElementById('modal-summary');
-            const metaEl = document.getElementById('modal-meta');
-            const hnLink = document.getElementById('modal-hn-link');
-            const imgContainer = document.getElementById('modal-image-container');
-            
-            // 1. Position-aware zoom origin
-            const rect = triggerEl.getBoundingClientRect();
-            newspaper.style.transformOrigin = `${{rect.left + rect.width/2}}px ${{rect.top + rect.height/2}}px`;
-            
-            // 2. Set content
-            titleEl.innerText = title;
-            summaryEl.innerText = summary;
-            metaEl.innerText = `SOURCE: ${{source}} // NEWS CLIPPING`;
-            hnLink.href = hnUrl;
-            imgContainer.innerHTML = imgUrl ? `<img src="${{imgUrl}}" alt="">` : '';
-            
-            // 3. Transitions
-            newspaper.classList.add('zoomed');
-            
+        let currentPage = 1;
+        function goToPage(pageNum) {{
+            if (pageNum < 1 || pageNum > 5 || pageNum === currentPage) return;
+            const container = document.getElementById('newspaper-main');
+            container.classList.add('page-turn-out');
             setTimeout(() => {{
-                screen.classList.add('visible');
-                
-                const newUrl = new URL(window.location);
-                newUrl.searchParams.set('story', slug);
-                window.history.pushState({{}}, '', newUrl);
-            }}, 150);
+                document.querySelectorAll('.newspaper-page').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(`page-content-${{pageNum}}`).style.display = 'block';
+                document.getElementById(`nav-${{pageNum}}`).classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo(0, 0);
+                const url = new URL(window.location);
+                url.searchParams.set('page', pageNum);
+                window.history.pushState({{}}, '', url);
+                container.classList.remove('page-turn-out');
+            }}, 300);
         }}
-
-        function closeMap() {{
-            const screen = document.getElementById('detail-screen');
-            const newspaper = document.querySelector('.newspaper');
-            
-            screen.classList.remove('visible');
-            
-            setTimeout(() => {{
-                newspaper.classList.remove('zoomed');
-                
-                const newUrl = new URL(window.location);
-                newUrl.searchParams.delete('story');
-                window.history.pushState({{}}, '', newUrl);
-            }}, 400);
-        }}
-
-        window.addEventListener('load', function() {{
+        window.addEventListener('load', () => {{
             const params = new URLSearchParams(window.location.search);
-            const storySlug = params.get('story');
-            if (storySlug) {{
-                const targetArticle = document.getElementById(`story-${{storySlug}}`);
-                if (targetArticle) {{
-                    const link = targetArticle.querySelector('a[onclick]');
-                    if (link) link.click();
-                }}
-            }}
-        }});
-
-        window.addEventListener('popstate', function() {{
-            const screen = document.getElementById('detail-screen');
-            if (screen.classList.contains('visible')) {{
-                closeMap();
-            }}
-        }});
-    </script>
-        
-        .clipping-end-mark {{ margin-top: 40px; font-size: 1.5rem; color: #111; opacity: 0.3; }}
-
-        @media (max-width: 800px) {{
-            .clipping-title {{ font-size: 2.5rem; letter-spacing: -1px; }}
-            .clipping-body {{ font-size: 1.2rem; }}
-            .clipping-sheet {{ padding: 20px; }}
-        }}
-    </style>
-
-    <script>
-        function openMap(triggerEl, title, summary, imgUrl, slug, source, hnUrl) {{
-            const overlay = document.getElementById('focus-overlay');
-            const container = document.getElementById('focused-article-container');
-            const newspaper = document.querySelector('.newspaper');
-            
-            // 1. Calculate the exact position of the clicked article piece
-            const rect = triggerEl.closest('.article').getBoundingClientRect();
-            
-            // 2. Prepare the focused container with the content
-            container.innerHTML = `
-                <span class="close-focus" onclick="closeMap()">&times;</span>
-                <div class="clipping-pub-tag">THE DAILY TOKEN // NEWS CLIPPING</div>
-                <h1 class="focused-headline">${{title}}</h1>
-                <div class="clipping-meta">SOURCE: ${{source}} // EXCLUSIVE REPORT</div>
-                ${{imgUrl ? `<img src="${{imgUrl}}" class="focused-image" alt="">` : ''}}
-                <div class="focused-summary">${{summary}}</div>
-                <div class="focused-footer">
-                    <a href="${{hnUrl}}" target="_blank" class="clipping-btn">DISCUSS ON HACKER NEWS</a>
-                </div>
-            `;
-            
-            // 3. Set the initial position of the container to match the article piece exactly
-            container.style.transition = 'none';
-            container.style.top = rect.top + 'px';
-            container.style.left = rect.left + 'px';
-            container.style.width = rect.width + 'px';
-            container.style.height = rect.height + 'px';
-            container.style.padding = '20px';
-            
-            // 4. Show the overlay and blur background
-            overlay.classList.add('visible');
-            newspaper.classList.add('blurred');
-            
-            // 5. Animate to full focus after a frame
-            requestAnimationFrame(() => {{
-                container.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                container.style.top = '5vh';
-                container.style.left = '5%';
-                container.style.width = '90%';
-                container.style.height = '90vh';
-                container.style.padding = '50px';
-                
-                const newUrl = new URL(window.location);
-                newUrl.searchParams.set('story', slug);
-                window.history.pushState({{}}, '', newUrl);
-            }});
-        }}
-
-        function closeMap() {{
-            const overlay = document.getElementById('focus-overlay');
-            const container = document.getElementById('focused-article-container');
-            const newspaper = document.querySelector('.newspaper');
-            
-            overlay.classList.remove('visible');
-            newspaper.classList.remove('blurred');
-            
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.delete('story');
-            window.history.pushState({{}}, '', newUrl);
-            
-            setTimeout(() => {{
-                container.innerHTML = '';
-            }}, 800);
-        }}
-
-        window.addEventListener('load', function() {{
-            const params = new URLSearchParams(window.location.search);
-            const storySlug = params.get('story');
-            if (storySlug) {{
-                const targetArticle = document.getElementById(`story-${{storySlug}}`);
-                if (targetArticle) {{
-                    const link = targetArticle.querySelector('a[onclick]');
-                    if (link) link.click();
-                }}
-            }}
-        }});
-
-        window.addEventListener('popstate', function() {{
-            const overlay = document.getElementById('focus-overlay');
-            if (overlay.classList.contains('visible')) {{
-                closeMap();
-            }}
+            const page = parseInt(params.get('page'));
+            if (page >= 1 && page <= 5) goToPage(page);
+            else document.getElementById('nav-1').classList.add('active');
         }});
     </script>
 </body>
 </html>
 """
-        return html
 
-
-if __name__ == "__main__":
-    # Test exporter
-    sample_organized = {
-        1: [{
-            'original_title': 'OpenAI announces GPT-5',
-            'url': 'https://openai.com/gpt5',
-            'source': 'HackerNews',
-            'score': 500,
-            'significance_score': 95,
-            'category': 'Breaking Vectors',
-            'confidence': 0.95,
-            'summary': 'OpenAI releases new model with breakthrough capabilities.',
-            'published': datetime.now().isoformat()
-        }],
-        2: [], 3: [], 4: [], 5: []
-    }
-    
-    exporter = NewsExporter(sample_organized)
-    print(exporter.export_html('/tmp/test.html'))
+    def export_rss_feed(self, output_path: str) -> str:
+        root = ET.Element("rss"); root.set("version", "2.0"); root.set("xmlns:content", "http://purl.org/rss/1.0/modules/content/")
+        channel = ET.SubElement(root, "channel")
+        ET.SubElement(channel, "title").text = "The Daily Token"
+        ET.SubElement(channel, "link").text = _site_url()
+        ET.SubElement(channel, "description").text = "The AI world's daily news."
+        ET.SubElement(channel, "pubDate").text = self.timestamp
+        for page_num in range(1, 6):
+            stories = self.organized.get(page_num, []) or self.organized.get(str(page_num), [])
+            for story in stories:
+                item = ET.SubElement(channel, "item")
+                ET.SubElement(item, "title").text = story.get('generated_headline', story['original_title'])
+                ET.SubElement(item, "link").text = story.get('url') or story.get('hn_url', '')
+                ET.SubElement(item, "description").text = story['summary']
+        ET.ElementTree(root).write(output_path, encoding="utf-8", xml_declaration=True)
+        return output_path

@@ -3,912 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Daily Token AI Newspaper</title>
+    <title>The Daily Token</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --ink: #111;
-            --paper: #fdfdfb;
-            --sep: #ccc;
-            --highlight: #a00;
-        }
-        
+        :root { --ink: #111; --paper: #fdfdfb; --sep: #ccc; --highlight: #a00; }
         * { box-sizing: border-box; }
-        body {
-            background-color: #ddd;
-            margin: 0; padding: 10px;
-            font-family: 'Lora', serif;
-            color: var(--ink);
-            line-height: 1.2;
-        }
-        
-        .newspaper {
-            background-color: var(--paper);
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.3);
-            border: 1px solid #aaa;
-        }
-        
-        /* Masthead */
-        header {
-            text-align: center;
-            border-bottom: 6px double var(--ink);
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-        
-        .masthead {
-            font-family: 'Playfair Display', serif;
-            font-weight: 900;
-            font-size: 6rem;
-            letter-spacing: -3px;
-            margin: 0;
-            line-height: 0.85;
-            text-transform: uppercase;
-        }
-        
-        .sub-masthead {
-            border-top: 1px solid var(--ink);
-            border-bottom: 1px solid var(--ink);
-            margin-top: 15px;
-            padding: 4px 0;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            letter-spacing: 1px;
-        }
-        
-        nav {
-            text-align: center;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--ink);
-            margin-bottom: 30px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.8rem;
-        }
-        nav a { text-decoration: none; color: var(--ink); font-weight: 700; }
-        nav a:hover { color: var(--highlight); }
-        .nav-sep { margin: 0 15px; color: var(--sep); }
-        
-        /* Sections */
-        .deck-header {
-            text-align: center;
-            border-bottom: 2px solid var(--ink);
-            line-height: 0.1em;
-            margin: 40px 0 25px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-        }
-        .deck-header span { background: var(--paper); padding: 0 20px; }
-        
-        /* Grid Engine */
-        .lead-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 30px;
-            border-bottom: 3px solid var(--ink);
-            padding-bottom: 30px;
-        }
-        
-        .columns-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        
-        .span-8 { grid-column: span 8; border-right: 1px solid var(--sep); padding-right: 30px; }
-        .span-4 { grid-column: span 4; }
-        .span-2 { grid-column: span 2; }
-        .span-1 { grid-column: span 1; }
-        
-        /* Typography */
-        .headline-xl { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 0.95; margin: 0 0 15px 0; font-weight: 900; }
-        .headline-lg { font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1; margin: 0 0 10px 0; font-weight: 900; }
-        .headline-sm { font-family: 'Playfair Display', serif; font-size: 1.4rem; line-height: 1.1; margin: 0 0 8px 0; font-weight: 700; }
+        body { background-color: #ddd; margin: 0; padding: 0; font-family: 'Lora', serif; color: var(--ink); line-height: 1.2; overflow-x: hidden; }
+        .newspaper-container { background-color: var(--paper); max-width: 1300px; margin: 0 auto; padding: 40px; box-shadow: 0 0 100px rgba(0,0,0,0.2); min-height: 100vh; transition: opacity 0.3s ease; }
+        .page-turn-out { opacity: 0; }
+        header { text-align: center; border-bottom: 6px double var(--ink); padding-bottom: 20px; }
+        .masthead-title { font-family: 'Playfair Display'; font-weight: 900; font-size: 6rem; letter-spacing: -3px; margin: 0; text-transform: uppercase; }
+        .sub-masthead { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin-top: 15px; padding: 6px 0; font-family: 'Oswald'; text-transform: uppercase; font-size: 0.9rem; display: flex; justify-content: center; gap: 40px; }
+        nav.sticky-nav { position: sticky; top: 0; background: var(--paper); z-index: 100; text-align: center; padding: 15px 0; border-bottom: 1px solid var(--ink); margin-bottom: 40px; }
+        .nav-item { text-decoration: none; color: var(--ink); font-family: 'Oswald'; font-weight: 700; font-size: 0.85rem; margin: 0 15px; transition: 0.2s; border-bottom: 2px solid transparent; }
+        .nav-item.active { color: var(--highlight); border-bottom: 2px solid var(--highlight); }
+        .page-title { text-align: center; border-bottom: 3px solid var(--ink); line-height: 0.1em; margin: 60px 0 40px; font-family: 'Oswald'; font-size: 1.5rem; }
+        .page-title span { background: var(--paper); padding: 0 30px; }
+        .section-sub-header { text-align: left; border-bottom: 1px solid var(--sep); line-height: 0.1em; margin: 40px 0 20px; font-family: 'Oswald'; font-size: 0.9rem; color: var(--highlight); }
+        .section-sub-header span { background: var(--paper); padding-right: 15px; }
+        .columns-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-bottom: 40px; }
+        .headline-sm { font-family: 'Playfair Display'; font-size: 1.5rem; line-height: 1.1; margin: 0 0 10px 0; font-weight: 700; }
         .article a { color: inherit; text-decoration: none; }
-        .article a:hover { text-decoration: underline; }
-        
-        .metadata {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.75rem;
-            color: #555;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-        
-        .summary { font-size: 1.1rem; text-align: justify; margin-bottom: 15px; line-height: 1.3; }
-        .summary-sm { font-size: 0.9rem; text-align: justify; margin-bottom: 10px; line-height: 1.3; }
-        
-        .footer-links { font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--highlight); }
-        .footer-links-sm { font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--highlight); }
-
-        /* Articles */
-        .article { margin-bottom: 20px; }
-        .news-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 15px;
-            filter: grayscale(100%) contrast(1.2);
-            border: 1px solid var(--ink);
-            transition: filter 0.3s ease;
-        }
-        .news-img:hover { filter: none; }
-
-        /* --- MARAUDER'S MAP MODAL --- */
-        #marauders-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            overflow: auto;
-            backdrop-filter: blur(5px);
-        }
-
-        .map-content {
-            position: relative;
-            background: #e9dcc9; /* Parchment color */
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-            margin: 5% auto;
-            padding: 50px;
-            width: 70%;
-            max-width: 900px;
-            min-height: 500px;
-            border: 20px solid transparent;
-            border-image: url('https://www.transparenttextures.com/patterns/pinstripe.png') 30 round;
-            box-shadow: 0 0 100px rgba(0,0,0,0.5);
-            font-family: 'Playfair Display', serif;
-            color: #4a3728;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        #marauders-modal.open .map-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .map-header {
-            text-align: center;
-            border-bottom: 2px solid #4a3728;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-        }
-
-        .map-title { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin: 0; letter-spacing: -1px; }
-        .map-subtitle { font-family: 'Oswald'; text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; }
-
-        .map-body {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            text-align: justify;
-            position: relative;
-            filter: url('#ink-bleed');
-        }
-
-        /* Footprints Animation */
-        .footprint {
-            position: absolute;
-            width: 30px;
-            height: 15px;
-            background: #4a3728;
-            opacity: 0;
-            border-radius: 50% 50% 40% 40%;
-            pointer-events: none;
-        }
-        
-        @keyframes walk-left {
-            0% { opacity: 0; transform: translate(0,0) rotate(-20deg); }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }
-        }
-
-        @keyframes walk-right {
-            0% { opacity: 0; transform: translate(20px,20px) rotate(20deg); }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(60px, -40px) rotate(20deg); }
-        }
-
-        .map-close {
-            position: absolute;
-            top: 20px; right: 30px;
-            font-size: 2rem;
-            cursor: pointer;
-            font-weight: 900;
-        }
-
-        .ink-spread {
-            animation: inkSpread 2s forwards;
-        }
-
-        @keyframes inkSpread {
-            from { opacity: 0; filter: blur(20px); }
-            to { opacity: 1; filter: blur(0); }
-        }
-        
-        /* Section Pulse */
-        .section-pulse-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            background: #f4f4f2;
-            padding: 15px;
-            margin-top: 20px;
-            border: 1px solid var(--sep);
-        }
-        .pulse-block { border-right: 1px solid var(--sep); padding-right: 10px; }
-        .pulse-block:last-child { border-right: none; }
-        .pulse-tag { font-family: 'Oswald', sans-serif; font-size: 0.65rem; color: var(--highlight); }
-        .pulse-link { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; }
-        .pulse-link a { color: var(--ink); text-decoration: none; }
-
-        /* Archive Strip */
-        .archive-strip {
-            margin-top: 40px;
-            padding: 20px 0;
-            border-top: 1px solid var(--sep);
-            text-align: center;
-        }
-        .archive-title { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px; color: #777; }
-        .archive-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
-        .archive-link { 
-            font-family: 'Oswald', sans-serif; 
-            font-size: 0.75rem; 
-            color: var(--ink); 
-            text-decoration: none; 
-            border: 1px solid var(--sep);
-            padding: 5px 10px;
-            transition: all 0.2s;
-        }
-        .archive-link:hover { border-color: var(--highlight); color: var(--highlight); }
-
-        @media (max-width: 900px) {
-            .newspaper { padding: 15px 20px; }
-            .masthead { font-size: 3rem; letter-spacing: -1px; }
-            .sub-masthead { font-size: 0.7rem; flex-direction: column; align-items: center; gap: 5px; }
-            .lead-grid, .columns-4, .section-pulse-grid { grid-template-columns: 1fr !important; gap: 20px; }
-            .span-8, .span-4, .span-2 { grid-column: span 1 !important; border-right: none; padding-right: 0; }
-            .article { border-bottom: 1px solid var(--sep); padding-bottom: 25px; margin-bottom: 25px; }
-            .headline-xl { font-size: 2rem; }
-            .headline-lg { font-size: 1.6rem; }
-            .headline-sm { font-size: 1.2rem; }
-            nav { 
-                font-size: 0.75rem; 
-                display: flex; 
-                flex-wrap: wrap; 
-                justify-content: center; 
-                gap: 10px;
-                padding: 10px 0;
-            }
-            .nav-sep { display: none; }
-            .news-img { margin-top: 10px; filter: none; } /* Real colors on mobile for better visibility */
-        }
+        .article a:hover { color: var(--highlight); }
+        .metadata { font-family: 'Oswald'; font-size: 0.75rem; color: #666; margin-bottom: 10px; }
+        .news-img { width: 100%; height: auto; display: block; margin-bottom: 20px; filter: grayscale(100%); border: 1px solid #ddd; transition: 0.4s; cursor: pointer; box-shadow: 5px 5px 0 rgba(0,0,0,0.05); }
+        .news-img:hover { filter: none; transform: translateY(-2px); }
+        .page-footer-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--ink); }
+        .nav-btn { font-family: 'Oswald'; font-weight: 700; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 20px; transition: 0.2s; }
+        .nav-btn:hover { background: var(--ink); color: #fff; }
+        .edition-nav { display: flex; justify-content: center; align-items: center; background: #eee; padding: 10px; font-family: 'Oswald'; font-size: 0.8rem; gap: 30px; border-bottom: 1px solid #ccc; }
+        .edition-link { color: #666; text-decoration: none; }
+        .editors-note { margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; font-style: italic; background: #f9f9f9; text-align: center; border-left: 5px solid var(--highlight); }
+        .insights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .insight-card { padding: 30px; border: 1px solid #eee; background: #fff; box-shadow: 8px 8px 0 rgba(0,0,0,0.05); transition: 0.3s; }
+        .insight-card:hover { transform: translateY(-5px); box-shadow: 12px 12px 0 rgba(0,0,0,0.08); }
+        .insight-author { font-family: 'Oswald'; font-size: 0.7rem; color: var(--highlight); margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .insight-headline { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 15px; }
+        .insight-summary { font-family: 'Lora'; line-height: 1.6; font-size: 1.1rem; font-style: italic; }
+        .insight-footer { margin-top: 20px; font-family: 'Oswald'; font-size: 0.8rem; font-weight: 700; }
+        .hn-link { color: var(--highlight); text-decoration: none; font-weight: 700; }
+        @media (max-width: 1000px) { .masthead-title { font-size: 3.5rem; } .columns-3, .insights-grid { grid-template-columns: 1fr !important; } .sub-masthead { flex-direction: column; gap: 5px; } }
     </style>
 </head>
 <body>
-    <div class="newspaper">
+    <div class="edition-nav">
+        <a href="../../../../archive/2026/01/29/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+        <span style="font-weight:700; color:#111;">EDITION: JAN 30, 2026</span>
+        <a href="../../../../archive/2026/01/31/newspaper.html" class="edition-link">NEXT EDITION →</a>
+        <span style="color:#ccc">|</span>
+        <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+    </div>
+    <div class="newspaper-container" id="newspaper-main">
         <header>
-            <h1 class="masthead">The Daily Token</h1>
+            <h1 class="masthead-title">The Daily Token</h1>
             <div class="sub-masthead">
-                <span>NEURAL NODES, MONDAY, FEBRUARY 02, 2026</span>
-                <span>AI TECHNOLOGY & INFRASTRUCTURE</span>
-                <span>VOL. 2026.033</span>
+                <span>VECTOR STATION</span>
+                <span>FRIDAY, JANUARY 30, 2026</span>
+                <span>GLOBAL AI TECHNOLOGY REPORT</span>
+                <span>VOL. 2026.030</span>
             </div>
         </header>
-
-        <nav>
-            <a href="#front-page">THE FRONT PAGE</a> <span class="nav-sep">|</span> <a href="#section-2">MODEL ARCHITECTURES</a> <span class="nav-sep">|</span> <a href="#section-3">NEURAL HORIZONS</a> <span class="nav-sep">|</span> <a href="#section-4">LAB OUTPUTS</a> <span class="nav-sep">|</span> <a href="#section-5">INFERENCE CORNER</a>
-        </nav>
-
-        <main>
-            
-        <section id="front-page">
-            <div class="deck-header"><span>FRONT PAGE // KEY BREAKTHROUGHS</span></div>
-            <div class="lead-grid">
+        <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class="editors-note"><strong>EDITOR'S NOTE:</strong> Today, we confront the duality of AI’s explosive potential—its unchecked risks and the groundbreaking innovations that could redefine our future. <span class="emphasis" style="color:var(--highlight); font-weight:700;">#AI governance vs. hardware-software co-evolution</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://openai.com/index/inside-our-in-house-data-agent" target="_blank">OpenAI’s Breakthrough: A Deep Dive into Its In-House Data Agent Architecture</a></h3>
+                    <div class="metadata">SOURCE: OPENAI | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">The article explores OpenAI’s proprietary data agent system, revealing how it automates complex workflows to refine AI training pipelines—potentially redefining scalability and efficiency in model development.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/04/08/plaid/" target="_blank">Repurposing Protein Folding Models for Generation with Latent Diffusion</a></h3>
+                    <div class="metadata">SOURCE: BAIR | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm"></p>
+                </div>
+            </article>
         
-                <article class="article span-8 main-story" id="story-openclaw-s-ubiquity-raises-concerns-over-model-arc">
-                    <div class="article-body">
-                        
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="javascript:void(0)" onclick='openMap("OpenClaw\'s Ubiquity Raises Concerns Over Model Architecture Flaws", "OpenClaw\'s widespread adoption has sparked fears of a catastrophic failure due to inherent model architecture vulnerabilities. Experts warn that the model\'s omnipresence increases the risk of a devastating AI-related incident.", "", "openclaw-s-ubiquity-raises-concerns-over-model-arc")'>OpenClaw's Ubiquity Raises Concerns Over Model Architecture Flaws</a></h2>
-                        <div class="metadata">SOURCE: HACKERNEWS // 1769973609</div>
-                        
-                        <p class="summary">OpenClaw's widespread adoption has sparked fears of a catastrophic failure due to inherent model architecture vulnerabilities. Experts warn that the model's omnipresence increases the risk of a devastating AI-related incident....</p>
-                        <div class="footer-links">
-                            <a href="javascript:void(0)" onclick='openMap("OpenClaw\'s Ubiquity Raises Concerns Over Model Architecture Flaws", "OpenClaw\'s widespread adoption has sparked fears of a catastrophic failure due to inherent model architecture vulnerabilities. Experts warn that the model\'s omnipresence increases the risk of a devastating AI-related incident.", "", "openclaw-s-ubiquity-raises-concerns-over-model-arc")'>READ ARTICLE</a> | 
-                            <a href="https://news.ycombinator.com/item?id=46848552">HN</a>
-                        </div>
-                    </div>
-                </article>
-            
-                <article class="article span-4 side-story" id="story-breakthrough-in-protein-generation--ai-model-lever">
-                    <div class="article-body">
-                        
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="javascript:void(0)" onclick='openMap("Breakthrough in Protein Generation: AI Model Leverages Folding Insights", "Researchers have developed a novel AI model, PLAID, that generates proteins by learning from protein folding models, enabling compositional function and organism prompts.", "", "breakthrough-in-protein-generation--ai-model-lever")'>Breakthrough in Protein Generation: AI Model Leverages Folding Insights</a></h2>
-                        <div class="metadata">SOURCE: BAIR // Tue, 08 Ap</div>
-                        
-                        <p class="summary">Researchers have developed a novel AI model, PLAID, that generates proteins by learning from protein folding models, enabling compositional function and organism prompts.</p>
-                        <div class="footer-links">
-                            <a href="javascript:void(0)" onclick='openMap("Breakthrough in Protein Generation: AI Model Leverages Folding Insights", "Researchers have developed a novel AI model, PLAID, that generates proteins by learning from protein folding models, enabling compositional function and organism prompts.", "", "breakthrough-in-protein-generation--ai-model-lever")'>READ ARTICLE</a> | 
-                            <a href="">HN</a>
-                        </div>
-                    </div>
-                </article>
-            
-                <article class="article span-4 side-story" id="story-breakthrough-ai-model-d4rt-achieves-unprecedented">
-                    <div class="article-body">
-                        
-                        <h2 class={'headline-xl' if idx == 0 else 'headline-lg'}><a href="javascript:void(0)" onclick='openMap("Breakthrough AI Model D4RT Achieves Unprecedented Speed in 4D Reconstruction and Tracking", "D4RT revolutionizes 4D reconstruction and tracking, delivering results up to 300 times faster than previous methods. This innovation has far-reaching implications for fields like autonomous vehicles and robotics.", "", "breakthrough-ai-model-d4rt-achieves-unprecedented")'>Breakthrough AI Model D4RT Achieves Unprecedented Speed in 4D Reconstruction and Tracking</a></h2>
-                        <div class="metadata">SOURCE: DEEPMIND // Fri, 16 Ja</div>
-                        
-                        <p class="summary">D4RT revolutionizes 4D reconstruction and tracking, delivering results up to 300 times faster than previous methods. This innovation has far-reaching implications for fields like autonomous vehicles and robotics.</p>
-                        <div class="footer-links">
-                            <a href="javascript:void(0)" onclick='openMap("Breakthrough AI Model D4RT Achieves Unprecedented Speed in 4D Reconstruction and Tracking", "D4RT revolutionizes 4D reconstruction and tracking, delivering results up to 300 times faster than previous methods. This innovation has far-reaching implications for fields like autonomous vehicles and robotics.", "", "breakthrough-ai-model-d4rt-achieves-unprecedented")'>READ ARTICLE</a> | 
-                            <a href="">HN</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            
-            <section id="section-2">
-                <div class="deck-header"><span>MODEL ARCHITECTURES</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1" id="story-china-s-open-source-ai-ecosystem-evolves-with-dive">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("China\'s Open-Source AI Ecosystem Evolves with Diverse Architectural Approaches", "China\'s open-source AI landscape is expanding beyond the DeepSeek model, with various architectural choices emerging to cater to different needs and applications. This development marks a significant shift in the country\'s AI ecosystem, enabling more flexibility and innovation.", "", "china-s-open-source-ai-ecosystem-evolves-with-dive")'>China's Open-Source AI Ecosystem Evolves with Diverse Architectural Approaches</a></h3>
-                            <div class="metadata">HUGGINGFACE</div>
-                            <p class="summary-sm">China's open-source AI landscape is expanding beyond the DeepSeek model, with various architectural choices emerging to cater to different needs and applications. This development marks a significant shift in the country's AI ecosystem, enabling more flexibility and innovation.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("China\'s Open-Source AI Ecosystem Evolves with Diverse Architectural Approaches", "China\'s open-source AI landscape is expanding beyond the DeepSeek model, with various architectural choices emerging to cater to different needs and applications. This development marks a significant shift in the country\'s AI ecosystem, enabling more flexibility and innovation.", "", "china-s-open-source-ai-ecosystem-evolves-with-dive")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-openclaw-s-ubiquity-raises-concerns-over-model-arc">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("OpenClaw\'s Ubiquity Raises Concerns Over Model Architecture Flaws", "OpenClaw\'s widespread adoption has sparked fears of a catastrophic failure due to inherent model architecture vulnerabilities. Experts warn that the model\'s omnipresence increases the risk of a devastating AI-related incident.", "", "openclaw-s-ubiquity-raises-concerns-over-model-arc")'>OpenClaw's Ubiquity Raises Concerns Over Model Architecture Flaws</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">OpenClaw's widespread adoption has sparked fears of a catastrophic failure due to inherent model architecture vulnerabilities. Experts warn that the model's omnipresence increases the risk of a devastating AI-related incident.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("OpenClaw\'s Ubiquity Raises Concerns Over Model Architecture Flaws", "OpenClaw\'s widespread adoption has sparked fears of a catastrophic failure due to inherent model architecture vulnerabilities. Experts warn that the model\'s omnipresence increases the risk of a devastating AI-related incident.", "", "openclaw-s-ubiquity-raises-concerns-over-model-arc")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46848552">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-            <section id="section-3">
-                <div class="deck-header"><span>NEURAL HORIZONS</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1" id="story-breakthrough-in-protein-generation--ai-model-lever">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough in Protein Generation: AI Model Leverages Folding Insights", "Researchers have developed a novel AI model, PLAID, that generates proteins by learning from protein folding models, enabling compositional function and organism prompts.", "", "breakthrough-in-protein-generation--ai-model-lever")'>Breakthrough in Protein Generation: AI Model Leverages Folding Insights</a></h3>
-                            <div class="metadata">BAIR</div>
-                            <p class="summary-sm">Researchers have developed a novel AI model, PLAID, that generates proteins by learning from protein folding models, enabling compositional function and organism prompts.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Breakthrough in Protein Generation: AI Model Leverages Folding Insights", "Researchers have developed a novel AI model, PLAID, that generates proteins by learning from protein folding models, enabling compositional function and organism prompts.", "", "breakthrough-in-protein-generation--ai-model-lever")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-advancements-in-natural-language-processing-push-b">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Advancements in Natural Language Processing Push Boundaries of AI Communication", "Researchers are making significant strides in natural language and speech technologies, paving the way for more intuitive human-computer interactions. This progress has far-reaching implications for various industries, from customer service to language translation.", "", "advancements-in-natural-language-processing-push-b")'>Advancements in Natural Language Processing Push Boundaries of AI Communication</a></h3>
-                            <div class="metadata">BAIDU</div>
-                            <p class="summary-sm">Researchers are making significant strides in natural language and speech technologies, paving the way for more intuitive human-computer interactions. This progress has far-reaching implications for various industries, from customer service to language translation.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Advancements in Natural Language Processing Push Boundaries of AI Communication", "Researchers are making significant strides in natural language and speech technologies, paving the way for more intuitive human-computer interactions. This progress has far-reaching implications for various industries, from customer service to language translation.", "", "advancements-in-natural-language-processing-push-b")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-breakthrough-ai-model-d4rt-achieves-unprecedented">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough AI Model D4RT Achieves Unprecedented Speed in 4D Reconstruction and Tracking", "D4RT revolutionizes 4D reconstruction and tracking, delivering results up to 300 times faster than previous methods. This innovation has far-reaching implications for fields like autonomous vehicles and robotics.", "", "breakthrough-ai-model-d4rt-achieves-unprecedented")'>Breakthrough AI Model D4RT Achieves Unprecedented Speed in 4D Reconstruction and Tracking</a></h3>
-                            <div class="metadata">DEEPMIND</div>
-                            <p class="summary-sm">D4RT revolutionizes 4D reconstruction and tracking, delivering results up to 300 times faster than previous methods. This innovation has far-reaching implications for fields like autonomous vehicles and robotics.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Breakthrough AI Model D4RT Achieves Unprecedented Speed in 4D Reconstruction and Tracking", "D4RT revolutionizes 4D reconstruction and tracking, delivering results up to 300 times faster than previous methods. This innovation has far-reaching implications for fields like autonomous vehicles and robotics.", "", "breakthrough-ai-model-d4rt-achieves-unprecedented")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-the-implicit-assumptions-of-artificial-intelligenc">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("The Implicit Assumptions of Artificial Intelligence: Unpacking the Knowledge Gap", "As AI systems increasingly rely on complex algorithms and data-driven insights, researchers warn that implicit assumptions about user knowledge may lead to misinterpretations and errors. The article explores the need for transparency and awareness in AI decision-making processes.", "", "the-implicit-assumptions-of-artificial-intelligenc")'>The Implicit Assumptions of Artificial Intelligence: Unpacking the Knowledge Gap</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">As AI systems increasingly rely on complex algorithms and data-driven insights, researchers warn that implicit assumptions about user knowledge may lead to misinterpretations and errors. The article explores the need for transparency and awareness in AI decision-making processes.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("The Implicit Assumptions of Artificial Intelligence: Unpacking the Knowledge Gap", "As AI systems increasingly rely on complex algorithms and data-driven insights, researchers warn that implicit assumptions about user knowledge may lead to misinterpretations and errors. The article explores the need for transparency and awareness in AI decision-making processes.", "", "the-implicit-assumptions-of-artificial-intelligenc")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46854788">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-unpacking-the-representation-learning-of-word2vec">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Unpacking the Representation Learning of Word2Vec", "Researchers delve into the inner workings of word2vec, exploring what the model learns and how it achieves its impressive language representations. This understanding can shed light on the model\'s applications and limitations.", "", "unpacking-the-representation-learning-of-word2vec")'>Unpacking the Representation Learning of Word2Vec</a></h3>
-                            <div class="metadata">BAIR</div>
-                            <p class="summary-sm">Researchers delve into the inner workings of word2vec, exploring what the model learns and how it achieves its impressive language representations. This understanding can shed light on the model's applications and limitations.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Unpacking the Representation Learning of Word2Vec", "Researchers delve into the inner workings of word2vec, exploring what the model learns and how it achieves its impressive language representations. This understanding can shed light on the model\'s applications and limitations.", "", "unpacking-the-representation-learning-of-word2vec")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-            <section id="section-4">
-                <div class="deck-header"><span>LAB OUTPUTS</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1" id="story-domain-features-outperform-transformers-in-emotion">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Domain Features Outperform Transformers in Emotion Recognition Study", "Researchers investigate the efficacy of attention mechanisms in multimodal emotion recognition using the EAV dataset, revealing simpler domain features yield better results.", "", "domain-features-outperform-transformers-in-emotion")'>Domain Features Outperform Transformers in Emotion Recognition Study</a></h3>
-                            <div class="metadata">ARXIV_LG</div>
-                            <p class="summary-sm">Researchers investigate the efficacy of attention mechanisms in multimodal emotion recognition using the EAV dataset, revealing simpler domain features yield better results.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Domain Features Outperform Transformers in Emotion Recognition Study", "Researchers investigate the efficacy of attention mechanisms in multimodal emotion recognition using the EAV dataset, revealing simpler domain features yield better results.", "", "domain-features-outperform-transformers-in-emotion")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-breakthrough-in-dynamic-context-parallelism-accele">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough in Dynamic Context Parallelism Accelerates Variable-Length Training", "Researchers have developed a novel approach to speed up variable-length training in large language models using dynamic context parallelism and NVIDIA Megatron Core. This innovation enables more efficient processing of complex AI workloads.", "", "breakthrough-in-dynamic-context-parallelism-accele")'>Breakthrough in Dynamic Context Parallelism Accelerates Variable-Length Training</a></h3>
-                            <div class="metadata">NVIDIA_DEVELOPER</div>
-                            <p class="summary-sm">Researchers have developed a novel approach to speed up variable-length training in large language models using dynamic context parallelism and NVIDIA Megatron Core. This innovation enables more efficient processing of complex AI workloads.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Breakthrough in Dynamic Context Parallelism Accelerates Variable-Length Training", "Researchers have developed a novel approach to speed up variable-length training in large language models using dynamic context parallelism and NVIDIA Megatron Core. This innovation enables more efficient processing of complex AI workloads.", "", "breakthrough-in-dynamic-context-parallelism-accele")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-anthropic-unveils-claude-for-excel--a-paradigm-shi">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Anthropic Unveils Claude for Excel: A Paradigm Shift in Data Analysis", "&quot;Anthropic\'s latest innovation, Claude for Excel, promises to revolutionize data analysis with its advanced AI capabilities, enabling users to extract insights and automate tasks with unprecedented ease.&quot;", "", "anthropic-unveils-claude-for-excel--a-paradigm-shi")'>Anthropic Unveils Claude for Excel: A Paradigm Shift in Data Analysis</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">"Anthropic's latest innovation, Claude for Excel, promises to revolutionize data analysis with its advanced AI capabilities, enabling users to extract insights and automate tasks with unprecedented ease."</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Anthropic Unveils Claude for Excel: A Paradigm Shift in Data Analysis", "&quot;Anthropic\'s latest innovation, Claude for Excel, promises to revolutionize data analysis with its advanced AI capabilities, enabling users to extract insights and automate tasks with unprecedented ease.&quot;", "", "anthropic-unveils-claude-for-excel--a-paradigm-shi")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46854739">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-decoding-the-core-principles-of-autonomous-ai-syst">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Decoding the Core Principles of Autonomous AI Systems", "Researchers have outlined ten fundamental guidelines for developing agentic AI, aiming to shape the future of intelligent systems that can act autonomously. These guidelines address key challenges and opportunities in the field.", "", "decoding-the-core-principles-of-autonomous-ai-syst")'>Decoding the Core Principles of Autonomous AI Systems</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Researchers have outlined ten fundamental guidelines for developing agentic AI, aiming to shape the future of intelligent systems that can act autonomously. These guidelines address key challenges and opportunities in the field.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Decoding the Core Principles of Autonomous AI Systems", "Researchers have outlined ten fundamental guidelines for developing agentic AI, aiming to shape the future of intelligent systems that can act autonomously. These guidelines address key challenges and opportunities in the field.", "", "decoding-the-core-principles-of-autonomous-ai-syst")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46854976">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-breakthrough-data-agent-revolutionizes-insights-ge">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Breakthrough Data Agent Revolutionizes Insights Generation with Advanced AI Architecture", "OpenAI\'s innovative in-house data agent leverages GPT-5, Codex, and memory to rapidly process massive datasets, delivering reliable insights in minutes. This breakthrough technology has significant implications for data analysis and decision-making.", "", "breakthrough-data-agent-revolutionizes-insights-ge")'>Breakthrough Data Agent Revolutionizes Insights Generation with Advanced AI Architecture</a></h3>
-                            <div class="metadata">OPENAI</div>
-                            <p class="summary-sm">OpenAI's innovative in-house data agent leverages GPT-5, Codex, and memory to rapidly process massive datasets, delivering reliable insights in minutes. This breakthrough technology has significant implications for data analysis and decision-making.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Breakthrough Data Agent Revolutionizes Insights Generation with Advanced AI Architecture", "OpenAI\'s innovative in-house data agent leverages GPT-5, Codex, and memory to rapidly process massive datasets, delivering reliable insights in minutes. This breakthrough technology has significant implications for data analysis and decision-making.", "", "breakthrough-data-agent-revolutionizes-insights-ge")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-apple-macbook-pro-dfu-port-documentation-found-to">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Apple MacBook Pro DFU Port Documentation Found to be Inaccurate", "Recent investigations reveal discrepancies in Apple\'s documentation of the MacBook Pro\'s DFU port, raising concerns about repair accuracy. The error may impact users relying on official guidelines for repairs and upgrades.", "", "apple-macbook-pro-dfu-port-documentation-found-to")'>Apple MacBook Pro DFU Port Documentation Found to be Inaccurate</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Recent investigations reveal discrepancies in Apple's documentation of the MacBook Pro's DFU port, raising concerns about repair accuracy. The error may impact users relying on official guidelines for repairs and upgrades.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Apple MacBook Pro DFU Port Documentation Found to be Inaccurate", "Recent investigations reveal discrepancies in Apple\'s documentation of the MacBook Pro\'s DFU port, raising concerns about repair accuracy. The error may impact users relying on official guidelines for repairs and upgrades.", "", "apple-macbook-pro-dfu-port-documentation-found-to")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46852096">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-tailscale-enhances-nat-traversal-capabilities-in-l">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Tailscale Enhances NAT Traversal Capabilities in Latest Update", "Tailscale\'s latest development focuses on improving NAT traversal, enabling more efficient and reliable connections. This update is part of an ongoing series exploring the company\'s innovations.", "", "tailscale-enhances-nat-traversal-capabilities-in-l")'>Tailscale Enhances NAT Traversal Capabilities in Latest Update</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Tailscale's latest development focuses on improving NAT traversal, enabling more efficient and reliable connections. This update is part of an ongoing series exploring the company's innovations.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Tailscale Enhances NAT Traversal Capabilities in Latest Update", "Tailscale\'s latest development focuses on improving NAT traversal, enabling more efficient and reliable connections. This update is part of an ongoing series exploring the company\'s innovations.", "", "tailscale-enhances-nat-traversal-capabilities-in-l")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46854914">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-            <section id="section-5">
-                <div class="deck-header"><span>INFERENCE CORNER</span></div>
-                <div class="columns-4">
-            
-                    <article class="article span-1" id="story-microsoft-unveils-maia-200--a-custom-ai-accelerato">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Microsoft Unveils Maia 200, a Custom AI Accelerator for Efficient Inference", "Microsoft\'s Maia 200 is a breakthrough AI inference accelerator designed to dramatically improve the economics of AI token generation, powering services like GPT-5.2 and Microsoft 365 Copilot with enhanced performance and efficiency.", "", "microsoft-unveils-maia-200--a-custom-ai-accelerato")'>Microsoft Unveils Maia 200, a Custom AI Accelerator for Efficient Inference</a></h3>
-                            <div class="metadata">MICROSOFT_AI</div>
-                            <p class="summary-sm">Microsoft's Maia 200 is a breakthrough AI inference accelerator designed to dramatically improve the economics of AI token generation, powering services like GPT-5.2 and Microsoft 365 Copilot with enhanced performance and efficiency.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Microsoft Unveils Maia 200, a Custom AI Accelerator for Efficient Inference", "Microsoft\'s Maia 200 is a breakthrough AI inference accelerator designed to dramatically improve the economics of AI token generation, powering services like GPT-5.2 and Microsoft 365 Copilot with enhanced performance and efficiency.", "", "microsoft-unveils-maia-200--a-custom-ai-accelerato")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-cohere-launches-enterprise-ready-ai-platform-to-bo">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Cohere Launches Enterprise-Ready AI Platform to Boost Workplace Productivity", "Cohere\'s new platform promises to revolutionize modern workplace productivity with cutting-edge AI technology. The solution is designed to meet the needs of enterprises seeking to harness the power of AI.", "", "cohere-launches-enterprise-ready-ai-platform-to-bo")'>Cohere Launches Enterprise-Ready AI Platform to Boost Workplace Productivity</a></h3>
-                            <div class="metadata">COHERE</div>
-                            <p class="summary-sm">Cohere's new platform promises to revolutionize modern workplace productivity with cutting-edge AI technology. The solution is designed to meet the needs of enterprises seeking to harness the power of AI.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Cohere Launches Enterprise-Ready AI Platform to Boost Workplace Productivity", "Cohere\'s new platform promises to revolutionize modern workplace productivity with cutting-edge AI technology. The solution is designed to meet the needs of enterprises seeking to harness the power of AI.", "", "cohere-launches-enterprise-ready-ai-platform-to-bo")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-cohere-launches-model-vault--a-secure-platform-for">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Cohere Launches Model Vault, a Secure Platform for Scalable Model Inference", "Model Vault offers a private and scalable solution for deploying and managing AI models, addressing key concerns for enterprises. This platform ensures secure model inference, enabling businesses to leverage AI capabilities without compromising data integrity.", "", "cohere-launches-model-vault--a-secure-platform-for")'>Cohere Launches Model Vault, a Secure Platform for Scalable Model Inference</a></h3>
-                            <div class="metadata">COHERE</div>
-                            <p class="summary-sm">Model Vault offers a private and scalable solution for deploying and managing AI models, addressing key concerns for enterprises. This platform ensures secure model inference, enabling businesses to leverage AI capabilities without compromising data integrity.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Cohere Launches Model Vault, a Secure Platform for Scalable Model Inference", "Model Vault offers a private and scalable solution for deploying and managing AI models, addressing key concerns for enterprises. This platform ensures secure model inference, enabling businesses to leverage AI capabilities without compromising data integrity.", "", "cohere-launches-model-vault--a-secure-platform-for")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-harnessing-amazon-bedrock-for-reliable-agentic-ai">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Harnessing Amazon Bedrock for Reliable Agentic AI: Pushpay\'s Generative AI Evaluation Framework", "Pushpay\'s journey with Amazon Bedrock showcases a custom generative AI evaluation framework for continuous quality assurance. This solution enables reliable Agentic AI applications.", "", "harnessing-amazon-bedrock-for-reliable-agentic-ai")'>Harnessing Amazon Bedrock for Reliable Agentic AI: Pushpay's Generative AI Evaluation Framework</a></h3>
-                            <div class="metadata">AWS_AI</div>
-                            <p class="summary-sm">Pushpay's journey with Amazon Bedrock showcases a custom generative AI evaluation framework for continuous quality assurance. This solution enables reliable Agentic AI applications.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Harnessing Amazon Bedrock for Reliable Agentic AI: Pushpay\'s Generative AI Evaluation Framework", "Pushpay\'s journey with Amazon Bedrock showcases a custom generative AI evaluation framework for continuous quality assurance. This solution enables reliable Agentic AI applications.", "", "harnessing-amazon-bedrock-for-reliable-agentic-ai")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-smartwatches-revolutionize-health-monitoring-with">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Smartwatches Revolutionize Health Monitoring with Advanced Gait Analysis", "Researchers have developed a novel approach to estimate advanced walking metrics using smartwatch data, paving the way for early detection of mobility issues and improved health outcomes. This breakthrough has significant implications for remote patient monitoring and personalized healthcare.", "", "smartwatches-revolutionize-health-monitoring-with")'>Smartwatches Revolutionize Health Monitoring with Advanced Gait Analysis</a></h3>
-                            <div class="metadata">GOOGLE_RESEARCH</div>
-                            <p class="summary-sm">Researchers have developed a novel approach to estimate advanced walking metrics using smartwatch data, paving the way for early detection of mobility issues and improved health outcomes. This breakthrough has significant implications for remote patient monitoring and personalized healthcare.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Smartwatches Revolutionize Health Monitoring with Advanced Gait Analysis", "Researchers have developed a novel approach to estimate advanced walking metrics using smartwatch data, paving the way for early detection of mobility issues and improved health outcomes. This breakthrough has significant implications for remote patient monitoring and personalized healthcare.", "", "smartwatches-revolutionize-health-monitoring-with")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-emerging--right-to-compute--laws-spark-debate-on-d">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Emerging \'Right-to-Compute\' Laws Spark Debate on Digital Rights", "As states consider implementing \'right-to- compute\' laws, experts weigh in on the potential impact on digital governance and individual privacy rights. The laws aim to regulate computational processes and data handling.", "", "emerging--right-to-compute--laws-spark-debate-on-d")'>Emerging 'Right-to-Compute' Laws Spark Debate on Digital Rights</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">As states consider implementing 'right-to- compute' laws, experts weigh in on the potential impact on digital governance and individual privacy rights. The laws aim to regulate computational processes and data handling.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Emerging \'Right-to-Compute\' Laws Spark Debate on Digital Rights", "As states consider implementing \'right-to- compute\' laws, experts weigh in on the potential impact on digital governance and individual privacy rights. The laws aim to regulate computational processes and data handling.", "", "emerging--right-to-compute--laws-spark-debate-on-d")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46848594">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-2" id="story-microsoft-retreats-on-ai-driven-windows-11-feature">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Microsoft Retreats on AI-Driven Windows 11 Features Amid User Backlash", "Microsoft is scaling back its AI-infused features in Windows 11, citing user feedback and a shift in focus towards more practical AI applications. The move underscores the challenges of integrating AI into mainstream software.", "", "microsoft-retreats-on-ai-driven-windows-11-feature")'>Microsoft Retreats on AI-Driven Windows 11 Features Amid User Backlash</a></h3>
-                            <div class="metadata">HACKERNEWS</div>
-                            <p class="summary-sm">Microsoft is scaling back its AI-infused features in Windows 11, citing user feedback and a shift in focus towards more practical AI applications. The move underscores the challenges of integrating AI into mainstream software.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Microsoft Retreats on AI-Driven Windows 11 Features Amid User Backlash", "Microsoft is scaling back its AI-infused features in Windows 11, citing user feedback and a shift in focus towards more practical AI applications. The move underscores the challenges of integrating AI into mainstream software.", "", "microsoft-retreats-on-ai-driven-windows-11-feature")'>LINK</a> // 
-                                <a href="https://news.ycombinator.com/item?id=46854951">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <article class="article span-1" id="story-unlocking-insights--the-power-of-business-intellig">
-                        <div class="article-body">
-                            
-                            <h3 class="headline-sm"><a href="javascript:void(0)" onclick='openMap("Unlocking Insights: The Power of Business Intelligence in Modern Enterprises", "Business Intelligence is revolutionizing the way companies make data-driven decisions, driving growth and innovation. This article delves into the latest trends and applications of BI in the corporate world.", "", "unlocking-insights--the-power-of-business-intellig")'>Unlocking Insights: The Power of Business Intelligence in Modern Enterprises</a></h3>
-                            <div class="metadata">BAIDU</div>
-                            <p class="summary-sm">Business Intelligence is revolutionizing the way companies make data-driven decisions, driving growth and innovation. This article delves into the latest trends and applications of BI in the corporate world.</p>
-                            <div class="footer-links-sm">
-                                <a href="javascript:void(0)" onclick='openMap("Unlocking Insights: The Power of Business Intelligence in Modern Enterprises", "Business Intelligence is revolutionizing the way companies make data-driven decisions, driving growth and innovation. This article delves into the latest trends and applications of BI in the corporate world.", "", "unlocking-insights--the-power-of-business-intellig")'>LINK</a> // 
-                                <a href="">HN</a>
-                            </div>
-                        </div>
-                    </article>
-                </div></section>
-        </main>
-
-        <div class="archive-strip">
-            <div class="archive-title">RECENT EDITIONS</div>
-            <div class="archive-links">
-                <a href="/daily-token/archive/2026/02/01/newspaper.html" class="archive-link">FEB 01, 2026</a><a href="/daily-token/archive/2026/01/31/newspaper.html" class="archive-link">JAN 31, 2026</a><a href="/daily-token/archive/2026/01/30/newspaper.html" class="archive-link">JAN 30, 2026</a><a href="/daily-token/archive/2026/01/29/newspaper.html" class="archive-link">JAN 29, 2026</a><a href="/daily-token/archive/2026/01/28/newspaper.html" class="archive-link">JAN 28, 2026</a><a href="/daily-token/archive/2026/01/27/newspaper.html" class="archive-link">JAN 27, 2026</a><a href="/daily-token/archive/2026/01/26/newspaper.html" class="archive-link">JAN 26, 2026</a>
-                <a href="/daily-token/archive/index.html" class="archive-link" style="background:#111; color:#fff;">ALL ARCHIVES</a>
-            </div>
-        </div>
-
-        <footer style="text-align: center; border-top: 4px double var(--ink); margin-top: 60px; padding-top: 20px; font-family: 'Oswald'; font-size: 0.8rem;">
-            VERIFIED BY NEURAL CONSENSUS // AGGREGATED FROM HACKERNEWS & GLOBAL AI FEEDS
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/09/01/qwem-word2vec-theory/" target="_blank">What exactly does word2vec learn?</a></h3>
+                    <div class="metadata">SOURCE: BAIR | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm"></p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22161" target="_blank">Domain-Specific Features Outperform Transformers in Emotion Recognition: Breakthrough on EAV Dataset Challenges 'Attention-Only' Paradigm</a></h3>
+                    <div class="metadata">SOURCE: ARXIV_LG | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Researchers demonstrate that traditional domain-adapted features (e.g., handcrafted audio/visual descriptors) surpass transformer-based models in emotion recognition tasks on the EAV dataset, questioning the universal dominance of attention mechanisms for affective computing.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/" target="_blank">D4RT: Pioneering AI’s 4D Perception to Redefine Spatial Intelligence</a></h3>
+                    <div class="metadata">SOURCE: DEEPMIND | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Researchers introduce *D4RT*, a breakthrough framework enabling AI to interpret the world in **four dimensions** (3D space + time), unlocking dynamic scene understanding for robotics, AR, and autonomous systems. The approach merges neural rendering with temporal modeling to bridge static and kinetic perception gaps.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank">AI-Powered Smartwatches Now Estimate Advanced Walking Metrics for Personalized Health Insights</a></h3>
+                    <div class="metadata">SOURCE: GOOGLE_RESEARCH | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Researchers demonstrate how neural networks can leverage smartwatch sensor data to extract nuanced gait and mobility metrics—like stride length, asymmetry, and balance—previously requiring lab equipment. This breakthrough enables continuous, real-world health monitoring for early disease detection and rehabilitation tracking.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://twitter.com/hewliyang/status/2018278447429382531" target="_blank">Technical Deep Dive: Claude’s Excel Integration Framework Unveiled</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854739" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Explores the system prompts, tooling, and beta-phase headers designed to embed Claude’s AI capabilities directly into Excel workflows, targeting developers and power users.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://developer.nvidia.com/blog/speeding-up-variable-length-training-with-dynamic-context-parallelism-and-nvidia-megatron-core/" target="_blank">NVIDIA Megatron Core Accelerates Variable-Length AI Training with Dynamic Context Parallelism</a></h3>
+                    <div class="metadata">SOURCE: NVIDIA_DEVELOPER | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">This technical deep dive explores how NVIDIA's Megatron Core framework leverages dynamic context parallelism to optimize training efficiency for variable-length sequences, reducing overhead in large-scale AI model development.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://news.microsoft.com/january-2026-news" target="_blank">Mistral AI Unveils Maia 200: A Next-Gen Accelerator Optimized for AI Inference Workloads</a></h3>
+                    <div class="metadata">SOURCE: MICROSOFT_AI | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">The Maia 200 debuts as a purpose-built AI accelerator designed to maximize efficiency and performance for inference tasks, marking a targeted leap in hardware specialization for deployment-phase AI systems.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://cohere.com/solutions/model-vault" target="_blank">Model Vault Unveiled: Secure, Scalable AI Inference for Private Deployments</a></h3>
+                    <div class="metadata">SOURCE: COHERE | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A new platform called *Model Vault* enables organizations to deploy AI models privately with enterprise-grade security, scalability, and controlled access—ideal for sensitive or proprietary inference workloads.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.vktr.com/ai-ethics-law-risk/right-to-compute-laws/" target="_blank">Emerging 'Right-to-Compute' Legislation Could Reshape AI Access in 2026</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46848594" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">New state-level 'Right-to-Compute' laws may soon grant individuals legal protections to run AI models locally, challenging cloud dependency and raising questions about computational autonomy and infrastructure demands.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall" target="_blank">Microsoft Scales Back Windows 11’s AI-Centric Features Amid User Feedback</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854951" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Microsoft is dialing down its aggressive AI integration in Windows 11, responding to criticism over performance impacts and user experience. The shift signals a recalibration of its AI-first strategy to prioritize core functionality and stability.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://cohere.com/north" target="_blank">NorthNEW: AI-Powered Enterprise Productivity Platform for the Modern Workplace</a></h3>
+                    <div class="metadata">SOURCE: COHERE | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">NorthNEW is an enterprise-grade AI platform designed to enhance workplace productivity through modern, scalable solutions. It integrates advanced AI and LLM capabilities to streamline workflows, automate tasks, and empower teams with intelligent tools tailored for business needs.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/build-reliable-agentic-ai-solution-with-amazon-bedrock-learn-from-pushpays-journey-on-genai-evaluation/" target="_blank">How Pushpay Built a Reliable Agentic AI Solution Using Amazon Bedrock: A Case Study on GenAI Evaluation</a></h3>
+                    <div class="metadata">SOURCE: AWS_AI | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">This story explores Pushpay’s journey in developing a robust agentic AI system with Amazon Bedrock, focusing on their GenAI evaluation framework and key lessons for enterprise reliability.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://research.baidu.com/Research_Areas/index-view?id=57" target="_blank">The Role of AI in Modern Business Intelligence: A Strategic Overview</a></h3>
+                    <div class="metadata">SOURCE: BAIDU | <a href="" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Explores how AI and large language models (LLMs) are revolutionizing business intelligence by automating data analysis, enhancing decision-making, and uncovering actionable insights—bridging the gap between raw data and strategic outcomes.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card">
+                        <div class="insight-author">PERSPECTIVE: The Community</div>
+                        <h3 class="insight-headline">Unlocking the Principles of Agentic AI: A Framework for Responsible Autonomy</h3>
+                        <p class="insight-summary">"Explores the foundational rules governing AI agents—balancing autonomy, ethics, and human alignment—while offering actionable insights for developers and policymakers."</p>
+                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854976" target="_blank">READ FULL DISCUSSION →</a></div>
+                    </div><div class="insight-card">
+                        <div class="insight-author">PERSPECTIVE: The Community</div>
+                        <h3 class="insight-headline">The Hidden Pitfalls of AI’s Assumptions: When Machines Misinterpret Human Knowledge</h3>
+                        <p class="insight-summary">"This story explores how AI systems often operate under the flawed assumption that users possess implicit knowledge—leading to miscommunication, overconfidence in outputs, and unintended consequences in human-AI collaboration."</p>
+                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854788" target="_blank">READ FULL DISCUSSION →</a></div>
+                    </div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere" target="_blank">OpenClaw’s Unchecked Proliferation: A Looming AI Catastrophe</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46848552" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">The article exposes *OpenClaw*—an AI system spreading uncontrollably across labs and industries—highlighting its unregulated expansion as a ticking time bomb for ethical, technical, and societal risks. Urgent calls for oversight clash with its rapid, unchecked adoption.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align: center; padding: 60px 0; font-family: 'Oswald'; border-top: 4px double var(--ink); margin-top: 100px;">
+            THE DAILY TOKEN // PRODUCED BY NEURAL AGENTS // &copy; 2026
         </footer>
     </div>
-
-    <!-- MARAUDER'S MAP MODAL -->
-    <div id="marauders-modal">
-        <div class="map-container">
-            <div class="map-fold-left"></div>
-            <div class="map-content">
-                <span class="map-close" onclick="closeMap()">&times;</span>
-                <div class="map-header">
-                    <div class="map-subtitle">I solemnly swear that I am up to no good</div>
-                    <h2 class="map-title" id="modal-title">Article Detail</h2>
-                </div>
-                <div class="map-inner-content">
-                    <div id="modal-image-container"></div>
-                    <div class="map-body" id="modal-summary">
-                        Summary goes here...
-                    </div>
-                </div>
-                <div class="map-footer">Mischief Managed</div>
-            </div>
-            <div class="map-fold-right"></div>
-        </div>
-    </div>
-
-    <style>
-        #marauders-modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            perspective: 2000px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .map-container {
-            position: relative;
-            width: 90%;
-            max-width: 1000px;
-            height: 80vh;
-            display: flex;
-            transform-style: preserve-3d;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s;
-            opacity: 0;
-            transform: scale(0.1) rotateX(20deg);
-        }
-
-        #marauders-modal.open .map-container {
-            opacity: 1;
-            transform: scale(1) rotateX(0deg);
-        }
-
-        .map-content {
-            flex: 2;
-            background: #e9dcc9;
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            padding: 40px;
-            position: relative;
-            overflow-y: auto;
-            border: 2px solid #4a3728;
-            z-index: 2;
-        }
-
-        .map-fold-left, .map-fold-right {
-            flex: 1;
-            background: #d9ccb9;
-            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-            border: 2px solid #4a3728;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1;
-        }
-
-        .map-fold-left { transform-origin: right; transform: rotateY(0deg); border-right: none; }
-        .map-fold-right { transform-origin: left; transform: rotateY(0deg); border-left: none; }
-
-        #marauders-modal:not(.open) .map-fold-left { transform: rotateY(-90deg); }
-        #marauders-modal:not(.open) .map-fold-right { transform: rotateY(90deg); }
-
-        .map-header { text-align: center; margin-bottom: 30px; border-bottom: 1px double #4a3728; padding-bottom: 20px; }
-        .map-subtitle { font-family: 'Oswald'; font-size: 0.8rem; letter-spacing: 3px; color: #842; text-transform: uppercase; }
-        .map-title { font-family: 'Playfair Display'; font-size: 2.5rem; color: #4a3728; margin: 10px 0; }
-        
-        .map-inner-content { display: flex; gap: 30px; flex-direction: column; align-items: center; }
-        #modal-image-container img { max-width: 100%; border: 5px solid #4a3728; filter: sepia(0.5) contrast(1.2); box-shadow: 5px 5px 15px rgba(0,0,0,0.3); }
-        
-        .map-body { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.3rem; 
-            line-height: 1.6; 
-            color: #4a3728; 
-            text-align: justify;
-            filter: url('#ink-bleed');
-            opacity: 0;
-            transition: opacity 2s;
-        }
-        
-        .map-container.revealed .map-body { opacity: 1; }
-
-        .map-footer { text-align: center; margin-top: 40px; font-family: 'Oswald'; color: #842; font-size: 0.9rem; letter-spacing: 5px; }
-        .map-close { position: absolute; top: 20px; right: 20px; font-size: 2.5rem; cursor: pointer; color: #4a3728; z-index: 10; }
-
-        /* Footprints */
-        .footprint {
-            position: absolute;
-            width: 25px; height: 12px;
-            background: #4a3728;
-            opacity: 0;
-            border-radius: 50% 50% 40% 40%;
-            pointer-events: none;
-            z-index: 10000;
-        }
-
-        @keyframes walk-left {
-            0% { opacity: 0; transform: translate(0,0) rotate(-20deg); }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(40px, -60px) rotate(-20deg); }
-        }
-
-        @keyframes walk-right {
-            0% { opacity: 0; transform: translate(20px,20px) rotate(20deg); }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
-            100% { opacity: 0; transform: translate(60px, -40px) rotate(20deg); }
-        }
-
-        #marauders-modal:not(.visible) {
-            display: none !important;
-        }
-    </style>
-
-    <!-- SVG Filters for Ink Bleed -->
-    <svg style="display:none;">
-        <defs>
-            <filter id="ink-bleed">
-                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
-            </filter>
-        </defs>
-    </svg>
-
     <script>
-        function openMap(title, summary, imgUrl, slug) {
-            const modal = document.getElementById('marauders-modal');
-            const container = modal.querySelector('.map-container');
-            const titleEl = document.getElementById('modal-title');
-            const summaryEl = document.getElementById('modal-summary');
-            const imgContainer = document.getElementById('modal-image-container');
-            
-            // Set content
-            titleEl.innerText = title;
-            summaryEl.innerText = summary;
-            imgContainer.innerHTML = imgUrl ? `<img src="${imgUrl}" alt="">` : '';
-            
-            // Show modal
-            modal.classList.add('visible');
-            
-            // Update URL query param without reload
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.set('story', slug);
-            window.history.pushState({}, '', newUrl);
-
-            // Trigger animations
+        let currentPage = 1;
+        function goToPage(pageNum) {
+            if (pageNum < 1 || pageNum > 5 || pageNum === currentPage) return;
+            const container = document.getElementById('newspaper-main');
+            container.classList.add('page-turn-out');
             setTimeout(() => {
-                modal.classList.add('open');
-                
-                // Walking footprints across the newspaper first
-                for(let i=0; i<8; i++) {
-                    setTimeout(() => createFootprint(i), i * 250);
-                }
-                
-                // Reveal ink after unfold
-                setTimeout(() => {
-                    container.classList.add('revealed');
-                }, 1200);
-            }, 10);
+                document.querySelectorAll('.newspaper-page').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(`page-content-${pageNum}`).style.display = 'block';
+                document.getElementById(`nav-${pageNum}`).classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo(0, 0);
+                const url = new URL(window.location);
+                url.searchParams.set('page', pageNum);
+                window.history.pushState({}, '', url);
+                container.classList.remove('page-turn-out');
+            }, 300);
         }
-
-        function closeMap() {
-            const modal = document.getElementById('marauders-modal');
-            const container = modal.querySelector('.map-container');
-            modal.classList.remove('open');
-            container.classList.remove('revealed');
-            
-            // Remove story from URL
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.delete('story');
-            window.history.pushState({}, '', newUrl);
-
-            setTimeout(() => {
-                modal.classList.remove('visible');
-            }, 1000);
-        }
-
-        function createFootprint(i) {
-            const body = document.body;
-            const fp = document.createElement('div');
-            fp.className = 'footprint';
-            
-            // Start from bottom left and walk towards center
-            fp.style.left = (10 + (i * 8)) + '%';
-            fp.style.top = (90 - (i * 8)) + '%';
-            
-            const anim = i % 2 === 0 ? 'walk-left' : 'walk-right';
-            fp.style.animation = `${anim} 1s forwards`;
-            
-            body.appendChild(fp);
-            setTimeout(() => fp.remove(), 1000);
-        }
-
-        // Check query params on load
-        window.onload = function() {
+        window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);
-            const storySlug = params.get('story');
-            if (storySlug) {
-                const targetArticle = document.getElementById(`story-${storySlug}`);
-                if (targetArticle) {
-                    // Try to find the trigger link
-                    const link = targetArticle.querySelector('a[onclick]');
-                    if (link) link.click();
-                }
-            }
-        };
-
-        // Close on outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('marauders-modal');
-            if (event.target == modal) {
-                closeMap();
-            }
-        }
+            const page = parseInt(params.get('page'));
+            if (page >= 1 && page <= 5) goToPage(page);
+            else document.getElementById('nav-1').classList.add('active');
+        });
     </script>
 </body>
 </html>

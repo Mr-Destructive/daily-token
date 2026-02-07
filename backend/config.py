@@ -6,15 +6,26 @@ Edit this file to customize your newspaper without touching core code.
 """
 
 # ============================================================================
-# PAGE CATEGORIES - Edit these to customize your newspaper pages
+# PAGE & SECTION CATEGORIES
 # ============================================================================
-# These 5 categories will be used for all processing and output
 PAGE_CATEGORIES = {
     1: "Breaking Vectors",
     2: "Model Architectures",
     3: "Neural Horizons",
     4: "Lab Outputs",
-    5: "Inference Corner"
+    5: "Inference Corner",
+    6: "AI & LLM Overview",
+    7: "Model Release History",
+    8: "Top Insights & Advice",
+    9: "Lab Updates & Dark Side"
+}
+
+PAGES_CONFIG = {
+    1: {"title": "The Front Page", "categories": [1, 2, 3, 4, 5]},
+    2: {"title": "AI & LLM Overview", "categories": [6]},
+    3: {"title": "Model Release History", "categories": [7]},
+    4: {"title": "Top Insights & Advice", "categories": [8]},
+    5: {"title": "Lab Updates & Dark Side", "categories": [9]}
 }
 
 # Alternative theme examples (uncomment to use):
@@ -50,28 +61,30 @@ AI_KEYWORDS = [
 # ============================================================================
 # SCRAPER CONFIGURATION
 # ============================================================================
-SCRAPER_CONFIG = {
-    'hackernews': {
-        'enabled': True,
-        'api': 'https://hacker-news.firebaseio.com/v0',
-        'story_limit': 30,
-        'timeout': 10
-    },
-    'rss_feeds': {
-        'enabled': True,
-        'feeds': {
-            'openai': 'https://openai.com/feed.xml',
-            'anthropic': 'https://www.anthropic.com/feed.xml',
-            'deepmind': 'https://deepmind.google/feed.xml',
-            'metaai': 'https://ai.meta.com/feed.xml',
-            'arxiv_ai': 'http://arxiv.org/rss/cs.AI',
-            'arxiv_lg': 'http://arxiv.org/rss/cs.LG',
-            'arxiv_cv': 'http://arxiv.org/rss/cs.CV',
-        },
-        'stories_per_feed': 5,
-        'timeout': 10
-    }
+RSS_FEEDS = {
+    # AI Hubs
+    "openai": "https://openai.com/news/rss.xml",
+    "anthropic": "https://www.anthropic.com/feed.xml",
+    "deepmind": "https://deepmind.google/blog/feed/",
+    "huggingface": "https://huggingface.co/blog/feed.xml",
+    
+    # Tech News AI Sections
+    "techcrunch_ai": "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "venturebeat_ai": "https://venturebeat.com/category/ai/feed/",
+    "verge_ai": "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml",
+    "wired_ai": "https://www.wired.com/feed/category/ai/latest/rss",
+    "zdnet_ai": "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
+    
+    # Research
+    "arxiv_ai": "https://arxiv.org/rss/cs.AI",
+    "bair": "https://bair.berkeley.edu/blog/feed.xml",
 }
+
+# Specific keywords to force Model Release categorization (Page 3)
+RELEASE_KEYWORDS = [
+    "release", "launch", "unveils", "announces", "weights", "v3", "v4", "v5", 
+    "checkpoint", "available now", "open source", "opus", "sonnet", "haiku", "gemma"
+]
 
 
 # ============================================================================

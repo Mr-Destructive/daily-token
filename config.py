@@ -18,16 +18,26 @@ Everything else works automatically.
 import os
 
 # =============================================================================
-# PAGE CATEGORIES - The 5 pages of your newspaper
+# PAGE & SECTION CATEGORIES
 # =============================================================================
-# Change these names to anything you want. They appear everywhere.
-
 PAGE_CATEGORIES = {
-    1: "Breaking Vectors",      # Page 1 name
-    2: "Model Architectures",   # Page 2 name
-    3: "Neural Horizons",       # Page 3 name
-    4: "Lab Outputs",           # Page 4 name
-    5: "Inference Corner"       # Page 5 name
+    1: "Breaking Vectors",
+    2: "Model Architectures",
+    3: "Neural Horizons",
+    4: "Lab Outputs",
+    5: "Inference Corner",
+    6: "AI & LLM Overview",
+    7: "Model Release History",
+    8: "Top Insights & Advice",
+    9: "Lab Updates & Dark Side"
+}
+
+PAGES_CONFIG = {
+    1: {"title": "The Front Page", "categories": [1, 2, 3, 4, 5]},
+    2: {"title": "AI & LLM Overview", "categories": [6]},
+    3: {"title": "Model Release History", "categories": [7]},
+    4: {"title": "Top Insights & Advice", "categories": [8]},
+    5: {"title": "Lab Updates & Dark Side", "categories": [9]}
 }
 
 # Theme examples to copy/paste:
@@ -170,33 +180,17 @@ HACKERNEWS_STORY_LIMIT = 100  # Expand candidate pool significantly
 
 # RSS feeds - only working ones (many lab feeds have broken XML)
 RSS_FEEDS = {
-    # OpenAI
     "openai": "https://openai.com/news/rss.xml",
-    
-    # Google & DeepMind
-    "google_research": "https://research.google/blog/rss/",
+    "anthropic": "https://www.anthropic.com/feed.xml",
     "deepmind": "https://deepmind.google/blog/feed/",
-    
-    # Microsoft
-    "microsoft_ai": "https://news.microsoft.com/source/topics/ai/feed/",
-    
-    # NVIDIA
-    "nvidia_developer": "https://developer.nvidia.com/blog/feed",
-    "nvidia_press": "https://nvidianews.nvidia.com/releases.xml",
-    
-    # Amazon/AWS
-    "aws_ai": "https://aws.amazon.com/blogs/ai/feed/",
-    
-    # Meta (They often break RSS, but this is their blog)
-    "meta_ai": "https://ai.meta.com/blog/rss/",
-    
-    # Community & Open Source
     "huggingface": "https://huggingface.co/blog/feed.xml",
-    "bair": "https://bair.berkeley.edu/blog/feed.xml",
-    
-    # Research
+    "techcrunch_ai": "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "venturebeat_ai": "https://venturebeat.com/category/ai/feed/",
+    "verge_ai": "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml",
+    "wired_ai": "https://www.wired.com/feed/category/ai/latest/rss",
+    "zdnet_ai": "https://www.zdnet.com/topic/artificial-intelligence/rss.xml",
     "arxiv_ai": "https://arxiv.org/rss/cs.AI",
-    "arxiv_lg": "https://arxiv.org/rss/cs.LG",
+    "bair": "https://bair.berkeley.edu/blog/feed.xml",
 }
 
 # LABS TO SCRAPE (If RSS fails)

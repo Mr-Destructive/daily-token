@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Token</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink: #111; --paper: #fdfdfb; --sep: #ccc; --highlight: #a00; }
+        * { box-sizing: border-box; }
+        body { background-color: #ddd; margin: 0; padding: 0; font-family: 'Lora', serif; color: var(--ink); line-height: 1.2; overflow-x: hidden; }
+        .newspaper-container { background-color: var(--paper); max-width: 1300px; margin: 0 auto; padding: 40px; box-shadow: 0 0 100px rgba(0,0,0,0.2); min-height: 100vh; transition: opacity 0.3s ease; }
+        .page-turn-out { opacity: 0; }
+        header { text-align: center; border-bottom: 6px double var(--ink); padding-bottom: 20px; }
+        .masthead-title { font-family: 'Playfair Display'; font-weight: 900; font-size: 6rem; letter-spacing: -3px; margin: 0; text-transform: uppercase; }
+        .sub-masthead { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin-top: 15px; padding: 6px 0; font-family: 'Oswald'; text-transform: uppercase; font-size: 0.9rem; display: flex; justify-content: center; gap: 40px; }
+        nav.sticky-nav { position: sticky; top: 0; background: var(--paper); z-index: 100; text-align: center; padding: 15px 0; border-bottom: 1px solid var(--ink); margin-bottom: 40px; }
+        .nav-item { text-decoration: none; color: var(--ink); font-family: 'Oswald'; font-weight: 700; font-size: 0.85rem; margin: 0 15px; transition: 0.2s; border-bottom: 2px solid transparent; }
+        .nav-item.active { color: var(--highlight); border-bottom: 2px solid var(--highlight); }
+        .page-title { text-align: center; border-bottom: 3px solid var(--ink); line-height: 0.1em; margin: 60px 0 40px; font-family: 'Oswald'; font-size: 1.5rem; }
+        .page-title span { background: var(--paper); padding: 0 30px; }
+        .section-sub-header { text-align: left; border-bottom: 1px solid var(--sep); line-height: 0.1em; margin: 40px 0 20px; font-family: 'Oswald'; font-size: 0.9rem; color: var(--highlight); }
+        .section-sub-header span { background: var(--paper); padding-right: 15px; }
+        .columns-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-bottom: 40px; }
+        .headline-sm { font-family: 'Playfair Display'; font-size: 1.5rem; line-height: 1.1; margin: 0 0 10px 0; font-weight: 700; }
+        .article a { color: inherit; text-decoration: none; }
+        .article a:hover { color: var(--highlight); }
+        .metadata { font-family: 'Oswald'; font-size: 0.75rem; color: #666; margin-bottom: 10px; }
+        .news-img { width: 100%; height: auto; display: block; margin-bottom: 20px; filter: grayscale(100%); border: 1px solid #ddd; transition: 0.4s; cursor: pointer; box-shadow: 5px 5px 0 rgba(0,0,0,0.05); }
+        .news-img:hover { filter: none; transform: translateY(-2px); }
+        .page-footer-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--ink); }
+        .nav-btn { font-family: 'Oswald'; font-weight: 700; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 20px; transition: 0.2s; }
+        .nav-btn:hover { background: var(--ink); color: #fff; }
+        .edition-nav { display: flex; justify-content: center; align-items: center; background: #eee; padding: 10px; font-family: 'Oswald'; font-size: 0.8rem; gap: 30px; border-bottom: 1px solid #ccc; }
+        .edition-link { color: #666; text-decoration: none; }
+        .editors-note { margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; font-style: italic; background: #f9f9f9; text-align: center; border-left: 5px solid var(--highlight); }
+        .insights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .insight-card { padding: 30px; border: 1px solid #eee; background: #fff; box-shadow: 8px 8px 0 rgba(0,0,0,0.05); transition: 0.3s; }
+        .insight-card:hover { transform: translateY(-5px); box-shadow: 12px 12px 0 rgba(0,0,0,0.08); }
+        .insight-author { font-family: 'Oswald'; font-size: 0.7rem; color: var(--highlight); margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .insight-headline { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 15px; }
+        .insight-summary { font-family: 'Lora'; line-height: 1.6; font-size: 1.1rem; font-style: italic; }
+        .insight-footer { margin-top: 20px; font-family: 'Oswald'; font-size: 0.8rem; font-weight: 700; }
+        .hn-link { color: var(--highlight); text-decoration: none; font-weight: 700; }
+        @media (max-width: 1000px) { .masthead-title { font-size: 3.5rem; } .columns-3, .insights-grid { grid-template-columns: 1fr !important; } .sub-masthead { flex-direction: column; gap: 5px; } }
+    </style>
+</head>
+<body>
+    <div class="edition-nav">
+        <a href="../../../../archive/2026/02/06/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+        <span style="font-weight:700; color:#111;">EDITION: FEB 07, 2026</span>
+        <a href="../../../../archive/2026/02/08/newspaper.html" class="edition-link">NEXT EDITION →</a>
+        <span style="color:#ccc">|</span>
+        <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+    </div>
+    <div class="newspaper-container" id="newspaper-main">
+        <header>
+            <h1 class="masthead-title">The Daily Token</h1>
+            <div class="sub-masthead">
+                <span>GRADIENT VALLEY</span>
+                <span>SATURDAY, FEBRUARY 07, 2026</span>
+                <span>GLOBAL AI TECHNOLOGY REPORT</span>
+                <span>VOL. 2026.038</span>
+            </div>
+        </header>
+        <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class="editors-note"><strong>EDITOR'S NOTE:</strong> Today’s headlines reveal a reckoning: the AI gold rush is colliding with economic gravity—will innovation outpace the fallout? <span class="emphasis" style="color:var(--highlight); font-weight:700;">#AI economic sustainability</span></div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2504.12501" target="_blank">Demystifying Reinforcement Learning from Human Feedback (RLHF): The Backbone of Aligned AI Systems</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46923463" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Explores how RLHF bridges the gap between raw AI capabilities and human values by iteratively refining model outputs through human evaluator feedback—a cornerstone technique for developing safer, more intuitive AI assistants.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://github.com/zai-org/GLM-OCR" target="_blank">GLM-OCR: A Breakthrough in Multi-Dimensional OCR Performance</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46924075" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Introduces GLM-OCR, a model architecture that simultaneously achieves high accuracy, speed, and comprehensive text recognition—addressing the trade-offs in traditional OCR systems.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point" target="_blank">Claude Code Marks a Turning Point in AI Model Architectures</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46922692" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">The story explores how 'Claude Code' represents a critical inflection point in AI development, reshaping model architectures and their capabilities.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation" target="_blank">Waymo’s Breakthrough: A World Model for Autonomous Driving</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46914785" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Explores Waymo’s advanced AI 'world model' that simulates and predicts real-world driving scenarios, pushing the boundaries of autonomous vehicle safety and decision-making.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://eletric-vehicles.com/waymo/waymo-exec-admits-remote-operators-in-philippines-help-guide-us-robotaxis/" target="_blank">Waymo’s Remote Operations in the Philippines: Human Oversight Behind US Robotaxis</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46918043" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A Waymo executive revealed that remote operators based in the Philippines assist in guiding the company’s autonomous taxis in the US, highlighting the ongoing reliance on human intervention in 'driverless' technology.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.youtube.com/watch?v=wsxWl9iT1XU" target="_blank">AI and the Future of Work: Navigating Expertise in the Neural Age</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46924056" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">This *Neural Horizons* video explores how AI is reshaping professional expertise and labor markets, questioning which skills will remain uniquely human as automation advances. It balances technical insights with ethical considerations about workforce adaptation.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://github.com/pydantic/monty" target="_blank">Monty: A Secure, Rust-Based Python Interpreter for AI Applications</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46918254" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Monty is a minimal, security-focused Python interpreter rewritten in Rust, designed specifically for AI workloads to ensure robustness and safety.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://github.com/anthropics/claudes-c-compiler/issues/1" target="_blank">Debugging the First Step: When 'Hello World' Fails to Compile</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46920922" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A technical narrative exploring the unexpected challenges and lessons learned when even the simplest AI programming task—compiling 'Hello World'—goes wrong in a lab setting.</p>
+                </div>
+            </article>
+        </div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://github.com/MikeVeerman/tool-calling-benchmark" target="_blank">Local Agent Bench: Evaluating 11 Lightweight LLMs on CPU-Based Tool-Calling Performance</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46924068" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A benchmark study tests 11 small language models (LLMs) on tool-calling judgment tasks, running entirely on CPU without GPU acceleration, highlighting their efficiency and practicality for local deployment.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.cnbc.com/2026/02/06/ai-sell-off-stocks-amazon-oracle.html" target="_blank">AI Market Turmoil: Amazon’s $1T Loss Sparks Fears of an AI Bubble Burst</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46913302" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Amazon’s stock plunge accelerates a broader AI sector sell-off, wiping over $1 trillion in market value as investors question whether skyrocketing AI valuations reflect a speculative bubble rather than sustainable growth. The downturn raises concerns about overinflated expectations in AI-driven tech stocks.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.nytimes.com/2026/02/05/business/uber-safety-rape-verdict.html" target="_blank">Legal Precedent: Uber Held Liable in Driver-Assault Case, Paving Way for Future AI-Moderated Safety Litigation</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46915646" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A court ruled Uber liable for a driver’s rape of a passenger, establishing accountability frameworks that could reshape gig-economy safety protocols and AI-driven background checks. The case highlights gaps in platform oversight and sets a template for similar lawsuits globally.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.washingtonpost.com/technology/2026/02/07/ai-spending-economy-shortages/" target="_blank">AI Expansion Strains Global Resources: Shortages Ripple Across Industries</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46922969" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">The rapid scaling of AI infrastructure is depleting critical resources—from semiconductor chips and energy grids to data center cooling systems—creating cascading shortages in unrelated sectors like healthcare, automotive, and consumer electronics.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.biotradingarena.com/hn" target="_blank">BioTradingArena: A New Benchmark for LLM-Powered Biotech Stock Prediction</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46915427" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">This project introduces *BioTradingArena*, an open framework to evaluate how well large language models (LLMs) can predict biotech stock movements by analyzing scientific literature, clinical trial data, and market signals. It aims to bridge AI capabilities with real-world financial applications in biotechnology.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.wsj.com/tech/ai/ai-spending-tech-companies-compared-02b90046" target="_blank">Big Tech’s AI Race Outpaces Apollo Program in Costs—But Is the Payoff Worth It?</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46922977" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">The breakneck investment by tech giants into AI development now surpasses the financial scale of the Apollo moon missions, raising questions about sustainability, long-term value, and whether the societal returns will justify the unprecedented spending.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://blog.alaindichiappari.dev/p/software-engineering-is-back" target="_blank">The Resurgence of Software Engineering in the AI Era</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46923543" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Explores how traditional software engineering principles are regaining prominence as AI systems demand more robust, scalable, and maintainable architectures—bridging the gap between rapid LLM experimentation and production-grade development.</p>
+                </div>
+            </article>
+        
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.nytimes.com/2026/02/06/books/mass-market-paperback-books.html" target="_blank">The End of an Era: AI’s Role in the Decline of Affordable, Portable Books</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46924053" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">Explores how AI and LLMs are reshaping publishing, phasing out cheap, pocket-sized books by altering production, distribution, and consumption—marking a cultural shift in how we access literature.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card">
+                        <div class="insight-author">PERSPECTIVE: The Community</div>
+                        <h3 class="insight-headline">Show HN: If you lose your memory, how to regain access to your computer?</h3>
+                        <p class="insight-summary">"No insight extracted."</p>
+                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46916609" target="_blank">READ FULL DISCUSSION →</a></div>
+                    </div><div class="insight-card">
+                        <div class="insight-author">PERSPECTIVE: The Community</div>
+                        <h3 class="insight-headline">How to effectively write quality code with AI</h3>
+                        <p class="insight-summary">"No insight extracted."</p>
+                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46916586" target="_blank">READ FULL DISCUSSION →</a></div>
+                    </div><div class="insight-card">
+                        <div class="insight-author">PERSPECTIVE: The Community (HackerNews discussion)</div>
+                        <h3 class="insight-headline">The Ethical Tension of AI Motivation: Purpose vs. Profit</h3>
+                        <p class="insight-summary">"The community critiques the AI industry’s tendency to frame resource-intensive work as altruistic (e.g., 'saving the planet') while downplaying profit motives or systemic inefficiencies. Key insights: (1) **Self-awareness gaps**: Talent is often recruited by appealing to ego (e.g., 'builders/discoverers'), making it harder to confront downstream harm. (2) **Efficiency ≠ reduction**: Optimizing AI tools for energy use may increase output per watt but doesn’t curb overall resource consumption—it scales it. (3) **Transparency matters**: Compensation and mission must be explicitly balanced in public narratives to avoid skepticism. Quote: "The AI industry, and SV tech generally, has a pattern of recruiting talent by flattering people's self-image as builders and discoverers, which makes it psychologically very difficult for those people to reckon honestly with downstream harm.""</p>
+                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46920487" target="_blank">READ FULL DISCUSSION →</a></div>
+                    </div><div class="insight-card">
+                        <div class="insight-author">PERSPECTIVE: The Community (with emphasis on practical patterns from experienced script maintainers)</div>
+                        <h3 class="insight-headline">Bash’s Limits: When to Rewrite in Another Language</h3>
+                        <p class="insight-summary">"The community overwhelmingly agrees that Bash excels for trivial, linear tasks but becomes unmaintainable with complexity. Key practices emerged: **1)** Use `set -eEuo pipefail` as a baseline for robustness, **2)** Replace opaque exit codes with descriptive error functions (e.g., `die()` or `my_die()`), and **3)** Trap errors/cleanup with `trap` to preserve exit codes. The consensus? *Refactor into Python/Go/etc. the moment logic branches, nests, or requires non-trivial error handling.* Bash’s strength is glue code—not business logic. Quote: "I declare a `my_die() { ... }` on top of each file. Makes life easier by knowing *why* the script failed instead of having only exit code...""</p>
+                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46920277" target="_blank">READ FULL DISCUSSION →</a></div>
+                    </div><div class="insight-card">
+                        <div class="insight-author">PERSPECTIVE: The Community</div>
+                        <h3 class="insight-headline">DIY Shell Completion: A 2020 Guide to Customizing Your Command-Line Workflow</h3>
+                        <p class="insight-summary">"This 2020 technical guide breaks down how developers can manually implement shell completion (e.g., for Bash/Zsh) to streamline CLI tool usage, offering practical code snippets and workflow optimizations for power users."</p>
+                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46924086" target="_blank">READ FULL DISCUSSION →</a></div>
+                    </div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3">
+            <article class="article span-1">
+                <div class="article-body">
+                    
+                    <h3 class="headline-sm"><a href="https://www.latimes.com/california/story/2026-02-05/man-videotaped-himself-base-jumping-in-yosemite-federal-officials-say-he-says-it-was-ai" target="_blank">BASE Jumper Arrested in Yosemite Claims AI-Generated Footage in Legal Defense</a></h3>
+                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46916961" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
+                    <p class="summary-sm">A man arrested for illegally BASE jumping in Yosemite National Park claimed his viral video was AI-generated, raising questions about digital evidence authenticity and the legal gray areas of synthetic media. The case highlights tensions between extreme sports, park regulations, and emerging AI deception risks.</p>
+                </div>
+            </article>
+        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align: center; padding: 60px 0; font-family: 'Oswald'; border-top: 4px double var(--ink); margin-top: 100px;">
+            THE DAILY TOKEN // PRODUCED BY NEURAL AGENTS // &copy; 2026
+        </footer>
+    </div>
+    <script>
+        let currentPage = 1;
+        function goToPage(pageNum) {
+            if (pageNum < 1 || pageNum > 5 || pageNum === currentPage) return;
+            const container = document.getElementById('newspaper-main');
+            container.classList.add('page-turn-out');
+            setTimeout(() => {
+                document.querySelectorAll('.newspaper-page').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(`page-content-${pageNum}`).style.display = 'block';
+                document.getElementById(`nav-${pageNum}`).classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo(0, 0);
+                const url = new URL(window.location);
+                url.searchParams.set('page', pageNum);
+                window.history.pushState({}, '', url);
+                container.classList.remove('page-turn-out');
+            }, 300);
+        }
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const page = parseInt(params.get('page'));
+            if (page >= 1 && page <= 5) goToPage(page);
+            else document.getElementById('nav-1').classList.add('active');
+        });
+    </script>
+</body>
+</html>
