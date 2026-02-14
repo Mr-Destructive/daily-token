@@ -38,6 +38,8 @@ MODEL_PROVIDER_HINTS = {
     "alibaba": "Alibaba",
     "qwen": "Alibaba",
     "deepseek": "DeepSeek",
+    "zhipu": "Zhipu AI",
+    "z.ai": "Zhipu AI",
     "moonshot": "Moonshot",
     "baidu": "Baidu",
     "gemini": "Google",
@@ -53,8 +55,10 @@ MODEL_NAME_RE = re.compile(
     r"Llama\s?[\w\.-]*|"
     r"Mistral\s?[\w\.-]*|"
     r"Qwen\s?[\w\.-]*|"
+    r"GLM[-\s]?\d(?:\.\d+)?(?:[-\w]+)?|"
     r"DeepSeek\s?[\w\.-]*|"
     r"Grok\s?[\w\.-]*|"
+    r"Opus\s?[\w\.-]*|"
     r"Command\s?[\w\.-]*|"
     r"Veo\s?[\w\.-]*"
     r")\b",
@@ -117,6 +121,8 @@ def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[
         "cohere",
         "deepseek",
         "qwen",
+        "zhipu",
+        "z.ai",
     )
 
     for story in stories:
