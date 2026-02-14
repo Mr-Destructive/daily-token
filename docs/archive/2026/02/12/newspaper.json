@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "generated": "2026-02-12T00:00:00",
+    "format_version": "1.2",
+    "location": "GRADIENT VALLEY",
+    "editorial": {
+      "main_lead_index": 0,
+      "supporting_lead_indices": [],
+      "editors_note": "Signal unavailable today; archive entry retained for continuity.",
+      "emphasis": "Continuity"
+    },
+    "top_candidates": [],
+    "model_releases": []
+  },
+  "pages": {
+    "1": {
+      "title": "Breaking Vectors",
+      "stories": []
+    },
+    "2": {
+      "title": "Model Architectures",
+      "stories": []
+    },
+    "3": {
+      "title": "Neural Horizons",
+      "stories": []
+    },
+    "4": {
+      "title": "Lab Outputs",
+      "stories": []
+    },
+    "5": {
+      "title": "Inference Corner",
+      "stories": []
+    },
+    "6": {
+      "title": "AI & LLM Overview",
+      "stories": [
+        {
+          "original_title": "Archive Placeholder for 2026-02-12",
+          "generated_headline": "Archive Record Pending: 2026-02-12",
+          "url": "",
+          "hn_url": "",
+          "source": "Daily Token",
+          "score": 0,
+          "significance_score": 1,
+          "category": "AI & LLM Overview",
+          "category_id": 6,
+          "confidence": 1.0,
+          "summary": "Source fetch failed for this date. This placeholder preserves archive continuity until data backfill succeeds.",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "SQUARE"
+        }
+      ]
+    },
+    "7": {
+      "title": "Model Release History",
+      "stories": []
+    },
+    "8": {
+      "title": "Top Insights & Advice",
+      "stories": []
+    },
+    "9": {
+      "title": "Lab Updates & Dark Side",
+      "stories": []
+    }
+  }
+}

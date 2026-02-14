@@ -8,6 +8,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Tuple
 from pathlib import Path
+import re
 
 # Import router
 from llm_router import LLMRouter
@@ -109,7 +110,13 @@ REQUIRED JSON FORMAT:
 """
     
     SUMMARIZATION_PROMPT = """[SYSTEM: RESPOND ONLY WITH JSON]
-Summarize this AI story. Decide if the cover image is high-quality enough to feature.
+You are writing for a serious AI newspaper read by engineers.
+Tone: factual, sober, human, and technically literate.
+Voice constraint: include clear tradeoffs; acknowledge uncertainty where needed.
+Style constraint: no hype language, no marketing phrasing, no clichés.
+Editorial posture: skeptical about degraded software craft, but leave room for practical hope.
+
+Summarize this AI story and decide if the cover image is high-quality enough to feature.
 
 STORY:
 Title: {title}
@@ -121,8 +128,8 @@ IMAGE CANDIDATES:
 
 REQUIRED JSON FORMAT:
 {{
-  "headline": "[Professional Headline]",
-  "summary": "[1-2 sentence distillation]",
+  "headline": "[Newspaper-style headline, concise and concrete]",
+  "summary": "[1-2 sentence distillation with real-world implication]",
   "significance_score": [1-100],
   "selected_image_url": "[Chosen URL or 'NONE']",
   "worth_showing_image": [true/false],
@@ -150,6 +157,12 @@ REQUIRED JSON FORMAT:
 
     EDITORIAL_PROMPT = """[SYSTEM: RESPOND ONLY WITH JSON]
 You are the Chief Editor of 'The Daily Token'. Review today's top stories and decide the layout.
+Editorial voice:
+- Serious metropolitan newspaper, not a blog.
+- One sentence only for editor note.
+- Quietly cynical about the erosion of engineering craft.
+- Do not romanticize decline.
+- End with open-ended agency or possibility.
 
 STORIES FOR REVIEW:
 {story_list}
@@ -163,7 +176,7 @@ REQUIRED JSON FORMAT:
 {{
   "main_lead_index": [index of story],
   "supporting_lead_indices": [idx1, idx2],
-  "editors_note": "[The daily vibe/note]",
+  "editors_note": "[One-sentence editor note with skeptical realism and measured hope]",
   "emphasis": "[Which tech trend is dominating today]"
 }}
 """
@@ -277,6 +290,21 @@ REQUIRED JSON FORMAT:
             'cost': result.get('cost', 0)
         }
 # ... Summarization parsing ...
+    def _normalize_model_output_url(self, value: str) -> str:
+        """Extract a clean URL from common LLM wrappers like markdown links."""
+        if not value:
+            return ""
+        text = str(value).strip()
+        if text.upper() == "NONE":
+            return ""
+        markdown_match = re.search(r'\((https?://[^)\s]+)\)', text)
+        if markdown_match:
+            return markdown_match.group(1)
+        raw_match = re.search(r'https?://[^\s\]>)"]+', text)
+        if raw_match:
+            return raw_match.group(0)
+        return ""
+
     def summarize_story(self, title: str, url: str, summary: str = "", 
                        category: str = "", image_urls: List[str] = None) -> Dict:
         """
@@ -313,10 +341,11 @@ REQUIRED JSON FORMAT:
         # Parse JSON response
         data = self.router._extract_json(result["response"])
         if data:
+            normalized_image = self._normalize_model_output_url(data.get('selected_image_url', ''))
             return {
                 'headline': data.get('headline', title),
                 'summary': data.get('summary', summary[:100]),
-                'image_url': data.get('selected_image_url') if data.get('selected_image_url', 'NONE').upper() != 'NONE' else None,
+                'image_url': normalized_image if normalized_image else None,
                 'worth_showing_image': data.get('worth_showing_image', False),
                 'image_layout': data.get('image_layout', 'SQUARE'),
                 'significance_score': data.get('significance_score', 50),

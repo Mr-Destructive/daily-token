@@ -306,13 +306,13 @@ def get_page_name(page_num):
 
 def get_all_page_names():
     """Get list of all page names in order."""
-    return [PAGE_CATEGORIES[i] for i in range(1, 6)]
+    return [PAGE_CATEGORIES[i] for i in sorted(PAGE_CATEGORIES.keys())]
 
 def validate_config():
     """Validate configuration."""
-    assert len(PAGE_CATEGORIES) == 5, "Must have exactly 5 pages"
-    assert all(isinstance(k, int) and k in range(1, 6) for k in PAGE_CATEGORIES.keys()), \
-        "Page numbers must be 1-5"
+    assert len(PAGES_CONFIG) == 5, "Must have exactly 5 configured pages"
+    assert all(isinstance(k, int) and 1 <= k <= 9 for k in PAGE_CATEGORIES.keys()), \
+        "Category numbers must be 1-9"
     assert all(isinstance(v, str) and len(v) > 0 for v in PAGE_CATEGORIES.values()), \
         "All page names must be non-empty strings"
     return True
