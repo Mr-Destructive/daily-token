@@ -105,17 +105,41 @@ def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[
     seen = set()
     releases: List[Dict] = []
 
+    lab_source_hints = (
+        "openai",
+        "anthropic",
+        "deepmind",
+        "google",
+        "meta",
+        "mistral",
+        "huggingface",
+        "xai",
+        "cohere",
+        "deepseek",
+        "qwen",
+    )
+
     for story in stories:
-        title = (story.get("title") or "").strip()
+        title = (story.get("title") or story.get("generated_headline") or story.get("original_title") or "").strip()
         if not title:
             continue
 
         lower = title.lower()
-        if not any(term in lower for term in release_terms):
-            continue
+        source = str(story.get("source", "")).lower()
+        url = (story.get("url") or story.get("link") or "").strip()
+        url_lower = url.lower()
+        category_id = story.get("category_id")
+        detected_model = (story.get("detected_model") or "").strip()
 
         match = MODEL_NAME_RE.search(title)
-        if not match:
+        model_name = detected_model or (match.group(1).strip() if match else "")
+        if not model_name:
+            continue
+
+        has_release_language = any(term in lower for term in release_terms) or "model card" in lower
+        from_lab_source = any(hint in source or hint in url_lower for hint in lab_source_hints)
+        categorized_release = str(category_id) == "7" or bool(detected_model)
+        if not (has_release_language or from_lab_source or categorized_release):
             continue
 
         story_dt = _parse_story_datetime(story)
@@ -123,17 +147,14 @@ def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[
             if story_dt.date() != edition_day.date():
                 continue
 
-        url = story.get("url") or story.get("link") or ""
-        source = str(story.get("source", "")).lower()
         provider = "Unknown"
 
         for hint, provider_name in MODEL_PROVIDER_HINTS.items():
-            if hint in lower or hint in source or hint in url.lower():
+            if hint in lower or hint in source or hint in url_lower:
                 provider = provider_name
                 break
 
-        model_name = match.group(1).strip()
-        key = (model_name.lower(), url)
+        key = (model_name.lower(), url or title.lower())
         if key in seen:
             continue
         seen.add(key)

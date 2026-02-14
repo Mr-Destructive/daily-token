@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Dict, List
 
 from exporter import NewsExporter
+from main import _extract_model_releases
 from processor_with_router import NewsProcessorWithRouter
 from scraper import NewsAggregator
 
@@ -101,7 +102,13 @@ def backfill(start: datetime, end: datetime, overwrite: bool = False):
                         "image_layout": "SQUARE",
                     }
                 ]
-                exporter = NewsExporter(organized, timestamp=day.isoformat(), archive_root=archive_root)
+                edition_ts = day.replace(hour=0, minute=0, second=0, microsecond=0)
+                exporter = NewsExporter(
+                    organized,
+                    timestamp=edition_ts.isoformat(),
+                    model_releases=[],
+                    archive_root=archive_root,
+                )
                 exporter.editorial = {
                     "main_lead_index": 0,
                     "supporting_lead_indices": [],
@@ -118,7 +125,7 @@ def backfill(start: datetime, end: datetime, overwrite: bool = False):
                 with open(out_dir / "metadata.json", "w") as f:
                     json.dump(
                         {
-                            "timestamp": day.isoformat(),
+                            "timestamp": edition_ts.isoformat(),
                             "total_stories": 0,
                             "processed_stories": 1,
                             "placeholder": True,
@@ -140,7 +147,30 @@ def backfill(start: datetime, end: datetime, overwrite: bool = False):
                 "emphasis": "Continuity",
             }
 
-            exporter = NewsExporter(organized, timestamp=day.isoformat(), archive_root=archive_root)
+            edition_ts = day.replace(hour=0, minute=0, second=0, microsecond=0)
+            release_scan_stories = list(stories)
+            for item in processed:
+                release_scan_stories.append(
+                    {
+                        "title": item.get("original_title") or item.get("generated_headline") or "",
+                        "summary": item.get("summary", ""),
+                        "url": item.get("url", ""),
+                        "hn_url": item.get("hn_url", ""),
+                        "source": item.get("source", ""),
+                        "published": item.get("published", ""),
+                        "category_id": item.get("category_id"),
+                        "detected_model": item.get("detected_model"),
+                    }
+                )
+
+            model_releases = _extract_model_releases(release_scan_stories, edition_ts)
+
+            exporter = NewsExporter(
+                organized,
+                timestamp=edition_ts.isoformat(),
+                model_releases=model_releases,
+                archive_root=archive_root,
+            )
             exporter.editorial = editorial
             exporter.top_candidates = top_candidates
 
@@ -155,9 +185,10 @@ def backfill(start: datetime, end: datetime, overwrite: bool = False):
             with open(out_dir / "metadata.json", "w") as f:
                 json.dump(
                     {
-                        "timestamp": day.isoformat(),
+                        "timestamp": edition_ts.isoformat(),
                         "total_stories": len(stories),
                         "processed_stories": len(processed),
+                        "model_releases": len(model_releases),
                     },
                     f,
                     indent=2,

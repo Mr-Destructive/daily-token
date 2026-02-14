@@ -1,5 +1,17 @@
 {
   "generated": "2026-02-10T00:00:00",
-  "count": 0,
-  "releases": []
+  "count": 1,
+  "releases": [
+    {
+      "model_name": "Qwen-Image-2.0",
+      "provider": "Alibaba",
+      "release_type": "Model Release",
+      "title": "Qwen-Image-2.0: Professional infographics, exquisite photorealism",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen-image-2.0",
+      "hn_url": "https://news.ycombinator.com/item?id=46957198",
+      "published": "2026-02-10T09:19:00+00:00"
+    }
+  ]
 }

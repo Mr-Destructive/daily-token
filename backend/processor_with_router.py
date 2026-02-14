@@ -111,10 +111,14 @@ REQUIRED JSON FORMAT:
     
     SUMMARIZATION_PROMPT = """[SYSTEM: RESPOND ONLY WITH JSON]
 You are writing for a serious AI newspaper read by engineers.
-Tone: factual, sober, human, and technically literate.
-Voice constraint: include clear tradeoffs; acknowledge uncertainty where needed.
-Style constraint: no hype language, no marketing phrasing, no clichés.
-Editorial posture: skeptical about degraded software craft, but leave room for practical hope.
+Tone: factual, restrained, and unmistakably human.
+Voice: intriguing and slightly odd in the way a sharp columnist can be, never theatrical.
+Style constraints:
+- no hype language, no marketing phrasing, no cliches
+- no robotic phrasing, no generic "AI changed everything" lines
+- include one concrete tradeoff or risk when relevant
+- acknowledge uncertainty only when real
+Editorial posture: quietly cynical about the erosion of software craft, but open-ended about where discipline can return.
 
 Summarize this AI story and decide if the cover image is high-quality enough to feature.
 
@@ -129,7 +133,7 @@ IMAGE CANDIDATES:
 REQUIRED JSON FORMAT:
 {{
   "headline": "[Newspaper-style headline, concise and concrete]",
-  "summary": "[1-2 sentence distillation with real-world implication]",
+  "summary": "[1-2 sentence distillation with concrete implications and a human newsroom voice]",
   "significance_score": [1-100],
   "selected_image_url": "[Chosen URL or 'NONE']",
   "worth_showing_image": [true/false],
@@ -162,6 +166,7 @@ Editorial voice:
 - One sentence only for editor note.
 - Quietly cynical about the erosion of engineering craft.
 - Do not romanticize decline.
+- Keep the line distinctive and human, slightly unexpected but still precise.
 - End with open-ended agency or possibility.
 
 STORIES FOR REVIEW:
@@ -260,8 +265,17 @@ REQUIRED JSON FORMAT:
         # Parse JSON response
         data = self.router._extract_json(result["response"])
         if data:
-            category_id = data.get("category_id", 0)
-            confidence = data.get("confidence", 0.0)
+            raw_category_id = data.get("category_id", 0)
+            try:
+                category_id = int(raw_category_id)
+            except (TypeError, ValueError):
+                category_id = 0
+
+            raw_confidence = data.get("confidence", 0.0)
+            try:
+                confidence = float(raw_confidence)
+            except (TypeError, ValueError):
+                confidence = 0.0
             
             if category_id == 0:
                 return {
@@ -273,8 +287,12 @@ REQUIRED JSON FORMAT:
                 }
             
             if 1 <= category_id <= 9:
+                category_name = PAGE_CATEGORIES.get(category_id)
+                if not category_name:
+                    category_id = 0
+                    category_name = "Irrelevant"
                 return {
-                    'category': PAGE_CATEGORIES[category_id],
+                    'category': category_name,
                     'category_id': category_id,
                     'confidence': confidence,
                     'detected_model': data.get('detected_model'),

@@ -3,19 +3,24 @@
 Edition: 2026-02-13
 
 ## Editor's Note
-As we retreat into custom-built silos to patch the structural leaks of open-source reliability, we are reminded that true security is rarely found in the convenience of the collective.
+The tools we build now remember more than we do—yet the real question isn’t whether they’ll outlast our craft, but whether we’ll bother to teach them what matters.
 
 ## The Front Page
 
-### Engineer Replaces OpenClaw with Custom Mac Mini–Blink Agent, Citing Security Gaps in Open-Source Frameworks
+### Moltis: The Assistant That Remembers, Builds, and Grows—At What Cost to Craft?
+Source: https://www.moltis.org
+HN: https://news.ycombinator.com/item?id=46993587
+A new open-source AI assistant, Moltis, ships with persistent memory, modular tooling, and self-extending capabilities—raising the bar for personal automation while quietly sidestepping the maintenance debt such systems inevitably accrue. The tradeoff? Users inherit the complexity of an ever-evolving stack, where 'skills' may outpace their own understanding of them.
+
+### Engineer Replaces OpenClaw with a Mac Mini and a Blink Script—Claims Better Security at Half the Cost
 Source: https://coder.com/blog/why-i-ditched-openclaw-and-built-a-more-secure-ai-agent-on-blink-mac-mini
 HN: https://news.ycombinator.com/item?id=47004203
-A developer abandoned the OpenClaw AI agent framework due to perceived architectural vulnerabilities, opting instead for a self-hosted solution combining a Mac Mini and Blink’s sandboxing. The move underscores persistent tradeoffs between open-source convenience and control over attack surfaces in production AI systems.
+A developer abandoned the OpenClaw agent framework in favor of a minimalist setup: a Mac Mini running a custom Blink script, citing fewer attack surfaces and no dependency bloat. The tradeoff? Manual orchestration now eats 12% of dev time—but the system’s audit logs fit on a single terminal screen.
 
-### Cloudflare extends edge compute to real-time Markdown sanitization for LLM outputs
+### Cloudflare Quietly Hands AI Agents a Real-Time Markdown Pipeline—And a New Attack Surface
 Source: https://blog.cloudflare.com/markdown-for-agents/
 HN: https://news.ycombinator.com/item?id=46997526
-By shifting Markdown rendering to the edge, Cloudflare reduces client-side compute overhead for AI agents, though it introduces a potential centralized failure point in the presentation layer.
+Cloudflare’s Workers AI now renders Markdown in real time, letting agents dynamically format responses without client-side processing. The move shifts rendering logic to the edge—convenient for latency, but another layer of abstraction for security teams to audit.
 
 ## AI & LLM Overview
 

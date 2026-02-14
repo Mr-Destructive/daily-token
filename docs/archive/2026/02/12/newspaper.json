@@ -2,29 +2,30 @@
   "metadata": {
     "generated": "2026-02-12T00:00:00",
     "format_version": "1.2",
-    "location": "NEURAL NEXUS",
+    "location": "VECTOR STATION",
     "editorial": {
       "main_lead_index": 0,
       "supporting_lead_indices": [
-        1
+        1,
+        2
       ],
-      "editors_note": "Another week, another AI breakthrough\u2014this time with Gemini 3\u2019s \u2018deep think\u2019\u2014where the hype outpaces the peer-reviewed substance, yet the quiet hum of progress persists beneath the noise.",
-      "emphasis": "AI-assisted research"
+      "editors_note": "The industry\u2019s latest bets on rigor and autonomy feel like a correction\u2014less a revolution than a grudging admission that shortcuts have consequences.",
+      "emphasis": "the quiet return of engineering discipline over hype-driven scaling"
     },
     "top_candidates": [
       {
         "original_title": "Gemini 3 Deep Think: Advancing science, research and engineering",
-        "generated_headline": "Gemini 3 Deep Think: A Leap for AI-Assisted Research or Another Overpromise?",
+        "generated_headline": "Gemini 3\u2019s \u2018Deep Think\u2019 Mode: A Calculated Gamble on Scientific Rigor",
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/",
         "hn_url": "https://news.ycombinator.com/item?id=46990637",
         "source": "HackerNews",
         "score": 29,
-        "significance_score": 78,
+        "significance_score": 87,
         "category": "All Articles",
         "category_id": 1,
         "confidence": 0.95,
-        "detected_model": "Gemini 3 Deep Think",
-        "summary": "Google\u2019s latest Gemini 3 model claims to accelerate scientific discovery and engineering workflows through deeper reasoning capabilities, but real-world adoption will hinge on measurable improvements over existing tools\u2014particularly in domains like protein folding, materials science, and climate modeling where interpretability and precision remain critical bottlenecks.",
+        "detected_model": null,
+        "summary": "Google\u2019s latest model variant, Gemini 3 Deep Think, targets research-grade precision\u2014prioritizing verifiable reasoning over conversational fluidity. The tradeoff? Slower inference and a narrower use case, but early benchmarks suggest it may finally give engineers a model that doesn\u2019t hallucinate critical constants.",
         "selected_image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_deep-think_meta_dark_Fm70Cou.width-1300.png",
         "worth_showing_image": true,
         "image_layout": "WIDE",
@@ -33,19 +34,39 @@
         "cost": 0
       },
       {
+        "original_title": "Show HN: Agent framework that generates its own topology and evolves at runtime",
+        "generated_headline": "Self-Assembling Agents: A Framework That Builds Its Own Architecture, Live",
+        "url": "https://github.com/adenhq/hive/blob/main/README.md",
+        "hn_url": "https://news.ycombinator.com/item?id=46979781",
+        "source": "HackerNews",
+        "score": 106,
+        "significance_score": 78,
+        "category": "Model Release History",
+        "category_id": 3,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "A new agent framework claims to dynamically generate its own topology and evolve at runtime\u2014raising questions about whether such systems can outpace their own debugging cycles, or just create more opaque failure modes. The release, posted to Hacker News without peer review, leans hard on emergent behavior as a feature, not a bug.",
+        "selected_image_url": null,
+        "worth_showing_image": false,
+        "image_layout": "SQUARE",
+        "published": 1770838783,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
         "original_title": "Show HN: A free online British accent generator for instant voice conversion",
-        "generated_headline": "Free Online British Accent Generator Raises Questions on Voice Synthesis Practicality and Ethical Use",
+        "generated_headline": "Free British Accent Generator Raises Questions About Voice Authenticity and Synthetic Speech Proliferation",
         "url": "https://audioconvert.ai/british-accent-generator",
         "hn_url": "https://news.ycombinator.com/item?id=46986614",
         "source": "HackerNews",
         "score": 25,
-        "significance_score": 68,
+        "significance_score": 78,
         "category": "Top Insights & Advice",
         "category_id": 4,
         "confidence": 0.95,
         "detected_model": null,
-        "summary": "A newly released web tool claims to convert any voice recording into a British accent in seconds, leveraging real-time AI voice synthesis. While technically impressive, the tool\u2019s output quality, potential misuse for impersonation, and long-term impact on voice authenticity remain unresolved concerns.",
-        "selected_image_url": "https://audioconvert.ai/assets/og-image.png",
+        "summary": "A no-frills web tool now offers instant British accent conversion for any voice clip, sidestepping traditional dubbing workflows\u2014but its unchecked output risks further eroding trust in audio as a medium, while democratizing accent mimicry for better or worse. The tradeoff: accessibility versus the slow death of vocal provenance.",
+        "selected_image_url": "https://audioconvert.ai/_ipx/w_1280&f_webp&q_80/assets/british-accent-generator/benefit-1.png",
         "worth_showing_image": true,
         "image_layout": "WIDE",
         "published": 1770888317,
@@ -53,7 +74,19 @@
         "cost": 0
       }
     ],
-    "model_releases": []
+    "model_releases": [
+      {
+        "model_name": "Gemini 3",
+        "provider": "Google",
+        "release_type": "Model Release",
+        "title": "Gemini 3 Deep Think",
+        "summary": "",
+        "source": "Unknown",
+        "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/",
+        "hn_url": "https://news.ycombinator.com/item?id=46991240",
+        "published": "2026-02-12T16:55:50+00:00"
+      }
+    ]
   },
   "pages": {
     "1": {
@@ -61,17 +94,17 @@
       "stories": [
         {
           "original_title": "Gemini 3 Deep Think: Advancing science, research and engineering",
-          "generated_headline": "Gemini 3 Deep Think: A Leap for AI-Assisted Research or Another Overpromise?",
+          "generated_headline": "Gemini 3\u2019s \u2018Deep Think\u2019 Mode: A Calculated Gamble on Scientific Rigor",
           "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/",
           "hn_url": "https://news.ycombinator.com/item?id=46990637",
           "source": "HackerNews",
           "score": 29,
-          "significance_score": 78,
+          "significance_score": 87,
           "category": "All Articles",
           "category_id": 1,
           "confidence": 0.95,
-          "detected_model": "Gemini 3 Deep Think",
-          "summary": "Google\u2019s latest Gemini 3 model claims to accelerate scientific discovery and engineering workflows through deeper reasoning capabilities, but real-world adoption will hinge on measurable improvements over existing tools\u2014particularly in domains like protein folding, materials science, and climate modeling where interpretability and precision remain critical bottlenecks.",
+          "detected_model": null,
+          "summary": "Google\u2019s latest model variant, Gemini 3 Deep Think, targets research-grade precision\u2014prioritizing verifiable reasoning over conversational fluidity. The tradeoff? Slower inference and a narrower use case, but early benchmarks suggest it may finally give engineers a model that doesn\u2019t hallucinate critical constants.",
           "selected_image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3_deep-think_meta_dark_Fm70Cou.width-1300.png",
           "worth_showing_image": true,
           "image_layout": "WIDE",
@@ -87,25 +120,46 @@
     },
     "3": {
       "title": "Neural Horizons",
-      "stories": []
+      "stories": [
+        {
+          "original_title": "Show HN: Agent framework that generates its own topology and evolves at runtime",
+          "generated_headline": "Self-Assembling Agents: A Framework That Builds Its Own Architecture, Live",
+          "url": "https://github.com/adenhq/hive/blob/main/README.md",
+          "hn_url": "https://news.ycombinator.com/item?id=46979781",
+          "source": "HackerNews",
+          "score": 106,
+          "significance_score": 78,
+          "category": "Model Release History",
+          "category_id": 3,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "A new agent framework claims to dynamically generate its own topology and evolve at runtime\u2014raising questions about whether such systems can outpace their own debugging cycles, or just create more opaque failure modes. The release, posted to Hacker News without peer review, leans hard on emergent behavior as a feature, not a bug.",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "SQUARE",
+          "published": 1770838783,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        }
+      ]
     },
     "4": {
       "title": "Lab Outputs",
       "stories": [
         {
           "original_title": "Show HN: A free online British accent generator for instant voice conversion",
-          "generated_headline": "Free Online British Accent Generator Raises Questions on Voice Synthesis Practicality and Ethical Use",
+          "generated_headline": "Free British Accent Generator Raises Questions About Voice Authenticity and Synthetic Speech Proliferation",
           "url": "https://audioconvert.ai/british-accent-generator",
           "hn_url": "https://news.ycombinator.com/item?id=46986614",
           "source": "HackerNews",
           "score": 25,
-          "significance_score": 68,
+          "significance_score": 78,
           "category": "Top Insights & Advice",
           "category_id": 4,
           "confidence": 0.95,
           "detected_model": null,
-          "summary": "A newly released web tool claims to convert any voice recording into a British accent in seconds, leveraging real-time AI voice synthesis. While technically impressive, the tool\u2019s output quality, potential misuse for impersonation, and long-term impact on voice authenticity remain unresolved concerns.",
-          "selected_image_url": "https://audioconvert.ai/assets/og-image.png",
+          "summary": "A no-frills web tool now offers instant British accent conversion for any voice clip, sidestepping traditional dubbing workflows\u2014but its unchecked output risks further eroding trust in audio as a medium, while democratizing accent mimicry for better or worse. The tradeoff: accessibility versus the slow death of vocal provenance.",
+          "selected_image_url": "https://audioconvert.ai/_ipx/w_1280&f_webp&q_80/assets/british-accent-generator/benefit-1.png",
           "worth_showing_image": true,
           "image_layout": "WIDE",
           "published": 1770888317,
