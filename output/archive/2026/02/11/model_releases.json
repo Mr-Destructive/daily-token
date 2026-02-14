@@ -1,11 +1,22 @@
 {
   "generated": "2026-02-11T00:00:00",
-  "count": 1,
+  "count": 2,
   "releases": [
     {
       "model_name": "GLM-5",
       "provider": "Zhipu AI",
-      "release_type": "Model Release",
+      "release_type": "Model/API Update",
+      "title": "GLM-5: Targeting complex systems engineering and long-horizon agentic tasks",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://z.ai/blog/glm-5",
+      "hn_url": "https://news.ycombinator.com/item?id=46974853",
+      "published": "2026-02-11T13:42:16+00:00"
+    },
+    {
+      "model_name": "Opus-4.5",
+      "provider": "Zhipu AI",
+      "release_type": "Model/API Update",
       "title": "GLM-5: Targeting complex systems engineering and long-horizon agentic tasks",
       "summary": "",
       "source": "Unknown",

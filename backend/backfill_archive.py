@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Dict, List
 
 from exporter import NewsExporter
-from main import _extract_model_releases
+from main import _attach_hn_comment_signals, _extract_model_releases
 from processor_with_router import NewsProcessorWithRouter
 from scraper import NewsAggregator
 
@@ -163,6 +163,7 @@ def backfill(start: datetime, end: datetime, overwrite: bool = False):
                     }
                 )
 
+            _attach_hn_comment_signals(release_scan_stories, aggregator)
             model_releases = _extract_model_releases(release_scan_stories, edition_ts)
 
             exporter = NewsExporter(

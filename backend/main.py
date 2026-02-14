@@ -65,6 +65,21 @@ MODEL_NAME_RE = re.compile(
     re.IGNORECASE,
 )
 
+GENERIC_VERSIONED_MODEL_RE = re.compile(
+    r"\b([A-Za-z][A-Za-z0-9_-]{1,28}\d(?:\.\d{1,2}){0,2}[A-Za-z0-9_-]*)\b"
+)
+
+MODEL_CONTEXT_TERMS = {
+    "model", "llm", "checkpoint", "weights", "inference", "bench", "benchmark",
+    "card", "api", "reasoning", "multimodal", "frontier", "agentic",
+}
+
+GENERIC_MODEL_STOPWORDS = {
+    "ios", "macos", "python", "linux", "windows", "postgres", "chrome",
+    "android", "airpods", "tesla", "nvidia", "intel", "amd", "github",
+    "but", "from", "jump", "legible", "version", "update", "today",
+}
+
 
 def _parse_story_datetime(story: Dict) -> Optional[datetime]:
     if story.get("time"):
@@ -91,6 +106,104 @@ def _parse_story_datetime(story: Dict) -> Optional[datetime]:
         except Exception:
             pass
     return None
+
+
+def _clean_model_candidate(name: str) -> Optional[str]:
+    candidate = re.sub(r"\s+", " ", (name or "").strip(" -_.,:;()[]{}")).strip()
+    candidate = candidate.replace("_", "-")
+    candidate = re.sub(r"\s*-\s*", "-", candidate)
+    if not candidate:
+        return None
+    if len(candidate) < 3 or len(candidate) > 80:
+        return None
+    lower = candidate.lower()
+    first = lower.split()[0]
+    family_allowlist = {"gpt", "claude", "gemini", "llama", "qwen", "glm", "deepseek", "mistral", "grok", "seed", "opus", "command"}
+    if first in GENERIC_MODEL_STOPWORDS:
+        return None
+    first_alpha = re.sub(r"[^a-z]", "", first)
+    if first_alpha and len(first_alpha) < 3 and first_alpha not in family_allowlist:
+        return None
+    if not candidate[0].isupper() and not candidate[0].isdigit():
+        return None
+    words = candidate.split()
+    if len(words) > 3:
+        return None
+    if len(words) == 3 and words[0].lower() not in {
+        "claude", "gpt", "gemini", "llama", "qwen", "deepseek", "glm", "mistral", "grok", "command", "seed"
+    }:
+        return None
+    if re.match(r"^[A-Za-z]{2,}\s+\d", candidate):
+        candidate = re.sub(r"\s+", "-", candidate, count=1)
+    if not re.search(r"\d", candidate):
+        return None
+    if not re.search(r"[A-Za-z]", candidate):
+        return None
+    return candidate
+
+
+def _extract_model_candidates_from_text(text: str) -> List[str]:
+    if not text:
+        return []
+    found: List[str] = []
+    seen = set()
+    for regex in (MODEL_NAME_RE, GENERIC_VERSIONED_MODEL_RE):
+        for match in regex.finditer(text):
+            cleaned = _clean_model_candidate(match.group(1))
+            if cleaned and cleaned.lower() not in seen:
+                seen.add(cleaned.lower())
+                found.append(cleaned)
+    return found
+
+
+def _extract_model_candidates_from_story(story: Dict) -> List[str]:
+    detected = _clean_model_candidate(story.get("detected_model") or "")
+    title = (story.get("title") or story.get("generated_headline") or story.get("original_title") or "").strip()
+    summary = (story.get("summary") or "").strip()
+    release_signal = (story.get("release_signal_text") or "").strip()
+    url = (story.get("url") or story.get("link") or "").strip()
+    text_blob = " ".join(part for part in [title, summary, release_signal, url] if part)
+
+    candidates: List[str] = []
+    if detected:
+        candidates.append(detected)
+    for candidate in _extract_model_candidates_from_text(text_blob):
+        if candidate.lower() not in {c.lower() for c in candidates}:
+            candidates.append(candidate)
+    return candidates
+
+
+def _attach_hn_comment_signals(stories: List[Dict], aggregator: NewsAggregator, max_items: int = 12) -> None:
+    """Attach condensed HN comment text to likely model-release stories for better detection."""
+    scanned = 0
+    for story in stories:
+        if scanned >= max_items:
+            break
+        title = (story.get("title") or story.get("original_title") or "").lower()
+        url = (story.get("url") or story.get("link") or "").lower()
+        if not story.get("hn_url") and not story.get("id"):
+            continue
+        if not any(term in title or term in url for term in ("model", "llm", "release", "launch", "card", "weights", "gpt", "claude", "gemini", "qwen", "glm", "opus")):
+            continue
+
+        item_id = story.get("id")
+        if not item_id and story.get("hn_url"):
+            m = re.search(r"id=(\d+)", str(story.get("hn_url")))
+            if m:
+                item_id = int(m.group(1))
+        if not item_id:
+            continue
+
+        try:
+            details = aggregator.hn_scraper._get_story(int(item_id))
+            if not details or not details.get("kids"):
+                continue
+            comments = aggregator.hn_scraper.fetch_hn_comments(details["kids"], limit=6)
+            if comments:
+                story["release_signal_text"] = " ".join(comments[:3])
+                scanned += 1
+        except Exception:
+            continue
 
 
 def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[Dict]:
@@ -135,17 +248,25 @@ def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[
         url = (story.get("url") or story.get("link") or "").strip()
         url_lower = url.lower()
         category_id = story.get("category_id")
-        detected_model = (story.get("detected_model") or "").strip()
+        summary = str(story.get("summary", "")).lower()
+        signal = str(story.get("release_signal_text", "")).lower()
+        combined = " ".join([lower, summary, signal, url_lower])
 
-        match = MODEL_NAME_RE.search(title)
-        model_name = detected_model or (match.group(1).strip() if match else "")
-        if not model_name:
+        model_candidates = _extract_model_candidates_from_story(story)
+        if not model_candidates:
             continue
 
-        has_release_language = any(term in lower for term in release_terms) or "model card" in lower
+        has_release_language = (
+            any(term in combined for term in release_terms)
+            or "model card" in combined
+            or "weights" in combined
+            or "checkpoint" in combined
+        )
         from_lab_source = any(hint in source or hint in url_lower for hint in lab_source_hints)
-        categorized_release = str(category_id) == "7" or bool(detected_model)
-        if not (has_release_language or from_lab_source or categorized_release):
+        categorized_release = str(category_id) == "7" or bool(story.get("detected_model"))
+        has_model_context = any(term in combined for term in MODEL_CONTEXT_TERMS)
+        confidence_score = int(has_release_language) + int(from_lab_source) + int(categorized_release) + int(has_model_context)
+        if confidence_score < 2:
             continue
 
         story_dt = _parse_story_datetime(story)
@@ -160,28 +281,29 @@ def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[
                 provider = provider_name
                 break
 
-        key = (model_name.lower(), url or title.lower())
-        if key in seen:
-            continue
-        seen.add(key)
+        for model_name in model_candidates:
+            key = (model_name.lower(), url or title.lower())
+            if key in seen:
+                continue
+            seen.add(key)
 
-        release_type = "Model Release"
-        if any(word in lower for word in ["api", "sdk", "preview", "beta"]):
-            release_type = "Model/API Update"
+            release_type = "Model Release"
+            if any(word in combined for word in ["api", "sdk", "preview", "beta"]):
+                release_type = "Model/API Update"
 
-        releases.append(
-            {
-                "model_name": model_name,
-                "provider": provider,
-                "release_type": release_type,
-                "title": title,
-                "summary": (story.get("summary") or "")[:320],
-                "source": story.get("source", "Unknown"),
-                "source_url": url,
-                "hn_url": story.get("hn_url", ""),
-                "published": story_dt.isoformat() if story_dt else str(story.get("published", "")),
-            }
-        )
+            releases.append(
+                {
+                    "model_name": model_name,
+                    "provider": provider,
+                    "release_type": release_type,
+                    "title": title,
+                    "summary": (story.get("summary") or "")[:320],
+                    "source": story.get("source", "Unknown"),
+                    "source_url": url,
+                    "hn_url": story.get("hn_url", ""),
+                    "published": story_dt.isoformat() if story_dt else str(story.get("published", "")),
+                }
+            )
 
     releases.sort(key=lambda r: (r.get("provider") or "", r.get("model_name") or ""))
     return releases
@@ -331,6 +453,9 @@ def generate_daily_newspaper(skip_fetch: bool = False) -> Dict:
     else:
         editorial = processor.generate_editorial_pass(top_candidates)
     print(f"   ✓ Editor's Note: {editorial.get('editors_note')}")
+
+    print("\n[2e] Mining model-release signals from HN discussions...")
+    _attach_hn_comment_signals(all_stories, aggregator)
 
     edition_dt = datetime.now()
     model_releases = _extract_model_releases(all_stories, edition_dt)
