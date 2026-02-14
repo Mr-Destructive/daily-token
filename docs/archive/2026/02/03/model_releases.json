@@ -1,0 +1,39 @@
+{
+  "generated": "2026-02-03T00:00:00",
+  "count": 3,
+  "releases": [
+    {
+      "model_name": "Qwen3-Coder-Next",
+      "provider": "Alibaba",
+      "release_type": "Model Release",
+      "title": "Qwen3-Coder-Next",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3-coder-next",
+      "hn_url": "https://news.ycombinator.com/item?id=46872706",
+      "published": "2026-02-03T16:01:50+00:00"
+    },
+    {
+      "model_name": "Qwen3-Coder-Next-GGUF",
+      "provider": "Alibaba",
+      "release_type": "Model Release",
+      "title": "Qwen3-Coder-Next",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3-coder-next",
+      "hn_url": "https://news.ycombinator.com/item?id=46872706",
+      "published": "2026-02-03T16:01:50+00:00"
+    },
+    {
+      "model_name": "UD-Q4-K-XL",
+      "provider": "Alibaba",
+      "release_type": "Model Release",
+      "title": "Qwen3-Coder-Next",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3-coder-next",
+      "hn_url": "https://news.ycombinator.com/item?id=46872706",
+      "published": "2026-02-03T16:01:50+00:00"
+    }
+  ]
+}

@@ -1,32 +1,94 @@
 {
   "metadata": {
-    "generated": "2026-02-07T04:18:49.190295",
-    "format_version": "1.0"
+    "generated": "2026-02-06T00:00:00",
+    "format_version": "1.2",
+    "location": "MODEL SQUARE",
+    "editorial": {
+      "main_lead_index": 0,
+      "supporting_lead_indices": [],
+      "editors_note": "Python\u2019s dominance was never about elegance\u2014just inertia\u2014but Rust\u2019s quiet coup via interpreters like Monty suggests the pendulum swings back toward rigor when the stakes do.",
+      "emphasis": "the unsexy, overdue return of systems engineering as AI\u2019s foundation"
+    },
+    "top_candidates": [
+      {
+        "original_title": "Monty: A minimal, secure Python interpreter written in Rust for use by AI",
+        "generated_headline": "Monty: A Rust-Bound Python Interpreter That AI Might Actually Trust",
+        "url": "https://github.com/pydantic/monty",
+        "hn_url": "https://news.ycombinator.com/item?id=46908452",
+        "source": "HackerNews",
+        "score": 25,
+        "significance_score": 87,
+        "category": "Top Insights & Advice",
+        "category_id": 4,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "A new minimalist Python interpreter, *Monty*, written in Rust, promises sandboxed execution for AI workloads\u2014trading Python\u2019s dynamic flexibility for memory safety and deterministic behavior. The catch? It\u2019s a bet on whether AI systems will tolerate the interpreter\u2019s deliberate constraints.",
+        "selected_image_url": "https://camo.githubusercontent.com/da94340d95ce34e16e779627d15b70e3674eebcb8db26a7024cf83a0857594f5/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f707964616e7469632f6d6f6e74792e7376673f763d32",
+        "worth_showing_image": true,
+        "image_layout": "WIDE",
+        "published": 1770346399,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      }
+    ],
+    "model_releases": []
   },
   "pages": {
     "1": {
       "title": "Breaking Vectors",
-      "story_count": 0,
       "stories": []
     },
     "2": {
       "title": "Model Architectures",
-      "story_count": 0,
       "stories": []
     },
     "3": {
       "title": "Neural Horizons",
-      "story_count": 0,
       "stories": []
     },
     "4": {
       "title": "Lab Outputs",
-      "story_count": 0,
-      "stories": []
+      "stories": [
+        {
+          "original_title": "Monty: A minimal, secure Python interpreter written in Rust for use by AI",
+          "generated_headline": "Monty: A Rust-Bound Python Interpreter That AI Might Actually Trust",
+          "url": "https://github.com/pydantic/monty",
+          "hn_url": "https://news.ycombinator.com/item?id=46908452",
+          "source": "HackerNews",
+          "score": 25,
+          "significance_score": 87,
+          "category": "Top Insights & Advice",
+          "category_id": 4,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "A new minimalist Python interpreter, *Monty*, written in Rust, promises sandboxed execution for AI workloads\u2014trading Python\u2019s dynamic flexibility for memory safety and deterministic behavior. The catch? It\u2019s a bet on whether AI systems will tolerate the interpreter\u2019s deliberate constraints.",
+          "selected_image_url": "https://camo.githubusercontent.com/da94340d95ce34e16e779627d15b70e3674eebcb8db26a7024cf83a0857594f5/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f707964616e7469632f6d6f6e74792e7376673f763d32",
+          "worth_showing_image": true,
+          "image_layout": "WIDE",
+          "published": 1770346399,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        }
+      ]
     },
     "5": {
       "title": "Inference Corner",
-      "story_count": 0,
+      "stories": []
+    },
+    "6": {
+      "title": "AI & LLM Overview",
+      "stories": []
+    },
+    "7": {
+      "title": "Model Release History",
+      "stories": []
+    },
+    "8": {
+      "title": "Top Insights & Advice",
+      "stories": []
+    },
+    "9": {
+      "title": "Lab Updates & Dark Side",
       "stories": []
     }
   }

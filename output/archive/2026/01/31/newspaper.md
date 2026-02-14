@@ -1,201 +1,51 @@
-# Daily AI Newspaper
-_Generated: 2026-02-02T17:45:30.806742_
+# The Daily Token
 
-## Page 1: Breaking Vectors
+Edition: 2026-01-31
 
-### 1. Critical Moltbot Vulnerability Exposes User Data to Remote Code Execution Attacks
+## Editor's Note
+The tools we build now write the code we once prided ourselves on crafting—yet the real question isn’t whether they can, but whether we’ll remember how to ask why.
 
-**Source:** HackerNews
-**Link:** https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys
-**Discuss on HN:** https://news.ycombinator.com/item?id=46848769
-**Category:** Breaking Vectors
+## The Front Page
 
-A newly discovered security flaw allows attackers to steal sensitive Moltbot data and keys with a single click, putting countless users at risk of exploitation.
+### "We Don’t Code Anymore": Top AI Labs Admit Engineers Now Ship 100% Machine-Written Systems
+Source: https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/
+HN: https://news.ycombinator.com/item?id=46832081
+Senior engineers at Anthropic and OpenAI report that all production code is now authored by AI, raising questions about long-term maintainability and the unspoken tradeoff between velocity and technical debt. The shift, described as 'inescapable,' arrives without public benchmarks for correctness or failure modes.
 
----
+### When the Model Becomes the Medium: An AI’s Unwilling Debut as Gallery Art (2025)
+Source: https://www.youtube.com/watch?v=7fNYj0EXxMs
+HN: https://news.ycombinator.com/item?id=46830523
+An artist repurposed a commercial LLM as the centerpiece of an interactive installation—raising questions about consent in generative systems and whether models, once deployed, can ever truly be *off-duty*. The piece’s viral reception forced a quiet policy update from the model’s provider.
 
-## Page 2: Model Architectures
+### A 9M-Parameter Model Outperforms Tutors in Mandarin Tone Correction—At What Cost?
+Source: https://simedw.com/2026/01/31/ear-pronunication-via-ctc/
+HN: https://news.ycombinator.com/item?id=46832074
+An independent researcher trained a lightweight speech model to diagnose and correct Mandarin tonal errors with CTC alignment, achieving near-native precision—but the approach leans heavily on a single speaker’s data, raising questions about generalization. The work quietly exposes how niche linguistic tasks are slipping from human experts to ad-hoc neural nets, with no clear path for maintenance or bias audits.
 
-### 1. Breakthrough in AI Autonomy: Zuckerman Emerges as a Game-Changer in Self-Editing Code Agents
+### "Good Enough" Language Practice: Solo Dev’s AI Chatbot Fills the Gap Left by Duolingo’s Silence
+Source: https://apps.apple.com/us/app/talkbits-speak-naturally/id6756824177
+HN: https://news.ycombinator.com/item?id=46830698
+A lone engineer’s weekend project—a conversational AI tuned for language drills—exposes how thin the market still is for tools that force users to *speak* instead of tap. The tradeoff? Its voice recognition stumbles on non-Western accents, a reminder that "democratized" often still means "optimized for English first."
 
-**Source:** HackerNews
-**Link:** https://github.com/zuckermanai/zuckerman
-**Discuss on HN:** https://news.ycombinator.com/item?id=46846210
-**Category:** Model Architectures
+### Krita’s Generative AI Plugin: A Brushstroke Between Craft and Automation
+Source: https://github.com/Acly/krita-ai-diffusion
+HN: https://news.ycombinator.com/item?id=46832979
+The open-source Krita plugin *krita-ai-diffusion* embeds Stable Diffusion directly into the digital painting workflow, letting artists generate, inpainting, or refine regions with AI—while quietly raising the question of whether tooling like this erodes manual skill or merely accelerates iteration. Early screenshots suggest a functional but visually unpolished integration, with the usual tradeoff: speed for creative agency.
 
-Zuckerman is a minimalist personal AI agent that pushes the boundaries of AI autonomy by self-editing its own code, potentially revolutionizing the way AI models are developed and deployed.
+### 175,000+ Ollama Instances Left Exposed—Another Case of Convenience Over Craft
+Source: https://www.techradar.com/pro/security/over-175-000-publicly-exposed-ollama-ai-servers-discovered-worldwide-so-fix-now
+HN: https://news.ycombinator.com/item?id=46831784
+Security researchers uncovered over 175,000 publicly accessible Ollama AI instances, many running outdated models with no authentication. The pattern echoes a familiar tradeoff: rapid deployment tools outpacing basic operational discipline, leaving yet another attack surface for low-effort exploitation.
 
----
+### Openclaw Exploits Oracle’s Free Tier to Run AI 24/7—At What Cost?
+Source: https://ryanshook.org/blog/posts/openclaw-on-oracle-free-tier-always-on-ai-for-free/
+HN: https://news.ycombinator.com/item?id=46832520
+A lab experiment demonstrates how to bypass Oracle’s free-tier limits to keep lightweight AI models running indefinitely, raising questions about cloud providers’ ability—or willingness—to police resource arbitrage. The trick relies on ephemeral storage and a shell game of instance cycling, but the real story is whether this is a feature or a flaw in the making.
 
-## Page 3: Neural Horizons
+## AI & LLM Overview
 
-### 1. Breakthrough in AI Model Development: New Techniques Emerge for Enhanced Performance
+## Model Release History
 
-**Source:** ollama
-**Link:** https://github.com/ollama/ollama
-**Category:** Neural Horizons
+## Top Insights & Advice
 
-Researchers have made significant strides in AI model development, introducing innovative methods to boost performance and efficiency. These advancements are expected to have far-reaching implications for various industries.
-
----
-
-### 2. Neural Horizons: Unveiling the Future of AI Model Development
-
-**Source:** ollama
-**Link:** https://ollama.com/search
-**Category:** Neural Horizons
-
-"Discover the latest advancements in AI model development, as showcased in the Neural Horizons category, and explore the innovative approaches shaping the future of artificial intelligence. From cutting-edge models to expert insights, stay ahead of the curve with the latest news and updates."
-
----
-
-### 3. Hybrid Quantum Networks Revolutionize Earth Observation Data Classification
-
-**Source:** arxiv_lg
-**Link:** https://arxiv.org/abs/2601.22195
-**Category:** Neural Horizons
-
-Researchers explore the potential of quantum machine learning to tackle computation challenges in Earth observation data classification, proposing a multitask learning approach with hybrid quantum networks.
-
----
-
-## Page 4: Lab Outputs
-
-### 1. Domain Features Outperform Transformers in Emotion Recognition Study
-
-**Source:** arxiv_lg
-**Link:** https://arxiv.org/abs/2601.22161
-**Category:** Lab Outputs
-
-Researchers investigate the efficacy of attention mechanisms in multimodal emotion recognition, finding that domain features yield better results on the EAV dataset.
-
----
-
-### 2. Neural Signals Translate into Clinical Notes: AI Breakthrough in EEG Analysis
-
-**Source:** arxiv_lg
-**Link:** https://arxiv.org/abs/2601.22197
-**Category:** Lab Outputs
-
-Researchers have developed an AI system that generates clinical reports from long-term EEG recordings, streamlining the diagnosis process and improving patient care.
-
----
-
-### 3. Unlocking the Secrets of Scalable AI: Researchers Uncover Key to Building Effective Agent Systems
-
-**Source:** HackerNews
-**Link:** https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46847958
-**Category:** Lab Outputs
-
-A new study sheds light on the science of scaling agent systems, revealing crucial insights into when and why these systems succeed or fail. The findings have significant implications for the development of more efficient and reliable AI applications.
-
----
-
-### 4. Advancements in Egocentric Video Prediction: Whole-Body Conditioned Models
-
-**Source:** bair
-**Link:** http://bair.berkeley.edu/blog/2025/07/01/peva/
-**Category:** Lab Outputs
-
-Researchers have made significant breakthroughs in predicting egocentric video sequences using whole-body conditioned models, paving the way for improved augmented reality and robotics applications. This innovative approach enables more accurate forecasting of human movements and interactions.
-
----
-
-### 5. Breaking Down Digital Walls: Microsoft Envisions Open Agentic Economy for AI-Driven Commerce
-
-**Source:** microsoft_ai
-**Link:** https://news.microsoft.com/signal/articles/open-digital-markets-agentic-economy/
-**Category:** Lab Outputs
-
-Microsoft researchers propose an open agentic economy where AI agents can interact freely, promoting innovation and competition in digital markets. This vision aims to shift power from walled gardens to a decentralized ecosystem, benefiting both businesses and individuals.
-
----
-
-### 6. Apple's MacBook Pro DFU Port Documentation Found to be Incorrect, Causing Update Issues
-
-**Source:** HackerNews
-**Link:** https://lapcatsoftware.com/articles/2026/2/1.html
-**Discuss on HN:** https://news.ycombinator.com/item?id=46852096
-**Category:** Lab Outputs
-
-A developer discovered that Apple's documentation for the Device Firmware Update (DFU) port on MacBook Pro models with Apple silicon is incorrect, leading to failed macOS updates and other issues. The mistake has caused frustration among users who have struggled to update their systems.
-
----
-
-### 7. Stem Cell Senescence: The Trade-Off Between Rapid Repair and Longevity
-
-**Source:** HackerNews
-**Link:** https://phys.org/news/2026-01-sprint-marathon-aging-muscle-stem.html
-**Discuss on HN:** https://news.ycombinator.com/item?id=46847746
-**Category:** Lab Outputs
-
-Researchers have discovered that aging muscle stem cells undergo a shift in priority from rapid tissue repair to long-term survival, potentially contributing to the decline in muscle regeneration associated with aging. This finding may have implications for the development of therapies aimed at maintaining muscle health in older adults.
-
----
-
-## Page 5: Inference Corner
-
-### 1. OpenClaw Launches Prompt Injection Firewall to Safeguard AI Agents
-
-**Source:** HackerNews
-**Link:** https://github.com/ContextFort-AI/clawdbot-runtime-controls
-**Discuss on HN:** https://news.ycombinator.com/item?id=46854807
-**Category:** Inference Corner
-
-The new firewall solution protects OpenClaw agents from prompt injection attacks, ensuring the security and reliability of AI-driven applications.
-
----
-
-### 2. iPhone 16 Pro Max MLX LLM Performance Issues Spark Concerns Among Developers
-
-**Source:** HackerNews
-**Link:** https://journal.rafaelcosta.me/my-thousand-dollar-iphone-cant-do-math/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46849258
-**Category:** Inference Corner
-
-Users report garbage output when running MLX large language models on the iPhone 16 Pro Max, raising questions about device capability and software optimization. Further investigation is needed to determine the cause and potential fixes.
-
----
-
-### 3. Local LLMs Meet PostgreSQL: Building Conversational Interfaces for Database Querying
-
-**Source:** HackerNews
-**Link:** https://mljar.com/blog/chatbot-python-postgresql-local-llm/
-**Discuss on HN:** https://news.ycombinator.com/item?id=46854722
-**Category:** Inference Corner
-
-This article explores the integration of local Large Language Models with PostgreSQL databases, enabling users to interact with their data through conversational interfaces. The approach leverages Python and open-source tools for a seamless user experience.
-
----
-
-### 4. Taisei Corporation Harnesses Generative AI to Revolutionize Talent Development
-
-**Source:** openai
-**Link:** https://openai.com/index/taisei
-**Category:** Inference Corner
-
-Taisei Corporation leverages ChatGPT Enterprise to drive HR-led talent development and scale generative AI across its global construction business, setting a new benchmark for industry innovation.
-
----
-
-### 5. Streamlining ModelOps with Amazon SageMaker's S3-Based Templates
-
-**Source:** aws_ai
-**Link:** https://aws.amazon.com/blogs/machine-learning/simplify-modelops-with-amazon-sagemaker-ai-projects-using-amazon-s3-based-templates/
-**Category:** Inference Corner
-
-Amazon SageMaker's new S3-based templates simplify ModelOps workflows, offering a more efficient alternative to Service Catalog approaches. This innovation enhances deployment and management of machine learning models.
-
----
-
-### 6. NanoClaw: A Lightweight, Isolated Clawdbot Implementation in 500 Lines of TypeScript
-
-**Source:** HackerNews
-**Link:** https://github.com/gavrielc/nanoclaw
-**Discuss on HN:** https://news.ycombinator.com/item?id=46850205
-**Category:** Inference Corner
-
-"NanoClaw is a novel, compact Clawdbot implementation leveraging Apple container isolation, developed in just 500 lines of TypeScript. This project showcases innovative approaches to efficient and secure bot development."
-
----
+## Lab Updates & Dark Side
