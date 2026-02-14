@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Dict, List, Optional
+from urllib.parse import urlparse
 
 # Load .env from repo root and backend/ so vars are available.
 try:
@@ -73,6 +74,44 @@ MODEL_CONTEXT_TERMS = {
     "model", "llm", "checkpoint", "weights", "inference", "bench", "benchmark",
     "card", "api", "reasoning", "multimodal", "frontier", "agentic",
 }
+
+OFFICIAL_RELEASE_DOMAINS = (
+    "openai.com",
+    "anthropic.com",
+    "deepmind.google",
+    "ai.google.dev",
+    "research.google",
+    "huggingface.co",
+    "x.ai",
+    "mistral.ai",
+    "cohere.com",
+    "meta.com",
+    "ai.meta.com",
+    "developer.nvidia.com",
+    "nvidianews.nvidia.com",
+    "aws.amazon.com",
+    "deepseek.com",
+    "moonshot.ai",
+    "z.ai",
+    "zhipuai.cn",
+    "qwen.ai",
+)
+
+NON_RELEASE_HINTS = (
+    "benchmark",
+    "leaderboard",
+    "review",
+    "how to",
+    "tutorial",
+    "prompt",
+    "comparison",
+    "compare",
+    "vs",
+    "using",
+    "with",
+    "agent arena",
+    "show hn",
+)
 
 GENERIC_MODEL_STOPWORDS = {
     "ios", "macos", "python", "linux", "windows", "postgres", "chrome",
@@ -173,6 +212,19 @@ def _extract_model_candidates_from_story(story: Dict) -> List[str]:
     return candidates
 
 
+def _domain_from_url(url: str) -> str:
+    try:
+        return urlparse(url).netloc.lower().lstrip("www.")
+    except Exception:
+        return ""
+
+
+def _is_official_release_domain(domain: str) -> bool:
+    if not domain:
+        return False
+    return any(domain == root or domain.endswith(f".{root}") for root in OFFICIAL_RELEASE_DOMAINS)
+
+
 def _attach_hn_comment_signals(stories: List[Dict], aggregator: NewsAggregator, max_items: int = 12) -> None:
     """Attach condensed HN comment text to likely model-release stories for better detection."""
     scanned = 0
@@ -247,6 +299,7 @@ def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[
         source = str(story.get("source", "")).lower()
         url = (story.get("url") or story.get("link") or "").strip()
         url_lower = url.lower()
+        domain = _domain_from_url(url)
         category_id = story.get("category_id")
         summary = str(story.get("summary", "")).lower()
         signal = str(story.get("release_signal_text", "")).lower()
@@ -256,28 +309,47 @@ def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[
         if not model_candidates:
             continue
 
-        has_release_language = (
-            any(term in combined for term in release_terms)
-            or "model card" in combined
-            or "weights" in combined
-            or "checkpoint" in combined
-        )
+        has_release_language = any(term in combined for term in release_terms)
+        has_release_title = any(term in lower for term in release_terms)
+        has_release_url_path = bool(re.search(r"/(news|blog|index|announcements?|releases?|introducing|launch)", url_lower))
+        has_release_artifact = any(term in combined for term in ("model card", "weights", "checkpoint"))
         from_lab_source = any(hint in source or hint in url_lower for hint in lab_source_hints)
         categorized_release = str(category_id) == "7" or bool(story.get("detected_model"))
         has_model_context = any(term in combined for term in MODEL_CONTEXT_TERMS)
-        confidence_score = int(has_release_language) + int(from_lab_source) + int(categorized_release) + int(has_model_context)
-        if confidence_score < 2:
+        looks_non_release = any(term in lower for term in NON_RELEASE_HINTS)
+        official_domain = _is_official_release_domain(domain)
+
+        # Avoid assigning release dates from generic mentions.
+        if looks_non_release and not official_domain:
             continue
 
         story_dt = _parse_story_datetime(story)
-        if story_dt:
-            if story_dt.date() != edition_day.date():
-                continue
+        # Release history must be date-resolved; unknown timestamps are too ambiguous.
+        if not story_dt or story_dt.date() != edition_day.date():
+            continue
+
+        confidence_score = (
+            int(has_release_language or has_release_artifact)
+            + int(from_lab_source)
+            + int(categorized_release)
+            + int(has_model_context)
+            + int(official_domain)
+            + int(has_release_title or has_release_url_path)
+        )
+        # Minimum confirmation:
+        # - official post with release cues, or
+        # - otherwise, very strong multi-signal evidence.
+        confirmed_release = (
+            (official_domain and (has_release_language or has_release_artifact) and (has_release_title or has_release_url_path))
+            or confidence_score >= 5
+        )
+        if not confirmed_release:
+            continue
 
         provider = "Unknown"
 
         for hint, provider_name in MODEL_PROVIDER_HINTS.items():
-            if hint in lower or hint in source or hint in url_lower:
+            if hint in lower or hint in source or hint in domain or hint in url_lower:
                 provider = provider_name
                 break
 
@@ -307,6 +379,103 @@ def _extract_model_releases(stories: List[Dict], edition_day: datetime) -> List[
 
     releases.sort(key=lambda r: (r.get("provider") or "", r.get("model_name") or ""))
     return releases
+
+
+def _load_timeline_releases_for_day(edition_day: datetime) -> List[Dict]:
+    """Load curated timeline releases for a specific date (if available)."""
+    backend_dir = Path(__file__).resolve().parent
+    candidate_files = [
+        backend_dir / "model_release_timeline_manual.json",
+        backend_dir / "llm_releases_full.json",
+    ]
+
+    loaded: List[Dict] = []
+    for path in candidate_files:
+        if not path.exists():
+            continue
+        try:
+            with open(path, "r") as f:
+                payload = json.load(f)
+            rows = payload.get("releases", payload if isinstance(payload, list) else [])
+            if not isinstance(rows, list):
+                continue
+
+            for row in rows:
+                if not isinstance(row, dict):
+                    continue
+                dt = _parse_story_datetime(row) or _parse_story_datetime(
+                    {
+                        "published": row.get("releaseDate") or row.get("release_date") or row.get("date")
+                    }
+                )
+                if not dt or dt.date() != edition_day.date():
+                    continue
+
+                model_name = (
+                    row.get("model_name")
+                    or row.get("name")
+                    or row.get("model")
+                    or ""
+                )
+                model_name = _clean_model_candidate(str(model_name))
+                if not model_name:
+                    continue
+
+                provider = str(
+                    row.get("provider")
+                    or row.get("company")
+                    or row.get("org")
+                    or "Unknown"
+                ).strip() or "Unknown"
+                title = str(row.get("title") or row.get("name") or model_name).strip()
+                source_url = str(
+                    row.get("source_url")
+                    or row.get("url")
+                    or row.get("blog_url")
+                    or row.get("model_card_url")
+                    or ""
+                ).strip()
+                summary = str(row.get("summary") or "").strip()[:320]
+
+                loaded.append(
+                    {
+                        "model_name": model_name,
+                        "provider": provider,
+                        "release_type": "Model Release",
+                        "title": title,
+                        "summary": summary,
+                        "source": "timeline",
+                        "source_url": source_url,
+                        "hn_url": "",
+                        "published": dt.isoformat(),
+                    }
+                )
+        except Exception:
+            continue
+
+    return loaded
+
+
+def _merge_model_releases(primary: List[Dict], secondary: List[Dict]) -> List[Dict]:
+    """Merge releases and dedupe by model/provider/date/source URL."""
+    merged: List[Dict] = []
+    seen = set()
+
+    for item in list(primary or []) + list(secondary or []):
+        if not isinstance(item, dict):
+            continue
+        model = str(item.get("model_name") or "").strip().lower()
+        provider = str(item.get("provider") or "").strip().lower()
+        date_key = str(item.get("published") or "")[:10]
+        url = str(item.get("source_url") or "").strip().lower()
+        key = (model, provider, date_key, url)
+        if not model or key in seen:
+            continue
+        seen.add(key)
+        merged.append(item)
+
+    merged.sort(key=lambda r: (r.get("provider") or "", r.get("model_name") or ""))
+    return merged
 
 
 def archive_previous_current_edition(repo_root: Path) -> Optional[Path]:
@@ -459,6 +628,8 @@ def generate_daily_newspaper(skip_fetch: bool = False) -> Dict:
 
     edition_dt = datetime.now()
     model_releases = _extract_model_releases(all_stories, edition_dt)
+    timeline_releases = _load_timeline_releases_for_day(edition_dt)
+    model_releases = _merge_model_releases(model_releases, timeline_releases)
     print(f"   ✓ Model releases detected: {len(model_releases)}")
 
     print("\n[3/5] Organizing into 5-page newspaper...")

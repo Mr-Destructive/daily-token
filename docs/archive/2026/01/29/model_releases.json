@@ -1,5 +1,28 @@
 {
   "generated": "2026-01-29T00:00:00",
-  "count": 0,
-  "releases": []
+  "count": 2,
+  "releases": [
+    {
+      "model_name": "GPT-4.1",
+      "provider": "OpenAI",
+      "release_type": "Model/API Update",
+      "title": "Retiring GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini in ChatGPT",
+      "summary": "On February 13, 2026, alongside the previously announced retirement\u2060 of GPT\u20115 (Instant, Thinking, and Pro), we will retire GPT\u20114o, GPT\u20114.1, GPT\u20114.1 mini, and OpenAI o4-mini from ChatGPT. In the API, t",
+      "source": "openai",
+      "source_url": "https://openai.com/index/retiring-gpt-4o-and-older-models",
+      "hn_url": "",
+      "published": "2026-01-29T00:00:00+00:00"
+    },
+    {
+      "model_name": "GPT-4o",
+      "provider": "OpenAI",
+      "release_type": "Model/API Update",
+      "title": "Retiring GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini in ChatGPT",
+      "summary": "On February 13, 2026, alongside the previously announced retirement\u2060 of GPT\u20115 (Instant, Thinking, and Pro), we will retire GPT\u20114o, GPT\u20114.1, GPT\u20114.1 mini, and OpenAI o4-mini from ChatGPT. In the API, t",
+      "source": "openai",
+      "source_url": "https://openai.com/index/retiring-gpt-4o-and-older-models",
+      "hn_url": "",
+      "published": "2026-01-29T00:00:00+00:00"
+    }
+  ]
 }

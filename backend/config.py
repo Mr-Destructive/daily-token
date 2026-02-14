@@ -61,12 +61,19 @@ AI_KEYWORDS = [
 # ============================================================================
 # SCRAPER CONFIGURATION
 # ============================================================================
+HACKERNEWS_STORY_LIMIT = 100
+
 RSS_FEEDS = {
     # AI Hubs
     "openai": "https://openai.com/news/rss.xml",
     "anthropic": "https://www.anthropic.com/feed.xml",
     "deepmind": "https://deepmind.google/blog/feed/",
+    "google_research": "https://research.google/blog/rss/",
     "huggingface": "https://huggingface.co/blog/feed.xml",
+    "microsoft_ai": "https://news.microsoft.com/source/topics/ai/feed/",
+    "nvidia_developer": "https://developer.nvidia.com/blog/feed",
+    "nvidia_press": "https://nvidianews.nvidia.com/releases.xml",
+    "aws_ai": "https://aws.amazon.com/blogs/ai/feed/",
     
     # Tech News AI Sections
     "techcrunch_ai": "https://techcrunch.com/category/artificial-intelligence/feed/",
@@ -78,6 +85,20 @@ RSS_FEEDS = {
     # Research
     "arxiv_ai": "https://arxiv.org/rss/cs.AI",
     "bair": "https://bair.berkeley.edu/blog/feed.xml",
+}
+RSS_STORIES_PER_FEED = 8
+
+# Labs/pages without stable RSS where we use lightweight scraping fallback
+LABS_TO_SCRAPE = {
+    "anthropic": "https://www.anthropic.com/news",
+    "mistral": "https://mistral.ai/news",
+    "cohere": "https://cohere.com/blog",
+    "deepseek": "https://deepseek.com/news",
+    "xai": "https://x.ai/blog",
+    "moonshot": "https://www.moonshot.ai/news",
+    "alibaba": "https://damo.alibaba.com/blog",
+    "baidu": "https://research.baidu.com/blog",
+    "ollama": "https://ollama.com/blog",
 }
 
 # Specific keywords to force Model Release categorization (Page 3)

@@ -2,60 +2,40 @@
   "metadata": {
     "generated": "2026-01-29T00:00:00",
     "format_version": "1.2",
-    "location": "MODEL SQUARE",
+    "location": "TENSOR CITY",
     "editorial": {
       "main_lead_index": 0,
       "supporting_lead_indices": [
-        2,
+        1,
         3
       ],
-      "editors_note": "The quiet rebellion against AI bloat isn\u2019t nostalgia\u2014it\u2019s the only thing keeping the lights on while the rest of the industry chases mirages.",
-      "emphasis": "The backlash against AI overreach in core infrastructure"
+      "editors_note": "The rush to automate craft risks building cathedrals on quicksand\u2014yet the quiet rebels remind us that elegance still has a pulse.",
+      "emphasis": "The tension between scale and precision in AI infrastructure"
     },
     "top_candidates": [
       {
-        "original_title": "Jellyfin LLM/\"AI\" Development Policy",
-        "generated_headline": "Jellyfin Draws a Line: No LLM Bloat in Media Servers, Just Code That Works",
-        "url": "https://jellyfin.org/docs/general/contributing/llm-policies/",
-        "hn_url": "https://news.ycombinator.com/item?id=46801976",
-        "source": "HackerNews",
-        "score": 207,
-        "significance_score": 87,
-        "category": "Top Insights & Advice",
-        "category_id": 4,
-        "confidence": 0.85,
+        "original_title": "Inside OpenAI\u2019s in-house data agent",
+        "generated_headline": "OpenAI\u2019s GPT-5 Data Agent: Speed for Scale, at What Cost to Craft?",
+        "url": "https://openai.com/index/inside-our-in-house-data-agent",
+        "hn_url": "",
+        "source": "openai",
+        "score": 0,
+        "significance_score": 88,
+        "category": "All Articles",
+        "category_id": 1,
+        "confidence": 0.95,
         "detected_model": null,
-        "summary": "The open-source media server project explicitly rejects AI/ML integration as 'solutionism,' doubling down on maintainability over hype. A rare holdout in an ecosystem drowning in unnecessary complexity\u2014though their stance risks alienating the 'move fast' crowd.",
+        "summary": "OpenAI\u2019s internal agent\u2014stitched together from GPT-5, Codex, and synthetic memory\u2014now chews through petabyte-scale datasets in minutes, trading interpretability for velocity. The unanswered question: whether \u2018reliable insights\u2019 can outrun the technical debt of black-box reasoning.",
         "selected_image_url": null,
         "worth_showing_image": false,
-        "image_layout": "SQUARE",
-        "published": 1769636523,
-        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
-        "cost": 0
-      },
-      {
-        "original_title": "Benchmarking OpenTelemetry: Can AI trace your failed login?",
-        "generated_headline": "OpenTelemetry\u2019s AI Trace Benchmarks: Debugging Logins or Just More Noise?",
-        "url": "https://quesma.com/blog/introducing-otel-bench/",
-        "hn_url": "https://news.ycombinator.com/item?id=46811588",
-        "source": "HackerNews",
-        "score": 144,
-        "significance_score": 87,
-        "category": "Lab Updates & Dark Side",
-        "category_id": 5,
-        "confidence": 0.85,
-        "detected_model": null,
-        "summary": "A new lab report dissects OpenTelemetry\u2019s AI-driven tracing capabilities, revealing it can pinpoint failed logins with unsettling precision\u2014while quietly exposing the cost-performance tradeoffs that might make ops teams reconsider their observability budgets. The usual suspects (latency, false positives) lurk beneath the surface.",
-        "selected_image_url": "https://quesma.com/_astro/cost_vs_performance.BoPEo92o_ZSVRKt.webp",
-        "worth_showing_image": true,
         "image_layout": "WIDE",
-        "published": 1769701041,
+        "published": "Thu, 29 Jan 2026 10:00:00 GMT",
         "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
         "cost": 0
       },
       {
         "original_title": "Claude Code daily benchmarks for degradation tracking",
-        "generated_headline": "Claude Code\u2019s Benchmarking Gambit: A Quiet Bid to Outrun Its Own Decay",
+        "generated_headline": "Claude Code\u2019s Benchmarking Gambit: Tracking Degradation in Real Time",
         "url": "https://marginlab.ai/trackers/claude-code/",
         "hn_url": "https://news.ycombinator.com/item?id=46810282",
         "source": "HackerNews",
@@ -65,11 +45,31 @@
         "category_id": 4,
         "confidence": 0.95,
         "detected_model": null,
-        "summary": "Anthropic\u2019s daily degradation tracking for Claude Code isn\u2019t just maintenance\u2014it\u2019s an admission that even flagship models fray at the edges under real-world use. The move risks exposing how little we understand about why performance drifts, or whether it\u2019s fixable without sacrificing speed.",
+        "summary": "Anthropic\u2019s Claude Code now publishes daily performance benchmarks\u2014a rare move toward transparency in an industry where model drift often goes unmeasured. The tradeoff? Public scrutiny may pressure teams to optimize for benchmarks rather than real-world robustness.",
         "selected_image_url": "https://marginlab.ai/og-image.png",
-        "worth_showing_image": false,
+        "worth_showing_image": true,
         "image_layout": "WIDE",
         "published": 1769695147,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
+        "original_title": "Benchmarking OpenTelemetry: Can AI trace your failed login?",
+        "generated_headline": "OpenTelemetry\u2019s AI Trace Limits: Where Debugging Meets Noise",
+        "url": "https://quesma.com/blog/introducing-otel-bench/",
+        "hn_url": "https://news.ycombinator.com/item?id=46811588",
+        "source": "HackerNews",
+        "score": 144,
+        "significance_score": 82,
+        "category": "Top Insights & Advice",
+        "category_id": 4,
+        "confidence": 0.85,
+        "detected_model": null,
+        "summary": "A new benchmark reveals OpenTelemetry\u2019s AI-assisted tracing can pinpoint failed logins\u2014but only if you tolerate 30% false positives in high-concurrency systems. The tradeoff? Precision drops as cardinality rises, leaving ops teams to choose between alert fatigue and missed anomalies.",
+        "selected_image_url": "https://quesma.com/_astro/cost_vs_performance.BoPEo92o_ZSVRKt.webp",
+        "worth_showing_image": true,
+        "image_layout": "WIDE",
+        "published": 1769701041,
         "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
         "cost": 0
       },
@@ -85,7 +85,7 @@
         "category_id": 4,
         "confidence": 0.95,
         "detected_model": null,
-        "summary": "Cloudflare\u2019s new open-source agent, Moltworker, strips away the 'mini-agent' hype in favor of a lean, self-hosted tool\u2014useful for engineers who\u2019d rather debug their own workflows than outsource to a black box. The tradeoff? It\u2019s still a gamble on whether users will tolerate the friction of self-hosting over convenience.",
+        "summary": "Cloudflare\u2019s new open-source agent, Moltworker, strips away the 'mini-agent' hype in favor of a self-contained, locally deployable tool\u2014useful for engineers tired of vendor lock-in, though its narrow scope may limit broader adoption. The tradeoff? It\u2019s a tool for tinkerers, not a turnkey solution.",
         "selected_image_url": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/50LUcxsxkxczfIwcqCO13r/ed5a7074fb7a85fb88306d04db2426cb/Introducing_Moltworker-_a_self-hosted_personal_AI_agent__minus_the_minis-OG.png",
         "worth_showing_image": true,
         "image_layout": "WIDE",
@@ -95,31 +95,75 @@
       },
       {
         "original_title": "Project Genie: Experimenting with infinite, interactive worlds",
-        "generated_headline": "Google\u2019s Project Genie: A Sandbox for Infinite Worlds, or Just Another Distraction?",
+        "generated_headline": "Project Genie: Experimenting with infinite, interactive worlds",
         "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/",
         "hn_url": "https://news.ycombinator.com/item?id=46812933",
         "source": "HackerNews",
         "score": 675,
-        "significance_score": 78,
+        "significance_score": 50,
         "category": "Model Release History",
         "category_id": 3,
         "confidence": 0.95,
         "detected_model": null,
-        "summary": "DeepMind\u2019s latest experiment lets users generate and interact with unbounded 2D environments\u2014raising questions about whether this is a leap toward general-world simulation or merely a polished tech demo with no clear application. The tradeoff? Real-time generation demands heavy compute, and the \u2018infinite\u2019 promise may collide with the hard limits of user attention spans.",
+        "summary": "",
         "selected_image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/2025-Travel-Trends_hero.width-300.format-webp.webp",
         "worth_showing_image": false,
-        "image_layout": "WIDE",
+        "image_layout": "SQUARE",
         "published": 1769706159,
-        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "model_used": "Cat: Free-Chatbot, Sum: None",
         "cost": 0
       }
     ],
-    "model_releases": []
+    "model_releases": [
+      {
+        "model_name": "GPT-4.1",
+        "provider": "OpenAI",
+        "release_type": "Model/API Update",
+        "title": "Retiring GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini in ChatGPT",
+        "summary": "On February 13, 2026, alongside the previously announced retirement\u2060 of GPT\u20115 (Instant, Thinking, and Pro), we will retire GPT\u20114o, GPT\u20114.1, GPT\u20114.1 mini, and OpenAI o4-mini from ChatGPT. In the API, t",
+        "source": "openai",
+        "source_url": "https://openai.com/index/retiring-gpt-4o-and-older-models",
+        "hn_url": "",
+        "published": "2026-01-29T00:00:00+00:00"
+      },
+      {
+        "model_name": "GPT-4o",
+        "provider": "OpenAI",
+        "release_type": "Model/API Update",
+        "title": "Retiring GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini in ChatGPT",
+        "summary": "On February 13, 2026, alongside the previously announced retirement\u2060 of GPT\u20115 (Instant, Thinking, and Pro), we will retire GPT\u20114o, GPT\u20114.1, GPT\u20114.1 mini, and OpenAI o4-mini from ChatGPT. In the API, t",
+        "source": "openai",
+        "source_url": "https://openai.com/index/retiring-gpt-4o-and-older-models",
+        "hn_url": "",
+        "published": "2026-01-29T00:00:00+00:00"
+      }
+    ]
   },
   "pages": {
     "1": {
       "title": "Breaking Vectors",
-      "stories": []
+      "stories": [
+        {
+          "original_title": "Inside OpenAI\u2019s in-house data agent",
+          "generated_headline": "OpenAI\u2019s GPT-5 Data Agent: Speed for Scale, at What Cost to Craft?",
+          "url": "https://openai.com/index/inside-our-in-house-data-agent",
+          "hn_url": "",
+          "source": "openai",
+          "score": 0,
+          "significance_score": 88,
+          "category": "All Articles",
+          "category_id": 1,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "OpenAI\u2019s internal agent\u2014stitched together from GPT-5, Codex, and synthetic memory\u2014now chews through petabyte-scale datasets in minutes, trading interpretability for velocity. The unanswered question: whether \u2018reliable insights\u2019 can outrun the technical debt of black-box reasoning.",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "WIDE",
+          "published": "Thu, 29 Jan 2026 10:00:00 GMT",
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        }
+      ]
     },
     "2": {
       "title": "Model Architectures",
@@ -130,22 +174,22 @@
       "stories": [
         {
           "original_title": "Project Genie: Experimenting with infinite, interactive worlds",
-          "generated_headline": "Google\u2019s Project Genie: A Sandbox for Infinite Worlds, or Just Another Distraction?",
+          "generated_headline": "Project Genie: Experimenting with infinite, interactive worlds",
           "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/",
           "hn_url": "https://news.ycombinator.com/item?id=46812933",
           "source": "HackerNews",
           "score": 675,
-          "significance_score": 78,
+          "significance_score": 50,
           "category": "Model Release History",
           "category_id": 3,
           "confidence": 0.95,
           "detected_model": null,
-          "summary": "DeepMind\u2019s latest experiment lets users generate and interact with unbounded 2D environments\u2014raising questions about whether this is a leap toward general-world simulation or merely a polished tech demo with no clear application. The tradeoff? Real-time generation demands heavy compute, and the \u2018infinite\u2019 promise may collide with the hard limits of user attention spans.",
+          "summary": "",
           "selected_image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/2025-Travel-Trends_hero.width-300.format-webp.webp",
           "worth_showing_image": false,
-          "image_layout": "WIDE",
+          "image_layout": "SQUARE",
           "published": 1769706159,
-          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "model_used": "Cat: Free-Chatbot, Sum: None",
           "cost": 0
         }
       ]
@@ -155,7 +199,7 @@
       "stories": [
         {
           "original_title": "Claude Code daily benchmarks for degradation tracking",
-          "generated_headline": "Claude Code\u2019s Benchmarking Gambit: A Quiet Bid to Outrun Its Own Decay",
+          "generated_headline": "Claude Code\u2019s Benchmarking Gambit: Tracking Degradation in Real Time",
           "url": "https://marginlab.ai/trackers/claude-code/",
           "hn_url": "https://news.ycombinator.com/item?id=46810282",
           "source": "HackerNews",
@@ -165,9 +209,9 @@
           "category_id": 4,
           "confidence": 0.95,
           "detected_model": null,
-          "summary": "Anthropic\u2019s daily degradation tracking for Claude Code isn\u2019t just maintenance\u2014it\u2019s an admission that even flagship models fray at the edges under real-world use. The move risks exposing how little we understand about why performance drifts, or whether it\u2019s fixable without sacrificing speed.",
+          "summary": "Anthropic\u2019s Claude Code now publishes daily performance benchmarks\u2014a rare move toward transparency in an industry where model drift often goes unmeasured. The tradeoff? Public scrutiny may pressure teams to optimize for benchmarks rather than real-world robustness.",
           "selected_image_url": "https://marginlab.ai/og-image.png",
-          "worth_showing_image": false,
+          "worth_showing_image": true,
           "image_layout": "WIDE",
           "published": 1769695147,
           "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
@@ -185,7 +229,7 @@
           "category_id": 4,
           "confidence": 0.95,
           "detected_model": null,
-          "summary": "Cloudflare\u2019s new open-source agent, Moltworker, strips away the 'mini-agent' hype in favor of a lean, self-hosted tool\u2014useful for engineers who\u2019d rather debug their own workflows than outsource to a black box. The tradeoff? It\u2019s still a gamble on whether users will tolerate the friction of self-hosting over convenience.",
+          "summary": "Cloudflare\u2019s new open-source agent, Moltworker, strips away the 'mini-agent' hype in favor of a self-contained, locally deployable tool\u2014useful for engineers tired of vendor lock-in, though its narrow scope may limit broader adoption. The tradeoff? It\u2019s a tool for tinkerers, not a turnkey solution.",
           "selected_image_url": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/50LUcxsxkxczfIwcqCO13r/ed5a7074fb7a85fb88306d04db2426cb/Introducing_Moltworker-_a_self-hosted_personal_AI_agent__minus_the_minis-OG.png",
           "worth_showing_image": true,
           "image_layout": "WIDE",
@@ -194,43 +238,18 @@
           "cost": 0
         },
         {
-          "original_title": "Jellyfin LLM/\"AI\" Development Policy",
-          "generated_headline": "Jellyfin Draws a Line: No LLM Bloat in Media Servers, Just Code That Works",
-          "url": "https://jellyfin.org/docs/general/contributing/llm-policies/",
-          "hn_url": "https://news.ycombinator.com/item?id=46801976",
-          "source": "HackerNews",
-          "score": 207,
-          "significance_score": 87,
-          "category": "Top Insights & Advice",
-          "category_id": 4,
-          "confidence": 0.85,
-          "detected_model": null,
-          "summary": "The open-source media server project explicitly rejects AI/ML integration as 'solutionism,' doubling down on maintainability over hype. A rare holdout in an ecosystem drowning in unnecessary complexity\u2014though their stance risks alienating the 'move fast' crowd.",
-          "selected_image_url": null,
-          "worth_showing_image": false,
-          "image_layout": "SQUARE",
-          "published": 1769636523,
-          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
-          "cost": 0
-        }
-      ]
-    },
-    "5": {
-      "title": "Inference Corner",
-      "stories": [
-        {
           "original_title": "Benchmarking OpenTelemetry: Can AI trace your failed login?",
-          "generated_headline": "OpenTelemetry\u2019s AI Trace Benchmarks: Debugging Logins or Just More Noise?",
+          "generated_headline": "OpenTelemetry\u2019s AI Trace Limits: Where Debugging Meets Noise",
           "url": "https://quesma.com/blog/introducing-otel-bench/",
           "hn_url": "https://news.ycombinator.com/item?id=46811588",
           "source": "HackerNews",
           "score": 144,
-          "significance_score": 87,
-          "category": "Lab Updates & Dark Side",
-          "category_id": 5,
+          "significance_score": 82,
+          "category": "Top Insights & Advice",
+          "category_id": 4,
           "confidence": 0.85,
           "detected_model": null,
-          "summary": "A new lab report dissects OpenTelemetry\u2019s AI-driven tracing capabilities, revealing it can pinpoint failed logins with unsettling precision\u2014while quietly exposing the cost-performance tradeoffs that might make ops teams reconsider their observability budgets. The usual suspects (latency, false positives) lurk beneath the surface.",
+          "summary": "A new benchmark reveals OpenTelemetry\u2019s AI-assisted tracing can pinpoint failed logins\u2014but only if you tolerate 30% false positives in high-concurrency systems. The tradeoff? Precision drops as cardinality rises, leaving ops teams to choose between alert fatigue and missed anomalies.",
           "selected_image_url": "https://quesma.com/_astro/cost_vs_performance.BoPEo92o_ZSVRKt.webp",
           "worth_showing_image": true,
           "image_layout": "WIDE",
@@ -239,6 +258,10 @@
           "cost": 0
         }
       ]
+    },
+    "5": {
+      "title": "Inference Corner",
+      "stories": []
     },
     "6": {
       "title": "AI & LLM Overview",

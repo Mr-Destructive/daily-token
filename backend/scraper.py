@@ -4,21 +4,24 @@ import feedparser
 import re
 from typing import List, Dict
 from datetime import datetime
+from email.utils import parsedate_to_datetime
 import json
 import sys
 from pathlib import Path
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 # Import configuration
 sys.path.insert(0, str(Path(__file__).parent.parent))
 try:
-    from config import AI_KEYWORDS, HACKERNEWS_STORY_LIMIT, RSS_FEEDS, RSS_STORIES_PER_FEED
-except ImportError:
-    AI_KEYWORDS = ['ai', 'llm', 'machine learning', 'deep learning']
-    HACKERNEWS_STORY_LIMIT = 30
-    RSS_FEEDS = {'arxiv': 'http://arxiv.org/rss/cs.AI'}
-    RSS_STORIES_PER_FEED = 5
+    import config as _cfg
+except Exception:
+    _cfg = None
+
+AI_KEYWORDS = getattr(_cfg, "AI_KEYWORDS", ['ai', 'llm', 'machine learning', 'deep learning'])
+HACKERNEWS_STORY_LIMIT = int(getattr(_cfg, "HACKERNEWS_STORY_LIMIT", 30))
+RSS_FEEDS = getattr(_cfg, "RSS_FEEDS", {'arxiv': 'http://arxiv.org/rss/cs.AI'})
+RSS_STORIES_PER_FEED = int(getattr(_cfg, "RSS_STORIES_PER_FEED", 5))
 
 class ImageFetcher:
     """Fetch potential images from URLs for AI review"""
@@ -287,8 +290,32 @@ class RSSFeedScraper:
     
     def __init__(self):
         self.timeout = 10
+
+    @staticmethod
+    def _entry_datetime(entry) -> datetime | None:
+        """Best-effort published datetime extraction for RSS entries."""
+        try:
+            if getattr(entry, "published_parsed", None):
+                return datetime(*entry.published_parsed[:6])
+        except Exception:
+            pass
+        try:
+            if getattr(entry, "updated_parsed", None):
+                return datetime(*entry.updated_parsed[:6])
+        except Exception:
+            pass
+
+        for key in ("published", "updated"):
+            raw = entry.get(key, "")
+            if not raw:
+                continue
+            try:
+                return parsedate_to_datetime(raw).replace(tzinfo=None)
+            except Exception:
+                continue
+        return None
         
-    def fetch_feed(self, feed_url: str, limit: int = None) -> List[Dict]:
+    def fetch_feed(self, feed_url: str, limit: int = None, target_date: datetime = None) -> List[Dict]:
         """Fetch entries from a single RSS feed"""
         if limit is None:
             limit = RSS_STORIES_PER_FEED
@@ -299,7 +326,18 @@ class RSSFeedScraper:
                 print(f"Feed parsing warning for {feed_url}: {feed.bozo_exception}")
             
             entries = []
-            for entry in feed.entries[:limit]:
+            # For historical backfills, scan more entries and keep only target-day posts.
+            feed_entries = feed.entries
+            if target_date:
+                feed_entries = feed.entries[:150]
+
+            for entry in feed_entries:
+                entry_dt = self._entry_datetime(entry)
+                if target_date:
+                    # Without a trustworthy timestamp we cannot map to a historical day.
+                    if not entry_dt or entry_dt.date() != target_date.date():
+                        continue
+
                 entries.append({
                     'title': entry.get('title', ''),
                     'link': entry.get('link', ''),
@@ -307,25 +345,105 @@ class RSSFeedScraper:
                     'summary': entry.get('summary', '')[:200],  # Truncate
                     'source': feed.feed.get('title', 'Unknown'),
                 })
+
+                if limit and len(entries) >= limit:
+                    break
             
             return entries
         except Exception as e:
             print(f"Error parsing feed {feed_url}: {e}")
             return []
     
-    def fetch_all_feeds(self, limit_per_feed: int = 5) -> Dict[str, List[Dict]]:
+    def fetch_all_feeds(self, limit_per_feed: int = 5, target_date: datetime = None) -> Dict[str, List[Dict]]:
         """Fetch from all AI lab feeds"""
         results = {}
         
         for lab_name, feed_url in self.AI_LAB_FEEDS.items():
             print(f"Fetching {lab_name}...")
-            results[lab_name] = self.fetch_feed(feed_url, limit_per_feed)
+            results[lab_name] = self.fetch_feed(feed_url, limit_per_feed, target_date=target_date)
         
         return results
 
 
 class GenericWebScraper:
     """Fallback scraper for sites without RSS feeds"""
+
+    @staticmethod
+    def _normalize_published(raw: str) -> str:
+        if not raw:
+            return ""
+        text = str(raw).strip()
+        if not text:
+            return ""
+        try:
+            return datetime.fromisoformat(text.replace("Z", "+00:00")).isoformat()
+        except Exception:
+            pass
+        try:
+            return parsedate_to_datetime(text).isoformat()
+        except Exception:
+            return ""
+
+    @staticmethod
+    def _extract_article_published(article_url: str, headers: Dict[str, str]) -> str:
+        """Try hard to extract article publication date from metadata."""
+        try:
+            response = requests.get(article_url, timeout=10, headers=headers)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            date_candidates = []
+            for meta in soup.find_all("meta"):
+                k = (meta.get("property") or meta.get("name") or meta.get("itemprop") or "").lower()
+                v = meta.get("content")
+                if not v:
+                    continue
+                if any(token in k for token in ("published", "publish", "date", "modified", "updated", "article:published_time")):
+                    date_candidates.append(v)
+
+            for time_tag in soup.find_all("time"):
+                if time_tag.get("datetime"):
+                    date_candidates.append(time_tag.get("datetime"))
+                txt = time_tag.get_text(strip=True)
+                if txt:
+                    date_candidates.append(txt)
+
+            for candidate in date_candidates:
+                normalized = GenericWebScraper._normalize_published(candidate)
+                if normalized:
+                    return normalized
+
+            # Some sites (e.g., Anthropic news) render date in visible text only.
+            page_text = soup.get_text(" ", strip=True)
+            text_match = re.search(
+                r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{1,2}),\s*(\d{4})\b",
+                page_text,
+                re.IGNORECASE,
+            )
+            if text_match:
+                normalized = f"{text_match.group(1).title()} {int(text_match.group(2))}, {text_match.group(3)}"
+                return datetime.strptime(normalized, "%b %d, %Y").isoformat()
+        except Exception:
+            return ""
+        return ""
+
+    @staticmethod
+    def _extract_date_from_text(text: str) -> str:
+        """Fallback for listings embedding dates in link text (e.g., 'Feb 5, 2026')."""
+        if not text:
+            return ""
+        m = re.search(
+            r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{1,2}),\s*(\d{4})\b",
+            text,
+            re.IGNORECASE,
+        )
+        if not m:
+            return ""
+        try:
+            normalized = f"{m.group(1).title()} {int(m.group(2))}, {m.group(3)}"
+            return datetime.strptime(normalized, "%b %d, %Y").isoformat()
+        except Exception:
+            return ""
     
     @staticmethod
     def scrape_blog(name: str, url: str, limit: int = 3) -> List[Dict]:
@@ -337,6 +455,7 @@ class GenericWebScraper:
             
             soup = BeautifulSoup(response.text, 'html.parser')
             stories = []
+            base_host = urlparse(url).netloc.lower().lstrip("www.")
             
             # Find all links that look like articles
             # We look for links within h1, h2, h3 or with 'article' in class
@@ -347,6 +466,19 @@ class GenericWebScraper:
                     continue
                 
                 full_url = urljoin(url, href)
+                if not full_url.startswith("http"):
+                    continue
+
+                parsed = urlparse(full_url)
+                host = parsed.netloc.lower().lstrip("www.")
+                path = (parsed.path or "").lower()
+                if host and base_host and host != base_host and not host.endswith(f".{base_host}"):
+                    continue
+                if any(full_url.lower().startswith(s) for s in ("mailto:", "tel:")):
+                    continue
+                if any(token in full_url.lower() for token in ("twitter.com", "x.com", "linkedin.com", "facebook.com", "instagram.com", "youtube.com")):
+                    continue
+
                 title = tag.get_text().strip()
                 
                 # Title must be reasonably long to be a headline
@@ -357,12 +489,21 @@ class GenericWebScraper:
                         title = parent_text
                 
                 if len(title) > 15 and full_url not in [s['link'] for s in stories]:
+                    if not any(token in path for token in ("/news", "/blog", "/research", "/index")):
+                        continue
+                    # Tighten source-specific paths for better precision.
+                    if "anthropic.com" in host and "/news/" not in path:
+                        continue
+
                     # Filter for relevance to the lab name or generic AI terms
                     if any(x in title.lower() or x in full_url.lower() for x in ['news', 'blog', '2024', '2025', '2026', name.lower()]):
+                        published = GenericWebScraper._extract_article_published(full_url, headers)
+                        if not published:
+                            published = GenericWebScraper._extract_date_from_text(title)
                         stories.append({
                             'title': title,
                             'link': full_url,
-                            'published': 'Recently',
+                            'published': published,
                             'summary': '',
                             'source': name.title()
                         })
@@ -422,7 +563,9 @@ class NewsAggregator:
         hn_filtered = self.filter_ai_stories(hn_stories)
         
         # Get RSS feeds
-        rss_results = self.rss_scraper.fetch_all_feeds(RSS_STORIES_PER_FEED)
+        # In backfills, request more feed entries so the target day is actually discoverable.
+        per_feed_limit = RSS_STORIES_PER_FEED if not target_date else 50
+        rss_results = self.rss_scraper.fetch_all_feeds(per_feed_limit, target_date=target_date)
         
         # Get Scraped Blogs in parallel
         scraped_results = {}

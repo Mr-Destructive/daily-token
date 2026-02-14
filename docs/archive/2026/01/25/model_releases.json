@@ -1,28 +1,5 @@
 {
   "generated": "2026-01-25T00:00:00",
-  "count": 2,
-  "releases": [
-    {
-      "model_name": "GPT-5.2",
-      "provider": "OpenAI",
-      "release_type": "Model/API Update",
-      "title": "OpenAI's GPT-5.2 model cites Grokipedia",
-      "summary": "",
-      "source": "Unknown",
-      "source_url": "https://www.engadget.com/ai/report-reveals-that-openais-gpt-52-model-cites-grokipedia-192532977.html",
-      "hn_url": "https://news.ycombinator.com/item?id=46750118",
-      "published": "2026-01-25T02:33:05+00:00"
-    },
-    {
-      "model_name": "Opus-4.5",
-      "provider": "OpenAI",
-      "release_type": "Model/API Update",
-      "title": "OpenAI's GPT-5.2 model cites Grokipedia",
-      "summary": "",
-      "source": "Unknown",
-      "source_url": "https://www.engadget.com/ai/report-reveals-that-openais-gpt-52-model-cites-grokipedia-192532977.html",
-      "hn_url": "https://news.ycombinator.com/item?id=46750118",
-      "published": "2026-01-25T02:33:05+00:00"
-    }
-  ]
+  "count": 0,
+  "releases": []
 }

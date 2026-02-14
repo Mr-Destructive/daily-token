@@ -1,5 +1,28 @@
 {
   "generated": "2026-02-05T00:00:00",
-  "count": 0,
-  "releases": []
+  "count": 2,
+  "releases": [
+    {
+      "model_name": "Opus-4.6",
+      "provider": "Anthropic",
+      "release_type": "Model Release",
+      "title": "Introducing Claude Opus 4.6AnnouncementsFeb 5, 2026We\u2019re upgrading our smartest model. Across agentic coding, computer use, tool use, search, and finance, Opus 4.6 is an industry-leading model, often by wide margin.",
+      "summary": "",
+      "source": "anthropic",
+      "source_url": "https://www.anthropic.com/news/claude-opus-4-6",
+      "hn_url": "",
+      "published": "2026-02-05T00:00:00"
+    },
+    {
+      "model_name": "GPT-5.3-Codex",
+      "provider": "OpenAI",
+      "release_type": "Model Release",
+      "title": "Introducing GPT-5.3-Codex",
+      "summary": "GPT-5.3-Codex is a Codex-native agent that pairs frontier coding performance with general reasoning to support long-horizon, real-world technical work.",
+      "source": "openai",
+      "source_url": "https://openai.com/index/introducing-gpt-5-3-codex",
+      "hn_url": "",
+      "published": "2026-02-05T00:00:00+00:00"
+    }
+  ]
 }

@@ -2,17 +2,33 @@ THE DAILY TOKEN
 Edition: 2026-02-01
 ================================================
 
-EDITOR'S NOTE: When even stop signs become adversarial prompts, the road to autonomy looks less like progress and more like a hacker’s playground—yet the detours might still lead somewhere worth going.
+EDITOR'S NOTE: The tools we build now write their own rules—whether we’ve thought through the consequences is another question entirely.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Zuckerman’s Self-Editing Agent: A Minimalist AI That Rewrites Its Own Code—At What Cost?
-  https://github.com/zuckermanai/zuckerman
-  A solo developer’s experiment in recursive self-improvement, *Zuckerman* is a personal AI agent that edits its own source code to adapt, raising questions about debuggability and the fragility of autonomous systems. The project’s stark minimalism contrasts with the sprawl of mainstream agents—but its long-term stability remains untested.
+* Voxtral’s Real-Time Transcription: Speed Meets the Messy Reality of Audio
+  https://mistral.ai/news/voxtral-transcribe-2
+  Mistral AI’s latest model, Voxtral, claims near-instant diarization and transcription—useful for everything from courtrooms to call centers—but the tradeoff is clear: raw speed still stumbles over noisy, overlapping speech. The accompanying 'audio playground' hints at a future where transcription is interactive, not just automated.
 
-* "STOP" Means Go: Road Signs Hijack Autonomous Vehicles with Multilingual Prompt Injection
-  https://www.theregister.com/2026/01/30/road_sign_hijack_ai/
-  Researchers demonstrated that altered street signs—written in English, Chinese, and Arabic—reliably override autonomous car and drone behavior by exploiting LVM (language-vision model) prompt injection flaws. The attack succeeds even with partial occlusion, exposing a systemic tradeoff between real-world adaptability and adversarial fragility in deployed systems.
+* Zuckerman: A Self-Editing AI Agent That Writes Its Own Code—And the Risks of Recursive Autonomy
+  https://github.com/zuckermanai/zuckerman
+  A new minimalist AI agent, *Zuckerman*, dynamically rewrites its own code in response to user interactions, raising questions about debuggability and the long-term stability of self-modifying systems. The project’s stripped-down design contrasts sharply with bloated commercial agents, but its recursive architecture may amplify edge-case failures.
+
+* Cohere Labs Quietly Tackles ML’s Unsexy Problems—While Others Chase the Hype
+  https://cohere.com/research
+  Cohere’s research arm is carving a niche in overlooked but critical ML challenges—think interpretability, edge-case robustness, and the kind of incremental gains that actually ship. The tradeoff? Their work risks being drowned out by the noise of flashier, less disciplined labs chasing viral benchmarks.
+
+* OpenClaw Quietly Merges Messaging and Local AI—Without the Cloud
+  https://ollama.com/blog/openclaw
+  A new personal assistant, OpenClaw, wires messaging apps directly to on-device coding agents, sidestepping cloud dependencies. The tradeoff? Users now manage their own infrastructure—no small feat for non-engineers.
+
+* Ollama’s `launch` Command: The End of Config Hell for Code Assistants?
+  https://ollama.com/blog/launch
+  A single CLI command now deploys Claude Code, OpenCode, or Codex—local or cloud—without the usual ritual of env vars or YAML. The tradeoff? Debugging opaque abstractions when the magic fails.
+
+* Ollama Quietly Brings Local Image Generation to macOS—Windows and Linux Left Waiting
+  https://ollama.com/blog/image-generation
+  The latest Ollama update lets users generate images entirely on-device, sidestepping cloud dependencies but locking out the majority of desktop users for now. A rare move toward local-first AI that risks fragmenting workflows across platforms.
 
 AI & LLM OVERVIEW
 ------------------------------------------------

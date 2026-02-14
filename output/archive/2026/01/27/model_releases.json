@@ -1,5 +1,17 @@
 {
   "generated": "2026-01-27T00:00:00",
-  "count": 0,
-  "releases": []
+  "count": 1,
+  "releases": [
+    {
+      "model_name": "GPT-5.2",
+      "provider": "OpenAI",
+      "release_type": "Model Release",
+      "title": "Introducing Prism",
+      "summary": "Prism is a free LaTeX-native workspace with GPT-5.2 built in, helping researchers write, collaborate, and reason in one place.",
+      "source": "openai",
+      "source_url": "https://openai.com/index/introducing-prism",
+      "hn_url": "",
+      "published": "2026-01-27T00:00:00+00:00"
+    }
+  ]
 }
