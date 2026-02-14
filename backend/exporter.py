@@ -27,13 +27,17 @@ except ImportError:
         7: "Model Release History",
         8: "Top Insights & Advice",
         9: "Lab Updates & Dark Side",
+        10: "Benchmarks & Claims Audit",
+        11: "Infra & Cost Watch",
+        12: "Policy & Safety Moves",
+        13: "Corrections & Revisions",
     }
     PAGES_CONFIG = {
         1: {"title": "The Front Page", "categories": [1, 2, 3, 4, 5]},
-        2: {"title": "AI & LLM Overview", "categories": [6]},
+        2: {"title": "AI & LLM Overview", "categories": [6, 10]},
         3: {"title": "Model Release History", "categories": [7]},
-        4: {"title": "Top Insights & Advice", "categories": [8]},
-        5: {"title": "Lab Updates & Dark Side", "categories": [9]},
+        4: {"title": "Top Insights & Advice", "categories": [8, 11]},
+        5: {"title": "Lab Updates & Dark Side", "categories": [9, 12, 13]},
     }
 
 
@@ -113,7 +117,7 @@ class NewsExporter:
         if not self.organized:
             return "THE CLOUD"
         headlines = []
-        for cat in range(1, 10):
+        for cat in sorted(PAGE_CATEGORIES.keys()):
             for story in (self.organized.get(cat, []) or self.organized.get(str(cat), []))[:2]:
                 headlines.append(story.get("generated_headline", ""))
         return _get_llm_location_from_vibes(" | ".join(headlines[:10]))

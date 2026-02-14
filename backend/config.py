@@ -17,15 +17,19 @@ PAGE_CATEGORIES = {
     6: "AI & LLM Overview",
     7: "Model Release History",
     8: "Top Insights & Advice",
-    9: "Lab Updates & Dark Side"
+    9: "Lab Updates & Dark Side",
+    10: "Benchmarks & Claims Audit",
+    11: "Infra & Cost Watch",
+    12: "Policy & Safety Moves",
+    13: "Corrections & Revisions",
 }
 
 PAGES_CONFIG = {
     1: {"title": "The Front Page", "categories": [1, 2, 3, 4, 5]},
-    2: {"title": "AI & LLM Overview", "categories": [6]},
+    2: {"title": "AI & LLM Overview", "categories": [6, 10]},
     3: {"title": "Model Release History", "categories": [7]},
-    4: {"title": "Top Insights & Advice", "categories": [8]},
-    5: {"title": "Lab Updates & Dark Side", "categories": [9]}
+    4: {"title": "Top Insights & Advice", "categories": [8, 11]},
+    5: {"title": "Lab Updates & Dark Side", "categories": [9, 12, 13]},
 }
 
 # Alternative theme examples (uncomment to use):
@@ -197,14 +201,19 @@ def get_page_name(page_num):
 
 def get_all_page_names():
     """Get list of all page names in order."""
-    return [PAGE_CATEGORIES[i] for i in range(1, 6)]
+    return [PAGES_CONFIG[i]["title"] for i in sorted(PAGES_CONFIG.keys())]
 
 
 def validate_config():
     """Validate configuration."""
-    assert len(PAGE_CATEGORIES) == 5, "Must have exactly 5 pages"
-    assert all(isinstance(k, int) and k in range(1, 6) for k in PAGE_CATEGORIES.keys()), \
-        "Page numbers must be 1-5"
+    assert len(PAGES_CONFIG) == 5, "Must have exactly 5 pages"
+    assert all(isinstance(k, int) and k in range(1, 6) for k in PAGES_CONFIG.keys()), \
+        "Page config keys must be 1-5"
+    assert all(isinstance(k, int) and k >= 1 for k in PAGE_CATEGORIES.keys()), \
+        "Category keys must be positive integers"
     assert all(isinstance(v, str) and len(v) > 0 for v in PAGE_CATEGORIES.values()), \
         "All page names must be non-empty strings"
+    for page_cfg in PAGES_CONFIG.values():
+        for cat in page_cfg.get("categories", []):
+            assert cat in PAGE_CATEGORIES, f"Unknown category id in page config: {cat}"
     return True

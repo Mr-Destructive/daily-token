@@ -14,6 +14,7 @@ from main import (
 )
 from processor_with_router import NewsProcessorWithRouter
 from scraper import NewsAggregator
+from config import PAGE_CATEGORIES
 
 
 def _iter_dates(start: datetime, end: datetime):
@@ -88,7 +89,7 @@ def backfill(start: datetime, end: datetime, overwrite: bool = False):
             stories = _normalize_raw(raw)
             if not stories:
                 print(f"  - no stories found for {day_key}, writing placeholder edition")
-                organized = {i: [] for i in range(1, 10)}
+                organized = {i: [] for i in sorted(PAGE_CATEGORIES.keys())}
                 organized[6] = [
                     {
                         "original_title": f"Archive Placeholder for {day_key}",

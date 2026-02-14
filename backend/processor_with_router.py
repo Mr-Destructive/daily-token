@@ -31,7 +31,11 @@ except ImportError:
         2: "AI & LLM Overview",
         3: "Model Release History",
         4: "Top Insights & Advice",
-        5: "Lab Updates & Dark Side"
+        5: "Lab Updates & Dark Side",
+        6: "Benchmarks & Claims Audit",
+        7: "Infra & Cost Watch",
+        8: "Policy & Safety Moves",
+        9: "Corrections & Revisions",
     }
     CATEGORIZATION_PROMPT = """[SYSTEM: RESPOND ONLY WITH JSON]
 Categorize this AI news story. 
@@ -95,6 +99,10 @@ CATEGORIES:
 7: Model Release History (ONLY specific model launches like 'Gemma 3' or 'Opus 4.6')
 8: Top Insights & Advice (HackerNews community wisdom, expert advice)
 9: AI Safety & Lab Accidents (Safety failures, research lab drama)
+10: Benchmarks & Claims Audit (evaluation quality, claims-vs-evidence, reproducibility checks)
+11: Infra & Cost Watch (compute economics, GPU supply, cloud/on-prem cost shifts, serving efficiency)
+12: Policy & Safety Moves (regulatory actions, governance updates, safety policy changes with practical impact)
+13: Corrections & Revisions (retractions, errata, model updates, deprecations, changelog-impacting fixes)
 
 STORY:
 Title: {title}
@@ -102,7 +110,7 @@ Summary: {summary}
 
 REQUIRED JSON FORMAT:
 {{
-  "category_id": [1-9],
+  "category_id": [1-13],
   "confidence": [0.0-1.0],
   "is_model_release": [true/false],
   "detected_model": "[Name if cat 7, else null]"
@@ -286,7 +294,8 @@ REQUIRED JSON FORMAT:
                     'cost': result.get('cost', 0)
                 }
             
-            if 1 <= category_id <= 9:
+            max_category_id = max(PAGE_CATEGORIES.keys())
+            if 1 <= category_id <= max_category_id:
                 category_name = PAGE_CATEGORIES.get(category_id)
                 if not category_name:
                     category_id = 0
@@ -479,8 +488,8 @@ REQUIRED JSON FORMAT:
         return processed
     
     def organize_by_category(self, processed_stories: List[Dict]) -> Dict[int, List[Dict]]:
-        """Group stories by category (1-9)"""
-        organized = {i: [] for i in range(1, 10)}
+        """Group stories by configured category ids."""
+        organized = {i: [] for i in sorted(PAGE_CATEGORIES.keys())}
         
         for story in processed_stories:
             category_id = story['category_id']

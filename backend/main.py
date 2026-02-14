@@ -647,7 +647,7 @@ def generate_daily_newspaper(skip_fetch: bool = False) -> Dict:
     import requests
 
     img_count = 0
-    for cat_id in range(1, 10):
+    for cat_id in sorted(organized.keys()):
         for story_idx, story in enumerate(organized.get(cat_id, [])):
             image_url = story.get("selected_image_url")
             worth_showing = story.get("worth_showing_image", False)
