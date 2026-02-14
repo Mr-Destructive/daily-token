@@ -1,216 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Daily Token | AI Newspaper</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --ink: #1c1915;
-      --paper: #f4ecdf;
-      --paper-dark: #e4d8c4;
-      --accent: #7a2b1f;
-      --muted: #5f564b;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Source Serif 4', serif;
-      color: var(--ink);
-      background: radial-gradient(circle at 10% 20%, #d4c8b3 0%, #b8ad9d 55%, #8f877b 100%);
-    }
-    .sheet {
-      max-width: 1100px;
-      margin: 24px auto;
-      background: var(--paper);
-      box-shadow: 0 18px 80px rgba(0, 0, 0, 0.25);
-      border: 1px solid #b7aa95;
-      overflow: hidden;
-      animation: rise .5s ease;
-    }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    header {
-      padding: 22px 26px 18px;
-      border-bottom: 6px double var(--ink);
-      background: linear-gradient(180deg, #f9f2e7 0%, #f0e6d8 100%);
-    }
-    .mast {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 7vw, 5rem);
-      line-height: 1;
-      letter-spacing: -1px;
-      text-transform: uppercase;
-    }
-    .sub {
-      margin-top: 10px;
-      font-family: 'Oswald', sans-serif;
-      font-size: .84rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      border-top: 1px solid #b8aa93;
-      border-bottom: 1px solid #b8aa93;
-      padding: 7px 0;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 22px;
-      padding: 24px;
-    }
-    .lead h2 {
-      margin: 0 0 8px;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.7rem, 3.8vw, 2.9rem);
-      line-height: 1.08;
-    }
-    .lead p { margin: 0 0 14px; color: #2f2a24; }
-    .deck {
-      background: #fff8ec;
-      border: 1px solid #d3c2a9;
-      padding: 16px;
-    }
-    .kicker {
-      font-family: 'Oswald', sans-serif;
-      font-size: .74rem;
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-    .quick {
-      display: grid;
-      gap: 12px;
-    }
-    .quick a {
-      text-decoration: none;
-      color: var(--ink);
-      border: 1px solid #d6c5ab;
-      background: #fffaf2;
-      padding: 12px;
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: .02em;
-      transition: .2s ease;
-    }
-    .quick a:hover {
-      color: #fff;
-      background: var(--accent);
-      border-color: var(--accent);
-      transform: translateX(2px);
-    }
-    .sections {
-      padding: 0 24px 24px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .card {
-      border: 1px solid #d7c7ad;
-      background: #fff9ee;
-      padding: 12px;
-    }
-    .card h3 {
-      margin: 0 0 6px;
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      font-size: .85rem;
-      letter-spacing: .07em;
-      color: var(--accent);
-    }
-    .card p { margin: 0; font-size: .95rem; color: #332d26; }
-    footer {
-      border-top: 1px solid #bfae94;
-      padding: 14px 24px 18px;
-      font-family: 'Oswald', sans-serif;
-      font-size: .75rem;
-      letter-spacing: .06em;
-      color: var(--muted);
-      text-transform: uppercase;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      border: 1px solid var(--ink);
-      color: var(--ink);
-      padding: 9px 12px;
-      margin-right: 10px;
-    }
-    .btn.primary {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-    @media (max-width: 900px) {
-      .grid, .sections { grid-template-columns: 1fr; }
-      .sheet { margin: 0; min-height: 100vh; border: 0; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Token</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#181512; --paper:#f8f3ea; --sep:#c4b8a4; --highlight:#7a2b1f; --muted:#756b5e; --box:#fffaf0; }
+        * { box-sizing:border-box; }
+        body { background:#c8c1b5; margin:0; font-family:'Source Serif 4',serif; color:var(--ink); line-height:1.35; }
+        .newspaper-container { background:var(--paper); max-width:1280px; margin:0 auto; padding:32px; box-shadow:0 18px 80px rgba(0,0,0,.22); min-height:100vh; transition:opacity .22s ease; }
+        .page-turn-out { opacity:0; }
+        header { text-align:center; border-bottom:6px double var(--ink); padding-bottom:18px; }
+        .masthead-title { font-family:'Playfair Display',serif; font-weight:900; font-size:5.4rem; letter-spacing:-2px; margin:0; text-transform:uppercase; }
+        .sub-masthead { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); margin-top:12px; padding:6px 0; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:.86rem; display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+        nav.sticky-nav { position:sticky; top:0; background:var(--paper); z-index:100; text-align:center; padding:12px 0; border-bottom:1px solid var(--ink); margin-bottom:30px; }
+        .nav-item { text-decoration:none; color:var(--ink); font-family:'Oswald',sans-serif; font-size:.82rem; margin:0 10px; border-bottom:2px solid transparent; }
+        .nav-item.active { color:var(--highlight); border-color:var(--highlight); }
+        .page-title { text-align:center; border-bottom:3px solid var(--ink); line-height:.1em; margin:40px 0 26px; font-family:'Oswald',sans-serif; font-size:1.32rem; }
+        .page-title span { background:var(--paper); padding:0 22px; }
+        .section-sub-header { text-align:left; border-bottom:1px solid var(--sep); line-height:.1em; margin:28px 0 18px; font-family:'Oswald',sans-serif; font-size:.86rem; color:var(--highlight); letter-spacing:.06em; }
+        .section-sub-header span { background:var(--paper); padding-right:12px; }
+        .columns-3 { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px; margin-bottom:24px; }
+        .headline-sm { font-family:'Playfair Display',serif; font-size:1.42rem; line-height:1.14; margin:0 0 10px; }
+        .article a { color:inherit; text-decoration:none; }
+        .article a:hover { color:var(--highlight); }
+        .metadata { font-family:'Oswald',sans-serif; font-size:.72rem; color:var(--muted); margin-bottom:10px; letter-spacing:.04em; text-transform:uppercase; }
+        .metadata .source-link, .hn-link { color:var(--highlight); font-weight:700; }
+        .summary-sm { margin:0; font-size:.98rem; }
+        .news-img { width:100%; display:block; margin-bottom:14px; filter:grayscale(100%); border:1px solid #d7c9b2; transition:.25s; box-shadow:4px 4px 0 rgba(0,0,0,.05); }
+        .news-img:hover { filter:none; transform:translateY(-1px); }
+        .page-footer-nav { display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:14px; border-top:1px solid var(--ink); }
+        .nav-btn { font-family:'Oswald',sans-serif; color:var(--ink); text-decoration:none; border:1px solid var(--ink); padding:8px 14px; font-size:.82rem; }
+        .nav-btn:hover { background:var(--ink); color:#fff; }
+        .edition-nav { display:flex; justify-content:center; align-items:center; gap:20px; background:#e9e1d3; padding:10px; font-family:'Oswald',sans-serif; font-size:.78rem; border-bottom:1px solid #cdbfa8; flex-wrap:wrap; }
+        .edition-link { color:#574f46; text-decoration:none; }
+        .edition-link.disabled { color:#a69e93; }
+        .editors-note { margin-bottom:20px; padding:16px; border:1px solid #d6c8b0; font-style:italic; background:var(--box); border-left:4px solid var(--highlight); }
+        .editors-note .emphasis { color:var(--highlight); font-weight:700; }
+        .insights-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+        .insight-card { padding:18px; border:1px solid #ded1bb; background:var(--box); }
+        .insight-author { font-family:'Oswald',sans-serif; font-size:.68rem; color:var(--highlight); margin-bottom:8px; border-bottom:1px solid #e3d8c7; padding-bottom:4px; text-transform:uppercase; }
+        .insight-headline { font-family:'Playfair Display',serif; font-size:1.34rem; margin:0 0 10px; }
+        .insight-summary { margin:0; }
+        .insight-footer { margin-top:12px; font-family:'Oswald',sans-serif; font-size:.78rem; }
+        .release-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .release-card { border:1px solid #ded1bb; background:var(--box); padding:14px; }
+        .release-kicker { font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.08em; color:var(--highlight); text-transform:uppercase; }
+        .release-card h3 { font-family:'Playfair Display',serif; margin:6px 0 8px; }
+        .release-card p { margin:0; font-size:.95rem; }
+        .release-links { margin-top:10px; font-family:'Oswald',sans-serif; font-size:.75rem; }
+        .model-ledger-link { margin-top:14px; text-align:right; font-family:'Oswald',sans-serif; font-size:.84rem; }
+        .model-ledger-link a { color:var(--highlight); text-decoration:none; }
+        .empty-note { border:1px dashed #cab99f; padding:14px; background:#fff8ea; }
+        @media (max-width:1000px) {
+            .masthead-title { font-size:3rem; }
+            .columns-3, .insights-grid, .release-grid { grid-template-columns:1fr; }
+        }
+    </style>
 </head>
 <body>
-  <main class="sheet">
-    <header>
-      <h1 class="mast">The Daily Token</h1>
-      <div class="sub">
-        <span>Global AI Technology Report</span>
-        <span>Daily Edition</span>
-        <span>Software Craft Under Pressure</span>
-      </div>
-    </header>
-
-    <section class="grid">
-      <article class="lead">
-        <div class="kicker">Front Desk</div>
-        <h2>A newspaper for people who still care about the craft of building software.</h2>
-        <p>The Daily Token tracks model launches, lab disclosures, and technical signals from Hacker News and AI lab feeds. The tone is serious by design: no hype, no glossy optimism, just the facts and the tension underneath them.</p>
-        <a class="btn primary" href="newspaper.html">Read Today’s Edition</a>
-        <a class="btn" href="archive/index.html">Browse Archives</a>
-      </article>
-
-      <aside class="deck">
-        <div class="kicker">Direct Access</div>
-        <div class="quick">
-          <a href="model-releases.html">Model Release Desk</a>
-          <a href="newspaper.json">Machine-readable JSON</a>
-          <a href="newspaper.md">Markdown Edition</a>
-          <a href="feed.xml">RSS Feed</a>
-        </div>
-      </aside>
-    </section>
-
-    <section class="sections">
-      <article class="card">
-        <h3>Front Page</h3>
-        <p>What changed today, who shipped it, and what it implies for teams building real systems.</p>
-      </article>
-      <article class="card">
-        <h3>Model Releases</h3>
-        <p>Provider, model, release type, and source links for same-day model announcements.</p>
-      </article>
-      <article class="card">
-        <h3>Community Signals</h3>
-        <p>Hacker News discussion distilled into useful perspective instead of empty trend recaps.</p>
-      </article>
-    </section>
-
-    <footer>
-      <span>Produced daily from Hacker News + AI Lab RSS</span>
-      <span>Documenting where software engineering goes next</span>
-    </footer>
-  </main>
+    <div class="edition-nav">
+        <a href="archive/2026/02/13/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+        <span style="font-weight:700; color:#111;">EDITION: FEB 14, 2026</span>
+        <span class="edition-link disabled" aria-disabled="true">NEXT EDITION →</span>
+        <span style="color:#9b8f82">|</span>
+        <a href="archive/index.html" class="edition-link">FULL ARCHIVES</a>
+        <span style="color:#9b8f82">|</span>
+        <a href="model-releases.html" class="edition-link">MODEL RELEASES</a>
+    </div>
+    <div class="newspaper-container" id="newspaper-main">
+        <header>
+            <h1 class="masthead-title">The Daily Token</h1>
+            <div class="sub-masthead">
+                <span>MODEL SQUARE</span>
+                <span>SATURDAY, FEBRUARY 14, 2026</span>
+                <span>GLOBAL AI TECHNOLOGY REPORT</span>
+                <span>VOL. 2026.045</span>
+            </div>
+        </header>
+        <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class='editors-note'><strong>EDITOR'S NOTE:</strong> While our machines stumble upon the elegant symmetries of the universe, we remain preoccupied with building sturdier cages for our code and digital ghosts for our vanity. <span class='emphasis'>#The divergence between breakthrough theoretical discovery and the increasingly defensive architecture of the modern software stack.</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://openai.com/index/new-result-theoretical-physics/" target="_blank" rel="noopener">LLM output identifies novel derivation in theoretical physics</a></h3><div class="metadata">SOURCE: <a href="https://openai.com/index/new-result-theoretical-physics/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=47006594" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">The GPT-5.2 model has synthesized a new result in physics, suggesting a narrow but functional capability in mathematical reasoning while raising questions regarding the verification burden on human researchers.</p></div></article></div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://github.com/canishowtime/ai-station-navigator" target="_blank" rel="noopener">AI Station Navigator Proposes OS-Like Abstraction for LLMs: Agents as Processes, Skills as Apps</a></h3><div class="metadata">SOURCE: <a href="https://github.com/canishowtime/ai-station-navigator" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=47013274" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">A new framework analogizes LLMs to CPUs, treating autonomous agents as system processes and modular skills as applications—potentially streamlining multi-agent workflows but raising questions about overhead and practical scalability. The approach mirrors Unix philosophy in AI orchestration, though real-world adoption remains untested.</p></div></article></div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.businessinsider.com/meta-granted-patent-for-ai-llm-bot-dead-paused-accounts-2026-2" target="_blank" rel="noopener">Meta Secures Patent for Posthumous AI Social Media Posting—Ethical Concerns Outweigh Technical Novelty</a></h3><div class="metadata">SOURCE: <a href="https://www.businessinsider.com/meta-granted-patent-for-ai-llm-bot-dead-paused-accounts-2026-2" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=47013208" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Meta’s newly patented system enables AI to generate and publish social media content mimicking deceased users, raising unresolved questions about consent, grief exploitation, and platform accountability. The technical implementation—likely leveraging fine-tuned LLMs on user data—faces steep legal and societal hurdles despite its patent approval.</p></div></article></div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><a href="https://github.com/nearai/ironclaw" target="_blank" rel="noopener"><img src="images/story_4_0_IronClaw__a_Rust_based_clawd_t.png" class="news-img" alt=""></a><h3 class="headline-sm"><a href="https://github.com/nearai/ironclaw" target="_blank" rel="noopener">IronClaw Debuts: Rust-Powered WASM Sandboxes for Tool Isolation, But at What Cost?</a></h3><div class="metadata">SOURCE: <a href="https://github.com/nearai/ironclaw" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=47004312" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">IronClaw introduces a Rust-based framework to execute arbitrary tools in WebAssembly sandboxes, promising stronger isolation than containers but requiring developers to navigate WASM’s performance tradeoffs and ecosystem immaturity. Early adopters in security-sensitive workflows report 20-40% overhead for CPU-bound tasks, while memory safety gains remain unquantified in production.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://github.com/alibaba/zvec" target="_blank" rel="noopener">Zvec: Stripping Vector Search of Distributed Overhead</a></h3><div class="metadata">SOURCE: <a href="https://github.com/alibaba/zvec" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=47011342" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Zvec introduces a C++ based, in-process vector database designed for local deployment, prioritizing low-latency retrieval over the horizontal scalability and management complexities of remote clusters. While it offers a reduction in infrastructure bloat, its viability depends on the developer&#x27;s ability to manage state and memory within the application lifecycle.</p></div></article><article class="article span-1"><div class="article-body"><a href="https://coder.com/blog/why-i-ditched-openclaw-and-built-a-more-secure-ai-agent-on-blink-mac-mini" target="_blank" rel="noopener"><img src="images/story_4_2_I_ditched_OpenClaw_and_built_a.webp" class="news-img" alt=""></a><h3 class="headline-sm"><a href="https://coder.com/blog/why-i-ditched-openclaw-and-built-a-more-secure-ai-agent-on-blink-mac-mini" target="_blank" rel="noopener">Securing the Agent Loop: Moving from OpenClaw to Localized Hardware</a></h3><div class="metadata">SOURCE: <a href="https://coder.com/blog/why-i-ditched-openclaw-and-built-a-more-secure-ai-agent-on-blink-mac-mini" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=47004203" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">This technical transition evaluates the security trade-offs of shifting AI agent execution from shared cloud environments to dedicated local hardware. While reducing external attack surfaces, this architecture introduces new challenges in local resource management and infrastructure maintenance.</p></div></article></div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="section-sub-header"><span>DAILY MODEL RELEASE LEDGER</span></div><div class="release-grid"><p class="empty-note">No confirmed model releases were detected for this edition date.</p></div><div class="model-ledger-link"><a href="model-releases.html">OPEN FULL MODEL RELEASE PAGE →</a></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align:center; padding:40px 0; font-family:'Oswald',sans-serif; border-top:4px double var(--ink); margin-top:70px;">THE DAILY TOKEN // REPORTING IN PUBLIC // &copy; 2026</footer>
+    </div>
+    <script>
+        let currentPage = 1;
+        function goToPage(pageNum) {
+            if (pageNum < 1 || pageNum > 5 || pageNum === currentPage) return;
+            const container = document.getElementById('newspaper-main');
+            container.classList.add('page-turn-out');
+            setTimeout(() => {
+                document.querySelectorAll('.newspaper-page').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(`page-content-${pageNum}`).style.display = 'block';
+                document.getElementById(`nav-${pageNum}`).classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo(0, 0);
+                const url = new URL(window.location);
+                url.searchParams.set('page', pageNum);
+                window.history.pushState({}, '', url);
+                container.classList.remove('page-turn-out');
+            }, 220);
+        }
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const page = parseInt(params.get('page'));
+            if (page >= 1 && page <= 5) goToPage(page);
+            else document.getElementById('nav-1').classList.add('active');
+        });
+    </script>
 </body>
 </html>
