@@ -208,6 +208,10 @@ def backfill(start: datetime, end: datetime, overwrite: bool = False):
 
     index_exporter = NewsExporter({}, archive_root=archive_root)
     index_exporter.export_archive_index(str(archive_root), str(archive_root / "index.html"))
+    # Keep root model release page as an archive-wide ledger.
+    current_dir = repo_root / "output" / "current"
+    current_dir.mkdir(parents=True, exist_ok=True)
+    index_exporter.export_model_releases_index(str(archive_root), str(current_dir / "model-releases.html"))
 
 
 if __name__ == "__main__":

@@ -722,6 +722,7 @@ def generate_daily_newspaper(skip_fetch: bool = False) -> Dict:
         f.write(redirect_html)
 
     exporter.export_archive_index(str(archive_root), str(archive_root / "index.html"))
+    exporter.export_model_releases_index(str(archive_root), str(current_dir / "model-releases.html"))
 
     landing_src = repo_root / "frontend" / "index.html"
     if landing_src.exists():

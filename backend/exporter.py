@@ -402,6 +402,101 @@ class NewsExporter:
             f.write(full_html)
         return output_path
 
+    def export_model_releases_index(self, archive_root: str, output_path: str) -> str:
+        """Build an archive-wide model release ledger from dated archive files."""
+        root_path = Path(archive_root)
+        rows: List[Dict] = []
+
+        if root_path.exists():
+            year_dirs = sorted([d for d in root_path.iterdir() if d.is_dir() and d.name.isdigit()], reverse=True)
+            for year_dir in year_dirs:
+                month_dirs = sorted([d for d in year_dir.iterdir() if d.is_dir() and d.name.isdigit()], reverse=True)
+                for month_dir in month_dirs:
+                    day_dirs = sorted([d for d in month_dir.iterdir() if d.is_dir() and d.name.isdigit()], reverse=True)
+                    for day_dir in day_dirs:
+                        rel_path = day_dir / "model_releases.json"
+                        if not rel_path.exists():
+                            continue
+                        try:
+                            with open(rel_path, "r") as f:
+                                payload = json.load(f)
+                            for rel in payload.get("releases", []):
+                                entry = dict(rel)
+                                entry["edition_date"] = f"{year_dir.name}-{month_dir.name}-{day_dir.name}"
+                                rows.append(entry)
+                        except Exception:
+                            continue
+
+        rows.sort(
+            key=lambda r: (
+                str(r.get("edition_date", "")),
+                str(r.get("provider", "")),
+                str(r.get("model_name", "")),
+            ),
+            reverse=True,
+        )
+
+        table_rows: List[str] = []
+        for rel in rows:
+            edition_date = html.escape(str(rel.get("edition_date", "-")))
+            model = html.escape(rel.get("model_name") or rel.get("title") or "-")
+            provider = html.escape(str(rel.get("provider", "-")))
+            rel_type = html.escape(str(rel.get("release_type", "Release")))
+            source = _safe_url(rel.get("source_url"), "")
+            hn = _safe_url(rel.get("hn_url"), "")
+            edition_link = (
+                f'archive/{edition_date[:4]}/{edition_date[5:7]}/{edition_date[8:10]}/newspaper.html'
+                if len(edition_date) >= 10
+                else "archive/index.html"
+            )
+            links = [f'<a href="{edition_link}">Edition</a>']
+            if source:
+                links.append(f'<a href="{source}" target="_blank" rel="noopener">Official</a>')
+            if hn:
+                links.append(f'<a href="{hn}" target="_blank" rel="noopener">HN</a>')
+            table_rows.append(
+                f"<tr><td>{edition_date}</td><td>{model}</td><td>{provider}</td><td>{rel_type}</td>"
+                f"<td>{' | '.join(links)}</td></tr>"
+            )
+
+        if not table_rows:
+            table_rows.append("<tr><td colspan='5'>No model releases found in archive yet.</td></tr>")
+
+        full_html = f"""<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title>Model Release Ledger | The Daily Token</title>
+    <link href=\"https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap\" rel=\"stylesheet\">
+    <style>
+        body {{ margin:0; background:#f7f3eb; color:#1d1a16; font-family:'Source Serif 4',serif; }}
+        .wrap {{ max-width:1200px; margin:0 auto; padding:28px; }}
+        h1 {{ font-family:'Playfair Display',serif; font-size:2.8rem; margin:0; }}
+        .k {{ font-family:'Oswald',sans-serif; letter-spacing:.06em; text-transform:uppercase; color:#7a2b1f; }}
+        table {{ width:100%; border-collapse:collapse; background:#fffdf8; margin-top:18px; }}
+        th,td {{ border:1px solid #d7cdc0; padding:10px; text-align:left; vertical-align:top; }}
+        th {{ font-family:'Oswald',sans-serif; letter-spacing:.04em; background:#f0e6d6; }}
+        a {{ color:#7a2b1f; text-decoration:none; font-weight:700; }}
+    </style>
+</head>
+<body>
+<div class=\"wrap\">
+    <a href=\"index.html\">Back to front page</a>
+    <div class=\"k\">Model Release Desk</div>
+    <h1>Archive Model Release Ledger</h1>
+    <p>Total entries: {len(rows)}</p>
+    <table>
+        <thead><tr><th>Edition Date</th><th>Model</th><th>Provider</th><th>Type</th><th>Links</th></tr></thead>
+        <tbody>{''.join(table_rows)}</tbody>
+    </table>
+</div>
+</body>
+</html>"""
+        with open(output_path, "w") as f:
+            f.write(full_html)
+        return output_path
+
     def _generate_html(self, image_prefix: str = "images/") -> str:
         is_archive = "../" in image_prefix
         base_rel = "../../../../" if is_archive else ""
