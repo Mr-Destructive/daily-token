@@ -4,45 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Daily Token</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --ink: #111; --paper: #fdfdfb; --sep: #ccc; --highlight: #a00; }
-        * { box-sizing: border-box; }
-        body { background-color: #ddd; margin: 0; padding: 0; font-family: 'Lora', serif; color: var(--ink); line-height: 1.2; overflow-x: hidden; }
-        .newspaper-container { background-color: var(--paper); max-width: 1300px; margin: 0 auto; padding: 40px; box-shadow: 0 0 100px rgba(0,0,0,0.2); min-height: 100vh; transition: opacity 0.3s ease; }
-        .page-turn-out { opacity: 0; }
-        header { text-align: center; border-bottom: 6px double var(--ink); padding-bottom: 20px; }
-        .masthead-title { font-family: 'Playfair Display'; font-weight: 900; font-size: 6rem; letter-spacing: -3px; margin: 0; text-transform: uppercase; }
-        .sub-masthead { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin-top: 15px; padding: 6px 0; font-family: 'Oswald'; text-transform: uppercase; font-size: 0.9rem; display: flex; justify-content: center; gap: 40px; }
-        nav.sticky-nav { position: sticky; top: 0; background: var(--paper); z-index: 100; text-align: center; padding: 15px 0; border-bottom: 1px solid var(--ink); margin-bottom: 40px; }
-        .nav-item { text-decoration: none; color: var(--ink); font-family: 'Oswald'; font-weight: 700; font-size: 0.85rem; margin: 0 15px; transition: 0.2s; border-bottom: 2px solid transparent; }
-        .nav-item.active { color: var(--highlight); border-bottom: 2px solid var(--highlight); }
-        .page-title { text-align: center; border-bottom: 3px solid var(--ink); line-height: 0.1em; margin: 60px 0 40px; font-family: 'Oswald'; font-size: 1.5rem; }
-        .page-title span { background: var(--paper); padding: 0 30px; }
-        .section-sub-header { text-align: left; border-bottom: 1px solid var(--sep); line-height: 0.1em; margin: 40px 0 20px; font-family: 'Oswald'; font-size: 0.9rem; color: var(--highlight); }
-        .section-sub-header span { background: var(--paper); padding-right: 15px; }
-        .columns-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-bottom: 40px; }
-        .headline-sm { font-family: 'Playfair Display'; font-size: 1.5rem; line-height: 1.1; margin: 0 0 10px 0; font-weight: 700; }
-        .article a { color: inherit; text-decoration: none; }
-        .article a:hover { color: var(--highlight); }
-        .metadata { font-family: 'Oswald'; font-size: 0.75rem; color: #666; margin-bottom: 10px; }
-        .news-img { width: 100%; height: auto; display: block; margin-bottom: 20px; filter: grayscale(100%); border: 1px solid #ddd; transition: 0.4s; cursor: pointer; box-shadow: 5px 5px 0 rgba(0,0,0,0.05); }
-        .news-img:hover { filter: none; transform: translateY(-2px); }
-        .page-footer-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--ink); }
-        .nav-btn { font-family: 'Oswald'; font-weight: 700; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 20px; transition: 0.2s; }
-        .nav-btn:hover { background: var(--ink); color: #fff; }
-        .edition-nav { display: flex; justify-content: center; align-items: center; background: #eee; padding: 10px; font-family: 'Oswald'; font-size: 0.8rem; gap: 30px; border-bottom: 1px solid #ccc; }
-        .edition-link { color: #666; text-decoration: none; }
-        .editors-note { margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; font-style: italic; background: #f9f9f9; text-align: center; border-left: 5px solid var(--highlight); }
-        .insights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-        .insight-card { padding: 30px; border: 1px solid #eee; background: #fff; box-shadow: 8px 8px 0 rgba(0,0,0,0.05); transition: 0.3s; }
-        .insight-card:hover { transform: translateY(-5px); box-shadow: 12px 12px 0 rgba(0,0,0,0.08); }
-        .insight-author { font-family: 'Oswald'; font-size: 0.7rem; color: var(--highlight); margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .insight-headline { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 15px; }
-        .insight-summary { font-family: 'Lora'; line-height: 1.6; font-size: 1.1rem; font-style: italic; }
-        .insight-footer { margin-top: 20px; font-family: 'Oswald'; font-size: 0.8rem; font-weight: 700; }
-        .hn-link { color: var(--highlight); text-decoration: none; font-weight: 700; }
-        @media (max-width: 1000px) { .masthead-title { font-size: 3.5rem; } .columns-3, .insights-grid { grid-template-columns: 1fr !important; } .sub-masthead { flex-direction: column; gap: 5px; } }
+        :root { --ink:#181512; --paper:#f8f3ea; --sep:#c4b8a4; --highlight:#7a2b1f; --muted:#756b5e; --box:#fffaf0; }
+        * { box-sizing:border-box; }
+        body { background:#c8c1b5; margin:0; font-family:'Source Serif 4',serif; color:var(--ink); line-height:1.35; }
+        .newspaper-container { background:var(--paper); max-width:1280px; margin:0 auto; padding:32px; box-shadow:0 18px 80px rgba(0,0,0,.22); min-height:100vh; transition:opacity .22s ease; }
+        .page-turn-out { opacity:0; }
+        header { text-align:center; border-bottom:6px double var(--ink); padding-bottom:18px; }
+        .masthead-title { font-family:'Playfair Display',serif; font-weight:900; font-size:5.4rem; letter-spacing:-2px; margin:0; text-transform:uppercase; }
+        .sub-masthead { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); margin-top:12px; padding:6px 0; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:.86rem; display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+        nav.sticky-nav { position:sticky; top:0; background:var(--paper); z-index:100; text-align:center; padding:12px 0; border-bottom:1px solid var(--ink); margin-bottom:30px; }
+        .nav-item { text-decoration:none; color:var(--ink); font-family:'Oswald',sans-serif; font-size:.82rem; margin:0 10px; border-bottom:2px solid transparent; }
+        .nav-item.active { color:var(--highlight); border-color:var(--highlight); }
+        .page-title { text-align:center; border-bottom:3px solid var(--ink); line-height:.1em; margin:40px 0 26px; font-family:'Oswald',sans-serif; font-size:1.32rem; }
+        .page-title span { background:var(--paper); padding:0 22px; }
+        .section-sub-header { text-align:left; border-bottom:1px solid var(--sep); line-height:.1em; margin:28px 0 18px; font-family:'Oswald',sans-serif; font-size:.86rem; color:var(--highlight); letter-spacing:.06em; }
+        .section-sub-header span { background:var(--paper); padding-right:12px; }
+        .columns-3 { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px; margin-bottom:24px; }
+        .headline-sm { font-family:'Playfair Display',serif; font-size:1.42rem; line-height:1.14; margin:0 0 10px; }
+        .article a { color:inherit; text-decoration:none; }
+        .article a:hover { color:var(--highlight); }
+        .metadata { font-family:'Oswald',sans-serif; font-size:.72rem; color:var(--muted); margin-bottom:10px; letter-spacing:.04em; text-transform:uppercase; }
+        .metadata .source-link, .hn-link { color:var(--highlight); font-weight:700; }
+        .summary-sm { margin:0; font-size:.98rem; }
+        .news-img { width:100%; display:block; margin-bottom:14px; filter:grayscale(100%); border:1px solid #d7c9b2; transition:.25s; box-shadow:4px 4px 0 rgba(0,0,0,.05); }
+        .news-img:hover { filter:none; transform:translateY(-1px); }
+        .page-footer-nav { display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:14px; border-top:1px solid var(--ink); }
+        .nav-btn { font-family:'Oswald',sans-serif; color:var(--ink); text-decoration:none; border:1px solid var(--ink); padding:8px 14px; font-size:.82rem; }
+        .nav-btn:hover { background:var(--ink); color:#fff; }
+        .edition-nav { display:flex; justify-content:center; align-items:center; gap:20px; background:#e9e1d3; padding:10px; font-family:'Oswald',sans-serif; font-size:.78rem; border-bottom:1px solid #cdbfa8; flex-wrap:wrap; }
+        .edition-link { color:#574f46; text-decoration:none; }
+        .edition-link.disabled { color:#a69e93; }
+        .editors-note { margin-bottom:20px; padding:16px; border:1px solid #d6c8b0; font-style:italic; background:var(--box); border-left:4px solid var(--highlight); }
+        .editors-note .emphasis { color:var(--highlight); font-weight:700; }
+        .insights-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+        .insight-card { padding:18px; border:1px solid #ded1bb; background:var(--box); }
+        .insight-author { font-family:'Oswald',sans-serif; font-size:.68rem; color:var(--highlight); margin-bottom:8px; border-bottom:1px solid #e3d8c7; padding-bottom:4px; text-transform:uppercase; }
+        .insight-headline { font-family:'Playfair Display',serif; font-size:1.34rem; margin:0 0 10px; }
+        .insight-summary { margin:0; }
+        .insight-footer { margin-top:12px; font-family:'Oswald',sans-serif; font-size:.78rem; }
+        .release-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .release-card { border:1px solid #ded1bb; background:var(--box); padding:14px; }
+        .release-kicker { font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.08em; color:var(--highlight); text-transform:uppercase; }
+        .release-card h3 { font-family:'Playfair Display',serif; margin:6px 0 8px; }
+        .release-card p { margin:0; font-size:.95rem; }
+        .release-links { margin-top:10px; font-family:'Oswald',sans-serif; font-size:.75rem; }
+        .model-ledger-link { margin-top:14px; text-align:right; font-family:'Oswald',sans-serif; font-size:.84rem; }
+        .model-ledger-link a { color:var(--highlight); text-decoration:none; }
+        .empty-note { border:1px dashed #cab99f; padding:14px; background:#fff8ea; }
+        @media (max-width:1000px) {
+            .masthead-title { font-size:3rem; }
+            .columns-3, .insights-grid, .release-grid { grid-template-columns:1fr; }
+        }
     </style>
 </head>
 <body>
@@ -50,8 +64,10 @@
         <a href="../../../../archive/2026/01/29/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
         <span style="font-weight:700; color:#111;">EDITION: JAN 30, 2026</span>
         <a href="../../../../archive/2026/01/31/newspaper.html" class="edition-link">NEXT EDITION →</a>
-        <span style="color:#ccc">|</span>
+        <span style="color:#9b8f82">|</span>
         <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../model-releases.html" class="edition-link">MODEL RELEASES</a>
     </div>
     <div class="newspaper-container" id="newspaper-main">
         <header>
@@ -64,164 +80,8 @@
             </div>
         </header>
         <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
-        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class="editors-note"><strong>EDITOR'S NOTE:</strong> Today, we confront the duality of AI’s explosive potential—its unchecked risks and the groundbreaking innovations that could redefine our future. <span class="emphasis" style="color:var(--highlight); font-weight:700;">#AI governance vs. hardware-software co-evolution</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://openai.com/index/inside-our-in-house-data-agent" target="_blank">OpenAI’s Breakthrough: A Deep Dive into Its In-House Data Agent Architecture</a></h3>
-                    <div class="metadata">SOURCE: OPENAI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">The article explores OpenAI’s proprietary data agent system, revealing how it automates complex workflows to refine AI training pipelines—potentially redefining scalability and efficiency in model development.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/04/08/plaid/" target="_blank">Repurposing Protein Folding Models for Generation with Latent Diffusion</a></h3>
-                    <div class="metadata">SOURCE: BAIR | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm"></p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/09/01/qwem-word2vec-theory/" target="_blank">What exactly does word2vec learn?</a></h3>
-                    <div class="metadata">SOURCE: BAIR | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm"></p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22161" target="_blank">Domain-Specific Features Outperform Transformers in Emotion Recognition: Breakthrough on EAV Dataset Challenges 'Attention-Only' Paradigm</a></h3>
-                    <div class="metadata">SOURCE: ARXIV_LG | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Researchers demonstrate that traditional domain-adapted features (e.g., handcrafted audio/visual descriptors) surpass transformer-based models in emotion recognition tasks on the EAV dataset, questioning the universal dominance of attention mechanisms for affective computing.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/" target="_blank">D4RT: Pioneering AI’s 4D Perception to Redefine Spatial Intelligence</a></h3>
-                    <div class="metadata">SOURCE: DEEPMIND | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Researchers introduce *D4RT*, a breakthrough framework enabling AI to interpret the world in **four dimensions** (3D space + time), unlocking dynamic scene understanding for robotics, AR, and autonomous systems. The approach merges neural rendering with temporal modeling to bridge static and kinetic perception gaps.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank">AI-Powered Smartwatches Now Estimate Advanced Walking Metrics for Personalized Health Insights</a></h3>
-                    <div class="metadata">SOURCE: GOOGLE_RESEARCH | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Researchers demonstrate how neural networks can leverage smartwatch sensor data to extract nuanced gait and mobility metrics—like stride length, asymmetry, and balance—previously requiring lab equipment. This breakthrough enables continuous, real-world health monitoring for early disease detection and rehabilitation tracking.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://twitter.com/hewliyang/status/2018278447429382531" target="_blank">Technical Deep Dive: Claude’s Excel Integration Framework Unveiled</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854739" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">Explores the system prompts, tooling, and beta-phase headers designed to embed Claude’s AI capabilities directly into Excel workflows, targeting developers and power users.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://developer.nvidia.com/blog/speeding-up-variable-length-training-with-dynamic-context-parallelism-and-nvidia-megatron-core/" target="_blank">NVIDIA Megatron Core Accelerates Variable-Length AI Training with Dynamic Context Parallelism</a></h3>
-                    <div class="metadata">SOURCE: NVIDIA_DEVELOPER | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This technical deep dive explores how NVIDIA's Megatron Core framework leverages dynamic context parallelism to optimize training efficiency for variable-length sequences, reducing overhead in large-scale AI model development.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://news.microsoft.com/january-2026-news" target="_blank">Mistral AI Unveils Maia 200: A Next-Gen Accelerator Optimized for AI Inference Workloads</a></h3>
-                    <div class="metadata">SOURCE: MICROSOFT_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">The Maia 200 debuts as a purpose-built AI accelerator designed to maximize efficiency and performance for inference tasks, marking a targeted leap in hardware specialization for deployment-phase AI systems.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://cohere.com/solutions/model-vault" target="_blank">Model Vault Unveiled: Secure, Scalable AI Inference for Private Deployments</a></h3>
-                    <div class="metadata">SOURCE: COHERE | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">A new platform called *Model Vault* enables organizations to deploy AI models privately with enterprise-grade security, scalability, and controlled access—ideal for sensitive or proprietary inference workloads.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://www.vktr.com/ai-ethics-law-risk/right-to-compute-laws/" target="_blank">Emerging 'Right-to-Compute' Legislation Could Reshape AI Access in 2026</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46848594" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">New state-level 'Right-to-Compute' laws may soon grant individuals legal protections to run AI models locally, challenging cloud dependency and raising questions about computational autonomy and infrastructure demands.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall" target="_blank">Microsoft Scales Back Windows 11’s AI-Centric Features Amid User Feedback</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854951" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">Microsoft is dialing down its aggressive AI integration in Windows 11, responding to criticism over performance impacts and user experience. The shift signals a recalibration of its AI-first strategy to prioritize core functionality and stability.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://cohere.com/north" target="_blank">NorthNEW: AI-Powered Enterprise Productivity Platform for the Modern Workplace</a></h3>
-                    <div class="metadata">SOURCE: COHERE | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">NorthNEW is an enterprise-grade AI platform designed to enhance workplace productivity through modern, scalable solutions. It integrates advanced AI and LLM capabilities to streamline workflows, automate tasks, and empower teams with intelligent tools tailored for business needs.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/build-reliable-agentic-ai-solution-with-amazon-bedrock-learn-from-pushpays-journey-on-genai-evaluation/" target="_blank">How Pushpay Built a Reliable Agentic AI Solution Using Amazon Bedrock: A Case Study on GenAI Evaluation</a></h3>
-                    <div class="metadata">SOURCE: AWS_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This story explores Pushpay’s journey in developing a robust agentic AI system with Amazon Bedrock, focusing on their GenAI evaluation framework and key lessons for enterprise reliability.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://research.baidu.com/Research_Areas/index-view?id=57" target="_blank">The Role of AI in Modern Business Intelligence: A Strategic Overview</a></h3>
-                    <div class="metadata">SOURCE: BAIDU | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Explores how AI and large language models (LLMs) are revolutionizing business intelligence by automating data analysis, enhancing decision-making, and uncovering actionable insights—bridging the gap between raw data and strategic outcomes.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card">
-                        <div class="insight-author">PERSPECTIVE: The Community</div>
-                        <h3 class="insight-headline">Unlocking the Principles of Agentic AI: A Framework for Responsible Autonomy</h3>
-                        <p class="insight-summary">"Explores the foundational rules governing AI agents—balancing autonomy, ethics, and human alignment—while offering actionable insights for developers and policymakers."</p>
-                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854976" target="_blank">READ FULL DISCUSSION →</a></div>
-                    </div><div class="insight-card">
-                        <div class="insight-author">PERSPECTIVE: The Community</div>
-                        <h3 class="insight-headline">The Hidden Pitfalls of AI’s Assumptions: When Machines Misinterpret Human Knowledge</h3>
-                        <p class="insight-summary">"This story explores how AI systems often operate under the flawed assumption that users possess implicit knowledge—leading to miscommunication, overconfidence in outputs, and unintended consequences in human-AI collaboration."</p>
-                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854788" target="_blank">READ FULL DISCUSSION →</a></div>
-                    </div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere" target="_blank">OpenClaw’s Unchecked Proliferation: A Looming AI Catastrophe</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46848552" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">The article exposes *OpenClaw*—an AI system spreading uncontrollably across labs and industries—highlighting its unregulated expansion as a ticking time bomb for ethical, technical, and societal risks. Urgent calls for oversight clash with its rapid, unchecked adoption.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
-        <footer style="text-align: center; padding: 60px 0; font-family: 'Oswald'; border-top: 4px double var(--ink); margin-top: 100px;">
-            THE DAILY TOKEN // PRODUCED BY NEURAL AGENTS // &copy; 2026
-        </footer>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class='editors-note'><strong>EDITOR'S NOTE:</strong> Today, we confront the duality of AI’s explosive potential—its unchecked risks and the groundbreaking innovations that could redefine our future. <span class='emphasis'>#AI governance vs. hardware-software co-evolution</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://openai.com/index/inside-our-in-house-data-agent" target="_blank" rel="noopener">OpenAI’s Breakthrough: A Deep Dive into Its In-House Data Agent Architecture</a></h3><div class="metadata">SOURCE: <a href="https://openai.com/index/inside-our-in-house-data-agent" target="_blank" rel="noopener" class="source-link">OPENAI</a></div><p class="summary-sm">The article explores OpenAI’s proprietary data agent system, revealing how it automates complex workflows to refine AI training pipelines—potentially redefining scalability and efficiency in model development.</p></div></article></div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/04/08/plaid/" target="_blank" rel="noopener">Repurposing Protein Folding Models for Generation with Latent Diffusion</a></h3><div class="metadata">SOURCE: <a href="http://bair.berkeley.edu/blog/2025/04/08/plaid/" target="_blank" rel="noopener" class="source-link">BAIR</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/09/01/qwem-word2vec-theory/" target="_blank" rel="noopener">What exactly does word2vec learn?</a></h3><div class="metadata">SOURCE: <a href="http://bair.berkeley.edu/blog/2025/09/01/qwem-word2vec-theory/" target="_blank" rel="noopener" class="source-link">BAIR</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22161" target="_blank" rel="noopener">Domain-Specific Features Outperform Transformers in Emotion Recognition: Breakthrough on EAV Dataset Challenges &#x27;Attention-Only&#x27; Paradigm</a></h3><div class="metadata">SOURCE: <a href="https://arxiv.org/abs/2601.22161" target="_blank" rel="noopener" class="source-link">ARXIV_LG</a></div><p class="summary-sm">Researchers demonstrate that traditional domain-adapted features (e.g., handcrafted audio/visual descriptors) surpass transformer-based models in emotion recognition tasks on the EAV dataset, questioning the universal dominance of attention mechanisms for affective computing.</p></div></article></div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/" target="_blank" rel="noopener">D4RT: Pioneering AI’s 4D Perception to Redefine Spatial Intelligence</a></h3><div class="metadata">SOURCE: <a href="https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/" target="_blank" rel="noopener" class="source-link">DEEPMIND</a></div><p class="summary-sm">Researchers introduce *D4RT*, a breakthrough framework enabling AI to interpret the world in **four dimensions** (3D space + time), unlocking dynamic scene understanding for robotics, AR, and autonomous systems. The approach merges neural rendering with temporal modeling to bridge static and kinetic perception gaps.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank" rel="noopener">AI-Powered Smartwatches Now Estimate Advanced Walking Metrics for Personalized Health Insights</a></h3><div class="metadata">SOURCE: <a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank" rel="noopener" class="source-link">GOOGLE_RESEARCH</a></div><p class="summary-sm">Researchers demonstrate how neural networks can leverage smartwatch sensor data to extract nuanced gait and mobility metrics—like stride length, asymmetry, and balance—previously requiring lab equipment. This breakthrough enables continuous, real-world health monitoring for early disease detection and rehabilitation tracking.</p></div></article></div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://twitter.com/hewliyang/status/2018278447429382531" target="_blank" rel="noopener">Technical Deep Dive: Claude’s Excel Integration Framework Unveiled</a></h3><div class="metadata">SOURCE: <a href="https://twitter.com/hewliyang/status/2018278447429382531" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46854739" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Explores the system prompts, tooling, and beta-phase headers designed to embed Claude’s AI capabilities directly into Excel workflows, targeting developers and power users.</p></div></article></div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://developer.nvidia.com/blog/speeding-up-variable-length-training-with-dynamic-context-parallelism-and-nvidia-megatron-core/" target="_blank" rel="noopener">NVIDIA Megatron Core Accelerates Variable-Length AI Training with Dynamic Context Parallelism</a></h3><div class="metadata">SOURCE: <a href="https://developer.nvidia.com/blog/speeding-up-variable-length-training-with-dynamic-context-parallelism-and-nvidia-megatron-core/" target="_blank" rel="noopener" class="source-link">NVIDIA_DEVELOPER</a></div><p class="summary-sm">This technical deep dive explores how NVIDIA&#x27;s Megatron Core framework leverages dynamic context parallelism to optimize training efficiency for variable-length sequences, reducing overhead in large-scale AI model development.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://news.microsoft.com/january-2026-news" target="_blank" rel="noopener">Mistral AI Unveils Maia 200: A Next-Gen Accelerator Optimized for AI Inference Workloads</a></h3><div class="metadata">SOURCE: <a href="https://news.microsoft.com/january-2026-news" target="_blank" rel="noopener" class="source-link">MICROSOFT_AI</a></div><p class="summary-sm">The Maia 200 debuts as a purpose-built AI accelerator designed to maximize efficiency and performance for inference tasks, marking a targeted leap in hardware specialization for deployment-phase AI systems.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://cohere.com/solutions/model-vault" target="_blank" rel="noopener">Model Vault Unveiled: Secure, Scalable AI Inference for Private Deployments</a></h3><div class="metadata">SOURCE: <a href="https://cohere.com/solutions/model-vault" target="_blank" rel="noopener" class="source-link">COHERE</a></div><p class="summary-sm">A new platform called *Model Vault* enables organizations to deploy AI models privately with enterprise-grade security, scalability, and controlled access—ideal for sensitive or proprietary inference workloads.</p></div></article></div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.vktr.com/ai-ethics-law-risk/right-to-compute-laws/" target="_blank" rel="noopener">Emerging &#x27;Right-to-Compute&#x27; Legislation Could Reshape AI Access in 2026</a></h3><div class="metadata">SOURCE: <a href="https://www.vktr.com/ai-ethics-law-risk/right-to-compute-laws/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46848594" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">New state-level &#x27;Right-to-Compute&#x27; laws may soon grant individuals legal protections to run AI models locally, challenging cloud dependency and raising questions about computational autonomy and infrastructure demands.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall" target="_blank" rel="noopener">Microsoft Scales Back Windows 11’s AI-Centric Features Amid User Feedback</a></h3><div class="metadata">SOURCE: <a href="https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46854951" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Microsoft is dialing down its aggressive AI integration in Windows 11, responding to criticism over performance impacts and user experience. The shift signals a recalibration of its AI-first strategy to prioritize core functionality and stability.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://cohere.com/north" target="_blank" rel="noopener">NorthNEW: AI-Powered Enterprise Productivity Platform for the Modern Workplace</a></h3><div class="metadata">SOURCE: <a href="https://cohere.com/north" target="_blank" rel="noopener" class="source-link">COHERE</a></div><p class="summary-sm">NorthNEW is an enterprise-grade AI platform designed to enhance workplace productivity through modern, scalable solutions. It integrates advanced AI and LLM capabilities to streamline workflows, automate tasks, and empower teams with intelligent tools tailored for business needs.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/build-reliable-agentic-ai-solution-with-amazon-bedrock-learn-from-pushpays-journey-on-genai-evaluation/" target="_blank" rel="noopener">How Pushpay Built a Reliable Agentic AI Solution Using Amazon Bedrock: A Case Study on GenAI Evaluation</a></h3><div class="metadata">SOURCE: <a href="https://aws.amazon.com/blogs/machine-learning/build-reliable-agentic-ai-solution-with-amazon-bedrock-learn-from-pushpays-journey-on-genai-evaluation/" target="_blank" rel="noopener" class="source-link">AWS_AI</a></div><p class="summary-sm">This story explores Pushpay’s journey in developing a robust agentic AI system with Amazon Bedrock, focusing on their GenAI evaluation framework and key lessons for enterprise reliability.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://research.baidu.com/Research_Areas/index-view?id=57" target="_blank" rel="noopener">The Role of AI in Modern Business Intelligence: A Strategic Overview</a></h3><div class="metadata">SOURCE: <a href="https://research.baidu.com/Research_Areas/index-view?id=57" target="_blank" rel="noopener" class="source-link">BAIDU</a></div><p class="summary-sm">Explores how AI and large language models (LLMs) are revolutionizing business intelligence by automating data analysis, enhancing decision-making, and uncovering actionable insights—bridging the gap between raw data and strategic outcomes.</p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="section-sub-header"><span>DAILY MODEL RELEASE LEDGER</span></div><div class="release-grid"><p class="empty-note">No confirmed model releases were detected for this edition date.</p></div><div class="model-ledger-link"><a href="../../../../model-releases.html">OPEN FULL MODEL RELEASE PAGE →</a></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">Unlocking the Principles of Agentic AI: A Framework for Responsible Autonomy</h3><p class="insight-summary">"Explores the foundational rules governing AI agents—balancing autonomy, ethics, and human alignment—while offering actionable insights for developers and policymakers."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854976" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">The Hidden Pitfalls of AI’s Assumptions: When Machines Misinterpret Human Knowledge</h3><p class="insight-summary">"This story explores how AI systems often operate under the flawed assumption that users possess implicit knowledge—leading to miscommunication, overconfidence in outputs, and unintended consequences in human-AI collaboration."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854788" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere" target="_blank" rel="noopener">OpenClaw’s Unchecked Proliferation: A Looming AI Catastrophe</a></h3><div class="metadata">SOURCE: <a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46848552" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">The article exposes *OpenClaw*—an AI system spreading uncontrollably across labs and industries—highlighting its unregulated expansion as a ticking time bomb for ethical, technical, and societal risks. Urgent calls for oversight clash with its rapid, unchecked adoption.</p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align:center; padding:40px 0; font-family:'Oswald',sans-serif; border-top:4px double var(--ink); margin-top:70px;">THE DAILY TOKEN // REPORTING IN PUBLIC // &copy; 2026</footer>
     </div>
     <script>
         let currentPage = 1;
@@ -240,7 +100,7 @@
                 url.searchParams.set('page', pageNum);
                 window.history.pushState({}, '', url);
                 container.classList.remove('page-turn-out');
-            }, 300);
+            }, 220);
         }
         window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);

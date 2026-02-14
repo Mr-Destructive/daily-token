@@ -5,11 +5,75 @@
     "location": "VECTOR STATION",
     "editorial": {
       "main_lead_index": 0,
-      "supporting_lead_indices": [],
-      "editors_note": "Signal unavailable today; archive entry retained for continuity.",
-      "emphasis": "Continuity"
+      "supporting_lead_indices": [
+        1,
+        2
+      ],
+      "editors_note": "The future of hardware still hinges on who controls the foundry\u2014while software agents and gadgetry distract with incremental spectacle.",
+      "emphasis": "semiconductor sovereignty"
     },
-    "top_candidates": [],
+    "top_candidates": [
+      {
+        "original_title": "TSMC to make advanced AI semiconductors in Japan",
+        "generated_headline": "TSMC expands Japanese production to include advanced nodes",
+        "url": "https://apnews.com/article/semiconductors-tsmc-japan-taiwan-ai-11256f2bfde73ca23d08331ad138d6d5",
+        "hn_url": "https://news.ycombinator.com/item?id=46941640",
+        "source": "HackerNews",
+        "score": 241,
+        "significance_score": 88,
+        "category": "Lab Updates & Dark Side",
+        "category_id": 5,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "TSMC's move to manufacture high-end AI silicon in Japan diversifies a fragile supply chain, though it introduces logistical overhead and potential yield variability across disparate geographies.",
+        "selected_image_url": "https://dims.apnews.com/dims4/default/94c503b/2147483647/strip/true/crop/640x236+0+0/resize/320x118!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fc3%2F4c%2F65482a7b452db66043542c093eaf%2Fpromo-2x.png",
+        "worth_showing_image": false,
+        "image_layout": "WIDE",
+        "published": 1770611894,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
+        "original_title": "Show HN: AI agents play SimCity through a REST API",
+        "generated_headline": "AI Agents Navigate SimCity via REST API: A Testbed for Autonomous Urban Planning",
+        "url": "https://hallucinatingsplines.com",
+        "hn_url": "https://news.ycombinator.com/item?id=46946593",
+        "source": "HackerNews",
+        "score": 213,
+        "significance_score": 68,
+        "category": "Model Release History",
+        "category_id": 3,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "A proof-of-concept demonstrates AI agents interfacing with SimCity through a REST API, raising questions about scalability and real-world applicability of agentic systems in complex simulations. The experiment highlights tradeoffs between abstraction layers and emergent behavior fidelity.",
+        "selected_image_url": "https://hallucinatingsplines.com/drwright.webp",
+        "worth_showing_image": false,
+        "image_layout": "SQUARE",
+        "published": 1770652473,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
+        "original_title": "AirPods Pro 4 Could Feature Cameras to 'See Around You'",
+        "generated_headline": "AirPods Pro 4 Could Feature Cameras to 'See Around You'",
+        "url": "https://www.macrumors.com/2026/02/09/airpods-pro-4-could-feature-cameras-to-see-around-you/",
+        "hn_url": "https://news.ycombinator.com/item?id=46946617",
+        "source": "HackerNews",
+        "score": 38,
+        "significance_score": 50,
+        "category": "Model Release History",
+        "category_id": 3,
+        "confidence": 0.85,
+        "detected_model": null,
+        "summary": "",
+        "selected_image_url": "https://images.macrumors.com/t/8wP0Zh_srVooBagLxCHrfzrXWhE=/2000x/article-new/2019/10/airpods-pro-3-hearing-health.jpg",
+        "worth_showing_image": false,
+        "image_layout": "SQUARE",
+        "published": 1770652576,
+        "model_used": "Cat: Free-Chatbot, Sum: None",
+        "cost": 0
+      }
+    ],
     "model_releases": []
   },
   "pages": {
@@ -23,7 +87,48 @@
     },
     "3": {
       "title": "Neural Horizons",
-      "stories": []
+      "stories": [
+        {
+          "original_title": "Show HN: AI agents play SimCity through a REST API",
+          "generated_headline": "AI Agents Navigate SimCity via REST API: A Testbed for Autonomous Urban Planning",
+          "url": "https://hallucinatingsplines.com",
+          "hn_url": "https://news.ycombinator.com/item?id=46946593",
+          "source": "HackerNews",
+          "score": 213,
+          "significance_score": 68,
+          "category": "Model Release History",
+          "category_id": 3,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "A proof-of-concept demonstrates AI agents interfacing with SimCity through a REST API, raising questions about scalability and real-world applicability of agentic systems in complex simulations. The experiment highlights tradeoffs between abstraction layers and emergent behavior fidelity.",
+          "selected_image_url": "https://hallucinatingsplines.com/drwright.webp",
+          "worth_showing_image": false,
+          "image_layout": "SQUARE",
+          "published": 1770652473,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        },
+        {
+          "original_title": "AirPods Pro 4 Could Feature Cameras to 'See Around You'",
+          "generated_headline": "AirPods Pro 4 Could Feature Cameras to 'See Around You'",
+          "url": "https://www.macrumors.com/2026/02/09/airpods-pro-4-could-feature-cameras-to-see-around-you/",
+          "hn_url": "https://news.ycombinator.com/item?id=46946617",
+          "source": "HackerNews",
+          "score": 38,
+          "significance_score": 50,
+          "category": "Model Release History",
+          "category_id": 3,
+          "confidence": 0.85,
+          "detected_model": null,
+          "summary": "",
+          "selected_image_url": "https://images.macrumors.com/t/8wP0Zh_srVooBagLxCHrfzrXWhE=/2000x/article-new/2019/10/airpods-pro-3-hearing-health.jpg",
+          "worth_showing_image": false,
+          "image_layout": "SQUARE",
+          "published": 1770652576,
+          "model_used": "Cat: Free-Chatbot, Sum: None",
+          "cost": 0
+        }
+      ]
     },
     "4": {
       "title": "Lab Outputs",
@@ -31,28 +136,32 @@
     },
     "5": {
       "title": "Inference Corner",
-      "stories": []
+      "stories": [
+        {
+          "original_title": "TSMC to make advanced AI semiconductors in Japan",
+          "generated_headline": "TSMC expands Japanese production to include advanced nodes",
+          "url": "https://apnews.com/article/semiconductors-tsmc-japan-taiwan-ai-11256f2bfde73ca23d08331ad138d6d5",
+          "hn_url": "https://news.ycombinator.com/item?id=46941640",
+          "source": "HackerNews",
+          "score": 241,
+          "significance_score": 88,
+          "category": "Lab Updates & Dark Side",
+          "category_id": 5,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "TSMC's move to manufacture high-end AI silicon in Japan diversifies a fragile supply chain, though it introduces logistical overhead and potential yield variability across disparate geographies.",
+          "selected_image_url": "https://dims.apnews.com/dims4/default/94c503b/2147483647/strip/true/crop/640x236+0+0/resize/320x118!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fc3%2F4c%2F65482a7b452db66043542c093eaf%2Fpromo-2x.png",
+          "worth_showing_image": false,
+          "image_layout": "WIDE",
+          "published": 1770611894,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        }
+      ]
     },
     "6": {
       "title": "AI & LLM Overview",
-      "stories": [
-        {
-          "original_title": "Archive Placeholder for 2026-02-09",
-          "generated_headline": "Archive Record Pending: 2026-02-09",
-          "url": "",
-          "hn_url": "",
-          "source": "Daily Token",
-          "score": 0,
-          "significance_score": 1,
-          "category": "AI & LLM Overview",
-          "category_id": 6,
-          "confidence": 1.0,
-          "summary": "Source fetch failed for this date. This placeholder preserves archive continuity until data backfill succeeds.",
-          "selected_image_url": null,
-          "worth_showing_image": false,
-          "image_layout": "SQUARE"
-        }
-      ]
+      "stories": []
     },
     "7": {
       "title": "Model Release History",

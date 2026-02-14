@@ -128,35 +128,58 @@ class HackerNewsScraper:
         
     def get_historical_stories(self, target_date: datetime, limit: int = 50) -> List[Dict]:
         """Fetch top AI stories for a specific date using Algolia Search API"""
-        import time
-        start_ts = int(target_date.replace(hour=0, minute=0, second=0).timestamp())
+        start_ts = int(target_date.replace(hour=0, minute=0, second=0, microsecond=0).timestamp())
         end_ts = start_ts + 86400
-        
-        # Algolia search query for AI keywords on specific date
-        from config import AI_KEYWORDS
-        query = "(ai OR llm OR transformer OR gpt OR research OR model)"
-        url = f"https://hn.algolia.com/api/v1/search?query={query}&numericFilters=created_at_i>{start_ts},created_at_i<{end_ts},points>20&hitsPerPage={limit}"
-        
-        try:
-            print(f"      - Querying Algolia for {target_date.date()}...")
-            resp = requests.get(url, timeout=15)
-            data = resp.json()
-            
-            stories = []
-            for hit in data.get('hits', []):
-                stories.append({
-                    'id': int(hit['objectID']),
-                    'title': hit['title'],
-                    'url': hit['url'],
-                    'score': hit['points'],
-                    'by': hit['author'],
-                    'time': hit['created_at_i'],
-                    'kids': hit.get('children', [])
-                })
-            return stories
-        except Exception as e:
-            print(f"Error fetching historical HN: {e}")
-            return []
+        queries = [
+            # Primary: keep relevance threshold high.
+            (
+                "https://hn.algolia.com/api/v1/search"
+                f"?query=ai&numericFilters=created_at_i>{start_ts},created_at_i<{end_ts},points>20"
+                f"&tags=story&hitsPerPage={limit}"
+            ),
+            # Fallback 1: broader AI terms, no point floor.
+            (
+                "https://hn.algolia.com/api/v1/search"
+                f"?query=llm&numericFilters=created_at_i>{start_ts},created_at_i<{end_ts}"
+                f"&tags=story&hitsPerPage={limit}"
+            ),
+            # Fallback 2: date-sorted slice for the day.
+            (
+                "https://hn.algolia.com/api/v1/search_by_date"
+                f"?query=ai&numericFilters=created_at_i>{start_ts},created_at_i<{end_ts}"
+                f"&tags=story&hitsPerPage={limit}"
+            ),
+        ]
+
+        for idx, url in enumerate(queries, start=1):
+            try:
+                print(f"      - Querying Algolia for {target_date.date()} (attempt {idx})...")
+                resp = requests.get(url, timeout=15)
+                resp.raise_for_status()
+                data = resp.json()
+
+                stories = []
+                for hit in data.get('hits', []):
+                    title = hit.get('title') or hit.get('story_title') or ""
+                    link = hit.get('url') or hit.get('story_url') or ""
+                    if not title or not link:
+                        continue
+                    stories.append({
+                        'id': int(hit['objectID']),
+                        'title': title,
+                        'url': link,
+                        'score': hit.get('points', 0),
+                        'by': hit.get('author', 'unknown'),
+                        'time': hit.get('created_at_i', 0),
+                        'kids': hit.get('children', []),
+                    })
+
+                if stories:
+                    return stories
+            except Exception as e:
+                print(f"      - Algolia attempt {idx} failed: {e}")
+
+        return []
 
     def get_top_stories(self, limit: int = None) -> List[Dict]:
         """Fetch stories from Top, Best, and New pools to ensure depth and quality"""

@@ -2,14 +2,78 @@
   "metadata": {
     "generated": "2026-02-10T00:00:00",
     "format_version": "1.2",
-    "location": "GRADIENT VALLEY",
+    "location": "TRANSFORMER TOWER",
     "editorial": {
       "main_lead_index": 0,
-      "supporting_lead_indices": [],
-      "editors_note": "Signal unavailable today; archive entry retained for continuity.",
-      "emphasis": "Continuity"
+      "supporting_lead_indices": [
+        2,
+        1
+      ],
+      "editors_note": "As we trade the intentionality of hand-rolled logic for the convenience of automated graphs, we must ask if we are building lasting architecture or merely high-fidelity debt.",
+      "emphasis": "Agentic Graph-Based Knowledge Management"
     },
-    "top_candidates": [],
+    "top_candidates": [
+      {
+        "original_title": "Show HN: Rowboat \u2013 AI coworker that turns your work into a knowledge graph (OSS)",
+        "generated_headline": "Rowboat: Open-Source AI Coworker Maps Workflows to Knowledge Graphs\u2014But Will It Scale?",
+        "url": "https://github.com/rowboatlabs/rowboat",
+        "hn_url": "https://news.ycombinator.com/item?id=46962641",
+        "source": "HackerNews",
+        "score": 202,
+        "significance_score": 82,
+        "category": "Top Insights & Advice",
+        "category_id": 4,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "Rowboat, a new OSS tool, automatically constructs a knowledge graph from user workflows (e.g., docs, code, chats) to surface implicit connections\u2014promising efficiency gains for teams but raising questions about graph maintenance overhead and privacy tradeoffs in collaborative settings.",
+        "selected_image_url": "https://camo.githubusercontent.com/6404fa9c2e9ec7188fe1816924cdce16ed1106f32309a875de83b7487c7b6b23/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f726f77626f61746c61627368713f7374796c653d736f6369616",
+        "worth_showing_image": true,
+        "image_layout": "WIDE",
+        "published": 1770742049,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
+        "original_title": "Show HN: Open-Source SDK for AI Knowledge Work",
+        "generated_headline": "Open-Source SDK Aims to Streamline AI Knowledge Work\u2014But Will It Scale?",
+        "url": "https://github.com/ClioAI/kw-sdk",
+        "hn_url": "https://news.ycombinator.com/item?id=46963026",
+        "source": "HackerNews",
+        "score": 21,
+        "significance_score": 78,
+        "category": "Top Insights & Advice",
+        "category_id": 4,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "A newly released open-source SDK promises to simplify AI-driven knowledge tasks by abstracting common workflows, though adoption hinges on community buy-in and integration with existing toolchains. Early adopters report reduced boilerplate but warn of steep learning curves for non-specialists.",
+        "selected_image_url": null,
+        "worth_showing_image": false,
+        "image_layout": "WIDE",
+        "published": 1770743160,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
+        "original_title": "Launch HN: Livedocs (YC W22) \u2013 An AI-native notebook for data analysis",
+        "generated_headline": "Livedocs (YC W22) Debuts AI-Native Notebook, But Can It Outperform Jupyter for Data Teams?",
+        "url": "https://livedocs.com",
+        "hn_url": "https://news.ycombinator.com/item?id=46964162",
+        "source": "HackerNews",
+        "score": 47,
+        "significance_score": 72,
+        "category": "Top Insights & Advice",
+        "category_id": 4,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "Y Combinator-backed Livedocs launches an AI-integrated notebook targeting data analysts, promising tighter collaboration and automation\u2014yet faces adoption hurdles against entrenched tools like Jupyter and Hex. Early traction in niche workflows suggests potential, but scalability and customization tradeoffs remain unproven.",
+        "selected_image_url": "https://livedocs.com/Livedocs_Meta.png",
+        "worth_showing_image": true,
+        "image_layout": "WIDE",
+        "published": 1770746954,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      }
+    ],
     "model_releases": []
   },
   "pages": {
@@ -27,7 +91,68 @@
     },
     "4": {
       "title": "Lab Outputs",
-      "stories": []
+      "stories": [
+        {
+          "original_title": "Show HN: Rowboat \u2013 AI coworker that turns your work into a knowledge graph (OSS)",
+          "generated_headline": "Rowboat: Open-Source AI Coworker Maps Workflows to Knowledge Graphs\u2014But Will It Scale?",
+          "url": "https://github.com/rowboatlabs/rowboat",
+          "hn_url": "https://news.ycombinator.com/item?id=46962641",
+          "source": "HackerNews",
+          "score": 202,
+          "significance_score": 82,
+          "category": "Top Insights & Advice",
+          "category_id": 4,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "Rowboat, a new OSS tool, automatically constructs a knowledge graph from user workflows (e.g., docs, code, chats) to surface implicit connections\u2014promising efficiency gains for teams but raising questions about graph maintenance overhead and privacy tradeoffs in collaborative settings.",
+          "selected_image_url": "https://camo.githubusercontent.com/6404fa9c2e9ec7188fe1816924cdce16ed1106f32309a875de83b7487c7b6b23/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f726f77626f61746c61627368713f7374796c653d736f6369616",
+          "worth_showing_image": true,
+          "image_layout": "WIDE",
+          "published": 1770742049,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        },
+        {
+          "original_title": "Launch HN: Livedocs (YC W22) \u2013 An AI-native notebook for data analysis",
+          "generated_headline": "Livedocs (YC W22) Debuts AI-Native Notebook, But Can It Outperform Jupyter for Data Teams?",
+          "url": "https://livedocs.com",
+          "hn_url": "https://news.ycombinator.com/item?id=46964162",
+          "source": "HackerNews",
+          "score": 47,
+          "significance_score": 72,
+          "category": "Top Insights & Advice",
+          "category_id": 4,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "Y Combinator-backed Livedocs launches an AI-integrated notebook targeting data analysts, promising tighter collaboration and automation\u2014yet faces adoption hurdles against entrenched tools like Jupyter and Hex. Early traction in niche workflows suggests potential, but scalability and customization tradeoffs remain unproven.",
+          "selected_image_url": "https://livedocs.com/Livedocs_Meta.png",
+          "worth_showing_image": true,
+          "image_layout": "WIDE",
+          "published": 1770746954,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        },
+        {
+          "original_title": "Show HN: Open-Source SDK for AI Knowledge Work",
+          "generated_headline": "Open-Source SDK Aims to Streamline AI Knowledge Work\u2014But Will It Scale?",
+          "url": "https://github.com/ClioAI/kw-sdk",
+          "hn_url": "https://news.ycombinator.com/item?id=46963026",
+          "source": "HackerNews",
+          "score": 21,
+          "significance_score": 78,
+          "category": "Top Insights & Advice",
+          "category_id": 4,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "A newly released open-source SDK promises to simplify AI-driven knowledge tasks by abstracting common workflows, though adoption hinges on community buy-in and integration with existing toolchains. Early adopters report reduced boilerplate but warn of steep learning curves for non-specialists.",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "WIDE",
+          "published": 1770743160,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        }
+      ]
     },
     "5": {
       "title": "Inference Corner",
@@ -35,24 +160,7 @@
     },
     "6": {
       "title": "AI & LLM Overview",
-      "stories": [
-        {
-          "original_title": "Archive Placeholder for 2026-02-10",
-          "generated_headline": "Archive Record Pending: 2026-02-10",
-          "url": "",
-          "hn_url": "",
-          "source": "Daily Token",
-          "score": 0,
-          "significance_score": 1,
-          "category": "AI & LLM Overview",
-          "category_id": 6,
-          "confidence": 1.0,
-          "summary": "Source fetch failed for this date. This placeholder preserves archive continuity until data backfill succeeds.",
-          "selected_image_url": null,
-          "worth_showing_image": false,
-          "image_layout": "SQUARE"
-        }
-      ]
+      "stories": []
     },
     "7": {
       "title": "Model Release History",

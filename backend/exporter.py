@@ -125,6 +125,50 @@ class NewsExporter:
             return f'<a href="{href}" class="edition-link">{label}</a>'
         return f'<span class="edition-link disabled" aria-disabled="true">{label}</span>'
 
+    def _list_archive_dates(self) -> List[datetime]:
+        if not self.archive_root or not self.archive_root.exists():
+            return []
+        dates: List[datetime] = []
+        for year_dir in self.archive_root.iterdir():
+            if not year_dir.is_dir() or not year_dir.name.isdigit():
+                continue
+            for month_dir in year_dir.iterdir():
+                if not month_dir.is_dir() or not month_dir.name.isdigit():
+                    continue
+                for day_dir in month_dir.iterdir():
+                    if (
+                        day_dir.is_dir()
+                        and day_dir.name.isdigit()
+                        and (day_dir / "newspaper.html").exists()
+                    ):
+                        try:
+                            dates.append(
+                                datetime(
+                                    int(year_dir.name),
+                                    int(month_dir.name),
+                                    int(day_dir.name),
+                                )
+                            )
+                        except Exception:
+                            pass
+        dates.sort()
+        return dates
+
+    def _adjacent_edition_days(self, current_day: datetime) -> tuple[Optional[datetime], Optional[datetime]]:
+        dates = self._list_archive_dates()
+        if not dates:
+            return None, None
+        current_date = current_day.date()
+        prev_day = None
+        next_day = None
+        for d in dates:
+            if d.date() < current_date:
+                prev_day = d
+            elif d.date() > current_date:
+                next_day = d
+                break
+        return prev_day, next_day
+
     def _render_source_line(self, story: Dict, article_url: str) -> str:
         source_name = html.escape(str(story.get("source", "Source")).upper())
         source_link = article_url if _is_http_url(article_url) else "#"
@@ -436,11 +480,15 @@ class NewsExporter:
             pages_html += f'<div class="page-footer-nav">{prev_btn}{next_btn}</div></div>'
 
         dt = datetime.fromisoformat(self.timestamp)
-        prev_day = dt - timedelta(days=1)
-        next_day = dt + timedelta(days=1)
-
-        prev_link = self._edition_link(prev_day, base_rel, "← PREVIOUS EDITION")
-        next_link = self._edition_link(next_day, base_rel, "NEXT EDITION →")
+        prev_day, next_day = self._adjacent_edition_days(dt)
+        if prev_day is None:
+            prev_link = '<span class="edition-link disabled" aria-disabled="true">← PREVIOUS EDITION</span>'
+        else:
+            prev_link = self._edition_link(prev_day, base_rel, "← PREVIOUS EDITION")
+        if next_day is None:
+            next_link = '<span class="edition-link disabled" aria-disabled="true">NEXT EDITION →</span>'
+        else:
+            next_link = self._edition_link(next_day, base_rel, "NEXT EDITION →")
 
         return f"""<!DOCTYPE html>
 <html lang=\"en\">

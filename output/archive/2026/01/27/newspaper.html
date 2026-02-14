@@ -4,45 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Daily Token</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --ink: #111; --paper: #fdfdfb; --sep: #ccc; --highlight: #a00; }
-        * { box-sizing: border-box; }
-        body { background-color: #ddd; margin: 0; padding: 0; font-family: 'Lora', serif; color: var(--ink); line-height: 1.2; overflow-x: hidden; }
-        .newspaper-container { background-color: var(--paper); max-width: 1300px; margin: 0 auto; padding: 40px; box-shadow: 0 0 100px rgba(0,0,0,0.2); min-height: 100vh; transition: opacity 0.3s ease; }
-        .page-turn-out { opacity: 0; }
-        header { text-align: center; border-bottom: 6px double var(--ink); padding-bottom: 20px; }
-        .masthead-title { font-family: 'Playfair Display'; font-weight: 900; font-size: 6rem; letter-spacing: -3px; margin: 0; text-transform: uppercase; }
-        .sub-masthead { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin-top: 15px; padding: 6px 0; font-family: 'Oswald'; text-transform: uppercase; font-size: 0.9rem; display: flex; justify-content: center; gap: 40px; }
-        nav.sticky-nav { position: sticky; top: 0; background: var(--paper); z-index: 100; text-align: center; padding: 15px 0; border-bottom: 1px solid var(--ink); margin-bottom: 40px; }
-        .nav-item { text-decoration: none; color: var(--ink); font-family: 'Oswald'; font-weight: 700; font-size: 0.85rem; margin: 0 15px; transition: 0.2s; border-bottom: 2px solid transparent; }
-        .nav-item.active { color: var(--highlight); border-bottom: 2px solid var(--highlight); }
-        .page-title { text-align: center; border-bottom: 3px solid var(--ink); line-height: 0.1em; margin: 60px 0 40px; font-family: 'Oswald'; font-size: 1.5rem; }
-        .page-title span { background: var(--paper); padding: 0 30px; }
-        .section-sub-header { text-align: left; border-bottom: 1px solid var(--sep); line-height: 0.1em; margin: 40px 0 20px; font-family: 'Oswald'; font-size: 0.9rem; color: var(--highlight); }
-        .section-sub-header span { background: var(--paper); padding-right: 15px; }
-        .columns-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-bottom: 40px; }
-        .headline-sm { font-family: 'Playfair Display'; font-size: 1.5rem; line-height: 1.1; margin: 0 0 10px 0; font-weight: 700; }
-        .article a { color: inherit; text-decoration: none; }
-        .article a:hover { color: var(--highlight); }
-        .metadata { font-family: 'Oswald'; font-size: 0.75rem; color: #666; margin-bottom: 10px; }
-        .news-img { width: 100%; height: auto; display: block; margin-bottom: 20px; filter: grayscale(100%); border: 1px solid #ddd; transition: 0.4s; cursor: pointer; box-shadow: 5px 5px 0 rgba(0,0,0,0.05); }
-        .news-img:hover { filter: none; transform: translateY(-2px); }
-        .page-footer-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--ink); }
-        .nav-btn { font-family: 'Oswald'; font-weight: 700; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 20px; transition: 0.2s; }
-        .nav-btn:hover { background: var(--ink); color: #fff; }
-        .edition-nav { display: flex; justify-content: center; align-items: center; background: #eee; padding: 10px; font-family: 'Oswald'; font-size: 0.8rem; gap: 30px; border-bottom: 1px solid #ccc; }
-        .edition-link { color: #666; text-decoration: none; }
-        .editors-note { margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; font-style: italic; background: #f9f9f9; text-align: center; border-left: 5px solid var(--highlight); }
-        .insights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-        .insight-card { padding: 30px; border: 1px solid #eee; background: #fff; box-shadow: 8px 8px 0 rgba(0,0,0,0.05); transition: 0.3s; }
-        .insight-card:hover { transform: translateY(-5px); box-shadow: 12px 12px 0 rgba(0,0,0,0.08); }
-        .insight-author { font-family: 'Oswald'; font-size: 0.7rem; color: var(--highlight); margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .insight-headline { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 15px; }
-        .insight-summary { font-family: 'Lora'; line-height: 1.6; font-size: 1.1rem; font-style: italic; }
-        .insight-footer { margin-top: 20px; font-family: 'Oswald'; font-size: 0.8rem; font-weight: 700; }
-        .hn-link { color: var(--highlight); text-decoration: none; font-weight: 700; }
-        @media (max-width: 1000px) { .masthead-title { font-size: 3.5rem; } .columns-3, .insights-grid { grid-template-columns: 1fr !important; } .sub-masthead { flex-direction: column; gap: 5px; } }
+        :root { --ink:#181512; --paper:#f8f3ea; --sep:#c4b8a4; --highlight:#7a2b1f; --muted:#756b5e; --box:#fffaf0; }
+        * { box-sizing:border-box; }
+        body { background:#c8c1b5; margin:0; font-family:'Source Serif 4',serif; color:var(--ink); line-height:1.35; }
+        .newspaper-container { background:var(--paper); max-width:1280px; margin:0 auto; padding:32px; box-shadow:0 18px 80px rgba(0,0,0,.22); min-height:100vh; transition:opacity .22s ease; }
+        .page-turn-out { opacity:0; }
+        header { text-align:center; border-bottom:6px double var(--ink); padding-bottom:18px; }
+        .masthead-title { font-family:'Playfair Display',serif; font-weight:900; font-size:5.4rem; letter-spacing:-2px; margin:0; text-transform:uppercase; }
+        .sub-masthead { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); margin-top:12px; padding:6px 0; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:.86rem; display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+        nav.sticky-nav { position:sticky; top:0; background:var(--paper); z-index:100; text-align:center; padding:12px 0; border-bottom:1px solid var(--ink); margin-bottom:30px; }
+        .nav-item { text-decoration:none; color:var(--ink); font-family:'Oswald',sans-serif; font-size:.82rem; margin:0 10px; border-bottom:2px solid transparent; }
+        .nav-item.active { color:var(--highlight); border-color:var(--highlight); }
+        .page-title { text-align:center; border-bottom:3px solid var(--ink); line-height:.1em; margin:40px 0 26px; font-family:'Oswald',sans-serif; font-size:1.32rem; }
+        .page-title span { background:var(--paper); padding:0 22px; }
+        .section-sub-header { text-align:left; border-bottom:1px solid var(--sep); line-height:.1em; margin:28px 0 18px; font-family:'Oswald',sans-serif; font-size:.86rem; color:var(--highlight); letter-spacing:.06em; }
+        .section-sub-header span { background:var(--paper); padding-right:12px; }
+        .columns-3 { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px; margin-bottom:24px; }
+        .headline-sm { font-family:'Playfair Display',serif; font-size:1.42rem; line-height:1.14; margin:0 0 10px; }
+        .article a { color:inherit; text-decoration:none; }
+        .article a:hover { color:var(--highlight); }
+        .metadata { font-family:'Oswald',sans-serif; font-size:.72rem; color:var(--muted); margin-bottom:10px; letter-spacing:.04em; text-transform:uppercase; }
+        .metadata .source-link, .hn-link { color:var(--highlight); font-weight:700; }
+        .summary-sm { margin:0; font-size:.98rem; }
+        .news-img { width:100%; display:block; margin-bottom:14px; filter:grayscale(100%); border:1px solid #d7c9b2; transition:.25s; box-shadow:4px 4px 0 rgba(0,0,0,.05); }
+        .news-img:hover { filter:none; transform:translateY(-1px); }
+        .page-footer-nav { display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:14px; border-top:1px solid var(--ink); }
+        .nav-btn { font-family:'Oswald',sans-serif; color:var(--ink); text-decoration:none; border:1px solid var(--ink); padding:8px 14px; font-size:.82rem; }
+        .nav-btn:hover { background:var(--ink); color:#fff; }
+        .edition-nav { display:flex; justify-content:center; align-items:center; gap:20px; background:#e9e1d3; padding:10px; font-family:'Oswald',sans-serif; font-size:.78rem; border-bottom:1px solid #cdbfa8; flex-wrap:wrap; }
+        .edition-link { color:#574f46; text-decoration:none; }
+        .edition-link.disabled { color:#a69e93; }
+        .editors-note { margin-bottom:20px; padding:16px; border:1px solid #d6c8b0; font-style:italic; background:var(--box); border-left:4px solid var(--highlight); }
+        .editors-note .emphasis { color:var(--highlight); font-weight:700; }
+        .insights-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+        .insight-card { padding:18px; border:1px solid #ded1bb; background:var(--box); }
+        .insight-author { font-family:'Oswald',sans-serif; font-size:.68rem; color:var(--highlight); margin-bottom:8px; border-bottom:1px solid #e3d8c7; padding-bottom:4px; text-transform:uppercase; }
+        .insight-headline { font-family:'Playfair Display',serif; font-size:1.34rem; margin:0 0 10px; }
+        .insight-summary { margin:0; }
+        .insight-footer { margin-top:12px; font-family:'Oswald',sans-serif; font-size:.78rem; }
+        .release-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .release-card { border:1px solid #ded1bb; background:var(--box); padding:14px; }
+        .release-kicker { font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.08em; color:var(--highlight); text-transform:uppercase; }
+        .release-card h3 { font-family:'Playfair Display',serif; margin:6px 0 8px; }
+        .release-card p { margin:0; font-size:.95rem; }
+        .release-links { margin-top:10px; font-family:'Oswald',sans-serif; font-size:.75rem; }
+        .model-ledger-link { margin-top:14px; text-align:right; font-family:'Oswald',sans-serif; font-size:.84rem; }
+        .model-ledger-link a { color:var(--highlight); text-decoration:none; }
+        .empty-note { border:1px dashed #cab99f; padding:14px; background:#fff8ea; }
+        @media (max-width:1000px) {
+            .masthead-title { font-size:3rem; }
+            .columns-3, .insights-grid, .release-grid { grid-template-columns:1fr; }
+        }
     </style>
 </head>
 <body>
@@ -50,8 +64,10 @@
         <a href="../../../../archive/2026/01/26/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
         <span style="font-weight:700; color:#111;">EDITION: JAN 27, 2026</span>
         <a href="../../../../archive/2026/01/28/newspaper.html" class="edition-link">NEXT EDITION →</a>
-        <span style="color:#ccc">|</span>
+        <span style="color:#9b8f82">|</span>
         <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../model-releases.html" class="edition-link">MODEL RELEASES</a>
     </div>
     <div class="newspaper-container" id="newspaper-main">
         <header>
@@ -64,164 +80,8 @@
             </div>
         </header>
         <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
-        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class="editors-note"><strong>EDITOR'S NOTE:</strong> Today, we stand at the precipice of AI’s next leap—where infinite worlds, clinical precision, and unbreakable defenses redefine what’s possible. <span class="emphasis" style="color:var(--highlight); font-weight:700;">#Generative AI’s expansion into interactive, immersive environments (Project Genie) and its real-world utility (clinical docs, security frameworks) dominate the narrative.</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22197" target="_blank">AI Transforms Clinical Documentation: Neural Models Auto-Generate Patient Notes in Real-World Settings</a></h3>
-                    <div class="metadata">SOURCE: ARXIV_LG | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">A breakthrough AI system demonstrates the ability to autonomously generate accurate clinical notes from raw neural signals during live patient consultations, marking a paradigm shift in medical documentation workflows.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/04/11/prompt-injection-defense/" target="_blank">Berkeley AI Researchers Unveil StruQ + SecAlign: A Dual-Layer Defense Against Prompt Injection Attacks</a></h3>
-                    <div class="metadata">SOURCE: BAIR | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This work introduces **Structured Queries (StruQ)** to sanitize untrusted inputs via formal grammar parsing, paired with **SecAlign**—a preference-optimization framework that aligns models to reject adversarial prompts. Together, they achieve state-of-the-art robustness against injection attacks while preserving utility.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22311" target="_blank">LLM Agents Struggle with Long-Term Planning: New Study Reveals Core Weaknesses in Reasoning-Based Decision Making</a></h3>
-                    <div class="metadata">SOURCE: ARXIV_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Research dissects why current LLM agents fail at long-horizon planning, exposing fundamental gaps between abstract reasoning and executable action sequences—highlighting architectural limitations in translating logic into multi-step strategies.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22195" target="_blank">Hybrid Quantum Networks Advance Earth Observation via Multitask Learning</a></h3>
-                    <div class="metadata">SOURCE: ARXIV_LG | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This research introduces a hybrid quantum-classical architecture to improve classification of satellite and remote sensing data, demonstrating efficiency gains in handling high-dimensional geospatial datasets.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://deepmind.google/blog/project-genie-experimenting-with-infinite-interactive-worlds/" target="_blank">Project Genie: Pioneering Infinite, Interactive AI Worlds</a></h3>
-                    <div class="metadata">SOURCE: DEEPMIND | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Google DeepMind’s *Project Genie* introduces a generative AI model capable of creating endless, playable 2D worlds from text or images—blurring the line between imagination and interactive reality.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank">AI-Powered Smartwatches Revolutionize Walking Metrics for Personalized Health Insights</a></h3>
-                    <div class="metadata">SOURCE: GOOGLE_RESEARCH | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Researchers leverage neural networks to transform smartwatch data into advanced gait and mobility metrics, enabling early disease detection and personalized health monitoring without specialized equipment.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://openai.com/index/inside-our-in-house-data-agent" target="_blank">OpenAI’s Internal Data Agent: A Glimpse into AI’s Self-Optimization Engine</a></h3>
-                    <div class="metadata">SOURCE: OPENAI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">The story explores OpenAI’s proprietary data-curation system—a hybrid AI-human pipeline that refines training datasets to reduce bias, improve efficiency, and accelerate model iteration, raising questions about transparency and scalability in closed-loop AI development.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://twitter.com/hewliyang/status/2018278447429382531" target="_blank">Exploring Claude’s Excel Integration: System Prompts, Tools, and Beta Features</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854739" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">A technical deep dive into how Claude’s AI capabilities are being adapted for Excel, including system prompt engineering, tool integrations, and early beta testing frameworks for spreadsheet automation.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://mljar.com/blog/chatbot-python-postgresql-local-llm/" target="_blank">Build a PostgreSQL-Powered Chatbot with Python and Local LLMs: A Hands-On Guide</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854722" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">This technical walkthrough demonstrates how to create a chatbot that queries a PostgreSQL database using Python and a locally hosted LLM (e.g., Ollama), enabling natural-language SQL generation, data visualization, and business Q&A—all without cloud dependencies. Ideal for developers seeking privacy-focused, scalable database interactions.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/scale-ai-in-south-africa-using-amazon-bedrock-global-cross-region-inference-with-anthropic-claude-4-5-models/" target="_blank">Scaling AI in South Africa: Amazon Bedrock’s Cross-Region Inference with Anthropic Claude 4.5</a></h3>
-                    <div class="metadata">SOURCE: AWS_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This case study explores how Amazon Bedrock enables high-performance, low-latency AI inference in South Africa by leveraging global cross-Region deployment of Anthropic’s Claude 4.5 models, addressing scalability and regional accessibility challenges.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://tailscale.com/blog/nat-traversal-improvements-pt-1" target="_blank">Tailscale’s Breakthrough in NAT Traversal: A Technical Deep Dive (Part 1)</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854914" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">This article explores Tailscale’s innovative approaches to overcoming NAT (Network Address Translation) traversal challenges, detailing technical improvements that enhance peer-to-peer connectivity and reliability in distributed networks. It serves as a foundational guide for engineers tackling modern networking hurdles.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall" target="_blank">Microsoft Scales Back Windows 11’s Overwhelming AI Features Amid User Feedback</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854951" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">Microsoft is dialing down its aggressive AI integration in Windows 11 after user complaints about cluttered interfaces and forced Copilot features. The shift signals a recalibration toward optional, less intrusive AI tools while maintaining core functionality.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad" target="_blank">Claude AI Integrates Deeply into Microsoft’s Ecosystem: A Strategic Shift in Enterprise AI</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854999" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">The story explores how Anthropic’s *Claude Code*—a specialized AI model for coding tasks—has rapidly embedded itself within Microsoft’s internal tools and workflows, signaling a competitive pivot against GitHub Copilot and other proprietary solutions. The move underscores Microsoft’s growing reliance on third-party LLMs to augment its AI stack, despite its heavy investment in OpenAI.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/build-reliable-agentic-ai-solution-with-amazon-bedrock-learn-from-pushpays-journey-on-genai-evaluation/" target="_blank">How Pushpay Built a Reliable Agentic AI Solution Using Amazon Bedrock: Key Lessons in GenAI Evaluation</a></h3>
-                    <div class="metadata">SOURCE: AWS_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This case study explores Pushpay’s approach to developing a trustworthy agentic AI system on Amazon Bedrock, highlighting their GenAI evaluation strategies, challenges, and best practices for scalability and reliability in real-world applications.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://news.microsoft.com/source/emea/features/microsoft-copilot-zendawa-ai-kenya-pharmacies/" target="_blank">AI Revolutionizes Kenya’s Pharmacies: Digital Medicine for Chemists</a></h3>
-                    <div class="metadata">SOURCE: MICROSOFT_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This story explores how AI-driven tools are transforming Kenya’s pharmacy sector, enhancing efficiency, accuracy, and accessibility in medication management and patient care.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://mistral.ai/news/mistral-vibe-2-0" target="_blank">Mistral AI Unveils *Terminally Online Mistral Vibe*: A New Model Release (Jan 2026)</a></h3>
-                    <div class="metadata">SOURCE: MISTRAL | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Mistral AI introduced *Terminally Online Mistral Vibe*, a cutting-edge model release under its January 2026 updates, marking a milestone in its evolving product timeline. The release underscores the company’s rapid iteration in AI development, though specific technical details remain undisclosed in the summary.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card">
-                        <div class="insight-author">PERSPECTIVE: The Community</div>
-                        <h3 class="insight-headline">The Ethical Blueprint: Decoding the Ten Commandments of Agentic AI</h3>
-                        <p class="insight-summary">"A concise yet profound framework outlining the core principles for designing responsible, autonomous AI systems—balancing innovation with ethical guardrails to ensure alignment with human values."</p>
-                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854976" target="_blank">READ FULL DISCUSSION →</a></div>
-                    </div><div class="insight-card">
-                        <div class="insight-author">PERSPECTIVE: The Community</div>
-                        <h3 class="insight-headline">The Blind Spots of AI: When Assumptions Outpace Human Understanding</h3>
-                        <p class="insight-summary">"Explores how AI systems often operate under the flawed premise that users possess implicit knowledge—leading to miscommunication, overreliance, and unintended consequences in human-AI interactions."</p>
-                        <div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854788" target="_blank">READ FULL DISCUSSION →</a></div>
-                    </div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
-        <footer style="text-align: center; padding: 60px 0; font-family: 'Oswald'; border-top: 4px double var(--ink); margin-top: 100px;">
-            THE DAILY TOKEN // PRODUCED BY NEURAL AGENTS // &copy; 2026
-        </footer>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class='editors-note'><strong>EDITOR'S NOTE:</strong> Today, we stand at the precipice of AI’s next leap—where infinite worlds, clinical precision, and unbreakable defenses redefine what’s possible. <span class='emphasis'>#Generative AI’s expansion into interactive, immersive environments (Project Genie) and its real-world utility (clinical docs, security frameworks) dominate the narrative.</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22197" target="_blank" rel="noopener">AI Transforms Clinical Documentation: Neural Models Auto-Generate Patient Notes in Real-World Settings</a></h3><div class="metadata">SOURCE: <a href="https://arxiv.org/abs/2601.22197" target="_blank" rel="noopener" class="source-link">ARXIV_LG</a></div><p class="summary-sm">A breakthrough AI system demonstrates the ability to autonomously generate accurate clinical notes from raw neural signals during live patient consultations, marking a paradigm shift in medical documentation workflows.</p></div></article></div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="http://bair.berkeley.edu/blog/2025/04/11/prompt-injection-defense/" target="_blank" rel="noopener">Berkeley AI Researchers Unveil StruQ + SecAlign: A Dual-Layer Defense Against Prompt Injection Attacks</a></h3><div class="metadata">SOURCE: <a href="http://bair.berkeley.edu/blog/2025/04/11/prompt-injection-defense/" target="_blank" rel="noopener" class="source-link">BAIR</a></div><p class="summary-sm">This work introduces **Structured Queries (StruQ)** to sanitize untrusted inputs via formal grammar parsing, paired with **SecAlign**—a preference-optimization framework that aligns models to reject adversarial prompts. Together, they achieve state-of-the-art robustness against injection attacks while preserving utility.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22311" target="_blank" rel="noopener">LLM Agents Struggle with Long-Term Planning: New Study Reveals Core Weaknesses in Reasoning-Based Decision Making</a></h3><div class="metadata">SOURCE: <a href="https://arxiv.org/abs/2601.22311" target="_blank" rel="noopener" class="source-link">ARXIV_AI</a></div><p class="summary-sm">Research dissects why current LLM agents fail at long-horizon planning, exposing fundamental gaps between abstract reasoning and executable action sequences—highlighting architectural limitations in translating logic into multi-step strategies.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22195" target="_blank" rel="noopener">Hybrid Quantum Networks Advance Earth Observation via Multitask Learning</a></h3><div class="metadata">SOURCE: <a href="https://arxiv.org/abs/2601.22195" target="_blank" rel="noopener" class="source-link">ARXIV_LG</a></div><p class="summary-sm">This research introduces a hybrid quantum-classical architecture to improve classification of satellite and remote sensing data, demonstrating efficiency gains in handling high-dimensional geospatial datasets.</p></div></article></div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://deepmind.google/blog/project-genie-experimenting-with-infinite-interactive-worlds/" target="_blank" rel="noopener">Project Genie: Pioneering Infinite, Interactive AI Worlds</a></h3><div class="metadata">SOURCE: <a href="https://deepmind.google/blog/project-genie-experimenting-with-infinite-interactive-worlds/" target="_blank" rel="noopener" class="source-link">DEEPMIND</a></div><p class="summary-sm">Google DeepMind’s *Project Genie* introduces a generative AI model capable of creating endless, playable 2D worlds from text or images—blurring the line between imagination and interactive reality.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank" rel="noopener">AI-Powered Smartwatches Revolutionize Walking Metrics for Personalized Health Insights</a></h3><div class="metadata">SOURCE: <a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank" rel="noopener" class="source-link">GOOGLE_RESEARCH</a></div><p class="summary-sm">Researchers leverage neural networks to transform smartwatch data into advanced gait and mobility metrics, enabling early disease detection and personalized health monitoring without specialized equipment.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://openai.com/index/inside-our-in-house-data-agent" target="_blank" rel="noopener">OpenAI’s Internal Data Agent: A Glimpse into AI’s Self-Optimization Engine</a></h3><div class="metadata">SOURCE: <a href="https://openai.com/index/inside-our-in-house-data-agent" target="_blank" rel="noopener" class="source-link">OPENAI</a></div><p class="summary-sm">The story explores OpenAI’s proprietary data-curation system—a hybrid AI-human pipeline that refines training datasets to reduce bias, improve efficiency, and accelerate model iteration, raising questions about transparency and scalability in closed-loop AI development.</p></div></article></div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://twitter.com/hewliyang/status/2018278447429382531" target="_blank" rel="noopener">Exploring Claude’s Excel Integration: System Prompts, Tools, and Beta Features</a></h3><div class="metadata">SOURCE: <a href="https://twitter.com/hewliyang/status/2018278447429382531" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46854739" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">A technical deep dive into how Claude’s AI capabilities are being adapted for Excel, including system prompt engineering, tool integrations, and early beta testing frameworks for spreadsheet automation.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://mljar.com/blog/chatbot-python-postgresql-local-llm/" target="_blank" rel="noopener">Build a PostgreSQL-Powered Chatbot with Python and Local LLMs: A Hands-On Guide</a></h3><div class="metadata">SOURCE: <a href="https://mljar.com/blog/chatbot-python-postgresql-local-llm/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46854722" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">This technical walkthrough demonstrates how to create a chatbot that queries a PostgreSQL database using Python and a locally hosted LLM (e.g., Ollama), enabling natural-language SQL generation, data visualization, and business Q&amp;A—all without cloud dependencies. Ideal for developers seeking privacy-focused, scalable database interactions.</p></div></article></div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/scale-ai-in-south-africa-using-amazon-bedrock-global-cross-region-inference-with-anthropic-claude-4-5-models/" target="_blank" rel="noopener">Scaling AI in South Africa: Amazon Bedrock’s Cross-Region Inference with Anthropic Claude 4.5</a></h3><div class="metadata">SOURCE: <a href="https://aws.amazon.com/blogs/machine-learning/scale-ai-in-south-africa-using-amazon-bedrock-global-cross-region-inference-with-anthropic-claude-4-5-models/" target="_blank" rel="noopener" class="source-link">AWS_AI</a></div><p class="summary-sm">This case study explores how Amazon Bedrock enables high-performance, low-latency AI inference in South Africa by leveraging global cross-Region deployment of Anthropic’s Claude 4.5 models, addressing scalability and regional accessibility challenges.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://tailscale.com/blog/nat-traversal-improvements-pt-1" target="_blank" rel="noopener">Tailscale’s Breakthrough in NAT Traversal: A Technical Deep Dive (Part 1)</a></h3><div class="metadata">SOURCE: <a href="https://tailscale.com/blog/nat-traversal-improvements-pt-1" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46854914" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">This article explores Tailscale’s innovative approaches to overcoming NAT (Network Address Translation) traversal challenges, detailing technical improvements that enhance peer-to-peer connectivity and reliability in distributed networks. It serves as a foundational guide for engineers tackling modern networking hurdles.</p></div></article></div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall" target="_blank" rel="noopener">Microsoft Scales Back Windows 11’s Overwhelming AI Features Amid User Feedback</a></h3><div class="metadata">SOURCE: <a href="https://www.windowscentral.com/microsoft/windows-11/microsoft-is-reevaluating-its-ai-efforts-on-windows-11-plans-to-reduce-copilot-integrations-and-evolve-recall" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46854951" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Microsoft is dialing down its aggressive AI integration in Windows 11 after user complaints about cluttered interfaces and forced Copilot features. The shift signals a recalibration toward optional, less intrusive AI tools while maintaining core functionality.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad" target="_blank" rel="noopener">Claude AI Integrates Deeply into Microsoft’s Ecosystem: A Strategic Shift in Enterprise AI</a></h3><div class="metadata">SOURCE: <a href="https://www.theverge.com/tech/865689/microsoft-claude-code-anthropic-partnership-notepad" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46854999" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">The story explores how Anthropic’s *Claude Code*—a specialized AI model for coding tasks—has rapidly embedded itself within Microsoft’s internal tools and workflows, signaling a competitive pivot against GitHub Copilot and other proprietary solutions. The move underscores Microsoft’s growing reliance on third-party LLMs to augment its AI stack, despite its heavy investment in OpenAI.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/build-reliable-agentic-ai-solution-with-amazon-bedrock-learn-from-pushpays-journey-on-genai-evaluation/" target="_blank" rel="noopener">How Pushpay Built a Reliable Agentic AI Solution Using Amazon Bedrock: Key Lessons in GenAI Evaluation</a></h3><div class="metadata">SOURCE: <a href="https://aws.amazon.com/blogs/machine-learning/build-reliable-agentic-ai-solution-with-amazon-bedrock-learn-from-pushpays-journey-on-genai-evaluation/" target="_blank" rel="noopener" class="source-link">AWS_AI</a></div><p class="summary-sm">This case study explores Pushpay’s approach to developing a trustworthy agentic AI system on Amazon Bedrock, highlighting their GenAI evaluation strategies, challenges, and best practices for scalability and reliability in real-world applications.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://news.microsoft.com/source/emea/features/microsoft-copilot-zendawa-ai-kenya-pharmacies/" target="_blank" rel="noopener">AI Revolutionizes Kenya’s Pharmacies: Digital Medicine for Chemists</a></h3><div class="metadata">SOURCE: <a href="https://news.microsoft.com/source/emea/features/microsoft-copilot-zendawa-ai-kenya-pharmacies/" target="_blank" rel="noopener" class="source-link">MICROSOFT_AI</a></div><p class="summary-sm">This story explores how AI-driven tools are transforming Kenya’s pharmacy sector, enhancing efficiency, accuracy, and accessibility in medication management and patient care.</p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="section-sub-header"><span>DAILY MODEL RELEASE LEDGER</span></div><div class="release-grid"><p class="empty-note">No confirmed model releases were detected for this edition date.</p></div><div class="section-sub-header"><span>RELATED COVERAGE</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://mistral.ai/news/mistral-vibe-2-0" target="_blank" rel="noopener">Mistral AI Unveils *Terminally Online Mistral Vibe*: A New Model Release (Jan 2026)</a></h3><div class="metadata">SOURCE: <a href="https://mistral.ai/news/mistral-vibe-2-0" target="_blank" rel="noopener" class="source-link">MISTRAL</a></div><p class="summary-sm">Mistral AI introduced *Terminally Online Mistral Vibe*, a cutting-edge model release under its January 2026 updates, marking a milestone in its evolving product timeline. The release underscores the company’s rapid iteration in AI development, though specific technical details remain undisclosed in the summary.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://openai.com/index/retiring-gpt-4o-and-older-models" target="_blank" rel="noopener">OpenAI Phases Out GPT-4o and GPT-4.1 Model Lineup in ChatGPT</a></h3><div class="metadata">SOURCE: <a href="https://openai.com/index/retiring-gpt-4o-and-older-models" target="_blank" rel="noopener" class="source-link">OPENAI</a></div><p class="summary-sm">OpenAI announces the retirement of GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenAI o4-mini models in ChatGPT, marking a shift in its model release strategy. The move signals potential updates or consolidation in their AI offerings.</p></div></article></div><div class="model-ledger-link"><a href="../../../../model-releases.html">OPEN FULL MODEL RELEASE PAGE →</a></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">The Ethical Blueprint: Decoding the Ten Commandments of Agentic AI</h3><p class="insight-summary">"A concise yet profound framework outlining the core principles for designing responsible, autonomous AI systems—balancing innovation with ethical guardrails to ensure alignment with human values."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854976" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">The Blind Spots of AI: When Assumptions Outpace Human Understanding</h3><p class="insight-summary">"Explores how AI systems often operate under the flawed premise that users possess implicit knowledge—leading to miscommunication, overreliance, and unintended consequences in human-AI interactions."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=46854788" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align:center; padding:40px 0; font-family:'Oswald',sans-serif; border-top:4px double var(--ink); margin-top:70px;">THE DAILY TOKEN // REPORTING IN PUBLIC // &copy; 2026</footer>
     </div>
     <script>
         let currentPage = 1;
@@ -240,7 +100,7 @@
                 url.searchParams.set('page', pageNum);
                 window.history.pushState({}, '', url);
                 container.classList.remove('page-turn-out');
-            }, 300);
+            }, 220);
         }
         window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);

@@ -4,45 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Daily Token</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --ink: #111; --paper: #fdfdfb; --sep: #ccc; --highlight: #a00; }
-        * { box-sizing: border-box; }
-        body { background-color: #ddd; margin: 0; padding: 0; font-family: 'Lora', serif; color: var(--ink); line-height: 1.2; overflow-x: hidden; }
-        .newspaper-container { background-color: var(--paper); max-width: 1300px; margin: 0 auto; padding: 40px; box-shadow: 0 0 100px rgba(0,0,0,0.2); min-height: 100vh; transition: opacity 0.3s ease; }
-        .page-turn-out { opacity: 0; }
-        header { text-align: center; border-bottom: 6px double var(--ink); padding-bottom: 20px; }
-        .masthead-title { font-family: 'Playfair Display'; font-weight: 900; font-size: 6rem; letter-spacing: -3px; margin: 0; text-transform: uppercase; }
-        .sub-masthead { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin-top: 15px; padding: 6px 0; font-family: 'Oswald'; text-transform: uppercase; font-size: 0.9rem; display: flex; justify-content: center; gap: 40px; }
-        nav.sticky-nav { position: sticky; top: 0; background: var(--paper); z-index: 100; text-align: center; padding: 15px 0; border-bottom: 1px solid var(--ink); margin-bottom: 40px; }
-        .nav-item { text-decoration: none; color: var(--ink); font-family: 'Oswald'; font-weight: 700; font-size: 0.85rem; margin: 0 15px; transition: 0.2s; border-bottom: 2px solid transparent; }
-        .nav-item.active { color: var(--highlight); border-bottom: 2px solid var(--highlight); }
-        .page-title { text-align: center; border-bottom: 3px solid var(--ink); line-height: 0.1em; margin: 60px 0 40px; font-family: 'Oswald'; font-size: 1.5rem; }
-        .page-title span { background: var(--paper); padding: 0 30px; }
-        .section-sub-header { text-align: left; border-bottom: 1px solid var(--sep); line-height: 0.1em; margin: 40px 0 20px; font-family: 'Oswald'; font-size: 0.9rem; color: var(--highlight); }
-        .section-sub-header span { background: var(--paper); padding-right: 15px; }
-        .columns-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-bottom: 40px; }
-        .headline-sm { font-family: 'Playfair Display'; font-size: 1.5rem; line-height: 1.1; margin: 0 0 10px 0; font-weight: 700; }
-        .article a { color: inherit; text-decoration: none; }
-        .article a:hover { color: var(--highlight); }
-        .metadata { font-family: 'Oswald'; font-size: 0.75rem; color: #666; margin-bottom: 10px; }
-        .news-img { width: 100%; height: auto; display: block; margin-bottom: 20px; filter: grayscale(100%); border: 1px solid #ddd; transition: 0.4s; cursor: pointer; box-shadow: 5px 5px 0 rgba(0,0,0,0.05); }
-        .news-img:hover { filter: none; transform: translateY(-2px); }
-        .page-footer-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--ink); }
-        .nav-btn { font-family: 'Oswald'; font-weight: 700; color: var(--ink); text-decoration: none; border: 1px solid var(--ink); padding: 10px 20px; transition: 0.2s; }
-        .nav-btn:hover { background: var(--ink); color: #fff; }
-        .edition-nav { display: flex; justify-content: center; align-items: center; background: #eee; padding: 10px; font-family: 'Oswald'; font-size: 0.8rem; gap: 30px; border-bottom: 1px solid #ccc; }
-        .edition-link { color: #666; text-decoration: none; }
-        .editors-note { margin-bottom: 40px; padding: 20px; border: 1px solid #ddd; font-style: italic; background: #f9f9f9; text-align: center; border-left: 5px solid var(--highlight); }
-        .insights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
-        .insight-card { padding: 30px; border: 1px solid #eee; background: #fff; box-shadow: 8px 8px 0 rgba(0,0,0,0.05); transition: 0.3s; }
-        .insight-card:hover { transform: translateY(-5px); box-shadow: 12px 12px 0 rgba(0,0,0,0.08); }
-        .insight-author { font-family: 'Oswald'; font-size: 0.7rem; color: var(--highlight); margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .insight-headline { font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 15px; }
-        .insight-summary { font-family: 'Lora'; line-height: 1.6; font-size: 1.1rem; font-style: italic; }
-        .insight-footer { margin-top: 20px; font-family: 'Oswald'; font-size: 0.8rem; font-weight: 700; }
-        .hn-link { color: var(--highlight); text-decoration: none; font-weight: 700; }
-        @media (max-width: 1000px) { .masthead-title { font-size: 3.5rem; } .columns-3, .insights-grid { grid-template-columns: 1fr !important; } .sub-masthead { flex-direction: column; gap: 5px; } }
+        :root { --ink:#181512; --paper:#f8f3ea; --sep:#c4b8a4; --highlight:#7a2b1f; --muted:#756b5e; --box:#fffaf0; }
+        * { box-sizing:border-box; }
+        body { background:#c8c1b5; margin:0; font-family:'Source Serif 4',serif; color:var(--ink); line-height:1.35; }
+        .newspaper-container { background:var(--paper); max-width:1280px; margin:0 auto; padding:32px; box-shadow:0 18px 80px rgba(0,0,0,.22); min-height:100vh; transition:opacity .22s ease; }
+        .page-turn-out { opacity:0; }
+        header { text-align:center; border-bottom:6px double var(--ink); padding-bottom:18px; }
+        .masthead-title { font-family:'Playfair Display',serif; font-weight:900; font-size:5.4rem; letter-spacing:-2px; margin:0; text-transform:uppercase; }
+        .sub-masthead { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); margin-top:12px; padding:6px 0; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:.86rem; display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+        nav.sticky-nav { position:sticky; top:0; background:var(--paper); z-index:100; text-align:center; padding:12px 0; border-bottom:1px solid var(--ink); margin-bottom:30px; }
+        .nav-item { text-decoration:none; color:var(--ink); font-family:'Oswald',sans-serif; font-size:.82rem; margin:0 10px; border-bottom:2px solid transparent; }
+        .nav-item.active { color:var(--highlight); border-color:var(--highlight); }
+        .page-title { text-align:center; border-bottom:3px solid var(--ink); line-height:.1em; margin:40px 0 26px; font-family:'Oswald',sans-serif; font-size:1.32rem; }
+        .page-title span { background:var(--paper); padding:0 22px; }
+        .section-sub-header { text-align:left; border-bottom:1px solid var(--sep); line-height:.1em; margin:28px 0 18px; font-family:'Oswald',sans-serif; font-size:.86rem; color:var(--highlight); letter-spacing:.06em; }
+        .section-sub-header span { background:var(--paper); padding-right:12px; }
+        .columns-3 { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px; margin-bottom:24px; }
+        .headline-sm { font-family:'Playfair Display',serif; font-size:1.42rem; line-height:1.14; margin:0 0 10px; }
+        .article a { color:inherit; text-decoration:none; }
+        .article a:hover { color:var(--highlight); }
+        .metadata { font-family:'Oswald',sans-serif; font-size:.72rem; color:var(--muted); margin-bottom:10px; letter-spacing:.04em; text-transform:uppercase; }
+        .metadata .source-link, .hn-link { color:var(--highlight); font-weight:700; }
+        .summary-sm { margin:0; font-size:.98rem; }
+        .news-img { width:100%; display:block; margin-bottom:14px; filter:grayscale(100%); border:1px solid #d7c9b2; transition:.25s; box-shadow:4px 4px 0 rgba(0,0,0,.05); }
+        .news-img:hover { filter:none; transform:translateY(-1px); }
+        .page-footer-nav { display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:14px; border-top:1px solid var(--ink); }
+        .nav-btn { font-family:'Oswald',sans-serif; color:var(--ink); text-decoration:none; border:1px solid var(--ink); padding:8px 14px; font-size:.82rem; }
+        .nav-btn:hover { background:var(--ink); color:#fff; }
+        .edition-nav { display:flex; justify-content:center; align-items:center; gap:20px; background:#e9e1d3; padding:10px; font-family:'Oswald',sans-serif; font-size:.78rem; border-bottom:1px solid #cdbfa8; flex-wrap:wrap; }
+        .edition-link { color:#574f46; text-decoration:none; }
+        .edition-link.disabled { color:#a69e93; }
+        .editors-note { margin-bottom:20px; padding:16px; border:1px solid #d6c8b0; font-style:italic; background:var(--box); border-left:4px solid var(--highlight); }
+        .editors-note .emphasis { color:var(--highlight); font-weight:700; }
+        .insights-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+        .insight-card { padding:18px; border:1px solid #ded1bb; background:var(--box); }
+        .insight-author { font-family:'Oswald',sans-serif; font-size:.68rem; color:var(--highlight); margin-bottom:8px; border-bottom:1px solid #e3d8c7; padding-bottom:4px; text-transform:uppercase; }
+        .insight-headline { font-family:'Playfair Display',serif; font-size:1.34rem; margin:0 0 10px; }
+        .insight-summary { margin:0; }
+        .insight-footer { margin-top:12px; font-family:'Oswald',sans-serif; font-size:.78rem; }
+        .release-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .release-card { border:1px solid #ded1bb; background:var(--box); padding:14px; }
+        .release-kicker { font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.08em; color:var(--highlight); text-transform:uppercase; }
+        .release-card h3 { font-family:'Playfair Display',serif; margin:6px 0 8px; }
+        .release-card p { margin:0; font-size:.95rem; }
+        .release-links { margin-top:10px; font-family:'Oswald',sans-serif; font-size:.75rem; }
+        .model-ledger-link { margin-top:14px; text-align:right; font-family:'Oswald',sans-serif; font-size:.84rem; }
+        .model-ledger-link a { color:var(--highlight); text-decoration:none; }
+        .empty-note { border:1px dashed #cab99f; padding:14px; background:#fff8ea; }
+        @media (max-width:1000px) {
+            .masthead-title { font-size:3rem; }
+            .columns-3, .insights-grid, .release-grid { grid-template-columns:1fr; }
+        }
     </style>
 </head>
 <body>
@@ -50,8 +64,10 @@
         <a href="../../../../archive/2026/01/28/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
         <span style="font-weight:700; color:#111;">EDITION: JAN 29, 2026</span>
         <a href="../../../../archive/2026/01/30/newspaper.html" class="edition-link">NEXT EDITION →</a>
-        <span style="color:#ccc">|</span>
+        <span style="color:#9b8f82">|</span>
         <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../model-releases.html" class="edition-link">MODEL RELEASES</a>
     </div>
     <div class="newspaper-container" id="newspaper-main">
         <header>
@@ -64,145 +80,8 @@
             </div>
         </header>
         <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
-        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class="editors-note"><strong>EDITOR'S NOTE:</strong> Today’s AI frontier isn’t just about speed—it’s about redefining intelligence itself, from raw brainwaves to quantum networks that see the unseen. <span class="emphasis" style="color:var(--highlight); font-weight:700;">#next-gen AI architectures (speed, scalability, and hybrid systems)</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22197" target="_blank">AI Transforms Clinical Workflows: Neural Models Auto-Generate Patient Notes from Raw Brainwave Data</a></h3>
-                    <div class="metadata">SOURCE: ARXIV_LG | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">A breakthrough AI system demonstrates real-world viability by converting neural signals into structured clinical notes—bridging the gap between neurotechnology and healthcare documentation. Early trials show 87% accuracy in capturing physician intent, though ethical concerns about data privacy and diagnostic reliance linger.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22311" target="_blank">LLM Agents Struggle with Long-Term Planning: New Analysis Reveals Core Weaknesses in Reasoning-Based Decision Making</a></h3>
-                    <div class="metadata">SOURCE: ARXIV_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This study dissects why current LLM agents fail at long-horizon planning, exposing fundamental gaps between step-by-step reasoning and effective multi-stage decision architectures. The work proposes a planning-centric framework to rethink agent design for complex, sequential tasks.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://developer.nvidia.com/blog/establishing-a-scalable-sparse-ecosystem-with-the-universal-sparse-tensor/" target="_blank">Universal Sparse Tensor: A Foundation for Scalable AI Ecosystems</a></h3>
-                    <div class="metadata">SOURCE: NVIDIA_DEVELOPER | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This story explores how a standardized *Universal Sparse Tensor* framework could streamline sparse computation across AI models, enabling efficient scaling of neural architectures while reducing resource overhead.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22161" target="_blank">Domain-Specific Features Outperform Transformers in Emotion Recognition: Breakthrough on EAV Dataset Challenges 'Attention-Only' Paradigm</a></h3>
-                    <div class="metadata">SOURCE: ARXIV_LG | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">A new study reveals that traditional domain-specific feature engineering surpasses transformer-based models (e.g., attention mechanisms) in emotion recognition tasks, achieving state-of-the-art results on the EAV dataset—questioning the universal dominance of attention architectures for affective computing.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/" target="_blank">Decoding the Science of Scaling Agent Systems: Key Insights on Efficacy and Applications</a></h3>
-                    <div class="metadata">SOURCE: GOOGLE_RESEARCH | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This *Neural Horizons* piece explores the foundational principles governing when and why multi-agent AI systems succeed at scale, synthesizing empirical patterns, theoretical frameworks, and critical failure modes to guide robust deployment.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank">AI-Powered Smartwatches Decode Advanced Walking Metrics for Personalized Health Insights</a></h3>
-                    <div class="metadata">SOURCE: GOOGLE_RESEARCH | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Researchers leverage neural networks to transform smartwatch data into precise gait and mobility metrics, enabling early detection of health conditions like Parkinson’s or arthritis—without specialized lab equipment.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://github.com/IamLumae/Project-Lutum-Veritas" target="_blank">Open-Source AI Research Tool Claims Superiority Over Google with Verifiable Proof</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46848479" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">A developer showcases an open-source deep research platform, *Project Lutum Veritas*, asserting it outperforms Google in accuracy and depth for technical queries—backed by comparative benchmarks and community validation.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://mljar.com/blog/chatbot-python-postgresql-local-llm/" target="_blank">Build a PostgreSQL Chatbot with Python and Local LLMs: A Hands-On Guide</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46854722" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">This tutorial demonstrates how to create a Python-based chatbot that queries a PostgreSQL database using a locally hosted large language model (LLM), enabling natural language interactions for data analysis, visualization, and business insights—without relying on cloud APIs.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://huggingface.co/blog/daggr" target="_blank">Daggr Unveiled: A New Way to Programmatically Chain AI Apps with Visual Inspection</a></h3>
-                    <div class="metadata">SOURCE: HUGGINGFACE | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Daggr introduces a framework for programmatically linking AI applications into workflows while providing a visual interface to inspect and debug the chains, bridging code and usability.</p>
-                </div>
-            </article>
-        </div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/simplify-modelops-with-amazon-sagemaker-ai-projects-using-amazon-s3-based-templates/" target="_blank">Streamline ModelOps: Amazon SageMaker AI Projects Leverages S3 Templates for Faster Deployment</a></h3>
-                    <div class="metadata">SOURCE: AWS_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Amazon SageMaker introduces AI Projects with S3-based templates to simplify ModelOps workflows, enabling teams to standardize, automate, and accelerate ML model deployment and monitoring.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://cohere.com/solutions/model-vault" target="_blank">Model Vault Unveiled: A Secure, Scalable Platform for Private AI Inference</a></h3>
-                    <div class="metadata">SOURCE: COHERE | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">The story introduces *Model Vault*, a dedicated platform designed for secure, scalable AI model inference—enabling users to deploy and manage models privately while maintaining performance and control.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://www.vktr.com/ai-ethics-law-risk/right-to-compute-laws/" target="_blank">Emerging 'Right-to-Compute' Legislation Could Reshape AI Access in 2026</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46848594" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">New state-level 'Right-to-Compute' laws may soon grant individuals legal protections for running AI models locally, challenging cloud-dependent ecosystems and sparking debates over computational autonomy.</p>
-                </div>
-            </article>
-        
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://news.microsoft.com/signal/articles/4-ways-ai-is-reshaping-discovery-health-work-and-responsibility/" target="_blank">AI’s Transformative Impact: Discovery, Health, Work, and Ethical Responsibility</a></h3>
-                    <div class="metadata">SOURCE: MICROSOFT_AI | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">This overview explores four pivotal ways AI is revolutionizing fields—from accelerating scientific discovery and personalizing healthcare to redefining workplaces and demanding new frameworks for accountability.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://deepmind.google/blog/gemini-3-flash-frontier-intelligence-built-for-speed/" target="_blank">Gemini 3 Flash: Next-Gen AI Model Optimized for Speed and Frontier Intelligence</a></h3>
-                    <div class="metadata">SOURCE: DEEPMIND | <span class="hn-link" aria-disabled="true">NO HN THREAD</span></div>
-                    <p class="summary-sm">Google introduces *Gemini 3 Flash*, a cutting-edge AI model in its release history, engineered to deliver high-speed performance without compromising advanced intelligence capabilities.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3">
-            <article class="article span-1">
-                <div class="article-body">
-                    
-                    <h3 class="headline-sm"><a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere" target="_blank">OpenClaw’s Unchecked Proliferation: A Looming AI Catastrophe</a></h3>
-                    <div class="metadata">SOURCE: HACKERNEWS | <a href="https://news.ycombinator.com/item?id=46848552" target="_blank" class="hn-link">DISCUSS ON HN</a></div>
-                    <p class="summary-sm">The article warns of OpenClaw’s rapid, unregulated expansion across sectors, framing it as a systemic risk with potential for widespread disruption—highlighting ethical lapses, security vulnerabilities, and the urgent need for governance.</p>
-                </div>
-            </article>
-        </div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
-        <footer style="text-align: center; padding: 60px 0; font-family: 'Oswald'; border-top: 4px double var(--ink); margin-top: 100px;">
-            THE DAILY TOKEN // PRODUCED BY NEURAL AGENTS // &copy; 2026
-        </footer>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class='editors-note'><strong>EDITOR'S NOTE:</strong> Today’s AI frontier isn’t just about speed—it’s about redefining intelligence itself, from raw brainwaves to quantum networks that see the unseen. <span class='emphasis'>#next-gen AI architectures (speed, scalability, and hybrid systems)</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22197" target="_blank" rel="noopener">AI Transforms Clinical Workflows: Neural Models Auto-Generate Patient Notes from Raw Brainwave Data</a></h3><div class="metadata">SOURCE: <a href="https://arxiv.org/abs/2601.22197" target="_blank" rel="noopener" class="source-link">ARXIV_LG</a></div><p class="summary-sm">A breakthrough AI system demonstrates real-world viability by converting neural signals into structured clinical notes—bridging the gap between neurotechnology and healthcare documentation. Early trials show 87% accuracy in capturing physician intent, though ethical concerns about data privacy and diagnostic reliance linger.</p></div></article></div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22311" target="_blank" rel="noopener">LLM Agents Struggle with Long-Term Planning: New Analysis Reveals Core Weaknesses in Reasoning-Based Decision Making</a></h3><div class="metadata">SOURCE: <a href="https://arxiv.org/abs/2601.22311" target="_blank" rel="noopener" class="source-link">ARXIV_AI</a></div><p class="summary-sm">This study dissects why current LLM agents fail at long-horizon planning, exposing fundamental gaps between step-by-step reasoning and effective multi-stage decision architectures. The work proposes a planning-centric framework to rethink agent design for complex, sequential tasks.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://developer.nvidia.com/blog/establishing-a-scalable-sparse-ecosystem-with-the-universal-sparse-tensor/" target="_blank" rel="noopener">Universal Sparse Tensor: A Foundation for Scalable AI Ecosystems</a></h3><div class="metadata">SOURCE: <a href="https://developer.nvidia.com/blog/establishing-a-scalable-sparse-ecosystem-with-the-universal-sparse-tensor/" target="_blank" rel="noopener" class="source-link">NVIDIA_DEVELOPER</a></div><p class="summary-sm">This story explores how a standardized *Universal Sparse Tensor* framework could streamline sparse computation across AI models, enabling efficient scaling of neural architectures while reducing resource overhead.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arxiv.org/abs/2601.22161" target="_blank" rel="noopener">Domain-Specific Features Outperform Transformers in Emotion Recognition: Breakthrough on EAV Dataset Challenges &#x27;Attention-Only&#x27; Paradigm</a></h3><div class="metadata">SOURCE: <a href="https://arxiv.org/abs/2601.22161" target="_blank" rel="noopener" class="source-link">ARXIV_LG</a></div><p class="summary-sm">A new study reveals that traditional domain-specific feature engineering surpasses transformer-based models (e.g., attention mechanisms) in emotion recognition tasks, achieving state-of-the-art results on the EAV dataset—questioning the universal dominance of attention architectures for affective computing.</p></div></article></div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/" target="_blank" rel="noopener">Decoding the Science of Scaling Agent Systems: Key Insights on Efficacy and Applications</a></h3><div class="metadata">SOURCE: <a href="https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/" target="_blank" rel="noopener" class="source-link">GOOGLE_RESEARCH</a></div><p class="summary-sm">This *Neural Horizons* piece explores the foundational principles governing when and why multi-agent AI systems succeed at scale, synthesizing empirical patterns, theoretical frameworks, and critical failure modes to guide robust deployment.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank" rel="noopener">AI-Powered Smartwatches Decode Advanced Walking Metrics for Personalized Health Insights</a></h3><div class="metadata">SOURCE: <a href="https://research.google/blog/unlocking-health-insights-estimating-advanced-walking-metrics-with-smartwatches/" target="_blank" rel="noopener" class="source-link">GOOGLE_RESEARCH</a></div><p class="summary-sm">Researchers leverage neural networks to transform smartwatch data into precise gait and mobility metrics, enabling early detection of health conditions like Parkinson’s or arthritis—without specialized lab equipment.</p></div></article></div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://github.com/IamLumae/Project-Lutum-Veritas" target="_blank" rel="noopener">Open-Source AI Research Tool Claims Superiority Over Google with Verifiable Proof</a></h3><div class="metadata">SOURCE: <a href="https://github.com/IamLumae/Project-Lutum-Veritas" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46848479" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">A developer showcases an open-source deep research platform, *Project Lutum Veritas*, asserting it outperforms Google in accuracy and depth for technical queries—backed by comparative benchmarks and community validation.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://mljar.com/blog/chatbot-python-postgresql-local-llm/" target="_blank" rel="noopener">Build a PostgreSQL Chatbot with Python and Local LLMs: A Hands-On Guide</a></h3><div class="metadata">SOURCE: <a href="https://mljar.com/blog/chatbot-python-postgresql-local-llm/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46854722" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">This tutorial demonstrates how to create a Python-based chatbot that queries a PostgreSQL database using a locally hosted large language model (LLM), enabling natural language interactions for data analysis, visualization, and business insights—without relying on cloud APIs.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://huggingface.co/blog/daggr" target="_blank" rel="noopener">Daggr Unveiled: A New Way to Programmatically Chain AI Apps with Visual Inspection</a></h3><div class="metadata">SOURCE: <a href="https://huggingface.co/blog/daggr" target="_blank" rel="noopener" class="source-link">HUGGINGFACE</a></div><p class="summary-sm">Daggr introduces a framework for programmatically linking AI applications into workflows while providing a visual interface to inspect and debug the chains, bridging code and usability.</p></div></article></div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://aws.amazon.com/blogs/machine-learning/simplify-modelops-with-amazon-sagemaker-ai-projects-using-amazon-s3-based-templates/" target="_blank" rel="noopener">Streamline ModelOps: Amazon SageMaker AI Projects Leverages S3 Templates for Faster Deployment</a></h3><div class="metadata">SOURCE: <a href="https://aws.amazon.com/blogs/machine-learning/simplify-modelops-with-amazon-sagemaker-ai-projects-using-amazon-s3-based-templates/" target="_blank" rel="noopener" class="source-link">AWS_AI</a></div><p class="summary-sm">Amazon SageMaker introduces AI Projects with S3-based templates to simplify ModelOps workflows, enabling teams to standardize, automate, and accelerate ML model deployment and monitoring.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://cohere.com/solutions/model-vault" target="_blank" rel="noopener">Model Vault Unveiled: A Secure, Scalable Platform for Private AI Inference</a></h3><div class="metadata">SOURCE: <a href="https://cohere.com/solutions/model-vault" target="_blank" rel="noopener" class="source-link">COHERE</a></div><p class="summary-sm">The story introduces *Model Vault*, a dedicated platform designed for secure, scalable AI model inference—enabling users to deploy and manage models privately while maintaining performance and control.</p></div></article></div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.vktr.com/ai-ethics-law-risk/right-to-compute-laws/" target="_blank" rel="noopener">Emerging &#x27;Right-to-Compute&#x27; Legislation Could Reshape AI Access in 2026</a></h3><div class="metadata">SOURCE: <a href="https://www.vktr.com/ai-ethics-law-risk/right-to-compute-laws/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46848594" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">New state-level &#x27;Right-to-Compute&#x27; laws may soon grant individuals legal protections for running AI models locally, challenging cloud-dependent ecosystems and sparking debates over computational autonomy.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://news.microsoft.com/signal/articles/4-ways-ai-is-reshaping-discovery-health-work-and-responsibility/" target="_blank" rel="noopener">AI’s Transformative Impact: Discovery, Health, Work, and Ethical Responsibility</a></h3><div class="metadata">SOURCE: <a href="https://news.microsoft.com/signal/articles/4-ways-ai-is-reshaping-discovery-health-work-and-responsibility/" target="_blank" rel="noopener" class="source-link">MICROSOFT_AI</a></div><p class="summary-sm">This overview explores four pivotal ways AI is revolutionizing fields—from accelerating scientific discovery and personalizing healthcare to redefining workplaces and demanding new frameworks for accountability.</p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="section-sub-header"><span>DAILY MODEL RELEASE LEDGER</span></div><div class="release-grid"><p class="empty-note">No confirmed model releases were detected for this edition date.</p></div><div class="section-sub-header"><span>RELATED COVERAGE</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://deepmind.google/blog/gemini-3-flash-frontier-intelligence-built-for-speed/" target="_blank" rel="noopener">Gemini 3 Flash: Next-Gen AI Model Optimized for Speed and Frontier Intelligence</a></h3><div class="metadata">SOURCE: <a href="https://deepmind.google/blog/gemini-3-flash-frontier-intelligence-built-for-speed/" target="_blank" rel="noopener" class="source-link">DEEPMIND</a></div><p class="summary-sm">Google introduces *Gemini 3 Flash*, a cutting-edge AI model in its release history, engineered to deliver high-speed performance without compromising advanced intelligence capabilities.</p></div></article></div><div class="model-ledger-link"><a href="../../../../model-releases.html">OPEN FULL MODEL RELEASE PAGE →</a></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere" target="_blank" rel="noopener">OpenClaw’s Unchecked Proliferation: A Looming AI Catastrophe</a></h3><div class="metadata">SOURCE: <a href="https://garymarcus.substack.com/p/openclaw-aka-moltbot-is-everywhere" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=46848552" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">The article warns of OpenClaw’s rapid, unregulated expansion across sectors, framing it as a systemic risk with potential for widespread disruption—highlighting ethical lapses, security vulnerabilities, and the urgent need for governance.</p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align:center; padding:40px 0; font-family:'Oswald',sans-serif; border-top:4px double var(--ink); margin-top:70px;">THE DAILY TOKEN // REPORTING IN PUBLIC // &copy; 2026</footer>
     </div>
     <script>
         let currentPage = 1;
@@ -221,7 +100,7 @@
                 url.searchParams.set('page', pageNum);
                 window.history.pushState({}, '', url);
                 container.classList.remove('page-turn-out');
-            }, 300);
+            }, 220);
         }
         window.addEventListener('load', () => {
             const params = new URLSearchParams(window.location.search);

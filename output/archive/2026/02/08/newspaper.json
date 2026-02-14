@@ -2,20 +2,125 @@
   "metadata": {
     "generated": "2026-02-08T00:00:00",
     "format_version": "1.2",
-    "location": "INFERENCE ISLAND",
+    "location": "PROMPT BAY",
     "editorial": {
       "main_lead_index": 0,
-      "supporting_lead_indices": [],
-      "editors_note": "Signal unavailable today; archive entry retained for continuity.",
-      "emphasis": "Continuity"
+      "supporting_lead_indices": [
+        1,
+        2
+      ],
+      "editors_note": "The limits of today\u2019s AI are being mapped with empirical rigor\u2014yet the real question remains whether we\u2019ll build systems that respect those boundaries or simply outsource the reckoning to another layer of abstraction.",
+      "emphasis": "the collision between LLM capabilities and engineering guardrails"
     },
-    "top_candidates": [],
+    "top_candidates": [
+      {
+        "original_title": "Top AI models fail at >96% of tasks",
+        "generated_headline": "Empirical testing reveals stark boundaries in LLM task execution",
+        "url": "https://www.zdnet.com/article/ai-failed-test-on-remote-freelance-jobs/",
+        "hn_url": "https://news.ycombinator.com/item?id=46928172",
+        "source": "HackerNews",
+        "score": 24,
+        "significance_score": 88,
+        "category": "All Articles",
+        "category_id": 1,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "Benchmarking indicates that leading models fail to complete over 96% of complex, multi-step tasks, highlighting a persistent gap between broad linguistic capability and reliable functional utility. This discrepancy suggests that while inference speed improves, the underlying logic required for autonomous problem-solving remains fragile.",
+        "selected_image_url": "https://www.zdnet.com/a/img/resize/33f98e5bcfb76eb0f1cc87aca9100cf37c11443d/2026/01/19/5f40d14a-b78b-485c-a2aa-c3ba917382db/gettyimages-2172388197.jpg?auto=webp&width=1280",
+        "worth_showing_image": true,
+        "image_layout": "WIDE",
+        "published": 1770499206,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
+        "original_title": "Matchlock \u2013 Secures AI agent workloads with a Linux-based sandbox",
+        "generated_headline": "Matchlock Debuts Linux-Based Sandbox for AI Agent Security\u2014But Will Isolation Be Enough?",
+        "url": "https://github.com/jingkaihe/matchlock",
+        "hn_url": "https://news.ycombinator.com/item?id=46932343",
+        "source": "HackerNews",
+        "score": 148,
+        "significance_score": 82,
+        "category": "Lab Updates & Dark Side",
+        "category_id": 5,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "The open-source *Matchlock* project introduces a Linux-centric sandbox to confine AI agent workloads, addressing escalating risks of unchecked agent actions in production. Early benchmarks suggest tradeoffs between security rigidity and operational flexibility for engineering teams.",
+        "selected_image_url": null,
+        "worth_showing_image": false,
+        "image_layout": "WIDE",
+        "published": 1770538075,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
+        "original_title": "Show HN: LocalGPT \u2013 A local-first AI assistant in Rust with persistent memory",
+        "generated_headline": "Local-First LLM Implementation Prioritizes Memory Persistence via Rust",
+        "url": "https://github.com/localgpt-app/localgpt",
+        "hn_url": "https://news.ycombinator.com/item?id=46930391",
+        "source": "HackerNews",
+        "score": 329,
+        "significance_score": 68,
+        "category": "Top Insights & Advice",
+        "category_id": 4,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "LocalGPT attempts to mitigate the privacy-utility tradeoff by combining Rust-based performance with persistent local storage, though hardware constraints remain a bottleneck for complex reasoning tasks.",
+        "selected_image_url": "https://camo.githubusercontent.com/53322a9af1540810eb1bfce4c1593005ef0312874e15f2e69f9921e9aef48a20/68747470733a2f2f636f6e747269622e726f636b732f696d6167653f7265706f3d6c6f63616c6770742d6170702f6c6f63616c677074",
+        "worth_showing_image": false,
+        "image_layout": "WIDE",
+        "published": 1770513998,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      },
+      {
+        "original_title": "Show HN: Fine-tuned Qwen2.5-7B on 100 films for probabilistic story graphs",
+        "generated_headline": "Probabilistic Story Graphs: Fine-tuning Qwen2.5-7B on Cinematic Narrative Structures",
+        "url": "https://cinegraphs.ai/",
+        "hn_url": "https://news.ycombinator.com/item?id=46933515",
+        "source": "HackerNews",
+        "score": 100,
+        "significance_score": 68,
+        "category": "Top Insights & Advice",
+        "category_id": 4,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "By training on a 100-film corpus, this implementation shifts narrative generation from linear sequence prediction to graph-based state transitions, though its dependency on a limited training set raises questions about genre-trapped structural biases.",
+        "selected_image_url": null,
+        "worth_showing_image": false,
+        "image_layout": "WIDE",
+        "published": 1770552002,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0
+      }
+    ],
     "model_releases": []
   },
   "pages": {
     "1": {
       "title": "Breaking Vectors",
-      "stories": []
+      "stories": [
+        {
+          "original_title": "Top AI models fail at >96% of tasks",
+          "generated_headline": "Empirical testing reveals stark boundaries in LLM task execution",
+          "url": "https://www.zdnet.com/article/ai-failed-test-on-remote-freelance-jobs/",
+          "hn_url": "https://news.ycombinator.com/item?id=46928172",
+          "source": "HackerNews",
+          "score": 24,
+          "significance_score": 88,
+          "category": "All Articles",
+          "category_id": 1,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "Benchmarking indicates that leading models fail to complete over 96% of complex, multi-step tasks, highlighting a persistent gap between broad linguistic capability and reliable functional utility. This discrepancy suggests that while inference speed improves, the underlying logic required for autonomous problem-solving remains fragile.",
+          "selected_image_url": "https://www.zdnet.com/a/img/resize/33f98e5bcfb76eb0f1cc87aca9100cf37c11443d/2026/01/19/5f40d14a-b78b-485c-a2aa-c3ba917382db/gettyimages-2172388197.jpg?auto=webp&width=1280",
+          "worth_showing_image": true,
+          "image_layout": "WIDE",
+          "published": 1770499206,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        }
+      ]
     },
     "2": {
       "title": "Model Architectures",
@@ -27,32 +132,77 @@
     },
     "4": {
       "title": "Lab Outputs",
-      "stories": []
+      "stories": [
+        {
+          "original_title": "Show HN: LocalGPT \u2013 A local-first AI assistant in Rust with persistent memory",
+          "generated_headline": "Local-First LLM Implementation Prioritizes Memory Persistence via Rust",
+          "url": "https://github.com/localgpt-app/localgpt",
+          "hn_url": "https://news.ycombinator.com/item?id=46930391",
+          "source": "HackerNews",
+          "score": 329,
+          "significance_score": 68,
+          "category": "Top Insights & Advice",
+          "category_id": 4,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "LocalGPT attempts to mitigate the privacy-utility tradeoff by combining Rust-based performance with persistent local storage, though hardware constraints remain a bottleneck for complex reasoning tasks.",
+          "selected_image_url": "https://camo.githubusercontent.com/53322a9af1540810eb1bfce4c1593005ef0312874e15f2e69f9921e9aef48a20/68747470733a2f2f636f6e747269622e726f636b732f696d6167653f7265706f3d6c6f63616c6770742d6170702f6c6f63616c677074",
+          "worth_showing_image": false,
+          "image_layout": "WIDE",
+          "published": 1770513998,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        },
+        {
+          "original_title": "Show HN: Fine-tuned Qwen2.5-7B on 100 films for probabilistic story graphs",
+          "generated_headline": "Probabilistic Story Graphs: Fine-tuning Qwen2.5-7B on Cinematic Narrative Structures",
+          "url": "https://cinegraphs.ai/",
+          "hn_url": "https://news.ycombinator.com/item?id=46933515",
+          "source": "HackerNews",
+          "score": 100,
+          "significance_score": 68,
+          "category": "Top Insights & Advice",
+          "category_id": 4,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "By training on a 100-film corpus, this implementation shifts narrative generation from linear sequence prediction to graph-based state transitions, though its dependency on a limited training set raises questions about genre-trapped structural biases.",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "WIDE",
+          "published": 1770552002,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        }
+      ]
     },
     "5": {
       "title": "Inference Corner",
-      "stories": []
+      "stories": [
+        {
+          "original_title": "Matchlock \u2013 Secures AI agent workloads with a Linux-based sandbox",
+          "generated_headline": "Matchlock Debuts Linux-Based Sandbox for AI Agent Security\u2014But Will Isolation Be Enough?",
+          "url": "https://github.com/jingkaihe/matchlock",
+          "hn_url": "https://news.ycombinator.com/item?id=46932343",
+          "source": "HackerNews",
+          "score": 148,
+          "significance_score": 82,
+          "category": "Lab Updates & Dark Side",
+          "category_id": 5,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "The open-source *Matchlock* project introduces a Linux-centric sandbox to confine AI agent workloads, addressing escalating risks of unchecked agent actions in production. Early benchmarks suggest tradeoffs between security rigidity and operational flexibility for engineering teams.",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "WIDE",
+          "published": 1770538075,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0
+        }
+      ]
     },
     "6": {
       "title": "AI & LLM Overview",
-      "stories": [
-        {
-          "original_title": "Archive Placeholder for 2026-02-08",
-          "generated_headline": "Archive Record Pending: 2026-02-08",
-          "url": "",
-          "hn_url": "",
-          "source": "Daily Token",
-          "score": 0,
-          "significance_score": 1,
-          "category": "AI & LLM Overview",
-          "category_id": 6,
-          "confidence": 1.0,
-          "summary": "Source fetch failed for this date. This placeholder preserves archive continuity until data backfill succeeds.",
-          "selected_image_url": null,
-          "worth_showing_image": false,
-          "image_layout": "SQUARE"
-        }
-      ]
+      "stories": []
     },
     "7": {
       "title": "Model Release History",
