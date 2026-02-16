@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-02-15T04:33:38.132608",
-  "total_stories": 156,
-  "processed_stories": 20,
+  "timestamp": "2026-02-16T04:37:32.089345",
+  "total_stories": 151,
+  "processed_stories": 18,
   "model_releases": 0,
   "pages": {
     "1": 6,
-    "2": 3,
+    "2": 5,
     "3": 0,
-    "4": 6,
-    "5": 5
+    "4": 5,
+    "5": 2
   }
 }
