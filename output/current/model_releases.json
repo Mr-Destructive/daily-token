@@ -1,5 +1,17 @@
 {
-  "generated": "2026-04-11T04:32:52.606034",
-  "count": 0,
-  "releases": []
+  "generated": "2026-04-12T05:10:55.703418",
+  "count": 1,
+  "releases": [
+    {
+      "model_name": "MM-Release-768x432",
+      "provider": "Unknown",
+      "release_type": "Model Release",
+      "title": "MiniMax M2.7\u00a0Advances\u00a0Scalable Agentic Workflows on\u00a0NVIDIA Platforms for Complex AI Applications",
+      "summary": "<img alt=\"Decorative object.\" class=\"webfeedsFeaturedVisual wp-post-image\" height=\"432\" src=\"https://developer-blogs.nvidia.com/wp-content/uploads/2026/04/MM-Release-768x432.png\" style=\"display: block",
+      "source": "nvidia_developer",
+      "source_url": "https://developer.nvidia.com/blog/minimax-m2-7-advances-scalable-agentic-workflows-on-nvidia-platforms-for-complex-ai-applications/",
+      "hn_url": "",
+      "published": "2026-04-12T01:02:44+00:00"
+    }
+  ]
 }
