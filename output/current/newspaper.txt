@@ -1,107 +1,103 @@
 THE DAILY TOKEN
-Edition: 2026-05-18
+Edition: 2026-05-19
 ================================================
 
-EDITOR'S NOTE: As we mourn Peter Neumann, the pioneer who spent half a century chronicling our systemic failures, we are reminded that true engineering is carved out of hard physics and structural rigor, not the ephemeral scaffolding of unaccountable governance models; yet, the choice to return to foundational mechanics remains entirely within our hands.
+EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Ebola emergency declaration tests automated biosurveillance protocols
-  https://www.nytimes.com/2026/05/17/world/africa/ebola-congo-uganda-who-public-health-emergency.html
-  The WHO's declaration of a global health emergency forces a shift from predictive modeling to real-time supply chain routing. While early anomaly detection has improved, public health infrastructure remains vulnerable to data fragmentation across jurisdictions.
-
-* Trials on veterans suggest ibogaine could provide a new treatment for PTSD
-  https://www.bbc.com/future/article/20260514-how-hallucinogenic-ibogaine-helps-veterans-overcome-ptsd
+* Alignment pretraining: AI discourse creates self-fulfilling (mis)alignment
+  https://arxiv.org/abs/2601.10160
   
 
-* ALPR overreach prompts municipal crisis
-  https://www.washingtonpost.com/nation/2026/05/17/citys-ai-license-plate-cameras-led-an-uproar-state-emergency/
-  The unchecked deployment of automated license plate readers has triggered a local state of emergency, exposing the fragile boundary between algorithmic surveillance and community consent. While promising frictionless enforcement, the technology instead traded civic trust for automated efficiency, leaving a small town to untangle the legal and social fallout of over-policing.
+* Automation comes for the broadcast loop
+  https://andonlabs.com/blog/andon-fm
+  Deploying language models to manage live radio streams reduces operational overhead, but exposes a deeper degradation in software craftsmanship as deterministic scheduling is replaced by probabilistic drift.
 
-* Where OpenClaw Security Is Heading
-  https://openclaw.ai/blog/where-openclaw-security-is-heading
+* Agora-1: The Multi-Agent World Model
+  https://odyssey.ml/introducing-agora-1
   
 
-* A liquid battery promises to hold solar energy for eighteen years
-  https://www.sciencedaily.com/releases/2026/05/260513221821.htm
-  Researchers have demonstrated a specialized molecule capable of storing solar energy within chemical bonds for nearly two decades, shifting the focus of renewable storage from volatile grid dynamics to stable material chemistry. The practical challenge remains the efficiency loss during the energy reclamation phase, a hurdle that often relegates elegant molecular engineering to the sidelines of industrial scaling.
+* Telemetry, Not Intent: The Physics of Our Accidental Interstellar Footprint
+  https://www.thescientificdrop.com/2026/05/earths-radio-bubble-every-signal-weve.html
+  A comprehensive cataloging of Earth's century-old radio leakage highlights the persistence of unencrypted, unstructured data propagating through the local galactic cluster. While trivial for specialized architectures to isolate, this expanding sphere of industrial noise represents a systemic vulnerability if we treat passive emissions as inherently ephemeral.
 
-* Mach 5 Engine Test Marks Shift From Digital Simulation to Hard Physics
-  https://mainichi.jp/english/articles/20260511/p2a/00m/0sc/015000c
-  A Japanese engineering team's successful test of a hypersonic engine brings high-speed aerospace closer to physical reality, highlighting a rare domain where progress cannot be simulated or prompted into existence. The material tradeoffs remain steep, as sustained Mach 5 travel introduces thermal stresses that modern metallurgy is still largely unequipped to handle.
+* Project Glasswing: what Mythos showed us
+  https://blog.cloudflare.com/cyber-frontier-models/
+  
 
-* The Social Friction of Ambient Hardware
-  https://www.inc.com/connor-jewiss/ai-wearables-are-coming-but-theyll-need-to-pass-this-crucial-coffee-shop-test-to-survive/91345526
-  As conversational wearables attempt to transition from tech-bro novelty to daily infrastructure, their survival depends less on compute efficiency and more on whether users tolerate the public awkwardness of speaking to an earpiece. The immediate risk is a fragmentation of social norms, trading discrete smartphone utility for conspicuous, high-latency audio interactions.
+* InsForge Offers PAAS Deployment Target Tailored for Autonomous Agents
+  https://github.com/InsForge/InsForge
+  As standard application hosting proves too rigid for ephemeral, multi-tenant AI workloads, InsForge steps in as an open-source Heroku equivalent built specifically to manage agent sandboxes. However, orchestrating unpredictable agent loops natively introduces severe infrastructure isolation risks that a simple deployment wrapper may struggle to guarantee.
 
-* Guarded Automation Enters the Order Book
-  https://github.com/ShurikenTrade/shuriken-skills
-  A framework attempts to constrain autonomous trading agents through programmatic guardrails. While promising to mitigate catastrophic market deviations, the architecture introduces a distinct risk: thin safety margins may merely mask logic flaws until they fail under unprecedented liquidity stress.
+* Headless CRM Attempts to Anchor Claude Code in Existing Data Structures
+  https://github.com/cluster-software/agent-crm
+  AgentCRM introduces a headless interface designed to let terminal-based LLM agents query customer data without human UI intervention. The approach trades immediate developer velocity for long-term schema rigidity, highlighting the growing friction between fluid AI generation and disciplined data architecture.
 
-* Semble attempts to rein in token-bloat in agentic code search
-  https://github.com/MinishLab/semble
-  By replacing naive grep operations with structured abstract syntax tree parsing, Semble cuts the token overhead for LLM code navigation by 98 percent. It addresses a real infrastructure drag, though the narrow focus on retrieval efficiency assumes the underlying agent knows what to do with the code once found.
+* ASMTP – SMTP for Agents
+  https://www.asmtp.net/
+  
 
-* Sixteen bytes of assembly bridge visual and auditory noise
-  https://hellmood.111mb.de//wake_up_16b_writeup.html
-  An x86 assembly constraint converts digital matrix rain directly into an audio signal, bypassing traditional rendering pipelines. The experiment underscores the efficiency of bare-metal hacking while highlighting how modern software layers decouple engineers from deterministic hardware execution.
+* Cutting inference cold starts by 40x with LP, FUSE, C/R, and CUDA-checkpoint
+  https://modal.com/blog/truly-serverless-gpus
+  
+
+* A Hard Brake for Volatile API Bills
+  https://www.llmcap.io/
+  Developers are resorting to local proxy bottlenecks like LLMCap to forcefully terminate API connections before runaway loops drain their budgets. It solves the immediate financial risk, but introduces a crude failure point that standard software engineering handles with proper state management.
+
+* Haiku ported to Apple Silicon as bare-metal alternative
+  https://discuss.haiku-os.org/t/my-haiku-arm64-progress/19044?page=2
+  Developers have successfully booted Haiku OS on M1 Mac hardware, offering a glimpse of BeOS-inspired responsiveness on modern ARM architecture. While the achievement revives a distinct philosophy of software lightweightedness, it introduces severe maintenance risks given Apple's undocumented, moving-target hardware interfaces.
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* AI subscriptions are a ticking time bomb for enterprise
-  https://www.thestateofbrand.com/news/ai-subscription-time-bomb
+* Anthropic acquires Stainless
+  https://www.anthropic.com/news/anthropic-acquires-stainless
   
 
-* ThinkPad’s Pivot to AI Workstations Puts the Bento Box Form Factor to the Test
-  https://www.jdhodges.com/blog/thinkpad-history/
-  Lenovo’s transition of the venerable ThinkPad line into AI-dedicated workstations risks trading traditional hardware reliability and repairability for unproven silicon performance. Whether the rigorous engineering standards of the IBM era can survive the rush to deploy specialized neural processing units remains an open question.
+* Elon Musk has lost his lawsuit against Sam Altman and OpenAI
+  https://techcrunch.com/2026/05/18/elon-musk-has-lost-his-lawsuit-against-sam-altman-and-openai/
+  
 
-* Public Skepticism Hardens Around the Architecture of AI Governance
-  https://www.theverge.com/ai-artificial-intelligence/644853/pew-gallup-data-americans-dont-trust-ai
-  Recent polling reveals widespread domestic distrust not just in automated systems, but in the institutional oversight directing them. For engineers, this signals a shrinking runway to prove systemic reliability before regulatory or consumer backlash forces a clumsy retreat.
+* Iran starts Bitcoin-backed ship insurance for Hormuz strait
+  https://www.bloomberg.com/news/articles/2026-05-18/iran-starts-bitcoin-backed-shipping-insurance-for-hormuz-strait
+  
 
-* University of Arizona students boo Eric Schmidt's AI cheerleading
-  https://www.theverge.com/ai-artificial-intelligence/932203/university-of-arizona-students-boo-eric-schmidt-ai-commencement
+* A Sober Retrospective on the Shift from Software Engineering to Vibe-Coding
+  https://simonwillison.net/2026/May/19/5-minute-llms/
+  Simon Willison’s PyCon US 2026 retrospective tracks how coding agents crossed a threshold from novelty to daily-driver tools over the last six months, driven by reinforcement learning from verifiable rewards. Yet this ease of generation introduces a sharp trade-off: an explosion of 'vibe-coded' architectural debt, yielding software that functions smoothly on the surface but remains structurally unneeded, slow, or insecure.
+
+* The Spring 2026 Audit: Chasing the Tail of the Expansion Curve
+  https://static1.squarespace.com/static/50363cf324ac8e905e7df861/t/6a0af5d0484fbf5fe9a7743e/1779103184855/2026-Spring-AI.pdf
+  As standard benchmarks face accelerating saturation, the industry relies increasingly on self-reported capability leaps that resist independent replication. The immediate risk is a decoupling of valuation from verifiable engineering utility, leaving teams to debug phantom performance gains.
+
+* Pope Leo XIV’s first encyclical Magnifica humanitas to be published May 25
+  https://www.vaticannews.va/en/pope/news/2026-05/pope-leo-xiv-first-encyclical-magnifica-humanitas.html
   
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* AI is a technology not a product
-  https://daringfireball.net/2026/05/ai_is_technology_not_a_product
+* We stopped AI bot spam in our GitHub repo using Git's –author flag
+  https://archestra.ai/blog/only-responsible-ai
   No insight extracted.
 
-* I don't think AI will make your processes go faster
-  https://frederickvanbrabant.com/blog/2026-05-15-i-dont-think-ai-will-make-your-processes-go-faster/
+* Peter Neumann has died
+  https://www.tuhs.org/pipermail/tuhs/2026-May/033748.html
   No insight extracted.
 
-* Don’t Outsource the Learning
-  https://addyosmani.com/blog/dont-outsource-learning/
+* Sieve – scans Cursor/Claude chat history for leaked API keys
+  https://apps.apple.com/us/app/sieve-secret-scanner/id6767409365?mt=12
   No insight extracted.
 
-* The Ghost in the Machine: Why Unread Data Breaks TCP Connections
-  https://movq.de/blog/postings/2026-05-05/1/POSTING-en.html
-  Closing a socket while unread data remains in the receive buffer triggers a TCP Reset (RST) instead of a standard FIN handshake. To ensure graceful closures and enable connection reuse, systems must explicitly drain incoming buffers or use lingering closes before shutting down. Quote: It is nice that there are some constants in this rapidly-changing world. =)
-
-* Contextualizing the LLM Panic
-  https://anarc.at/blog/2026-05-16-four-horsemen/
-  While modern AI advancements introduce unique security and societal risks, they represent an evolution of systemic technological challenges rather than an entirely new category of doom. Quote: May I remind you of the fact that the world was going to shit long before LLM’s came to be.
-
-* The Pen as Compiler
-  https://wickstrom.tech/2026-05-16-coding-on-paper.html
-  As code generators flood repositories with unverified boilerplate, a small faction of engineers is retreating to paper to reintroduce friction into the design process. The risk is an obvious loss of velocity, but it exposes how deeply the industry has traded architectural intent for raw typing speed.
+* Mocked by a scandal sheet, Kierkegaard endured months of personal attacks
+  https://www.plough.com/en/topics/faith/discipleship/when-kierkegaard-got-cancelled
+  No insight extracted.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Peter Neumann, Sentinel of Computer Security, Dies
-  https://lwn.net/ml/all/CAEoi9W7rpLzdJzYJ3-F0KVJo-wQXa7UawUYtUoUUYy36m5e_3Q@mail.gmail.com/
-  The passing of Peter G. Neumann marks the end of a rare link to Computing's foundational era. As the moderator of the Risks Digest for four decades, he painstakingly cataloged the industry’s structural blind spots, leaving behind a profession that still largely treats discipline as an optional luxury.
-
-* Reverse engineering Android malware from popular Chinese projectors
-  https://zanestjohn.com/blog/reing-with-claude-code
-  
-
-* Software Revisions and the Mid-Air Failure of High-Reliability Systems
-  https://idahonews.com/news/local/two-f-18-fighter-jets-have-crashed-during-an-airshow-at-mountain-home-air-force-base
-  The collision of two EA-18 aircraft during an Idaho airshow highlights the unforgiving margin of error in legacy hardware, reminding us that while code can be patched iteratively, physical physics engines do not support a rollback command. The tradeoff remains our increasing reliance on automated flight-envelope protections that can mask underlying mechanical degradation until systemic failure occurs.
+* Acoustic Adversarial Noise Bypasses Voice Interface Security
+  https://spectrum.ieee.org/voice-ai-audio-attacks
+  Researchers have demonstrated that sub-perceptible perturbations embedded in ambient audio can hijack voice-activated command systems. While the attack vector exploits fundamental gaps in signal processing, securing these interfaces will require a computationally expensive shift toward continuous cryptographic verification of input streams.
