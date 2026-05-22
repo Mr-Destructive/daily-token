@@ -1,126 +1,131 @@
 # The Daily Token
 
-Edition: 2026-05-21
+Edition: 2026-05-22
 
 ## Editor's Note
-As we watch the methodical replacement of seasoned hands with brittle, automated workflows, we are left to wonder what sort of architecture will be built by systems that have never had to maintain their own mistakes.
+As we mark the passing of Cleve Moler, whose elegant foundations built the modern computing world, we are left to sift through an industry increasingly intent on separating its thoughts from its execution, yet the raw architecture remains ours to salvage if we choose to build rather than merely automate.
 
 ## The Front Page
 
-### OpenAI Model Solves Decades-Old Discrete Geometry Conjecture
-Source: https://openai.com/index/model-disproves-discrete-geometry-conjecture/
-HN: https://news.ycombinator.com/item?id=48212493
-By falsifying a long-standing mathematical conjecture, the model demonstrates a capacity for pure logical discovery that bypasses traditional human intuition. However, reliance on these automated proofs risks creating an generation of engineers who can verify results but no longer understand the underlying structural mechanics.
-
-### The quiet retirement of asm.js
-Source: https://spidermonkey.dev/blog/2026/05/20/saying-goodbye-to-asmjs.html
-HN: https://news.ycombinator.com/item?id=48206340
-Mozilla is phasing out its foundational ahead-of-time compilation subset, marking the end of a transitional era for web performance. While it paved the way for WebAssembly, its removal underscores the risk of relying on stopgap standards that eventually turn into technical debt.
-
-### Why is Inkwell stuck in review
-Source: https://www.manton.org/2026/05/19/why-is-inkwell-stuck-in.html
-HN: https://news.ycombinator.com/item?id=48211134
+### The memory shortage is causing a repricing of consumer electronics
+Source: https://davidoks.blog/p/ai-is-killing-the-cheap-smartphone
+HN: https://news.ycombinator.com/item?id=48229319
 
 
-### PopuLoRA: Co-Evolving LLM Populations for Reasoning Self- Play
-Source: https://vmax.ai/team/populora-co-evolving-llm-populations-for-reasoning-self-play
-HN: https://news.ycombinator.com/item?id=48214188
+### Splitting the Stream: Research Proposes Separating Prompt, Thought, and I/O
+Source: https://arxiv.org/abs/2605.12460
+HN: https://news.ycombinator.com/item?id=48227923
+A new architectural proposal moves past monolithic inference by separating LLM streams into distinct parallel tracks for reasoning and input/output. While this reduces latency bottlenecks, it introduces a fragile synchronization overhead that could further complicate deterministic debugging.
+
+### CODA: Rewriting Transformer Blocks as GEMM-Epilogue Programs
+Source: https://arxiv.org/abs/2605.19269
+HN: https://news.ycombinator.com/item?id=48232118
 
 
-### Formal verification moves from academic footnote to the LLM outer loop
-Source: https://reubenbrooks.dev/blog/structural-backpressure-beats-smarter-agents/
-HN: https://news.ycombinator.com/item?id=48209323
-Engineers are quietly inserting strict mathematical proof engines to police AI-generated code. It trades raw developer velocity for predictable safety, offering a rare, disciplined line of defense against the drift of unverified software.
+### Fixing LLM Writing with Distribution Fine Tuning
+Source: https://rosmine.ai/2026/05/18/fixing-llm-writing-with-distribution-fine-tuning/
+HN: https://news.ycombinator.com/item?id=48232606
 
-### In vitro human brain tissue emerges as a substrate for pharmaceutical screening
-Source: https://www.science.org/content/article/not-alive-not-dead-disembodied-human-brains-used-drug-testing
-HN: https://news.ycombinator.com/item?id=48212992
-Researchers are deploying disembodied human brain tissue to bypass traditional animal models in drug development. While this approach offers unprecedented fidelity to human neurology, it introduces profound ethical ambiguity and forces a confrontation with the boundary between biological hardware and sentient architecture.
 
-### The fragile promise of autonomous chaos engineering
-Source: https://github.com/shenli/distributed-system-testing
-HN: https://news.ycombinator.com/item?id=48208685
-Deploying AI agents to probe distributed systems may surface non-trivial edge cases, but it risks shifting the engineer's burden from writing deterministic tests to auditing unpredictable model behavior. The trade-off is clear: you trade known code coverage for a black-box tester that might find brilliant bugs or simply hallucinate race conditions.
+### Waymo pauses Atlanta service as its robotaxis keep driving into floods
+Source: https://techcrunch.com/2026/05/21/waymo-pauses-atlanta-service-as-its-robotaxis-keep-driving-into-floods/
+HN: https://news.ycombinator.com/item?id=48225426
+
+
+### A specialized map for autonomous stellar paths
+Source: https://valhovey.github.io/gaia-mary/
+HN: https://news.ycombinator.com/item?id=48225297
+The release of the Project Hail Mary navigation model suggests a shift toward deep-space autonomy, trading general adaptability for brute mathematical precision. While it stabilizes trajectory calculation, it introduces a fragile reliance on static cosmic telemetry that could fail under unpredicted anomalies.
+
+### BBEdit 16
+Source: https://www.barebones.com/products/bbedit/bbedit16.html
+HN: https://news.ycombinator.com/item?id=48226944
+
+
+### MathML
+Source: https://developer.mozilla.org/en-US/docs/Web/MathML
+HN: https://news.ycombinator.com/item?id=48232629
+
+
+### Python 3.15 quietly retools under-the-hood defaults
+Source: https://blog.changs.co.uk/python-315-features-that-didnt-make-the-headlines.html
+HN: https://news.ycombinator.com/item?id=48220696
+The upcoming release bypasses flashy syntax changes to focus on stabilizing the C-API and tightening memory management. While these optimizations promise marginal performance gains for heavy workloads, they introduce subtle breaking risks for legacy C extensions that rely on deprecated internals.
+
+### Shira: Anti Phishing Training Platform
+Source: https://shira.app/
+HN: https://news.ycombinator.com/item?id=48229313
+
+
+### Launch HN: Runtime (YC P26) – Sandboxed coding agents for everyone on a team
+Source: https://www.runtm.com/
+HN: https://news.ycombinator.com/item?id=48225040
+
+
+### Getting an old Computer online with Android Ethernet tethering
+Source: https://82mhz.net/posts/2026/05/getting-an-old-computer-online-with-android-ethernet-tethering/
+HN: https://news.ycombinator.com/item?id=48226697
+
 
 ## AI & LLM Overview
 
-### Intuit trades 1,800 engineering seats for automated workflows
-Source: https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/
-HN: https://news.ycombinator.com/item?id=48216278
-The tax and accounting giant is cutting 10 percent of its workforce to reallocate capital toward generative AI infrastructure. The risk lies in replacing legacy domain expertise with unpredictable LLM orchestration, potentially accelerating software rot under the guise of efficiency.
-
-### OpenAI to confidentially file for IPO as soon as Friday
-Source: https://www.cnbc.com/2026/05/20/openai-ipo-filing.html
-HN: https://news.ycombinator.com/item?id=48217052
+### Samsung chip workers will get an average $340k bonus as AI profits soar
+Source: https://qz.com/samsung-chip-workers-bonus-ai-profits-052126
+HN: https://news.ycombinator.com/item?id=48230892
 
 
-### Meta trims eight thousand roles as automation targets engineering overhead
-Source: https://www.nytimes.com/2026/05/19/technology/meta-layoffs-ai.html
-HN: https://news.ycombinator.com/item?id=48218161
-The latest contraction at Meta signals a shift from speculative AI R&D to the aggressive replacement of mid-tier engineering functions. While short-term margins may benefit, the long-term risk rests on whether remaining skeleton crews can maintain legacy system stability without the original authors.
-
-### Qian Xuesen: The missile genius America lost and China gained (2025)
-Source: https://www.usni.org/magazines/naval-history/2025/december/missile-genius-america-lost-and-china-gained
-HN: https://news.ycombinator.com/item?id=48211409
+### Shunning AI is the human choice
+Source: https://www.thehandbasket.co/p/hating-ai-is-good-actually
+HN: https://news.ycombinator.com/item?id=48222366
 
 
-### Cloudflare CEO on how he chooses which employees to replace with AI
-Source: https://www.wsj.com/opinion/how-i-choose-which-cloudflare-employees-to-replace-with-ai-40a197e5
-HN: https://news.ycombinator.com/item?id=48214617
+### SpaceX Data Limits the Scope of its Software Edge
+Source: https://www.axios.com/2026/05/21/spacex-ipo-musk-ai
+HN: https://news.ycombinator.com/item?id=48231815
+Recent benchmark audits suggest the aerospace leader's automated systems face scaling bottlenecks previously obscured by public relations triumphs. The trade-off remains stark: prioritizing rapid deployment has introduced a legacy debt that now threatens long-term systems architectural stability.
 
-
-### SpaceX S-1
-Source: https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm
-HN: https://news.ycombinator.com/item?id=48213933
-
+### Cleve Moler, Matrix Pioneer and MathWorks Co-Founder, Dies at 86
+Source: https://www.mathworks.com/company/aboutus/founders/clevemoler.html
+HN: https://news.ycombinator.com/item?id=48231319
+The passing of Cleve Moler marks the end of an era for numerical computing; his creation of MATLAB transformed linear algebra from a specialized mainframe chore into an accessible, interactive language. As modern engineering shifts toward opaque neural architectures, Moler's legacy highlights a widening gap between rigorous, deterministic computation and the probabilistic guesswork of contemporary software.
 
 ## Model Release History
 
-### Qwen3.7-Max: The Agent Frontier
-Source: https://qwen.ai/blog?id=qwen3.7
-HN: https://news.ycombinator.com/item?id=48205626
-
-
-### Lance attempts unified pixel ingestion and emission
-Source: https://github.com/bytedance/Lance
-HN: https://news.ycombinator.com/item?id=48209668
-Bytedance has open-sourced Lance, a single model architecture that handles both the generation and understanding of imagery and video. While consolidating these pipelines reduces infrastructure fragmentation, combining disparate modalities under one roof risks compromising the precise reasoning required for pure vision-language tasks.
-
 ## Top Insights & Advice
 
-### Learnings from 100K lines of Rust with AI (2025)
-Source: https://zfhuang99.github.io/rust/claude%20code/codex/contracts/spec-driven%20development/2025/12/01/rust-with-ai.html
-HN: https://news.ycombinator.com/item?id=48205415
+### The Middleman Trap in Enterprise AI
+Source: https://adsurg.substack.com/p/navigating-ai-with-paper-maps
+HN: https://news.ycombinator.com/item?id=48231808
+Organizations are over-engineering AI workflows and training, failing to realize that the models themselves can often solve the problem directly if given the chance. Quote: Half the work in AI solutions now involves convincing senior management that their problem could have been solved instantly if they had simply asked the model directly, rather than tasking someone to act as a middleman.
+
+### AI Logs Are the New Dreams: Nobody Wants to Hear Them
+Source: https://noslopgrenade.com/
+HN: https://news.ycombinator.com/item?id=48219992
+Dumping AI-generated walls of text onto peers is the modern equivalent of explaining your dreams—uniquely interesting to you, but tedious and low-value for everyone else. Instead of inflating text to simulate effort, prioritize brevity, or simply share the core prompt. Quote: AI conversations are like dreams: everyone has one they like and wants to share it with others ... but no on gives a crap about your dream/chat session, because it was uniquely appealing to you, and not them.
+
+### Show HN: I Made a Claude Skill for Spec-Driven Development (SDD)
+Source: https://github.com/FredAntB/Spec-Driven-Development
+HN: https://news.ycombinator.com/item?id=48221805
 No insight extracted.
 
-### The C Integer Parsing Paradox
-Source: https://blog.habets.se/2022/10/No-way-to-parse-integers-in-C.html
-HN: https://news.ycombinator.com/item?id=48205580
-Standard C number parsing functions like `atoi()` are fundamentally flawed because they return 0 on failure, which overlaps with a perfectly valid conversion output. While languages like Rust solve this cleanly using explicit `Result` or `Option` types to handle errors, C developers have historically been forced to rely on flawed educational assignments, custom robust string wrappers, or expensive workarounds like converting the integer back to a string via `sprintf()` to verify input validity. Quote: How could an api for number parsing ever be designed to return 0 for invalid input, for a function where 0 is also a common (perhaps the most common) return value for a valid input?
-
-### Design Homogeneity vs. Functional Gaps
-Source: https://projects.alesh.com/intervalkit/
-HN: https://news.ycombinator.com/item?id=48211334
-While the community appreciates the tool's educational value—especially for complex topics like musical modes—there is a collective push for aesthetic differentiation away from 'vibe-coded' templates, alongside a critical demand for core interactive audio features like note playback. Quote: Do you seriously not mind your site looking like every other vibe coded site on the internet?
-
-### Show HN: Dari-docs – Optimize your docs using parallel coding agents
-Source: https://github.com/mupt-ai/dari-docs
-HN: https://news.ycombinator.com/item?id=48210615
-No insight extracted.
+### Personalization and Accessible Search: When User-Centric Design Clashes with Custom Tools
+Source: https://veroniiiica.com/using-kagi-search-with-low-vision/
+HN: https://news.ycombinator.com/item?id=48227860
+While users praise Kagi for its premium features like Vim keybindings and privacy, the discussion highlights a unique edge case in web accessibility: hyper-customized sites built for low-vision users can inadvertently conflict with personal accessibility extensions like Dark Reader or custom font-scaling. Quote: Everything is just so much better when you are not the product.
 
 ## Lab Updates & Dark Side
 
-### Supply chain compromise via editor extensions hits 3,800 GitHub repositories
-Source: https://www.bleepingcomputer.com/news/security/github-confirms-breach-of-3-800-repos-via-malicious-vscode-extension/
-HN: https://news.ycombinator.com/item?id=48207660
-The breach exposes a structural blind spot in local development environments, where trusted editor extensions serve as silent vectors for repository exfiltration. While immediate remediation is straightforward, the incident highlights how easily the traditional perimeter fails when developers inadvertently invite the threat inside their workspace.
-
-### Google's AI is being manipulated. The search giant is quietly fighting back
-Source: https://www.bbc.com/future/article/20260519-google-tackles-attempts-to-hack-its-ai-results
-HN: https://news.ycombinator.com/item?id=48205782
+### Google's Antigravity bait and switch
+Source: https://www.0xsid.com/blog/antigravity-bait-n-switch
+HN: https://news.ycombinator.com/item?id=48222529
 
 
-### A Clean Slate via Sudden Deletion
-Source: https://blog.railway.com/p/incident-report-may-19-2026-gcp-account-outage
-HN: https://news.ycombinator.com/item?id=48204770
-Google Cloud Platform's abrupt suspension of a production account on May 19 highlights the fragile dependency of modern infrastructure on automated compliance bots. While it forces a healthy return to multi-cloud redundancy, the immediate risk is an unpredictable operational blackout that no amount of clean code can prevent.
+### Gemini randomly dumped its system prompt
+Source: https://gist.github.com/mkaramuk/44a44d83178e632ec0dd1f02186d822c
+HN: https://news.ycombinator.com/item?id=48221976
+
+
+### CVE-2026-28910: Breaking macOS App Sandbox Data Containers and Hijacking Apps
+Source: https://mysk.blog/2026/05/19/cve-2026-28910/
+HN: https://news.ycombinator.com/item?id=48230193
+
