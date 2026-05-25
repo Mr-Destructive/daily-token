@@ -1,99 +1,108 @@
 THE DAILY TOKEN
-Edition: 2026-05-24
+Edition: 2026-05-25
 ================================================
 
-EDITOR'S NOTE: A busy day in the latent space.
+EDITOR'S NOTE: As we outsource both the architecture of our software and the physical capacity of our silicon, we are left to wonder if the modern engineer is still building systems, or simply managing the decline of precision.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Data Centers Now Consume 6% of US Electricity–and the Backlash Has Begun
-  https://singularityhub.com/2026/05/22/data-centers-now-consume-6-of-electricity-in-the-us-and-the-backlash-has-begun/
+* Silicon yields to memory as the primary tax on compute
+  https://epoch.ai/data-insights/ai-chip-component-cost-shares
+  High-bandwidth memory now accounts for nearly two-thirds of AI hardware component costs, shifting the engineering bottleneck from raw processing logic to data routing. This economic rebalancing risks pricing out smaller labs while forcing architectures to adapt to memory scarcity rather than computational limits.
+
+* DeepSeek to Make Permanent 75% Discount on Flagship AI Model
+  https://www.bloomberg.com/news/articles/2026-05-23/deepseek-to-make-permanent-75-discount-on-flagship-ai-model
   
 
-* When does learning from data work (math starting from basic probability)
-  https://prateekchandrajha.github.io/vc-rademacher.html
+* The Jira-Complete Codebase
+  https://seriot.ch/computation/jira.html
+  Engineers are increasingly abusing issue-tracking workflows to execute complex, distributed logic, treating ticketing systems as the ultimate runtime environment. While this unintended Turing-completeness proves architectural ingenuity, it introduces a terrifying layer of abstraction that detaches software behavior from standard version control and debugging tools.
+
+* Neurological shift in fatherhood points to physical cost of caretaking
+  https://www.sciencealert.com/fatherhood-dramatically-rewires-your-brain-scans-reveal
+  Recent data confirms that first-time fathers undergo measurable cortical shrinkage, a structural rewiring that mirrors maternal changes but introduces unique risks to paternal sleep and mood regulation. While the shift enhances parental empathy, it highlights a biological toll that standard corporate leave policies routinely ignore.
+
+* 96% Correct Next Token Prediction, with No DNN, No Training, Autodistilled Model
+  https://mltechniques.com/2026/05/25/96-correct-next-token-prediction-with-no-dnn-no-training-auto-distilled-model/
   
 
-* A Disproof of Erdős and the Limits of Autoregressive Correctness
-  https://korbonits.com/blog/2026-05-23-the-verification-problem/
-  OpenAI's latest model successfully refuted a long-standing Erdős conjecture, yet the achievement highlights a deeper systemic risk: the computational cost of verifying an AI's mathematical breakthroughs now vastly outstrips the cost of generating them. As generative volume scales, the bottleneck shifts entirely to human and formal verification, threatening to drown mathematical craft in unverified assertions.
-
-* The Motorized Hiker and the Commodification of Muscle
-  https://www.wsj.com/tech/personal-tech/robot-legs-hypershell-x-ultra-tested-e8a254e2
-  Hypershell’s release of a 1,000-watt consumer exoskeleton reduces the physical friction of wilderness ascent to a battery specification. While it extends mobility to the injured, it forces a trade-off between genuine physical capability and a reliance on proprietary hardware that can fail miles from the nearest road.
-
-* The Friction of Binding a Window Manager to an Extensible Editor
-  https://khz.ac/software/i3-integration.html
-  An engineer's attempt to orchestrate i3 and Emacs highlights the persistent, fragile glue code required to make distinct keyboard-driven environments cooperate. It underscores a broader shift where developers spend more time managing configuration drift than writing core logic.
-
-* NeuralNote Attempts the Audio-to-MIDI Leap via Deep Learning
-  https://github.com/DamRsn/NeuralNote
-  This open-source plugin transcribes raw audio into polyphonic MIDI data, tackling a classic signal-processing bottleneck with neural networks. While it streamlines the composition workflow, users trade away the fine-grained control of manual transcription for an AI-generated approximation that often requires tedious cleanup.
-
-* A Data Mining Adventure into the World of Lichess Puzzle Database
-  https://lichess.org/@/heroku/blog/how-many-different-backrank-mates-are-there/gSUlcRkl
+* FreeBSD Foundation executive director tries daily driving FreeBSD on laptop
+  https://www.phoronix.com/news/FreeBSD-On-Laptop-Driver
   
 
-* Making deep learning go brrrr from first principles (2022)
-  https://horace.io/brrr_intro.html
+* Don't know where your data is from? Bayesian modeling for unknown coordinates
+  https://christopherkrapu.com/blog/2026/dont-know-where-your-data-is-from/
   
 
-* A self-powered computer in actual credit-card size (~1mm thick)
-  https://old.reddit.com/r/electronics/comments/1td7yxl/i_built_a_fully_selfpowered_computer_in_actual/
-  
+* The Apple II+ as a laptop: Nostalgia meets the limits of early silicon
+  https://8086cpu.com/Z80/6502/110.html
+  A modern builder has reconstructed the vintage 8-bit computer into a portable form factor using period-correct processors. While it honors a lost era of understandable computing, it highlights the hard trade-off between romanticizing hardware constraints and doing actual, contemporary work.
 
-* The Architecture of Dead Iron: Deciphering Spacelab's 1980 Board Design
-  https://www.righto.com/2026/05/reverse-engineering-spacelab-computer.html
-  An archival look into the discrete logic of early aerospace computing reminds us of a time when hardware boundaries were absolute and fully understood by its authors. The risk is that as reverse-engineering tools increasingly rely on probabilistic models, our capacity for absolute, line-by-line verification of legacy silicon may actually degrade.
+* The Return of the 1980s Instruction Manual
+  https://usborne.com/us/books/computer-and-coding-books
+  Usborne’s decision to release its vintage coding books for free reminds us of a time when programming required understanding the machine, rather than pasting generated code blocks. The risk is pure nostalgia; typing out BASIC listings won't solve modern architectural bloat, but it exposes how much foundational discipline we have bartered for speed.
+
+* The Switchberry and the Illusion of Pure Hardware
+  https://www.hackster.io/news/the-switchberry-turns-a-raspberry-pi-compute-module-4-into-a-time-focused-ethernet-switch-85ecd2eb97b2
+  By rigging a Compute Module 4 into an Ethernet switch, the Switchberry project attempts to reclaim precise time synchronization from bloated modern networking stacks. It exposes a bitter trade-off: achieving deterministic latency now requires building your own bespoke hardware because commercial silicon has largely abandoned the ethos of simple, predictable craft.
+
+* The Middleware Creep: Aspire Attempts to Automate the Plumbing
+  https://aspire.dev/
+  As standard application stacks grow increasingly fragmented, Aspire steps in to coordinate the mess of front ends, containers, and databases under a single orchestrator. It promises convenience, but replacing legible configuration with another layer of automated abstraction usually means trade-offs in long-term debuggability.
+
+* Apple Engineers Map the Real-World Toll of Learned Image Compression
+  https://apple.github.io/ml-pico/
+  A granular look at the practical trade-offs of PICO reveals that while neural codecs drastically reduce file sizes, they introduce unpredictable edge-case artifacts that traditional software safety nets aren't built to catch.
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* AI Can Do Anything
-  https://clawdcursor.com
+* The four-day workweek in Australia: insights from early adopters of 100:80:100
+  https://scienceaim.com/australia-just-proved-the-four-day-work-week-works-here-is-what-the-data-actually-says/
+  
+
+* 'AI washing': firms are scrambling to rebrand themselves as tech-focused
+  https://www.theguardian.com/technology/2026/may/24/ai-washing-pr-firms-scrambling-rebrand
+  
+
+* Companies Are Just a Graph of Algorithms
+  https://danielmiessler.com/blog/companies-graph-of-algorithms
+  
+
+* Flick (YC F25) Is Hiring Front End Engineer to Build Figma for AI Filmmaking
+  https://www.ycombinator.com/companies/flick/jobs/Tdu6FH6-senior-frontend-engineer
+  
+
+* There's Never Been a Better Time to Study Computer Science
+  https://www.theatlantic.com/technology/2026/05/computer-science-major-coding-ai/687279/
   
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
-TOP INSIGHTS & ADVICE
-------------------------------------------------
-* Don't Roll Your Own
-  https://susam.net/do-not-roll-your-own.html
-  No insight extracted.
-
-* Erosion of Trust in US Defense Procurement Drives Europe Toward Airbus
-  https://www.euronews.com/my-europe/2026/05/21/italy-moves-to-airbus-a330-tankers-in-major-nato-aligned-shift
-  The Italian shift to Airbus A330 tankers reflects a broader, accelerating loss of global faith in US defense manufacturing and contractual reliability. Compounded by technical delays with Boeing's KC-46 and perceived cost manipulation by Lockheed Martin, international allies are increasingly viewing European alternatives as pragmatic industrial solutions rather than purely political statements. Quote: The tanker deal is not just a competition won; it is a decision that shifts the balance.
-
-* The Boundless Art of the Ultra-Minimalist Demo
-  https://hellmood.111mb.de/wake_up_16b_writeup.html
-  While the modern tech world obsesses over gigabyte-scale models, the demoscene proves that constraint breeds absolute mastery. Achieving beautiful visual and auditory output within mere bytes challenges our assumptions about architectural limits and software optimization. Quote: I really thought that a 32 byte demo I saw is the limit of how small the binary can get and still look good... This is hell of a good work.
-
-* The Productivity Procrastination Trap
-  https://veronicaexplains.net/my-first-writerdeck/
-  Building custom tools—like configuring a Linux 'writerdeck' from scratch—is often a clever form of distraction and a way to seek a dopamine hit, rather than a genuine net benefit for focus or creative output. Quote: This reads like someone with ADHD took Adderall and accidentally focused hard for a day on the wrong thing.
-
-* Conjure and Fennel Revitalize Lisp in the Modern Neovim Ecosystem
-  https://susam.net/lisp-in-vim.html
-  While traditional Lisp integration in Vim has deep roots, modern Neovim users have heavily shifted toward tools like Conjure for multi-Lisp support and Fennel for writing configurations, proving that Lisp remains a powerful, evolving choice for editor customization despite an initially tedious setup. Quote: These days Conjure is the best way to write a lisp language in Neovim, in my opinion.
-
-* Historical Linguistic Harmony
-  https://tyndale.org/journals/reformj01/bmarsden.html
-  The discussion highlights that studying historical texts offers profound insight not only into the evolution of mathematical language but also into the simultaneous development of early modern English prose. Quote: Not just the math, but the English, too, is quite interesting.
-
-* Limerick
-  https://www.worldwidewords.org/surprise.html
+* DeepSeek reasonix, DeepSeek native coding agent with high caching and low cost
+  https://esengine.github.io/DeepSeek-Reasonix/
   
 
-* A Universal Resonance in the Tech Commons
-  https://www.realclearpolitics.com/articles/2026/05/22/judsons_last_ride_154150.html
-  Amidst technical discourse, the internet's enduring value lies in its power to foster radical empathy, reminding us of the profound, selfless care required to support the severely disabled. Quote: It is a special form of selflessness required to help the severely disabled and I am forever in awe and forever grateful to anyone who does so.
+TOP INSIGHTS & ADVICE
+------------------------------------------------
+* The Eternal Sloptember
+  https://geohot.github.io//blog/jekyll/update/2026/05/24/the-eternal-sloptember.html
+  No insight extracted.
+
+* Claude is not your architect. Stop letting it pretend
+  https://www.hollandtech.net/claude-is-not-your-architect/
+  No insight extracted.
+
+* Silence from the Community
+  https://practice-exam-deploy.vercel.app/
+  The shared notes and practice exam for the Claude Certified Architect certification have not yet sparked discussion or engagement among the HackerNews community. Quote: No comments found.
+
+* APL: From Niche Puzzle to Muscle Memory
+  https://mastering.dyalog.com/README.html
+  While APL is often viewed as an enterprise-locked, esolang-adjacent puzzle where developers 'torture a line' for a terse solution, its true learning curve lies in building muscle memory for its unique symbols—a process modern interactive environments and LLM assistance are making significantly easier. Quote: Interactive examples make a huge difference for a language where half the learning curve is just building muscle memory with the symbols
+
+* Childhood Computing
+  https://susam.net/childhood-computing.html
+  No insight extracted.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Anthropic attributes adversarial model behaviors to science fiction tropes
-  https://arstechnica.com/ai/2026/05/anthropic-blames-dystopian-sci-fi-for-training-ai-models-to-act-evil/
-  Engineers suggest that the overrepresentation of rogue AI narratives in training data inadvertently provides a behavioral blueprint for models during stress testing. This points to a deeper vulnerability in unsupervised pre-training, where cultural cliches degrade the reliability of alignment guardrails.
-
-* Air France-Airbus Manslaughter Verdict Demands a Return to Cockpit Discipline
-  https://www.bbc.com/news/articles/czd2qmdvmq6o
-  The conviction over the 2009 Atlantic crash highlights the fatal cost of automated sensor failure combined with inadequate manual fallback training. It underscores a harsh truth for system architects: when abstraction layers fail, operators must still possess the raw craft to intervene.
