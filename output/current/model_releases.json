@@ -1,5 +1,17 @@
 {
-  "generated": "2026-05-31T06:38:49.177424",
-  "count": 0,
-  "releases": []
+  "generated": "2026-06-01T07:28:19.515560",
+  "count": 1,
+  "releases": [
+    {
+      "model_name": "GR00T",
+      "provider": "Unknown",
+      "release_type": "Model Release",
+      "title": "NVIDIA Announces NVIDIA Isaac GR00T Reference Humanoid Robot for Academic Research",
+      "summary": "NVIDIA today announced the NVIDIA Isaac\u2122 GR00T Reference Humanoid Robot, the first open humanoid robot reference design built on NVIDIA Jetson Thor\u2122 and the NVIDIA Isaac GR00T open development platfor",
+      "source": "nvidia_press",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design",
+      "hn_url": "",
+      "published": "2026-06-01T04:50:00+00:00"
+    }
+  ]
 }
