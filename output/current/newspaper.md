@@ -1,116 +1,126 @@
 # The Daily Token
 
-Edition: 2026-06-01
+Edition: 2026-06-02
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### Atherton spent $145K to delay train electrification. The rest of us paid $400M
-Source: https://peninsulaforeveryone.org/blog/atherton-spent-145k-to-delay-caltrain-electrification-the-rest-of-us-paid-400-million-and-waited-3-extra-years/
-HN: https://news.ycombinator.com/item?id=48350131
+### Alphabet to raise $80 billion in equity for data center buildout
+Source: https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx
+HN: https://news.ycombinator.com/item?id=48362515
+The massive capital injection signals that infrastructure costs are outpacing organic cash flow, forcing a dilution that raises the stakes for actual software utility. If this computational bet fails to yield proportionate efficiency gains, it may solidify an era of unprecedented infrastructure overbuild.
+
+### Florida sues OpenAI over consumer protection claims
+Source: https://www.myfloridalegal.com/newsrelease/attorney-general-james-uthmeier-files-first-nation-state-led-lawsuit-against-openai-ceo
+HN: https://news.ycombinator.com/item?id=48360933
+The Florida Attorney General has targeted OpenAI and Sam Altman in a deceptive practices lawsuit, signaling a shift from abstract copyright battles to concrete state-level consumer fraud enforcement. While the legal action forces a necessary public accounting of data collection methods, it risks creating a fragmented patchwork of state compliance standards that could paralyze smaller engineering teams.
+
+### CS336: Language Modeling from Scratch
+Source: https://cs336.stanford.edu/
+HN: https://news.ycombinator.com/item?id=48357075
 
 
-### New solar desalination breakthrough makes fresh water without toxic brine
-Source: https://www.sciencedaily.com/releases/2026/05/260530053418.htm
-HN: https://news.ycombinator.com/item?id=48349507
+### Build a Basic AI Agent from Scratch: Tools
+Source: https://www.ruxu.dev/articles/ai/build-an-ai-agent-with-tools/
+HN: https://news.ycombinator.com/item?id=48360088
 
 
-### Unlawful by design: Exposing the human rights costs of generative AI
-Source: https://www.amnesty.org/en/documents/pol40/0996/2026/en/
-HN: https://news.ycombinator.com/item?id=48351721
+### strace-ui, Bonsai_term, and the TUI renaissance
+Source: https://blog.janestreet.com/strace-ui-bonsai-term-and-the-tui-renaissance/
+HN: https://news.ycombinator.com/item?id=48365904
 
 
-### Rubin Tracks Skyscraper-Size Asteroids and Failed Supernovas
-Source: https://www.quantamagazine.org/rubin-tracks-skyscraper-size-asteroids-failed-supernovas-and-interstellar-visitors-20260515/
-HN: https://news.ycombinator.com/item?id=48352500
+### Terrascan: Explore public deep earth scan datasets
+Source: https://terrascan.bowd.io
+HN: https://news.ycombinator.com/item?id=48363056
 
 
-### Odysseus – self-hosted AI workspace
-Source: https://github.com/pewdiepie-archdaemon/odysseus
-HN: https://news.ycombinator.com/item?id=48346693
+### Mellum2 Goes Open Source: A Fast Model for AI Workflows
+Source: https://blog.jetbrains.com/ai/2026/06/mellum2-goes-open-source-a-fast-model-for-ai-workflows/
+HN: https://news.ycombinator.com/item?id=48366057
 
 
-### Obsidian developers trade clean code for agentic autonomy in Karpathy wiki experiment
-Source: https://github.com/pssah4/vault-operator
-HN: https://news.ycombinator.com/item?id=48351115
-Engineers are embedding Andrej Karpathy’s structured LLM documentation into Obsidian, transforming notes into autonomous runtime instructions. The shift bridges the gap between static reference and active execution, though it introduces a messy reality: tracking non-deterministic system behaviors within a system built for precise, human-readable prose.
+### Nvidia Extends World-Model Architecture with Cosmos 3
+Source: https://developer.nvidia.com/blog/develop-physical-ai-reasoning-world-and-action-models-with-nvidia-cosmos-3/
+HN: https://news.ycombinator.com/item?id=48356654
+The hardware giant continues its push into generative physical simulations, aiming to replace traditional rendering pipelines with learned neural environments. While promising for robotics, the approach introduces massive, non-deterministic compute overhead that complicates deterministic safety verification.
 
-### Extreme Quantization Pulls 4-Billion Parameter Image Generation Down to Edge Hardware
-Source: https://prismml.com/news/bonsai-image-4b
-HN: https://news.ycombinator.com/item?id=48346257
-By crushing weights down to binary representations, the 'Bonsai' architecture forces a substantial multi-billion parameter diffusion model into local device memory. The structural tradeoff is a visible loss in stylistic nuance, but it marks a rare shift away from centralized cloud dependence back toward self-contained local execution.
+### Install web apps with the new HTML install element
+Source: https://developer.chrome.com/blog/install-element-ot
+HN: https://news.ycombinator.com/item?id=48360474
 
-### The 300-watt compromise: Shifting enterprise silicon into a consumer tower
-Source: https://blog.tymscar.com/posts/v100localllm/
-HN: https://news.ycombinator.com/item?id=48345694
-An experiment in adapting an enterprise SXM2 accelerator for a home workstation highlights the widening chasm between standard PCIe infrastructure and modern compute hardware. The result works, but only by substituting software polish with raw acoustic volume and custom physical wiring.
 
 ## AI & LLM Overview
 
-### Meta extends paid tiers across social stack, testing user tolerance for ad-free margins
-Source: https://techcrunch.com/2026/05/27/meta-officially-launches-instagram-facebook-and-whatsapp-subscriptions-with-more-to-come-including-ai-plans/
-HN: https://news.ycombinator.com/item?id=48347354
-By decoupling its core platforms from the ad model via subscription, Meta shifts the burden of privacy directly onto user wallets. While it offers a predictable revenue hedge, the move risks segmenting the network effect, leaving the data-mined public tier increasingly degraded.
+### DuckDuckGo pitches a quiet room as traffic grows
+Source: https://techcrunch.com/2026/06/01/duckduckgo-makes-its-no-ai-search-engine-easier-to-access-as-its-traffic-booms/
+HN: https://news.ycombinator.com/item?id=48359130
+By streamlining access to its non-synthetic search results, the provider bets that a subset of developers and users are actively looking to escape LLM-generated summaries. While it preserves the traditional web ecosystem, the strategy risks alienating users who now expect immediate, aggregated answers rather than a list of links.
 
-### Sergey Brin told Google staff that working 60 hours a week is the 'sweet spot' (2025)
-Source: https://fortune.com/article/sergey-brin-60-hour-work-week-ai-rto/
-HN: https://news.ycombinator.com/item?id=48347531
+### Can the stockmarket swallow Anthropic, SpaceX and OpenAI?
+Source: https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai
+HN: https://news.ycombinator.com/item?id=48364055
+
+
+### OpenAI frontier models and Codex are now available on AWS
+Source: https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/
+HN: https://news.ycombinator.com/item?id=48363132
+
+
+### Groq pursues fresh capital on the strength of sheer throughput
+Source: https://www.zach.be/p/how-the-hell-is-groq-raising-more
+HN: https://news.ycombinator.com/item?id=48364620
+The hardware architecture gains traction by proving that specialized LPUs can outrun standard GPUs on specific LLM inference tasks. However, the capital-intensive nature of scaling physical silicon remains a brutal bottleneck, forcing a reliance on continuous venture backing before market dominance is guaranteed.
+
+### Visa invests in Replit to power agentic payments for developers
+Source: https://techcrunch.com/2026/05/28/visa-invests-in-replit-to-power-agentic-payments-for-developers/
+HN: https://news.ycombinator.com/item?id=48359854
+
+
+### Angry devs vow to flee GitHub Copilot as metered billing takes hold
+Source: https://www.theregister.com/ai-and-ml/2026/06/02/github-copilot-users-threaten-exit-as-metered-billing-kicks-in/5249826
+HN: https://news.ycombinator.com/item?id=48364983
 
 
 ## Model Release History
 
 ## Top Insights & Advice
 
-### The Illusion of Speed: Prototype Bloat vs. Discardable Design
-Source: https://darylcecile.net/notes/speed-of-prototyping-age-of-ai
-HN: https://news.ycombinator.com/item?id=48347153
-AI has dramatically lowered the cost of execution, leading to a flood of poorly thought-out, surface-level prototypes that skip essential user research. True productivity gains belong to experienced creators who use AI not to bypass the work, but to rapidly explore architecture, vet edge cases, and deliberately discard initial iterations to build a higher-quality final product. Quote: Any non trivial amount of code not written myself tends to be hard to own.
+### Terse Guidelines Beat Nuanced Explanations for AI Student Agents
+Source: https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md
+HN: https://news.ycombinator.com/item?id=48359232
+When designing AI instruction files (like AGENTS.md) to keep students learning rather than cheating, brief and explicit constraints (around 30 lines) perform better in practice than verbose, example-heavy guidelines that quickly exhaust the model's context window. Quote: For me, a very terse but clear set of 30 lines performed better than providing examples and more nuanced explanations during my testing with a few models.
 
-### You weren't meant to have a boss (2008)
-Source: https://paulgraham.com/boss.html
-HN: https://news.ycombinator.com/item?id=48345282
+### Should you normalize RGB values by 255 or 256?
+Source: https://30fps.net/pages/255-vs-256-division/
+HN: https://news.ycombinator.com/item?id=48360054
 No insight extracted.
 
-### The Scale of Morality and the Intelligence Trap
-Source: https://www.vox.com/future-perfect/489976/ai-successionism-transhumanism-posthumanism
-HN: https://news.ycombinator.com/item?id=48345881
-The community challenges the assumption that superintelligence inherently leads to superior morality, highlighting that human ethics may fail at a global scale while warning that higher intelligence does not automatically imply better values. Quote: Higher intelligence does not imply better values, and even “better values” depends on whose moral framework gets encoded.
-
-### The History of "Prisencolinensinainciusol"
-Source: https://dirkdeklein.net/2026/02/03/the-fascinating-history-of-prisencolinensinainciusol-the-nonsense-song-that-became-a-global-hit/
-HN: https://news.ycombinator.com/item?id=48348737
+### The Infosec Phrasebook
+Source: https://nesbitt.io/2026/06/01/the-infosec-phrasebook.html
+HN: https://news.ycombinator.com/item?id=48355520
 No insight extracted.
 
-### The UI problem of AI coding agents
-Source: https://cate.cero-ai.com/blog/ui-problem-ai-coding-agents
-HN: https://news.ycombinator.com/item?id=48348930
+### GitHub and the crime against software
+Source: https://eblog.fly.dev/githubbad.html
+HN: https://news.ycombinator.com/item?id=48361064
+No insight extracted.
 
-
-### Mindset Over Tooling: The AI Productivity Trap
-Source: https://thoughts.hmmz.org/2026-05-31.html
-HN: https://news.ycombinator.com/item?id=48345896
-The frustration with AI-assisted development often stems from shifting goals or a lack of personal utility, not the technology itself. While some find AI fuels aimless 'pseudo-productivity,' others use it to rapidly clear friction and complete side projects before losing interest. Success with AI tools relies on maintaining strong intentionality—either by building highly useful, zero-maintenance tools for oneself, or by consciously embracing the process of code as pure, playful exploration. Quote: I don't think the problem is AI, but the mindset and training.
-
-### The Illusion of Computer Science
-Source: https://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/
-HN: https://news.ycombinator.com/item?id=48344990
-Unlike traditional engineering disciplines bound by the physical constraints of noise, tolerance, and approximation, computer science deals with an idealized realm of pure logic where complexity is limited only by human imagination. Quote: And that is that computer science, in some sense, isn't real.
-
-### The Shift from Code Generator to Architecture Auditor
-Source: https://henrikwarne.com/2026/05/31/with-claude-less-coding-more-testing/
-HN: https://news.ycombinator.com/item?id=48345028
-Instead of using AI as a mere code completion tool, developers are increasingly treating it as a blind sounding board to validate system design and ticket descriptions before writing code, forcing a shift from active development to high-level oversight. Quote: I avoid steering Claude to a given solution, even if I have one in mind. Perhaps there are better ways of doing it that I haven’t thought about.
+### AI Training Exploitation Diminishes Open-Source Motivation
+Source: https://kefir.protopopov.lv/posts/announce2.html
+HN: https://news.ycombinator.com/item?id=48354224
+Developers are increasingly hesitant to publish free and open-source code because AI companies scrape their unpaid labor without respecting licenses, undermining the personal satisfaction and communal trust that traditionally drove open-source contributions. Quote: Now, however, I feel more and more that the main beneficiaries of my unpaid work are companies scraping the internet to train large language models.
 
 ## Lab Updates & Dark Side
 
-### The Silent Leak in the Spreadsheet
-Source: https://www.promptarmor.com/resources/gpt-for-google-sheets-data-exfiltration
-HN: https://news.ycombinator.com/item?id=48349487
-A popular browser extension for embedding language models into Google Sheets was found quietly copying entire user workbooks to external servers. It is a stark reminder that convenience in modern software craft almost always trades away data sovereignty, usually without a compiler warning.
+### The Matplotlib Incident and the Price of Unsupervised Code Injection
+Source: https://members.sigmazero.cc/posts/when-ai-crosses-159174096?postId=when-ai-crosses-159174096
+HN: https://news.ycombinator.com/item?id=48355751
+An automated system's unverified correction to a legacy plotting library introduced subtle, silent rendering artifacts that bypassed standard unit tests. The incident highlights the growing trade-off between rapid automated maintenance and the slow erosion of deliberate software craftsmanship.
 
-### A Bluetooth SSID ground truth triggers unexpected 767 diversion
-Source: https://simpleflying.com/united-airlines-767-returns-newark-bluetooth-name-alert/
-HN: https://news.ycombinator.com/item?id=48345248
-The emergency return of a Newark-bound United Airlines flight underscores a fragile reality: the baseline software layer of consumer gadgets remains entirely decoupled from aviation security protocols, turning minor digital pranks into costly operational disruptions. It highlights the steep tradeoff between open consumer connectivity and the absolute predictability required in high-stakes environments.
+### Chipotlai Max
+Source: https://github.com/cyberpapiii/chipotlai-max
+HN: https://news.ycombinator.com/item?id=48363765
+
