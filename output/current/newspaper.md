@@ -1,126 +1,126 @@
 # The Daily Token
 
-Edition: 2026-06-02
+Edition: 2026-06-03
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### Alphabet to raise $80 billion in equity for data center buildout
-Source: https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Proposed-80-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure-and-Compute-2026-b0myAMewCa/default.aspx
-HN: https://news.ycombinator.com/item?id=48362515
-The massive capital injection signals that infrastructure costs are outpacing organic cash flow, forcing a dilution that raises the stakes for actual software utility. If this computational bet fails to yield proportionate efficiency gains, it may solidify an era of unprecedented infrastructure overbuild.
-
-### Florida sues OpenAI over consumer protection claims
-Source: https://www.myfloridalegal.com/newsrelease/attorney-general-james-uthmeier-files-first-nation-state-led-lawsuit-against-openai-ceo
-HN: https://news.ycombinator.com/item?id=48360933
-The Florida Attorney General has targeted OpenAI and Sam Altman in a deceptive practices lawsuit, signaling a shift from abstract copyright battles to concrete state-level consumer fraud enforcement. While the legal action forces a necessary public accounting of data collection methods, it risks creating a fragmented patchwork of state compliance standards that could paralyze smaller engineering teams.
-
-### CS336: Language Modeling from Scratch
-Source: https://cs336.stanford.edu/
-HN: https://news.ycombinator.com/item?id=48357075
+### Trump signs downsized AI order after weeks of reversals
+Source: https://www.politico.com/news/2026/06/02/trump-signs-downsized-ai-order-00946389
+HN: https://news.ycombinator.com/item?id=48372628
 
 
-### Build a Basic AI Agent from Scratch: Tools
-Source: https://www.ruxu.dev/articles/ai/build-an-ai-agent-with-tools/
-HN: https://news.ycombinator.com/item?id=48360088
+### Apple rejected my dictation app for using the accessibility API
+Source: https://www.mitmllc.com/blog/apple-rejected-my-dictation-app/
+HN: https://news.ycombinator.com/item?id=48369088
 
 
-### strace-ui, Bonsai_term, and the TUI renaissance
-Source: https://blog.janestreet.com/strace-ui-bonsai-term-and-the-tui-renaissance/
-HN: https://news.ycombinator.com/item?id=48365904
+### AI outperforms law professors in Stanford Law study
+Source: https://law.stanford.edu/press/ai-outperforms-law-professors-in-stanford-law-study/
+HN: https://news.ycombinator.com/item?id=48377761
 
 
-### Terrascan: Explore public deep earth scan datasets
-Source: https://terrascan.bowd.io
-HN: https://news.ycombinator.com/item?id=48363056
+### Search as runtime synthesis: The shift from indexing to execution
+Source: https://research.perplexity.ai/articles/rethinking-search-as-code-generation
+HN: https://news.ycombinator.com/item?id=48372547
+Replacing text retrieval with real-time code generation offers precise answers, but trades predictable infrastructure for the fragile state machines of stochastic compilers.
+
+### Now AI agents need what RSS does
+Source: https://julienreszka.com/blog/rss-is-back-ai-agents-are-reading-it/
+HN: https://news.ycombinator.com/item?id=48375673
 
 
-### Mellum2 Goes Open Source: A Fast Model for AI Workflows
-Source: https://blog.jetbrains.com/ai/2026/06/mellum2-goes-open-source-a-fast-model-for-ai-workflows/
-HN: https://news.ycombinator.com/item?id=48366057
+### Agentic Mfw
+Source: https://agenticmotherfucking.website
+HN: https://news.ycombinator.com/item?id=48379203
 
 
-### Nvidia Extends World-Model Architecture with Cosmos 3
-Source: https://developer.nvidia.com/blog/develop-physical-ai-reasoning-world-and-action-models-with-nvidia-cosmos-3/
-HN: https://news.ycombinator.com/item?id=48356654
-The hardware giant continues its push into generative physical simulations, aiming to replace traditional rendering pipelines with learned neural environments. While promising for robotics, the approach introduces massive, non-deterministic compute overhead that complicates deterministic safety verification.
+### HP re-releases classic computer science calculator: The HP-16C
+Source: https://hpcalcs.com/product/hp-16c-collectors-edition/
+HN: https://news.ycombinator.com/item?id=48374685
 
-### Install web apps with the new HTML install element
-Source: https://developer.chrome.com/blog/install-element-ot
-HN: https://news.ycombinator.com/item?id=48360474
 
+### Open Repair Data Standard
+Source: https://openrepair.org/open-data/open-standard/
+HN: https://news.ycombinator.com/item?id=48375150
+
+
+### The Mechanics of Multimodal RAG: Moving Past Textual Proxies
+Source: https://www.kapa.ai/blog/how-we-index-images-for-rag
+HN: https://news.ycombinator.com/item?id=48372239
+Engineering teams are shifting from fragile text-description pipelines to indexing raw image embeddings for retrieval-augmented generation. While this reduces manual labeling overhead, it introduces a reliance on the brittle semantic alignment of dual-encoder models.
+
+### The context window as the new compilation target
+Source: https://github.com/arianmokhtariha/data2prompt
+HN: https://news.ycombinator.com/item?id=48373045
+As codebases expand to feed context-hungry models, tools are emerging to automate the brute-force serialization of data science repositories into a single LLM-readable prompt. It is a pragmatic hack for the current era, though flattening complex directory structures into flat text risks losing the implicit architectural semantics that disciplined engineers used to design for human reviewers.
+
+### QBE 1.3 offers a lean alternative to LLVM weight
+Source: https://c9x.me/compile/release/qbe-1.3.html
+HN: https://news.ycombinator.com/item?id=48373442
+The release of QBE 1.3 provides a stark reminder that a compiler backend doesn't require millions of lines of code to be effective. While it promises rapid compilation and a tiny footprint, developers must trade off the aggressive, hardware-specific optimizations that larger infrastructures provide.
+
+### Linux Hack Leverages GPU Memory for OS Swap Space
+Source: https://github.com/c0dejedi/nbd-vram
+HN: https://news.ycombinator.com/item?id=48377404
+An unorthodox driver configuration allows Linux systems to use idle VRAM as general system swap space. While it provides a high-bandwidth buffer for memory-constrained setups, it risks wearing out GPU interconnects and introduces severe latency spikes when the PCI bus bottlenecks.
+
+### Continuous Profiling Arrives for OCaml
+Source: https://semgrep.dev/blog/2026/announcing-pyro-caml-continuous-profiler-ocaml/
+HN: https://news.ycombinator.com/item?id=48373710
+Pyro Caml introduces low-overhead production profiling to OCaml environments, offering rare visibility into the runtime behavior of a language often neglected by mainstream observability tooling. While the telemetry is precise, teams must weigh the marginal CPU overhead against the risk of flying blind in production.
 
 ## AI & LLM Overview
 
-### DuckDuckGo pitches a quiet room as traffic grows
-Source: https://techcrunch.com/2026/06/01/duckduckgo-makes-its-no-ai-search-engine-easier-to-access-as-its-traffic-booms/
-HN: https://news.ycombinator.com/item?id=48359130
-By streamlining access to its non-synthetic search results, the provider bets that a subset of developers and users are actively looking to escape LLM-generated summaries. While it preserves the traditional web ecosystem, the strategy risks alienating users who now expect immediate, aggregated answers rather than a list of links.
-
-### Can the stockmarket swallow Anthropic, SpaceX and OpenAI?
-Source: https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai
-HN: https://news.ycombinator.com/item?id=48364055
+### Great Question (YC W21) Is Hiring Applied AI Interns
+Source: https://www.ycombinator.com/companies/great-question/jobs/J5TNvQH-ai-engineer-intern
+HN: https://news.ycombinator.com/item?id=48369098
 
 
-### OpenAI frontier models and Codex are now available on AWS
-Source: https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/
-HN: https://news.ycombinator.com/item?id=48363132
-
-
-### Groq pursues fresh capital on the strength of sheer throughput
-Source: https://www.zach.be/p/how-the-hell-is-groq-raising-more
-HN: https://news.ycombinator.com/item?id=48364620
-The hardware architecture gains traction by proving that specialized LPUs can outrun standard GPUs on specific LLM inference tasks. However, the capital-intensive nature of scaling physical silicon remains a brutal bottleneck, forcing a reliance on continuous venture backing before market dominance is guaranteed.
-
-### Visa invests in Replit to power agentic payments for developers
-Source: https://techcrunch.com/2026/05/28/visa-invests-in-replit-to-power-agentic-payments-for-developers/
-HN: https://news.ycombinator.com/item?id=48359854
-
-
-### Angry devs vow to flee GitHub Copilot as metered billing takes hold
-Source: https://www.theregister.com/ai-and-ml/2026/06/02/github-copilot-users-threaten-exit-as-metered-billing-kicks-in/5249826
-HN: https://news.ycombinator.com/item?id=48364983
+### More than 6 out of 10 people turn to AI for psychological support
+Source: https://www.axa.com/en/press/press-releases/2026-mind-health-report
+HN: https://news.ycombinator.com/item?id=48377854
 
 
 ## Model Release History
 
+### MAI-Code-1-Flash targets the floor of inference pricing
+Source: https://microsoft.ai/news/introducingmai-code-1-flash/
+HN: https://news.ycombinator.com/item?id=48374466
+The release shifts the optimization target from pure capability to marginal cost, offering a faster, stripped-down alternative for high-throughput pipelines. While it eases the infrastructure budget, it forces developers to trade away architectural nuance for raw execution speed.
+
+### MAI-Thinking-1
+Source: https://microsoft.ai/news/introducing-mai-thinking-1/
+HN: https://news.ycombinator.com/item?id=48374362
+
+
 ## Top Insights & Advice
 
-### Terse Guidelines Beat Nuanced Explanations for AI Student Agents
-Source: https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md
-HN: https://news.ycombinator.com/item?id=48359232
-When designing AI instruction files (like AGENTS.md) to keep students learning rather than cheating, brief and explicit constraints (around 30 lines) perform better in practice than verbose, example-heavy guidelines that quickly exhaust the model's context window. Quote: For me, a very terse but clear set of 30 lines performed better than providing examples and more nuanced explanations during my testing with a few models.
+### The Dual Reality of Session Replay: Indispensable Product Insight vs. Hidden User Surveillance
+Source: https://github.com/s2-streamstore/replaya
+HN: https://news.ycombinator.com/item?id=48373482
+While early-stage developers find self-hosted session replays invaluable for qualitative UX feedback before quantitative data scales, the technology faces a steep ethical dilemma regarding user consent, transparency, and the unspoken expectation of privacy during web browsing. Quote: Session replays are so crucial for understanding new features qualitatively, especially before you have enough users for useful quantitative metrics.
 
-### Should you normalize RGB values by 255 or 256?
-Source: https://30fps.net/pages/255-vs-256-division/
-HN: https://news.ycombinator.com/item?id=48360054
+### Gmail thinks I'm stupid, so I left
+Source: https://moddedbear.com/gmail-thinks-im-stupid-so-i-left
+HN: https://news.ycombinator.com/item?id=48375016
 No insight extracted.
 
-### The Infosec Phrasebook
-Source: https://nesbitt.io/2026/06/01/the-infosec-phrasebook.html
-HN: https://news.ycombinator.com/item?id=48355520
-No insight extracted.
-
-### GitHub and the crime against software
-Source: https://eblog.fly.dev/githubbad.html
-HN: https://news.ycombinator.com/item?id=48361064
-No insight extracted.
-
-### AI Training Exploitation Diminishes Open-Source Motivation
-Source: https://kefir.protopopov.lv/posts/announce2.html
-HN: https://news.ycombinator.com/item?id=48354224
-Developers are increasingly hesitant to publish free and open-source code because AI companies scrape their unpaid labor without respecting licenses, undermining the personal satisfaction and communal trust that traditionally drove open-source contributions. Quote: Now, however, I feel more and more that the main beneficiaries of my unpaid work are companies scraping the internet to train large language models.
+### The High Price of Truth and the Premium on Comfort
+Source: https://jasonzweig.com/three-ways-to-get-paid/
+HN: https://news.ycombinator.com/item?id=48373054
+The tech community highlights a cynical but pragmatic economic reality: material wealth often flows to those who tell clients and the market what they want to hear, while strict adherence to the objective truth frequently results in just scraping by or going broke. Quote: When I was a dev working with my business-oriented business partner, I had to get used to sitting in meetings where we promised the client the world having no idea if I could accomplish it or not. Made a lot more money than I could have on my own.
 
 ## Lab Updates & Dark Side
 
-### The Matplotlib Incident and the Price of Unsupervised Code Injection
-Source: https://members.sigmazero.cc/posts/when-ai-crosses-159174096?postId=when-ai-crosses-159174096
-HN: https://news.ycombinator.com/item?id=48355751
-An automated system's unverified correction to a legacy plotting library introduced subtle, silent rendering artifacts that bypassed standard unit tests. The incident highlights the growing trade-off between rapid automated maintenance and the slow erosion of deliberate software craftsmanship.
+### U of T researchers demonstrate AI worm could target any online device
+Source: https://www.utoronto.ca/news/u-t-researchers-demonstrate-ai-worm-could-target-any-online-device
+HN: https://news.ycombinator.com/item?id=48379664
 
-### Chipotlai Max
-Source: https://github.com/cyberpapiii/chipotlai-max
-HN: https://news.ycombinator.com/item?id=48363765
+
+### Adafruit receives demand letter from Fenwick legal counsel on behalf of Flux.ai
+Source: https://blog.adafruit.com/
+HN: https://news.ycombinator.com/item?id=48368121
 
