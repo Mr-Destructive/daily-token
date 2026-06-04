@@ -1,126 +1,136 @@
 # The Daily Token
 
-Edition: 2026-06-03
+Edition: 2026-06-04
 
 ## Editor's Note
-A busy day in the latent space.
+As we watch the foundational disciplines of engineering and academia give way to the velocity of market speculation and automated shortcutting, the ledger remains open for those still willing to build things that hold weight.
 
 ## The Front Page
 
-### Trump signs downsized AI order after weeks of reversals
-Source: https://www.politico.com/news/2026/06/02/trump-signs-downsized-ai-order-00946389
-HN: https://news.ycombinator.com/item?id=48372628
+### Uber's $1,500/month AI limit is a useful signal for AI tool pricing
+Source: https://simonwillison.net/2026/Jun/3/uber-caps-usage/
+HN: https://news.ycombinator.com/item?id=48383056
 
 
-### Apple rejected my dictation app for using the accessibility API
-Source: https://www.mitmllc.com/blog/apple-rejected-my-dictation-app/
-HN: https://news.ycombinator.com/item?id=48369088
+### If AI data centers are so great, why are they being built in secret?
+Source: https://www.thebrockovichreport.com/p/if-data-centers-are-so-great-why
+HN: https://news.ycombinator.com/item?id=48386529
 
 
-### AI outperforms law professors in Stanford Law study
-Source: https://law.stanford.edu/press/ai-outperforms-law-professors-in-stanford-law-study/
-HN: https://news.ycombinator.com/item?id=48377761
+### Safe Made Easy Pt.1: Single Ownership Is (Not) Optional
+Source: https://ergeysay.github.io/safe-made-easy-pt1.html
+HN: https://news.ycombinator.com/item?id=48395022
 
 
-### Search as runtime synthesis: The shift from indexing to execution
-Source: https://research.perplexity.ai/articles/rethinking-search-as-code-generation
-HN: https://news.ycombinator.com/item?id=48372547
-Replacing text retrieval with real-time code generation offers precise answers, but trades predictable infrastructure for the fragile state machines of stochastic compilers.
-
-### Now AI agents need what RSS does
-Source: https://julienreszka.com/blog/rss-is-back-ai-agents-are-reading-it/
-HN: https://news.ycombinator.com/item?id=48375673
+### Rootshell: A new E2EE email service hosted in Iceland
+Source: https://rootshell.is
+HN: https://news.ycombinator.com/item?id=48388253
 
 
-### Agentic Mfw
-Source: https://agenticmotherfucking.website
-HN: https://news.ycombinator.com/item?id=48379203
+### Why Video Agent models are next
+Source: https://www.latent.space/p/video-agents
+HN: https://news.ycombinator.com/item?id=48392328
 
 
-### HP re-releases classic computer science calculator: The HP-16C
-Source: https://hpcalcs.com/product/hp-16c-collectors-edition/
-HN: https://news.ycombinator.com/item?id=48374685
+### JPEG XL emerges from the margins of open-source experimentation
+Source: https://opensource.googleblog.com/2026/06/journey-to-jpeg-xl-how-open-source-experiments-shaped-the-future-of-image-coding.html
+HN: https://news.ycombinator.com/item?id=48390688
+The standardization of JPEG XL demonstrates that meaningful compression gains still require painstaking algorithmic discipline rather than compute-heavy shortcuts. However, its adoption hinges on browser vendors willing to break legacy compatibility—a risk that corporate monoliths remain hesitant to take.
+
+### Show HN: Mnemo – local-first AI memory layer for any LLM (Rust, SQLite,petgraph)
+Source: https://github.com/zaydmulani09/mnemo
+HN: https://news.ycombinator.com/item?id=48389586
 
 
-### Open Repair Data Standard
-Source: https://openrepair.org/open-data/open-standard/
-HN: https://news.ycombinator.com/item?id=48375150
+### MisoTTS Emotive Speech Model
+Source: https://www.misolabs.ai/blog/miso-tts-8b
+HN: https://news.ycombinator.com/item?id=48390655
 
 
-### The Mechanics of Multimodal RAG: Moving Past Textual Proxies
-Source: https://www.kapa.ai/blog/how-we-index-images-for-rag
-HN: https://news.ycombinator.com/item?id=48372239
-Engineering teams are shifting from fragile text-description pipelines to indexing raw image embeddings for retrieval-augmented generation. While this reduces manual labeling overhead, it introduces a reliance on the brittle semantic alignment of dual-encoder models.
+### Show HN: Bio Glyph – Turn Your Face into a One-Line Drawing
+Source: https://bio.bairui.dev/
+HN: https://news.ycombinator.com/item?id=48392012
 
-### The context window as the new compilation target
-Source: https://github.com/arianmokhtariha/data2prompt
-HN: https://news.ycombinator.com/item?id=48373045
-As codebases expand to feed context-hungry models, tools are emerging to automate the brute-force serialization of data science repositories into a single LLM-readable prompt. It is a pragmatic hack for the current era, though flattening complex directory structures into flat text risks losing the implicit architectural semantics that disciplined engineers used to design for human reviewers.
 
-### QBE 1.3 offers a lean alternative to LLVM weight
-Source: https://c9x.me/compile/release/qbe-1.3.html
-HN: https://news.ycombinator.com/item?id=48373442
-The release of QBE 1.3 provides a stark reminder that a compiler backend doesn't require millions of lines of code to be effective. While it promises rapid compilation and a tiny footprint, developers must trade off the aggressive, hardware-specific optimizations that larger infrastructures provide.
+### Gooey: A GPU-accelerated UI framework for Zig
+Source: https://github.com/duanebester/gooey
+HN: https://news.ycombinator.com/item?id=48386725
 
-### Linux Hack Leverages GPU Memory for OS Swap Space
-Source: https://github.com/c0dejedi/nbd-vram
-HN: https://news.ycombinator.com/item?id=48377404
-An unorthodox driver configuration allows Linux systems to use idle VRAM as general system swap space. While it provides a high-bandwidth buffer for memory-constrained setups, it risks wearing out GPU interconnects and introduces severe latency spikes when the PCI bus bottlenecks.
 
-### Continuous Profiling Arrives for OCaml
-Source: https://semgrep.dev/blog/2026/announcing-pyro-caml-continuous-profiler-ocaml/
-HN: https://news.ycombinator.com/item?id=48373710
-Pyro Caml introduces low-overhead production profiling to OCaml environments, offering rare visibility into the runtime behavior of a language often neglected by mainstream observability tooling. While the telemetry is precise, teams must weigh the marginal CPU overhead against the risk of flying blind in production.
+### The ways we contain Claude across products
+Source: https://www.anthropic.com/engineering/how-we-contain-claude
+HN: https://news.ycombinator.com/item?id=48392082
+
+
+### MAI moves past scaling hype to quantify actual architectural tradeoffs
+Source: https://idlemachines.co.uk/essays/efficiency-gain
+HN: https://news.ycombinator.com/item?id=48391890
+By treating model efficiency as a concrete geometric problem rather than a hardware brute-force exercise, MAI's latest lab update shifts focus back to disciplined software craft. The risk remains that over-optimizing for raw speed will quietly degrade a system's capacity for nuanced edge cases.
 
 ## AI & LLM Overview
 
-### Great Question (YC W21) Is Hiring Applied AI Interns
-Source: https://www.ycombinator.com/companies/great-question/jobs/J5TNvQH-ai-engineer-intern
-HN: https://news.ycombinator.com/item?id=48369098
+### SpaceX listing threatens long-term capital stability as valuation outpaces structural engineering reality
+Source: https://www.irishtimes.com/business/2026/06/03/heavily-in-debt-loss-making-with-eyes-on-sending-people-to-mars-why-would-anyone-invest-in-spacex/
+HN: https://news.ycombinator.com/item?id=48385866
+The proposed SpaceX public offering exposes institutional capital to volatile private-market metrics, transforming predictable pension portfolios into high-risk bets on a single, opaque logistics ecosystem. While the liquidity is enticing, funds risk trading structural solvency for speculative yields before the underlying orbital infrastructure demonstrates steady-state margins.
+
+### Uber trims People department by nearly a quarter under new leadership
+Source: https://www.bloomberg.com/news/articles/2026-06-03/uber-cuts-23-of-people-division-as-new-president-takes-charge
+HN: https://news.ycombinator.com/item?id=48385919
+The 23% reduction in HR staff signals a shift toward leaner operations under the incoming president, though cutting internal support risks damaging engineering retention and organizational stability. It remains to be seen whether this lean posture translates to structural discipline or merely thinner operational margins.
+
+### Skyvern seeks open-source developer relations to bridge programmatic web scraping
+Source: https://www.ycombinator.com/companies/skyvern/jobs/1qRTlVx-founding-developer-marketing-open-source-ai
+HN: https://news.ycombinator.com/item?id=48386588
+The Y Combinator-backed startup is recruiting DevRel engineers to steady its open-source ecosystem, which automates browser interactions via computer vision. The hiring push highlights a broader industry shift where maintaining developer goodwill is treated as a core engineering dependency, though the role risks prioritizing community damage control over foundational protocol design.
+
+### Demand Is Booming for New No Tech, Repairable Tractor
+Source: https://www.404media.co/demand-is-booming-for-ursa-ag-new-no-tech-repairable-tractor/
+HN: https://news.ycombinator.com/item?id=48391136
 
 
-### More than 6 out of 10 people turn to AI for psychological support
-Source: https://www.axa.com/en/press/press-releases/2026-mind-health-report
-HN: https://news.ycombinator.com/item?id=48377854
+### Strategic Reserves Hit 22-Year Low as Gulf Conflict Tightens Supply
+Source: https://www.ft.com/content/d0be73c8-b8d8-4ffd-874e-e97a6ecffef7
+HN: https://news.ycombinator.com/item?id=48390053
+Escalating military friction in Iran has forced the United States to draw down its crude inventories to levels unseen since 2004. For automated trading infrastructure, the sudden volatility exposes brittle predictive models that historically fail to account for prolonged, non-linear geopolitical disruptions.
+
+### The Star Blazers Page
+Source: https://kevinmccorrytv.ca/blazers.html
+HN: https://news.ycombinator.com/item?id=48392272
 
 
 ## Model Release History
 
-### MAI-Code-1-Flash targets the floor of inference pricing
-Source: https://microsoft.ai/news/introducingmai-code-1-flash/
-HN: https://news.ycombinator.com/item?id=48374466
-The release shifts the optimization target from pure capability to marginal cost, offering a faster, stripped-down alternative for high-throughput pipelines. While it eases the infrastructure budget, it forces developers to trade away architectural nuance for raw execution speed.
+### Gemma 4 12B drops the vision encoder to streamline the weights
+Source: https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/
+HN: https://news.ycombinator.com/item?id=48385906
+Google’s new architecture collapses separate vision and text modules into a single unified network, cutting down operational complexity at the cost of raw perceptual nuance. It marks a shift from brute-force scaling to structural tidiness, though it forces engineers to gamble on whether a single unified architecture can truly handle disparate data types without degradation.
 
-### MAI-Thinking-1
-Source: https://microsoft.ai/news/introducing-mai-thinking-1/
-HN: https://news.ycombinator.com/item?id=48374362
+### Show HN: Ideogram 4.0 – open-weight 9.3B text-to-image model
+Source: https://github.com/ideogram-oss/ideogram4
+HN: https://news.ycombinator.com/item?id=48385829
 
 
 ## Top Insights & Advice
 
-### The Dual Reality of Session Replay: Indispensable Product Insight vs. Hidden User Surveillance
-Source: https://github.com/s2-streamstore/replaya
-HN: https://news.ycombinator.com/item?id=48373482
-While early-stage developers find self-hosted session replays invaluable for qualitative UX feedback before quantitative data scales, the technology faces a steep ethical dilemma regarding user consent, transparency, and the unspoken expectation of privacy during web browsing. Quote: Session replays are so crucial for understanding new features qualitatively, especially before you have enough users for useful quantitative metrics.
+### The 'Chess-ification' of Mathematics and the Risk of Machine-Only Truth
+Source: https://www.science.org/content/article/mathematicians-issue-warning-ai-rapidly-gains-ground
+HN: https://news.ycombinator.com/item?id=48382052
+The community draws a parallel between mathematics and chess, warning that while human-machine collaboration currently maximizes performance, we are heading toward a future where AI generates and verifies proofs entirely outside human comprehension. The true value of math departments isn't just producing equations, but cultivating human judgment and understanding—both of which risk being sidelined by AI that solves abstract problems but lacks the logic to avoid basic, 'dumb' errors. Quote: In a word, the job of the mathematics department is not only to produce mathematics, but mathematicians.
 
-### Gmail thinks I'm stupid, so I left
-Source: https://moddedbear.com/gmail-thinks-im-stupid-so-i-left
-HN: https://news.ycombinator.com/item?id=48375016
+### Failing grades soar with AI usage, dwindling math skills in Berkeley CS classes
+Source: https://www.dailycal.org/news/campus/academics/failing-grades-soar-as-professors-see-greater-ai-usage-dwindling-math-skills-in-uc-berkeley/article_16fad0bf-02cb-4b8c-8d88-888ffd9f8608.html
+HN: https://news.ycombinator.com/item?id=48392004
 No insight extracted.
 
-### The High Price of Truth and the Premium on Comfort
-Source: https://jasonzweig.com/three-ways-to-get-paid/
-HN: https://news.ycombinator.com/item?id=48373054
-The tech community highlights a cynical but pragmatic economic reality: material wealth often flows to those who tell clients and the market what they want to hear, while strict adherence to the objective truth frequently results in just scraping by or going broke. Quote: When I was a dev working with my business-oriented business partner, I had to get used to sitting in meetings where we promised the client the world having no idea if I could accomplish it or not. Made a lot more money than I could have on my own.
+### SSRN floods with synthetic research, testing the limits of academic gatekeeping
+Source: https://www.stephenbainbridge.com/p/the-social-science-research-network
+HN: https://news.ycombinator.com/item?id=48392062
+The deluge of unvetted, AI-generated papers on the Social Science Research Network threatens to turn the pre-print repository into noise, forcing a choice between slow, manual curation or complete institutional irrelevance.
 
 ## Lab Updates & Dark Side
 
-### U of T researchers demonstrate AI worm could target any online device
-Source: https://www.utoronto.ca/news/u-t-researchers-demonstrate-ai-worm-could-target-any-online-device
-HN: https://news.ycombinator.com/item?id=48379664
-
-
-### Adafruit receives demand letter from Fenwick legal counsel on behalf of Flux.ai
-Source: https://blog.adafruit.com/
-HN: https://news.ycombinator.com/item?id=48368121
-
+### The cost of automated penetration testing: Fifteen hundred dollars for mixed results
+Source: https://kasra.blog/blog/i-spent-1500-seeing-if-llms-could-hack-my-app/
+HN: https://news.ycombinator.com/item?id=48392343
+An experiment deploying large language models against a custom vulnerable application reveals that while automated exploitation is financially accessible, LLMs frequently struggle with multi-step logical vulnerabilities. The tradeoff remains a high rate of false positives and token spend against an industry increasingly willing to outsource rigorous code review to probabilistic machines.
