@@ -1,126 +1,126 @@
 # The Daily Token
 
-Edition: 2026-06-16
+Edition: 2026-06-17
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### Microsoft turns to AWS as GitHub faces AI capacity crunch
-Source: https://runtimewire.com/article/microsoft-github-aws-ai-capacity-crunch
-HN: https://news.ycombinator.com/item?id=48549918
+### DOJ claims xAI's gas turbines are a matter of 'national and energy security'
+Source: https://techcrunch.com/2026/06/16/doj-claims-xais-unpermitted-gas-turbines-are-a-matter-of-national-economic-and-energy-security/
+HN: https://news.ycombinator.com/item?id=48565429
 
 
-### The mechanical reality of timeseries compression
-Source: https://roszigit.com/en/blog/timescaledb-compression-hypercore
-HN: https://news.ycombinator.com/item?id=48544451
-TimescaleDB achieves its storage efficiencies not through architectural magic, but by forcing relational databases to treat time as a strict, physical constraint. The risk is an irreversible operational lock-in: optimization here requires relinquishing the arbitrary query flexibility that made SQL standard in the first place.
-
-### Amazon charts multi-billion dollar expansion into Missouri grid
-Source: https://www.narracomm.com/amazon-announces-multibillion-dollar-data-center-in-missouri/
-HN: https://news.ycombinator.com/item?id=48548975
-The hyperscaler's massive capital commitment signals a shift toward secondary energy markets as traditional tech hubs face acute power constraints. While local economies welcome the infrastructure spend, the influx threatens to strain regional grids and further decouple raw compute scale from disciplined software architecture.
-
-### Peopleless economy? Not technically impossible
-Source: https://gmalandrakis.com/writings/ad-economicum.html
-HN: https://news.ycombinator.com/item?id=48547062
+### Apple is about to make Hide My Email useless
+Source: https://arseniyshestakov.com/2026/06/16/apple-is-about-to-make-hide-my-email-useless/
+HN: https://news.ycombinator.com/item?id=48559935
 
 
-### Iroh reaches 1.0, anchoring p2p data routing in explicit code
-Source: https://www.iroh.computer/blog/v1
-HN: https://news.ycombinator.com/item?id=48542480
-The peer-to-peer networking engine hits a stable release, offering a rare alternative to bloated cloud orchestration by forcing engineers to manage data placement directly. The risk is immediate: moving off managed infrastructure means teams must once again design for asymmetric bandwidth and erratic node availability.
-
-### TinyWind and the commoditization of the micro-game
-Source: https://tinywind.io
-HN: https://news.ycombinator.com/item?id=48543475
-A lightweight sailing simulator built on localized wind physics has logged over 380,000 kilometers of simulated travel. While it demonstrates how easily individual developers can now deploy complex mechanics, it highlights a shift toward short-lived algorithmic novelties over durable software craft.
-
-### CrankGPT
-Source: https://crankgpt.com
-HN: https://news.ycombinator.com/item?id=48540854
+### Databricks Launches LTAP: A Unified OLAP/OLTP Data Architecture
+Source: https://www.databricks.com/company/newsroom/press-releases/databricks-launches-ltap-first-lake-transactionalanalytical
+HN: https://news.ycombinator.com/item?id=48560886
 
 
-### My Homelab AI Dev Platform
-Source: https://rsgm.dev/post/ai-dev-platform/
-HN: https://news.ycombinator.com/item?id=48542433
+### Alibaba extends Qwen architecture to physical robotics
+Source: https://qwen.ai/blog?id=qwen-robotsuite
+HN: https://news.ycombinator.com/item?id=48554814
+The introduction of the Qwen-Robot suite attempts to anchor large language models into physical actuators, though translating token prediction into reliable real-world physics introduces unpredictable latency and physical edge cases. The release highlights a growing industry shift from digital reasoning to tangible automation, where the primary constraint remains the messy unpredictability of hardware.
+
+### Wolfram adds LLM assistant, risks trading precision for speed
+Source: https://writings.stephenwolfram.com/2026/06/launching-version-15-of-wolfram-language-mathematica-built-in-useful-ai-lots-of-new-core-functionality/
+HN: https://news.ycombinator.com/item?id=48563609
+Mathematica 15 introduces an LLM assistant alongside new symbolic music tools, grafting statistical language models onto a platform historically built on strict mathematical determinism. The real uncertainty lies in whether engineers will spot subtle hallucinations before they corrupt exact symbolic computations.
+
+### NLnet backs 67 open-source projects as institutional code rots
+Source: https://nlnet.nl/news/2026/20260616-67-new-projects.html
+HN: https://news.ycombinator.com/item?id=48563569
+The European grantmaker's latest funding round injects capital into essential, unglamorous infrastructure that commercial tech routinely underfunds. While a necessary lifeline for independent software craft, relying on fragmented grant cycles risks leaving critical utilities without long-term maintenance.
+
+### Version control adapts to codebases written by machines
+Source: https://cursor.com/origin
+HN: https://news.ycombinator.com/item?id=48558605
+As autonomous agents begin to generate the majority of software patches, traditional Git repositories face structural strain. The immediate challenge lies in auditing high-volume, automated code churn without completely abandoning the rigorous discipline of manual code review.
+
+### Nvidia’s cuTile brings Rust safety semantics to GPU kernels
+Source: https://github.com/nvlabs/cutile-rs
+HN: https://news.ycombinator.com/item?id=48561410
+By extending Rust’s type system to device code, this framework attempts to eliminate data races in parallel hardware execution. However, wrapping massive CUDA complexity in compiler-enforced safety guarantees risks introducing silent performance abstractions that mask the hardware's reality.
+
+### Running local models is good now
+Source: https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/
+HN: https://news.ycombinator.com/item?id=48555993
 
 
 ## AI & LLM Overview
 
-### OpenAI Losses Increased Nearly 8X in 2025, with Spending Hitting $34B
-Source: https://www.wheresyoured.at/exclusive-openai-financials/
-HN: https://news.ycombinator.com/item?id=48550465
+### France to ditch Palantir's AI data tools in favour of domestic provider
+Source: https://www.theguardian.com/world/2026/jun/16/france-ai-data-tools-palantir-chapsvision
+HN: https://news.ycombinator.com/item?id=48564141
 
 
-### Grid-scale battery capacity surges past projections, leaving safety margins thin
-Source: https://fred.stlouisfed.org/series/IPG33591S
-HN: https://news.ycombinator.com/item?id=48546616
-Domestic manufacturing data reveals an unprecedented volume of grid-ready storage coming online, a shift driven by heavy subsidies rather than architectural breakthroughs. While this addresses immediate curtailment issues, the rapid deployment risks lock-in with current lithium-ion chemistry, potentially stifling the adoption of more resilient long-duration alternatives.
-
-### A post-mortem for a skill that never was
-Source: https://bbenchoff.github.io/pages/8Tracks.html
-HN: https://news.ycombinator.com/item?id=48545569
-The claim that language models will displace 8-track duplication engineers mistakes a long-dead mechanical process for a modern labor shortage. While the automation of legacy system maintenance removes the need for highly specific hardware intuition, it risks codifying bad habits into software that no living developer knows how to audit.
-
-### Microsoft Teams introduces office attendance tracking via Wi-Fi
-Source: https://www.pcworld.com/article/3165894/from-this-month-onwards-this-microsoft-programme-will-be-reporting-you-to-your-boss.html
-HN: https://news.ycombinator.com/item?id=48549891
+### GitHub Models is no longer available to new customers
+Source: https://github.blog/changelog/2026-06-16-github-models-is-no-longer-available-to-new-customers/
+HN: https://news.ycombinator.com/item?id=48561924
 
 
-### Firefox 152 Now Available with JPEG-XL Support
-Source: https://www.phoronix.com/news/Firefox-152-Download
-HN: https://news.ycombinator.com/item?id=48550489
+### The 'AI-Native' Playbook as the New Commodity
+Source: https://claude.com/blog/the-founders-playbook
+HN: https://news.ycombinator.com/item?id=48566832
+As standard blueprints for building AI startups proliferate, the technical moat shifts from basic architectural patterns to the tedious, unglamorous work of data engineering. The risk is an industry flooded with identical infrastructure, where the illusion of rapid development masks a steep decline in fundamental software craft.
 
+### The sudden obsolescence of the paperback guru
+Source: https://tim.blog/2026/06/12/has-ai-already-killed-nonfiction/
+HN: https://news.ycombinator.com/item?id=48558489
+As generative models rapidly synthesize standard advice, the market for boilerplate self-help literature has collapsed under its own lack of originality. The shift leaves a distinct vacuum for actual clinical expertise, though it remains unclear if publishers will reinvest in rigorous editing or simply cede the genre entirely to the dataset.
 
 ## Model Release History
 
-### Anthropic Moves Downstream Into Custom Architecture
-Source: https://www.anthropic.com/news/claude-corps
-HN: https://news.ycombinator.com/item?id=48544637
-By shifting from general API access to dedicated, managed model stacks, the provider assumes the infrastructure burden for enterprise buyers. The tradeoff is a familiar lock-in: teams swap predictable hosting fees for an architecture that cannot easily migrate to a competitor's hardware.
+### The State's Baseline: The Netherlands Backs an Explicitly Sourced Model
+Source: https://www.tno.nl/en/digital/artificial-intelligence/gpt-nl/
+HN: https://news.ycombinator.com/item?id=48559188
+With a €13.5 million public budget, the Dutch consortium of TNO, SURF, and the NFI has built GPT-NL, a sovereign model trained entirely from scratch on a clean, legally vetted dataset. While it offers an alternative to the intellectual property ambiguities of big tech, it risks immediate obsolescence by targeting engineering parity with older-generation baselines like Llama-2.
+
+### SubQ 1.1 Small shifts the inference cost frontier
+Source: https://subq.ai/subq-1-1-small-technical-report
+HN: https://news.ycombinator.com/item?id=48556163
+The latest release from SubQ offers a leaner alternative for high-throughput pipelines, though engineers will need to weigh the lower operational overhead against a documented latency spike during peak concurrent requests.
 
 ## Top Insights & Advice
 
-### Why I email complete strangers
-Source: https://www.goodinternetmagazine.com/why-i-email-complete-strangers/
-HN: https://news.ycombinator.com/item?id=48547566
+### But yak shaving is fun (2019)
+Source: https://parksb.github.io/en/article/32.html
+HN: https://news.ycombinator.com/item?id=48555838
 No insight extracted.
 
-### The rise of machine writing is a great opportunity for literature
-Source: https://www.theatlantic.com/ideas/2026/06/ai-writing-style-literature/687536/
-HN: https://news.ycombinator.com/item?id=48550563
+### Dunning-Kruger As A Service
+Source: https://twitter.com/i/status/2066825204207091926
+HN: https://news.ycombinator.com/item?id=48560913
+AI tools allow users to rapidly generate and parrot information they cannot verify, amplifying incompetence for those who lack expertise while serving as a powerful productivity booster only for those who can critically vet the output. Quote: The giveaway was my Medical Professional father thinking that AI was really good at things outside of his area of expertise, and really bad at things inside of his area of expertise.
 
-
-### Show HN: I wrote a C++ ray tracer from scratch without AI
-Source: https://github.com/themartiano/luz
-HN: https://news.ycombinator.com/item?id=48538833
+### NetNewsWire Status
+Source: https://inessential.com/2026/06/15/netnewswire-status.html
+HN: https://news.ycombinator.com/item?id=48565685
 No insight extracted.
 
-### Context is King vs. AI Design Fatigue
-Source: https://grassdx.com/
-HN: https://news.ycombinator.com/item?id=48544823
-To compete with general AI tools like ChatGPT, niche AI products must differentiate by leveraging deep contextual history and domain specificity, while actively avoiding generic, AI-generated design patterns that trigger user skepticism. Quote: So the key here is differentiating from that and making something better and more accurate. What we did was to basically build a better and deeper prompt and history, e.g. context is king.
-
-### Game Engine White Papers: Commander Keen
-Source: https://forgottenbytes.net/commander_keen.html
-HN: https://news.ycombinator.com/item?id=48544781
-No insight extracted.
-
-### How memory safety CVEs differ between Rust and C/C++
-Source: https://kobzol.github.io/rust/2026/06/15/how-memory-safety-cves-differ-between-rust-and-c-cpp.html
-HN: https://news.ycombinator.com/item?id=48543392
-No insight extracted.
-
-### Loving the Machine vs. Liking the Industry
-Source: https://michaelenger.com/blog/i-love-the-computer/
-HN: https://news.ycombinator.com/item?id=48546441
-While the modern tech landscape shifts toward external hosting, complex AI tools, and corporate utility, the fundamental joy of computing remains rooted in personal discovery, tinkering, and the predictable stability of the machine itself. Quote: I still like the computer itself. Breaking something, poking at it, fixing it, and then it suddenly works. The hard part now is liking the industry around it.
-
-### Policy frameworks falter on Egyptian Fractions optimization
-Source: https://blog.plover.com/math/egyptian-fractions.html
-HN: https://news.ycombinator.com/item?id=48548612
-A fundamental shift in algorithmic partitioning exposes structural blind spots in current safety compliance protocols. The development forces a hard tradeoff between computational transparency and raw execution speed, leaving regulators chasing a moving target.
+### The Illusion of Developer Simplicity
+Source: https://www.jameshylands.co.uk/2026/06/sortis-paper-empire-game.html
+HN: https://news.ycombinator.com/item?id=48559108
+Creators often lose perspective on the complexity of their own systems, labeling a multi-layered, emergent resource game as 'simple' when it overwhelms a fresh user. Quote: But if this is your idea of a simple boardgame, what on earth do you consider a complex one?
 
 ## Lab Updates & Dark Side
+
+### Federal alarm over Fable 5 stems from routine code refactoring, not exploit
+Source: https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827
+HN: https://news.ycombinator.com/item?id=48552687
+Government anxiety regarding the LLM's behavior was triggered by standard debugging requests rather than a novel adversarial exploit. This highlights a fragile reality: we are now deploying systems so unpredictable that ordinary engineering maintenance looks indistinguishable from a cyberattack.
+
+### The Inevitable Compromise: Building for the Post-Breach Environment
+Source: https://www.theatlantic.com/technology/2026/06/ai-hacking-cybersecurity-banks/687562/
+HN: https://news.ycombinator.com/item?id=48563635
+As standard perimeter defenses fail under automated, novel attack vectors, engineers must shift from prevention to containment. Accepting total compromise as a baseline introduces severe architecture overhead, but it remains the only disciplined approach to preserving core data integrity.
+
+### Legacy IIS exposure reminds us that bad parsing never truly dies
+Source: https://mll.sh/humiliating-iis-servers-for-fun-and-jail-time/
+HN: https://news.ycombinator.com/item?id=48563394
+An analysis of ongoing Microsoft IIS shortname vulnerabilities highlights how ancient, unpatched architecture continues to reward basic fuzzing. While the exploit path is well-understood, the real risk lies in the industry's quiet acceptance of fragile, legacy infrastructure that teams lack the discipline to decommission.
