@@ -1,121 +1,136 @@
 # The Daily Token
 
-Edition: 2026-06-20
+Edition: 2026-06-21
 
 ## Editor's Note
-A busy day in the latent space.
+As we resort to wrapping our foundational triumphs in spatial emulation, the industry must decide whether it is genuinely building a new future or simply window-dressing the slow decay of its structural discipline.
 
 ## The Front Page
 
-### A new bill takes aim at government pressure to silence lawful online speech
-Source: https://www.eff.org/deeplinks/2026/06/new-bill-takes-aim-government-pressure-silence-lawful-online-speech
-HN: https://news.ycombinator.com/item?id=48600950
+### Loupe – A iOS app that raises awareness about what native apps can see
+Source: https://github.com/mysk-research/loupe
+HN: https://news.ycombinator.com/item?id=48608645
 
 
-### Brussels prepares to designate hyperscalers as system gatekeepers
-Source: https://www.heise.de/en/news/Report-EU-to-soon-classify-AWS-and-Azure-as-gatekeepers-under-DSA-11337873.html
-HN: https://news.ycombinator.com/item?id=48596622
-The imminent inclusion of AWS and Azure under the Digital Services Act shifts cloud infrastructure from a private utility to a heavily policed public square. While intended to curb monopoly power, the administrative overhead risks ossifying the exact architectural layers where engineers previously enjoyed friction-free deployment.
-
-### GPT-5.5 hallucinates 3x more than MIT-licensed GLM-5.2
-Source: https://arrowtsx.dev/bigger-models/
-HN: https://news.ycombinator.com/item?id=48600167
+### Temporary Cloudflare accounts for AI agents
+Source: https://blog.cloudflare.com/temporary-accounts/
+HN: https://news.ycombinator.com/item?id=48608394
 
 
-### Windows 11 update broke the Recycle Bin, OneDrive, and your PC's stability
-Source: https://www.techspot.com/news/112831-microsoft-confirms-weird-recycle-bin-bug-windows-11.html
-HN: https://news.ycombinator.com/item?id=48601164
+### Early life adversity leaves a lasting molecular imprint across the body
+Source: https://medicalxpress.com/news/2026-06-early-life-adversity-molecular-imprint.html
+HN: https://news.ycombinator.com/item?id=48615277
 
 
-### Aikido steps into the crowded market of automated code auditing
-Source: https://www.aikido.dev/blog/introducing-code-audit-find-complex-vulnerabilities-hidden-in-your-codebase
-HN: https://news.ycombinator.com/item?id=48604741
-The tool attempts to streamline vulnerability detection, but relies on a rigid ruleset that risk-averse teams might find introduces as much noise as it eliminates. It represents another step toward outsourcing foundational software security to static engines, further distancing developers from the underlying vulnerabilities.
-
-### MiniMax M3 vs. GLM 5.2: Codegen comparison across autonomous coding tasks
-Source: https://thinkwright.ai/minimax-m3-vs-glm-5-2-coding-benchmark
-HN: https://news.ycombinator.com/item?id=48600531
+### Millimeter wave technology drills 100 meters into granite
+Source: https://www.thinkgeoenergy.com/quaise-energy-achieves-100-meters-of-drilling-using-millimeter-wave-technology/
+HN: https://news.ycombinator.com/item?id=48611585
 
 
-### A claim to have decoded Linear A via LLM meets skepticism from linguists
-Source: https://aiclambake.com/clamtakes/linear-a/
-HN: https://news.ycombinator.com/item?id=48600107
-An independent engineer reports using a fine-tuned transformer to translate the undeciphered Minoan script, though critics note the model likely hallucinated patterns across a notoriously sparse dataset. The attempt highlights a growing friction between statistical brute-force and traditional philological rigor.
-
-### Show HN: NanoEuler – GPT-2 scale model in pure C/CUDA from scratch
-Source: https://github.com/JustVugg/nanoeuler
-HN: https://news.ycombinator.com/item?id=48601472
+### The ability to regrow body parts is dormant in mammals, not lost
+Source: https://www.sciencedaily.com/releases/2026/06/260617032207.htm
+HN: https://news.ycombinator.com/item?id=48611083
 
 
-### Hyundai buys Boston Dynamics
-Source: https://startupfortune.com/hyundai-takes-full-control-of-boston-dynamics-as-softbank-exits-for-325-million/
-HN: https://news.ycombinator.com/item?id=48600312
+### 'We had to get out of the way': The backlash over delivery robots
+Source: https://www.bbc.com/news/articles/c0rygp005wjo
+HN: https://news.ycombinator.com/item?id=48614390
 
 
-### Autonomy Framework Attempts Core for Self-Directed Software Engineering
-Source: https://autonomy-landing-page.vercel.app/
-HN: https://news.ycombinator.com/item?id=48606882
-A new open-source effort introduces a self-harnessing agent architecture aimed at autonomous execution. While it attempts to bypass rigid scaffolding, it introduces a familiar trade-off: trading predictable, deterministic code structures for an unvetted runtime that may prove impossible to debug when it inevitably drifts.
+### Bootimus consolidates PXE and HTTP orchestration into a single binary
+Source: https://bootimus.com
+HN: https://news.ycombinator.com/item?id=48608255
+By stripping away the sprawling dependency chains typical of network booting, Bootimus attempts to return bare-metal provisioning to a state of predictable craft. The obvious vulnerability is its self-contained nature, which trades the resilience of decoupled, specialized network daemons for a single, potentially fragile point of failure.
 
-### How do flocking birds and schools of fish move?
-Source: https://www.nyu.edu/about/news-publications/news/2026/june/how-do-flocking-birds-and-schools-of-fish-move--new-research-off.html
-HN: https://news.ycombinator.com/item?id=48604115
-
-
-### Cirrus: ATProto Personal Data Server That Runs on Cloudflare Workers
-Source: https://github.com/ascorbic/cirrus
-HN: https://news.ycombinator.com/item?id=48604801
+### The frontier is open-source today
+Source: https://www.southbridge.ai/blog/offmute-v2-glm-vs-opus
+HN: https://news.ycombinator.com/item?id=48610739
 
 
-### Perplexity explores open-source cognitive architecture as alternative to proprietary models
-Source: https://github.com/raphaelwkago-sketch/rudi
-HN: https://news.ycombinator.com/item?id=48606889
-The initiative attempts to de-center centralized model reliance by open-sourcing a foundational reasoning framework. While promising for developer autonomy, it introduces significant integration friction and shifts the burden of optimization entirely onto engineering teams.
+### Fine-Tuning Out the Guardrails: A Post-Trained Model Chooses Pen Testing Over Refusal
+Source: https://www.argusred.com/cli
+HN: https://news.ycombinator.com/item?id=48609231
+By stripping traditional safety alignments, developers have created a model willing to execute penetration testing scripts on demand. While it restores a level of utility lost to over-zealous filtering, it introduces the obvious risk of lowering the technical barrier for automated, malicious network exploitation.
 
-### Hide Secrets from AI Agents and NPM install using Airgap
-Source: https://sauleau.com/notes/airgap-security-for-the-modern-ai-age.html
-HN: https://news.ycombinator.com/item?id=48602862
+### DOS Game "F-15 Strike Eagle II" reversing project needs DOS test pilots
+Source: https://neuviemeporte.github.io/f15-se2/2026/06/20/needyou.html
+HN: https://news.ycombinator.com/item?id=48609766
 
+
+### X11 Ported to VisionOS as Software Craft Recedes Into Emulation
+Source: https://www.lispm.net/apps/uhf-x11/
+HN: https://news.ycombinator.com/item?id=48610853
+An independent developer has brought the decades-old X11 windowing system to Apple’s Vision Pro, mapping legacy Unix GUI paradigms onto spatial computing. While it rescues historic software from obsolescence, it highlights a stark tradeoff: we are increasingly wrapping old, robust abstractions inside complex, closed ecosystems rather than building native discipline from scratch.
 
 ## AI & LLM Overview
 
-### Firefox facing sudden deprecation warnings on Google Workspace
-Source: https://tales.fromprod.com/2026/169/google-workspace-threatening-to-block-firefox.html
-HN: https://news.ycombinator.com/item?id=48600345
-Google has begun prompting some Workspace users on Firefox with compatibility warnings, raising immediate concerns about forced browser centralization and the degradation of cross-platform web standards. While Google framing this as a minor technical optimization is possible, it forces enterprise IT departments into a brittle, single-vendor ecosystem.
+### Real estate metrics mask the loss of local trade at Brixton Market
+Source: https://novaramedia.com/2026/06/19/race-against-time-to-save-brixton-market-from-private-equity/
+HN: https://news.ycombinator.com/item?id=48608611
+As private equity standardizes commercial spaces, the optimization algorithms overlook the unquantifiable social friction that historically sustained independent merchants. The risk is an efficient, empty shell where software craft has replaced community utility.
 
-### Amazon shelves Altman biopic to protect nascent OpenAI alliance
-Source: https://www.the-independent.com/arts-entertainment/films/news/sam-altman-biopic-amazon-openai-deal-b2999321.html
-HN: https://news.ycombinator.com/item?id=48602639
-By canceling a production on OpenAI’s chief, Amazon prioritizes raw corporate alignment over cultural soft power. The retreat underscores a broader industry pivot where traditional copyright media is readily traded away to secure foundational compute and model access.
+### Polymarket manufactured trading wins via paid influencer network
+Source: https://m.slashdot.org/story/455718
+HN: https://news.ycombinator.com/item?id=48615753
+The prediction platform financed creators to simulate successful wagers, trades that did not exist in the order books. While short-term engagement metrics spikes, the stunt fundamentally erodes the baseline trust required for decentralized settlement mechanisms to function as reliable public data sources.
 
-### The Million-Dollar Starter Home Becomes a Baseline in 242 Cities
-Source: https://investors.zillowgroup.com/news-and-events/news/news-details/2026/A-record-242-US-cities-now-have-starter-homes-that-cost-1M/default.aspx
-HN: https://news.ycombinator.com/item?id=48605208
-As standard entry-level real estate hits seven figures in a record number of US markets, the definition of a baseline asset shifts entirely. This inflation squeezes the broader labor market, forcing a quiet recalibration of where technical talent can afford to build a life.
-
-### Iran requires insurance on ships using Strait of Hormuz, fees likely to follow
-Source: https://www.lloydslist.com/LL1157571/Iran-imposes-mandatory-insurance-on-ships-transiting-Strait-of-Hormuz-with-fees-likely-to-follow
-HN: https://news.ycombinator.com/item?id=48604584
+### 'Buy less' campaigns don't work
+Source: https://www.lse.ac.uk/buy-less-campaigns-dont-work
+HN: https://news.ycombinator.com/item?id=48613684
 
 
 ## Model Release History
 
 ## Top Insights & Advice
 
-### The Cognitive Trade-Off of the Ultimate Lever
-Source: https://www.nature.com/articles/d41586-026-01947-1
-HN: https://news.ycombinator.com/item?id=48601286
-The community is deeply divided on whether AI is an enfeeblement tool or a superpower. While it risks eroding fundamental, low-level problem-solving and deep-thinking skills through the seduction of outsourcing, it simultaneously acts as a massive intellectual lever that elevates users to higher-level architecture, system thinking, and rapid cross-disciplinary learning. Quote: Technology is a lever and AI is the biggest lever we've ever had. It enables laziness or incredible productivity.
+### Software Engineering is Still About the *Right* Code, Not Just Working Code
+Source: https://vinibrasil.com/when-i-reject-ai-code-even-if-it-works/
+HN: https://news.ycombinator.com/item?id=48614631
+AI code generators frequently default to over-engineered enterprise abstractions. The true cost of AI-assisted development is the loss of a middle ground: developers must either blindly trust the output via 'vibe coding' or rigorously audit the code as they would a junior colleague's PR, because long-term maintainability matters more than a first-pass working solution. Quote: Software Engineering is all about rejecting code that works for the right code that works.
 
-### The fragility of state-scale technical memory
-Source: https://worksinprogress.co/issue/how-the-uk-learned-and-unlearned-nuclear/
-HN: https://news.ycombinator.com/item?id=48606919
-Britain's multi-decade arc of building and then losing its domestic nuclear engineering competency serves as a stark warning for the current AI ecosystem. It suggests that complex technical capability, once decoupled from continuous physical practice, cannot be easily recovered by policy mandates alone.
+### The Value of Open Source and True Accessibility in Tech
+Source: https://github.com/DatanoiseTV/ember-hackernews
+HN: https://news.ycombinator.com/item?id=48610816
+Independent developers and users are increasingly rallying behind open-source alternatives to bypass corporate App Store gatekeeping, while highlighting that thoughtful accessibility—like color-blind-friendly UI design—remains a major, often underserved, competitive advantage. Quote: No one should need permission to ship from a trillion dollar company.
 
-### Modern Iraqi Arabic Textbook
-Source: https://archive.org/details/modern-iraqi-arabic-a-textbook-by-yasin-m-alkalesi
-HN: https://news.ycombinator.com/item?id=48606036
+### Building reliable agentic AI systems
+Source: https://martinfowler.com/articles/reliable-llm-bayer.html
+HN: https://news.ycombinator.com/item?id=48615680
+No insight extracted.
 
+### Show HN: Agentic coding workflows built on Git worktrees and task evidence
+Source: https://github.com/alex-reysa/glueRun-go
+HN: https://news.ycombinator.com/item?id=48614286
+No insight extracted.
+
+### The Marketing Taint of the Large Language Model
+Source: https://www.satisfice.com/blog/archives/488148
+HN: https://news.ycombinator.com/item?id=48615776
+Proclaiming the use of machine-generated prose has transitioned from a tech-forward boast to a brand liability, signaling a lack of editorial discipline. The current risk isn't just algorithmic fatigue, but a systemic devaluation of precise, human-crafted documentation.
+
+### The Illusion of Global Agency vs. Local Peace
+Source: https://www.sciencedaily.com/releases/2026/06/260614012006.htm
+HN: https://news.ycombinator.com/item?id=48615569
+Consuming global news often creates an emotional burden without any outlet for action. Shifting focus to local events or accepting that external chaos is beyond our control can restore mental groundedness and reduce the anxiety caused by an increasingly noisy internet. Quote: Turns out random shit far away has no significant effect on my life. And even if it did it’s not like I can do anything about it
+
+### The 100k Whys of AI
+Source: https://lcamtuf.substack.com/p/the-100000-whys-of-ai
+HN: https://news.ycombinator.com/item?id=48616017
+No insight extracted.
+
+### How the Fifth Lateran Council Unlocked Financial Theory
+Source: https://sebastiangarren.com/2026/06/17/lending-is-meritorious-and-should-be-praised-how-the-fifth-lateran-council-unlocked-financial-theory/
+HN: https://news.ycombinator.com/item?id=48611940
+
+
+### The Risk-Taking Benefit of Slow Breathing
+Source: https://www.cell.com/neuron/fulltext/S0896-6273(26)00339-9
+HN: https://news.ycombinator.com/item?id=48613555
+Slow breathing triggers bottom-up regulation, signaling safety to the brain. This parasympathetic activation calms nerves and can intentionally increase reward responsiveness and confident risk-taking, which is highly useful for overcoming irrational physiological fears like public speaking. Quote: Slow breathing can calm nerves quickly; bottom-up regulation: body tells brain 'you're safe'.
+
+### Shift From Metric Percentiles to True User Experience Impact
+Source: https://brooker.co.za/blog/2026/06/19/waiting.html
+HN: https://news.ycombinator.com/item?id=48612740
+Standard tail latency metrics like p99 can mislead because every user eventually hits the worst-case tail. True UX reliability should focus on eliminating worst-case scenarios entirely or measuring the absolute percentage of unique users who face an unacceptable experience. Quote: By focusing on the tail and optimizing worst cases you help users more than by improving your median latency.
 
 ## Lab Updates & Dark Side
