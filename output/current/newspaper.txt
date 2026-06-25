@@ -1,103 +1,75 @@
 THE DAILY TOKEN
-Edition: 2026-06-24
+Edition: 2026-06-25
 ================================================
 
-EDITOR'S NOTE: As we scale our systems into infinite abstraction and sovereign structural shifts, the ultimate premium remains on the few who still remember how to write code that respects the hardware.
+EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* DiffusionBench: Towards Holistic Evaluation of Generative Diffusion Transformers
-  https://github.com/End2End-Diffusion/diffusion-bench
+* Engineering around evaporation: The trade-off of 45°C liquid cooling
+  https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/
+  Operating servers at elevated temperatures allows data centers to bypass evaporative cooling entirely, practically eliminating water consumption at the cost of narrower thermal margins. While it restores a level of mechanical discipline to infrastructure design, it shifts the operational risk squarely onto silicon longevity.
+
+* Labs recruit philosophers to patch structural gaps in alignment
+  https://www.economist.com/science-and-technology/2026/06/24/why-big-ai-labs-are-hiring-so-many-philosophers
+  Major frontier labs are quietly expanding their payrolls to include ethicists and epistemology specialists. The shift highlights a growing admission that purely empirical engineering is failing to solve the boundary-setting problems of large-scale models, though the real risk remains that these hires serve more as corporate insulation than functional architects.
+
+* What I'm Finding About LLM Code Style and Token Costs
+  https://www.jimmont.com/llm-style-token-costs
   
 
-* The Hidden Costs of Infinite Context
-  https://blog.dshr.org/2026/06/ais-affordability-crisis.html
-  As token prices drop, architectural sloppiness rises; engineers are burning margins by throwing raw context at models rather than designing precise retrieval systems. The risk is an expensive dependency on vendor subsidies that masks structurally inefficient codebases.
+* Haystack shifts focus to orchestration as pipelines crowd the RAG layer
+  https://haystack.deepset.ai/
+  Deepset is positioning its open-source framework around production-ready agents and modular retrieval, attempting to solve the brittle nature of complex LLM state management. The tradeoff remains familiar: adding orchestration abstractions often obscures the underlying system behavior, making silent failures harder to debug.
 
-* Digital Euro advances as Brussels targets transatlantic payment monopoly
-  https://finance.yahoo.com/markets/currencies/articles/ecb-secures-key-parliamentary-backing-102718449.html
-  The European Union's sovereign currency project has cleared a technical milestone, aiming to reduce systemic reliance on American credit networks. While it promises greater monetary autonomy, it forces central banks into the unfamiliar role of consumer software operators, raising real concerns about system resilience and architectural bloat.
+* The Scripture as Structured Data
+  https://www.crosscanon.com/
+  Engineering teams are experimenting with ancient, immutable texts like the Bible as Retrieval-Augmented Generation (RAG) benchmarks, finding that the challenge lies less in vocabulary and more in resolving contextual ambiguity across thousands of years of translated prose. While it provides a rigorous test for semantic search, the risk remains that LLMs lack the historical nuance to distinguish between literal law and allegorical verse, leading to highly confident hallucinations.
 
-* ATProto Permissioned Data Proposal Draft
-  https://github.com/bluesky-social/proposals/pull/94
+* OpenAI unveils its first custom chip, built by Broadcom
+  https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/
   
 
-* Show HN: The Cascade Graph – An interactive map of AI and energy constraints
-  https://atomprophet.io/tools/cascade/
-  
-
-* Baidu proposes single-pass parsing for infinite-length documents
-  https://github.com/baidu/Unlimited-OCR
-  By treating document OCR as a continuous long-horizon task rather than a series of brittle, chunked windows, this architecture sidesteps boundary errors but shifts the engineering burden entirely to raw hardware memory efficiency.
-
-* Qwen-AgentWorld: Language World Models for General Agents
-  https://arxiv.org/abs/2606.24597
-  
-
-* Electron-based agent experiments with the illusion of malleable software
-  https://github.com/y-times-y/y
-  A new desktop coding agent attempts to revive the ideal of user-modifiable interfaces, though building it on Electron risks trading true system-level discipline for bloated, short-term convenience.
-
-* Show HN: RLM-based local debugger for AI agent traces
-  https://github.com/context-labs/halo
-  
-
-* Claude Tag
-  https://www.anthropic.com/news/introducing-claude-tag
-  
-
-* Orion 1.1 for macOS is out, with containers
-  https://orionbrowser.com/updates/versions/1.1
-  
-
-* San Diego photologs from the 1970s
-  https://www.beautifulpublicdata.com/san-diego-photologs-from-the-1970s/
-  
-
-* Raspberry Pi Pico W as USB Wi-Fi Adapter
-  https://gitlab.com/baiyibai/pico-usb-wifi
-  
-
-* The Teensy Executable Revisited
-  https://www.muppetlabs.com/~breadbox/software/tiny/revisit.html
+* Running Windows Games on a Hobby OS with Wine
+  https://astral-os.org/posts/2026/04/03/wine-on-astral.html
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* The margin squeeze at Cupertino
-  https://daringfireball.net/linked/2026/06/22/apple-device-prices-when
-  Apple signals imminent hardware price hikes to offset skyrocketing silicon and memory fabrication costs, trading short-term consumer goodwill for stabilized gross margins. The move risks driving price-sensitive developers toward alternative local-compute hardware if ecosystem lock-in wavers.
-
-* US AI stock sell-off shakes markets from Wall Street to Asia
-  https://www.theguardian.com/business/2026/jun/23/ai-stocks-sell-off-us-markets
+* Reid Hoffman says SpaceX 'not an AI company', xAI 'complete train wreck'
+  https://fortune.com/2026/06/24/reid-hoffman-spacex-musk-openai-anthropic-gen-z-mistake/
   
 
-* Trains halted across Germany because of communication system problem
-  https://apnews.com/article/germany-trains-halted-communications-radio-problem-deutsche-bahn-e8fd970b2d889f3ae7ce03322d5c726b
+* For most of the world, open-source AI is the only way forward
+  https://techstrong.ai/articles/for-most-of-the-world-open-source-ai-is-the-only-way-forward/
+  
+
+* Journalism is rearranging the deckchairs. It needs to reinvent itself
+  https://werd.io/journalism-is-rearranging-the-deckchairs-it-needs-to-reinvent-itself/
+  
+
+* How to burst the AI bubble: Strike at its roots
+  https://arstechnica.com/gadgets/2026/06/how-to-burst-the-ai-bubble-strike-at-its-roots/
   
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
-* Mistral OCR 4
-  https://mistral.ai/news/ocr-4/
+* Computer use in Gemini 3.5 Flash
+  https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/
   
-
-* FUTO Releases Local Swipe-Typing Model to Bypass Big Tech Telemetry
-  https://swipe.futo.tech/
-  By shifting gesture keyboard processing entirely on-device, FUTO's new model removes the dependency on cloud-based predictive text engines that quietly harvest user keystrokes. While this restores a layer of digital privacy, users must trade off the massive, continuously updated cloud datasets that give mainstream keyboards their slicker, context-aware predictive edge.
 
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* The Hidden Risks of Third-Party Email Validation
-  https://milek7.pl/mailverifyspam/
-  Even when a company has no malicious intent, utilizing third-party email validation tools or libraries can inadvertently leak user data to spammers, turning a standard verification process into a source of spam. Quote: The idea that they really send spam to validate an email address sounds to insane to be believable. Is it possible that they are somehow leaking the address to actual spammers?
+* Introduction to Making Makefiles
+  https://www.jfranken.de/homepages/johannes/vortraege/make.en.html
+  No insight extracted.
 
-* The Low-Tech AI of Elden Ring
-  https://nega.tv/posts/low-tech-ai-of-elden-ring.html
+* Thomann takes legal action against Fender
+  https://www.thomann.de/blog/en/inside/thomann-takes-legal-action-against-fender/
   No insight extracted.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Meta Pauses Employee-Tracking Program Following Internal Data Leak
-  https://www.wired.com/story/meta-pauses-employee-tracking-program-following-internal-security-breach/
+* Anthropic says Alibaba illicitly extracted Claude AI model capabilities
+  https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/
   

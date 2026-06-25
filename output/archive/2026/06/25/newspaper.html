@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Token</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#181512; --paper:#f8f3ea; --sep:#c4b8a4; --highlight:#7a2b1f; --muted:#756b5e; --box:#fffaf0; }
+        * { box-sizing:border-box; }
+        body { background:#c8c1b5; margin:0; font-family:'Source Serif 4',serif; color:var(--ink); line-height:1.35; }
+        .newspaper-container { background:var(--paper); max-width:1280px; margin:0 auto; padding:32px; box-shadow:0 18px 80px rgba(0,0,0,.22); min-height:100vh; transition:opacity .22s ease; }
+        .page-turn-out { opacity:0; }
+        header { text-align:center; border-bottom:6px double var(--ink); padding-bottom:18px; }
+        .masthead-title { font-family:'Playfair Display',serif; font-weight:900; font-size:5.4rem; letter-spacing:-2px; margin:0; text-transform:uppercase; }
+        .sub-masthead { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); margin-top:12px; padding:6px 0; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:.86rem; display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+        nav.sticky-nav { position:sticky; top:0; background:var(--paper); z-index:100; text-align:center; padding:12px 0; border-bottom:1px solid var(--ink); margin-bottom:30px; }
+        .nav-item { text-decoration:none; color:var(--ink); font-family:'Oswald',sans-serif; font-size:.82rem; margin:0 10px; border-bottom:2px solid transparent; }
+        .nav-item.active { color:var(--highlight); border-color:var(--highlight); }
+        .page-title { text-align:center; border-bottom:3px solid var(--ink); line-height:.1em; margin:40px 0 26px; font-family:'Oswald',sans-serif; font-size:1.32rem; }
+        .page-title span { background:var(--paper); padding:0 22px; }
+        .section-sub-header { text-align:left; border-bottom:1px solid var(--sep); line-height:.1em; margin:28px 0 18px; font-family:'Oswald',sans-serif; font-size:.86rem; color:var(--highlight); letter-spacing:.06em; }
+        .section-sub-header span { background:var(--paper); padding-right:12px; }
+        .columns-3 { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px; margin-bottom:24px; }
+        .headline-sm { font-family:'Playfair Display',serif; font-size:1.42rem; line-height:1.14; margin:0 0 10px; }
+        .article a { color:inherit; text-decoration:none; }
+        .article a:hover { color:var(--highlight); }
+        .metadata { font-family:'Oswald',sans-serif; font-size:.72rem; color:var(--muted); margin-bottom:10px; letter-spacing:.04em; text-transform:uppercase; }
+        .metadata .source-link, .hn-link { color:var(--highlight); font-weight:700; }
+        .summary-sm { margin:0; font-size:.98rem; }
+        .news-img { width:100%; display:block; margin-bottom:14px; filter:grayscale(100%); border:1px solid #d7c9b2; transition:.25s; box-shadow:4px 4px 0 rgba(0,0,0,.05); }
+        .news-img:hover { filter:none; transform:translateY(-1px); }
+        .page-footer-nav { display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:14px; border-top:1px solid var(--ink); }
+        .nav-btn { font-family:'Oswald',sans-serif; color:var(--ink); text-decoration:none; border:1px solid var(--ink); padding:8px 14px; font-size:.82rem; }
+        .nav-btn:hover { background:var(--ink); color:#fff; }
+        .edition-nav { display:flex; justify-content:center; align-items:center; gap:20px; background:#e9e1d3; padding:10px; font-family:'Oswald',sans-serif; font-size:.78rem; border-bottom:1px solid #cdbfa8; flex-wrap:wrap; }
+        .edition-link { color:#574f46; text-decoration:none; }
+        .edition-link.disabled { color:#a69e93; }
+        .editors-note { margin-bottom:20px; padding:16px; border:1px solid #d6c8b0; font-style:italic; background:var(--box); border-left:4px solid var(--highlight); }
+        .editors-note .emphasis { color:var(--highlight); font-weight:700; }
+        .insights-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+        .insight-card { padding:18px; border:1px solid #ded1bb; background:var(--box); }
+        .insight-author { font-family:'Oswald',sans-serif; font-size:.68rem; color:var(--highlight); margin-bottom:8px; border-bottom:1px solid #e3d8c7; padding-bottom:4px; text-transform:uppercase; }
+        .insight-headline { font-family:'Playfair Display',serif; font-size:1.34rem; margin:0 0 10px; }
+        .insight-summary { margin:0; }
+        .insight-footer { margin-top:12px; font-family:'Oswald',sans-serif; font-size:.78rem; }
+        .release-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .release-card { border:1px solid #ded1bb; background:var(--box); padding:14px; }
+        .release-kicker { font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.08em; color:var(--highlight); text-transform:uppercase; }
+        .release-card h3 { font-family:'Playfair Display',serif; margin:6px 0 8px; }
+        .release-card p { margin:0; font-size:.95rem; }
+        .release-links { margin-top:10px; font-family:'Oswald',sans-serif; font-size:.75rem; }
+        .model-ledger-link { margin-top:14px; text-align:right; font-family:'Oswald',sans-serif; font-size:.84rem; }
+        .model-ledger-link a { color:var(--highlight); text-decoration:none; }
+        .empty-note { border:1px dashed #cab99f; padding:14px; background:#fff8ea; }
+        @media (max-width:1000px) {
+            .masthead-title { font-size:3rem; }
+            .columns-3, .insights-grid, .release-grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="edition-nav">
+        <a href="../../../../archive/2026/06/24/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+        <span style="font-weight:700; color:#111;">EDITION: JUN 25, 2026</span>
+        <span class="edition-link disabled" aria-disabled="true">NEXT EDITION →</span>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../model-releases.html" class="edition-link">MODEL RELEASES</a>
+    </div>
+    <div class="newspaper-container" id="newspaper-main">
+        <header>
+            <h1 class="masthead-title">The Daily Token</h1>
+            <div class="sub-masthead">
+                <span>MODEL SQUARE</span>
+                <span>THURSDAY, JUNE 25, 2026</span>
+                <span>GLOBAL AI TECHNOLOGY REPORT</span>
+                <span>VOL. 2026.176</span>
+            </div>
+        </header>
+        <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class='editors-note'><strong>EDITOR'S NOTE:</strong> A busy day in the latent space. <span class='emphasis'>#Judgment and craft</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><a href="https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/" target="_blank" rel="noopener"><img src="../../../../images/story_1_0_45_C_cooling_design_cuts_data_.png" class="news-img" alt=""></a><h3 class="headline-sm"><a href="https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/" target="_blank" rel="noopener">Engineering around evaporation: The trade-off of 45°C liquid cooling</a></h3><div class="metadata">SOURCE: <a href="https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48660178" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Operating servers at elevated temperatures allows data centers to bypass evaporative cooling entirely, practically eliminating water consumption at the cost of narrower thermal margins. While it restores a level of mechanical discipline to infrastructure design, it shifts the operational risk squarely onto silicon longevity.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.economist.com/science-and-technology/2026/06/24/why-big-ai-labs-are-hiring-so-many-philosophers" target="_blank" rel="noopener">Labs recruit philosophers to patch structural gaps in alignment</a></h3><div class="metadata">SOURCE: <a href="https://www.economist.com/science-and-technology/2026/06/24/why-big-ai-labs-are-hiring-so-many-philosophers" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48662452" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Major frontier labs are quietly expanding their payrolls to include ethicists and epistemology specialists. The shift highlights a growing admission that purely empirical engineering is failing to solve the boundary-setting problems of large-scale models, though the real risk remains that these hires serve more as corporate insulation than functional architects.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.jimmont.com/llm-style-token-costs" target="_blank" rel="noopener">What I&#x27;m Finding About LLM Code Style and Token Costs</a></h3><div class="metadata">SOURCE: <a href="https://www.jimmont.com/llm-style-token-costs" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48667409" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://haystack.deepset.ai/" target="_blank" rel="noopener">Haystack shifts focus to orchestration as pipelines crowd the RAG layer</a></h3><div class="metadata">SOURCE: <a href="https://haystack.deepset.ai/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48658095" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Deepset is positioning its open-source framework around production-ready agents and modular retrieval, attempting to solve the brittle nature of complex LLM state management. The tradeoff remains familiar: adding orchestration abstractions often obscures the underlying system behavior, making silent failures harder to debug.</p></div></article><article class="article span-1"><div class="article-body"><a href="https://www.crosscanon.com/" target="_blank" rel="noopener"><img src="../../../../images/story_4_1_Bible_as_RAG_Database.png" class="news-img" alt=""></a><h3 class="headline-sm"><a href="https://www.crosscanon.com/" target="_blank" rel="noopener">The Scripture as Structured Data</a></h3><div class="metadata">SOURCE: <a href="https://www.crosscanon.com/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48667807" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Engineering teams are experimenting with ancient, immutable texts like the Bible as Retrieval-Augmented Generation (RAG) benchmarks, finding that the challenge lies less in vocabulary and more in resolving contextual ambiguity across thousands of years of translated prose. While it provides a rigorous test for semantic search, the risk remains that LLMs lack the historical nuance to distinguish between literal law and allegorical verse, leading to highly confident hallucinations.</p></div></article></div><div class="section-sub-header"><span>INFERENCE CORNER</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener">OpenAI unveils its first custom chip, built by Broadcom</a></h3><div class="metadata">SOURCE: <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48663324" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://astral-os.org/posts/2026/04/03/wine-on-astral.html" target="_blank" rel="noopener">Running Windows Games on a Hobby OS with Wine</a></h3><div class="metadata">SOURCE: <a href="https://astral-os.org/posts/2026/04/03/wine-on-astral.html" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48660671" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://fortune.com/2026/06/24/reid-hoffman-spacex-musk-openai-anthropic-gen-z-mistake/" target="_blank" rel="noopener">Reid Hoffman says SpaceX &#x27;not an AI company&#x27;, xAI &#x27;complete train wreck&#x27;</a></h3><div class="metadata">SOURCE: <a href="https://fortune.com/2026/06/24/reid-hoffman-spacex-musk-openai-anthropic-gen-z-mistake/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48658647" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://techstrong.ai/articles/for-most-of-the-world-open-source-ai-is-the-only-way-forward/" target="_blank" rel="noopener">For most of the world, open-source AI is the only way forward</a></h3><div class="metadata">SOURCE: <a href="https://techstrong.ai/articles/for-most-of-the-world-open-source-ai-is-the-only-way-forward/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48660839" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://werd.io/journalism-is-rearranging-the-deckchairs-it-needs-to-reinvent-itself/" target="_blank" rel="noopener">Journalism is rearranging the deckchairs. It needs to reinvent itself</a></h3><div class="metadata">SOURCE: <a href="https://werd.io/journalism-is-rearranging-the-deckchairs-it-needs-to-reinvent-itself/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48661415" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arstechnica.com/gadgets/2026/06/how-to-burst-the-ai-bubble-strike-at-its-roots/" target="_blank" rel="noopener">How to burst the AI bubble: Strike at its roots</a></h3><div class="metadata">SOURCE: <a href="https://arstechnica.com/gadgets/2026/06/how-to-burst-the-ai-bubble-strike-at-its-roots/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48657518" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="section-sub-header"><span>DAILY MODEL RELEASE LEDGER</span></div><div class="release-grid"><p class="empty-note">No confirmed model releases were detected for this edition date.</p></div><div class="section-sub-header"><span>RELATED COVERAGE</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/" target="_blank" rel="noopener">Computer use in Gemini 3.5 Flash</a></h3><div class="metadata">SOURCE: <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48662999" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="model-ledger-link"><a href="../../../../model-releases.html">OPEN FULL MODEL RELEASE PAGE →</a></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">Introduction to Making Makefiles</h3><p class="insight-summary">"No insight extracted."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=48663006" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">Thomann takes legal action against Fender</h3><p class="insight-summary">"No insight extracted."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=48664384" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" target="_blank" rel="noopener">Anthropic says Alibaba illicitly extracted Claude AI model capabilities</a></h3><div class="metadata">SOURCE: <a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48664814" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align:center; padding:40px 0; font-family:'Oswald',sans-serif; border-top:4px double var(--ink); margin-top:70px;">THE DAILY TOKEN // REPORTING IN PUBLIC // &copy; 2026</footer>
+    </div>
+    <script>
+        let currentPage = 1;
+        function goToPage(pageNum) {
+            if (pageNum < 1 || pageNum > 5 || pageNum === currentPage) return;
+            const container = document.getElementById('newspaper-main');
+            container.classList.add('page-turn-out');
+            setTimeout(() => {
+                document.querySelectorAll('.newspaper-page').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(`page-content-${pageNum}`).style.display = 'block';
+                document.getElementById(`nav-${pageNum}`).classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo(0, 0);
+                const url = new URL(window.location);
+                url.searchParams.set('page', pageNum);
+                window.history.pushState({}, '', url);
+                container.classList.remove('page-turn-out');
+            }, 220);
+        }
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const page = parseInt(params.get('page'));
+            if (page >= 1 && page <= 5) goToPage(page);
+            else document.getElementById('nav-1').classList.add('active');
+        });
+    </script>
+</body>
+</html>
