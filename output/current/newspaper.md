@@ -1,91 +1,101 @@
 # The Daily Token
 
-Edition: 2026-06-25
+Edition: 2026-06-26
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### Engineering around evaporation: The trade-off of 45°C liquid cooling
-Source: https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/
-HN: https://news.ycombinator.com/item?id=48660178
-Operating servers at elevated temperatures allows data centers to bypass evaporative cooling entirely, practically eliminating water consumption at the cost of narrower thermal margins. While it restores a level of mechanical discipline to infrastructure design, it shifts the operational risk squarely onto silicon longevity.
-
-### Labs recruit philosophers to patch structural gaps in alignment
-Source: https://www.economist.com/science-and-technology/2026/06/24/why-big-ai-labs-are-hiring-so-many-philosophers
-HN: https://news.ycombinator.com/item?id=48662452
-Major frontier labs are quietly expanding their payrolls to include ethicists and epistemology specialists. The shift highlights a growing admission that purely empirical engineering is failing to solve the boundary-setting problems of large-scale models, though the real risk remains that these hires serve more as corporate insulation than functional architects.
-
-### What I'm Finding About LLM Code Style and Token Costs
-Source: https://www.jimmont.com/llm-style-token-costs
-HN: https://news.ycombinator.com/item?id=48667409
+### Apple to skip high-end M6 Mac chips in favor of AI-focused M7 line
+Source: https://www.bloomberg.com/news/articles/2026-06-25/apple-to-skip-high-end-m6-mac-chips-to-launch-m7-pro-m7-max-m7-ultra-instead?embedded-checkout=true
+HN: https://news.ycombinator.com/item?id=48676795
 
 
-### Haystack shifts focus to orchestration as pipelines crowd the RAG layer
-Source: https://haystack.deepset.ai/
-HN: https://news.ycombinator.com/item?id=48658095
-Deepset is positioning its open-source framework around production-ready agents and modular retrieval, attempting to solve the brittle nature of complex LLM state management. The tradeoff remains familiar: adding orchestration abstractions often obscures the underlying system behavior, making silent failures harder to debug.
+### Polestar shut out of US market for model year 2027
+Source: https://arstechnica.com/cars/2026/06/feds-deny-polestar-authorization-to-sell-cars-in-us-from-model-year-2027/
+HN: https://news.ycombinator.com/item?id=48678494
+Federal regulators have denied Polestar the authorization to sell its upcoming fleet in the United States, dealing a severe blow to the EV maker's global footprint. This creates an immediate inventory and supply chain bottleneck, though it remains uncertain whether Polestar can re-engineer its compliance framework in time to salvage the model year.
 
-### The Scripture as Structured Data
-Source: https://www.crosscanon.com/
-HN: https://news.ycombinator.com/item?id=48667807
-Engineering teams are experimenting with ancient, immutable texts like the Bible as Retrieval-Augmented Generation (RAG) benchmarks, finding that the challenge lies less in vocabulary and more in resolving contextual ambiguity across thousands of years of translated prose. While it provides a rigorous test for semantic search, the risk remains that LLMs lack the historical nuance to distinguish between literal law and allegorical verse, leading to highly confident hallucinations.
+### The Margin in the Castings: Decoding the Slate Truck’s $25,000 Bill of Materials
+Source: https://www.edmunds.com/car-news/2027-slate-truck-price-explained.html
+HN: https://news.ycombinator.com/item?id=48681440
+By stripping out the legacy electronic architectures that inflate modern automotive overhead, Slate has matched commodity pricing with localized manufacturing. The structural risk lies in long-term chassis fatigue, where unproven structural alloys may trade upfront capital efficiency for downstream warranty liabilities.
 
-### OpenAI unveils its first custom chip, built by Broadcom
-Source: https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/
-HN: https://news.ycombinator.com/item?id=48663324
+### U.S. to Bar Polestar Sales Over Vehicle Software Sourcing
+Source: https://www.autoevolution.com/news/polestar-banned-from-selling-cars-in-the-us-starting-with-model-year-2027-272042.html
+HN: https://news.ycombinator.com/item?id=48683071
+Starting with model year 2027, the restriction forces a stark choice between total supply chain isolationism and the realities of modern, interconnected software development. For engineers, it signals an era where geopolitical compliance, rather than architectural elegance or performance, dictates the shipping boundary.
+
+### Beyond the Diffusion Paradigm: Image Generation via Coupled Oscillators
+Source: https://unconv.ai/blog/introducing-un-0-generating-images-with-coupled-oscillators/
+HN: https://news.ycombinator.com/item?id=48679007
+Researchers have bypassed traditional diffusion models by using systems of coupled harmonic oscillators to synthesize images. While the approach introduces a novel physics-based mathematical framework to generative AI, it risks significant computational inefficiency when scaling to high-resolution outputs.
+
+### Remembrance Agent: A continuously running information retrieval system (1996) [pdf]
+Source: https://cdn.aaai.org/Symposia/Spring/1996/SS-96-02/SS96-02-022.pdf
+HN: https://news.ycombinator.com/item?id=48682950
 
 
-### Running Windows Games on a Hobby OS with Wine
-Source: https://astral-os.org/posts/2026/04/03/wine-on-astral.html
-HN: https://news.ycombinator.com/item?id=48660671
+### Show HN: OpenKnowledge – open source AI-first alternative to Obsidian/Notion
+Source: https://github.com/inkeep/open-knowledge
+HN: https://news.ycombinator.com/item?id=48675435
+
+
+### The proprietary monoliths that ate London finance
+Source: https://calpaterson.com/bank-python.html
+HN: https://news.ycombinator.com/item?id=48678645
+Before standard packaging took over, investment banks built isolated, multi-million-line Python ecosystems that traded modern flexibility for extreme local control. The model proved that absolute infrastructure ownership works, right up until the engineering talent pool moves on.
+
+### A Fake Shell for Pangenomics
+Source: https://www.cs.cornell.edu/~asampson/blog/flash.html
+HN: https://news.ycombinator.com/item?id=48682874
 
 
 ## AI & LLM Overview
 
-### Reid Hoffman says SpaceX 'not an AI company', xAI 'complete train wreck'
-Source: https://fortune.com/2026/06/24/reid-hoffman-spacex-musk-openai-anthropic-gen-z-mistake/
-HN: https://news.ycombinator.com/item?id=48658647
+### OpenAI Leans Toward Waiting Until Next Year for IPO
+Source: https://www.nytimes.com/2026/06/25/technology/openai-ipo-artificial-intelligence.html
+HN: https://news.ycombinator.com/item?id=48678873
 
 
-### For most of the world, open-source AI is the only way forward
-Source: https://techstrong.ai/articles/for-most-of-the-world-open-source-ai-is-the-only-way-forward/
-HN: https://news.ycombinator.com/item?id=48660839
+### Apple margins tighten as hardware costs push upward
+Source: https://www.reuters.com/world/asia-pacific/apple-raises-prices-macbooks-ipads-memory-costs-skyrocket-2026-06-25/
+HN: https://news.ycombinator.com/item?id=48672732
+The price increases across the MacBook and iPad lines signal that even the most optimized supply chains are hitting physical caps. For engineering teams, this squeezes local compute budgets just as local model execution demands more silicon.
+
+### Ford recalls retired human inspectors to patch automated QA blind spots
+Source: https://www.bloomberg.com/news/articles/2026-06-25/ford-has-been-rehiring-quality-inspectors-after-ai-fell-short
+HN: https://news.ycombinator.com/item?id=48674446
+The limits of computer vision in structural quality assurance have forced a return to legacy expertise. While automated pipelines catch macro-level defects, they lack the nuanced heuristic judgment required for edge-case structural anomalies—introducing a costly bottleneck where software speed meets physical reality.
+
+### Wikipedia Workers in Britain set global first by seeking union recognition
+Source: https://utaw.tech/news/wikipedia-recognition
+HN: https://news.ycombinator.com/item?id=48669932
 
 
-### Journalism is rearranging the deckchairs. It needs to reinvent itself
-Source: https://werd.io/journalism-is-rearranging-the-deckchairs-it-needs-to-reinvent-itself/
-HN: https://news.ycombinator.com/item?id=48661415
-
-
-### How to burst the AI bubble: Strike at its roots
-Source: https://arstechnica.com/gadgets/2026/06/how-to-burst-the-ai-bubble-strike-at-its-roots/
-HN: https://news.ycombinator.com/item?id=48657518
-
+### The Backlash Against LLM Benchmarks and Product Realities
+Source: https://paulkrugman.substack.com/p/why-does-everyone-hate-ai
+HN: https://news.ycombinator.com/item?id=48672694
+As standard benchmarks increasingly diverge from actual production performance, a growing industry cynicism highlights the gap between marketing claims and the erosion of predictable software craft. Engineers are left to reconcile inflated evaluation scores with the messy, high-latency reality of deploying these systems at scale.
 
 ## Model Release History
 
-### Computer use in Gemini 3.5 Flash
-Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/
-HN: https://news.ycombinator.com/item?id=48662999
-
-
 ## Top Insights & Advice
-
-### Introduction to Making Makefiles
-Source: https://www.jfranken.de/homepages/johannes/vortraege/make.en.html
-HN: https://news.ycombinator.com/item?id=48663006
-No insight extracted.
-
-### Thomann takes legal action against Fender
-Source: https://www.thomann.de/blog/en/inside/thomann-takes-legal-action-against-fender/
-HN: https://news.ycombinator.com/item?id=48664384
-No insight extracted.
 
 ## Lab Updates & Dark Side
 
-### Anthropic says Alibaba illicitly extracted Claude AI model capabilities
-Source: https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/
-HN: https://news.ycombinator.com/item?id=48664814
+### Jailbreaking Isn't Theft
+Source: https://pluralistic.net/2026/06/25/thieve-different/
+HN: https://news.ycombinator.com/item?id=48680127
+
+
+### LastPass notifies users of yet another data breach
+Source: https://9to5mac.com/2026/06/23/lastpass-notifies-users-of-yet-another-data-breach/
+HN: https://news.ycombinator.com/item?id=48671468
+
+
+### Hey Nico, you didn't vibe code your data room but stole it from Papermark
+Source: https://twitter.com/mfts0/status/2070080422482977095
+HN: https://news.ycombinator.com/item?id=48672328
 

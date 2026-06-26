@@ -1,75 +1,83 @@
 THE DAILY TOKEN
-Edition: 2026-06-25
+Edition: 2026-06-26
 ================================================
 
 EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Engineering around evaporation: The trade-off of 45°C liquid cooling
-  https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/
-  Operating servers at elevated temperatures allows data centers to bypass evaporative cooling entirely, practically eliminating water consumption at the cost of narrower thermal margins. While it restores a level of mechanical discipline to infrastructure design, it shifts the operational risk squarely onto silicon longevity.
-
-* Labs recruit philosophers to patch structural gaps in alignment
-  https://www.economist.com/science-and-technology/2026/06/24/why-big-ai-labs-are-hiring-so-many-philosophers
-  Major frontier labs are quietly expanding their payrolls to include ethicists and epistemology specialists. The shift highlights a growing admission that purely empirical engineering is failing to solve the boundary-setting problems of large-scale models, though the real risk remains that these hires serve more as corporate insulation than functional architects.
-
-* What I'm Finding About LLM Code Style and Token Costs
-  https://www.jimmont.com/llm-style-token-costs
+* Apple to skip high-end M6 Mac chips in favor of AI-focused M7 line
+  https://www.bloomberg.com/news/articles/2026-06-25/apple-to-skip-high-end-m6-mac-chips-to-launch-m7-pro-m7-max-m7-ultra-instead?embedded-checkout=true
   
 
-* Haystack shifts focus to orchestration as pipelines crowd the RAG layer
-  https://haystack.deepset.ai/
-  Deepset is positioning its open-source framework around production-ready agents and modular retrieval, attempting to solve the brittle nature of complex LLM state management. The tradeoff remains familiar: adding orchestration abstractions often obscures the underlying system behavior, making silent failures harder to debug.
+* Polestar shut out of US market for model year 2027
+  https://arstechnica.com/cars/2026/06/feds-deny-polestar-authorization-to-sell-cars-in-us-from-model-year-2027/
+  Federal regulators have denied Polestar the authorization to sell its upcoming fleet in the United States, dealing a severe blow to the EV maker's global footprint. This creates an immediate inventory and supply chain bottleneck, though it remains uncertain whether Polestar can re-engineer its compliance framework in time to salvage the model year.
 
-* The Scripture as Structured Data
-  https://www.crosscanon.com/
-  Engineering teams are experimenting with ancient, immutable texts like the Bible as Retrieval-Augmented Generation (RAG) benchmarks, finding that the challenge lies less in vocabulary and more in resolving contextual ambiguity across thousands of years of translated prose. While it provides a rigorous test for semantic search, the risk remains that LLMs lack the historical nuance to distinguish between literal law and allegorical verse, leading to highly confident hallucinations.
+* The Margin in the Castings: Decoding the Slate Truck’s $25,000 Bill of Materials
+  https://www.edmunds.com/car-news/2027-slate-truck-price-explained.html
+  By stripping out the legacy electronic architectures that inflate modern automotive overhead, Slate has matched commodity pricing with localized manufacturing. The structural risk lies in long-term chassis fatigue, where unproven structural alloys may trade upfront capital efficiency for downstream warranty liabilities.
 
-* OpenAI unveils its first custom chip, built by Broadcom
-  https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/
+* U.S. to Bar Polestar Sales Over Vehicle Software Sourcing
+  https://www.autoevolution.com/news/polestar-banned-from-selling-cars-in-the-us-starting-with-model-year-2027-272042.html
+  Starting with model year 2027, the restriction forces a stark choice between total supply chain isolationism and the realities of modern, interconnected software development. For engineers, it signals an era where geopolitical compliance, rather than architectural elegance or performance, dictates the shipping boundary.
+
+* Beyond the Diffusion Paradigm: Image Generation via Coupled Oscillators
+  https://unconv.ai/blog/introducing-un-0-generating-images-with-coupled-oscillators/
+  Researchers have bypassed traditional diffusion models by using systems of coupled harmonic oscillators to synthesize images. While the approach introduces a novel physics-based mathematical framework to generative AI, it risks significant computational inefficiency when scaling to high-resolution outputs.
+
+* Remembrance Agent: A continuously running information retrieval system (1996) [pdf]
+  https://cdn.aaai.org/Symposia/Spring/1996/SS-96-02/SS96-02-022.pdf
   
 
-* Running Windows Games on a Hobby OS with Wine
-  https://astral-os.org/posts/2026/04/03/wine-on-astral.html
+* Show HN: OpenKnowledge – open source AI-first alternative to Obsidian/Notion
+  https://github.com/inkeep/open-knowledge
+  
+
+* The proprietary monoliths that ate London finance
+  https://calpaterson.com/bank-python.html
+  Before standard packaging took over, investment banks built isolated, multi-million-line Python ecosystems that traded modern flexibility for extreme local control. The model proved that absolute infrastructure ownership works, right up until the engineering talent pool moves on.
+
+* A Fake Shell for Pangenomics
+  https://www.cs.cornell.edu/~asampson/blog/flash.html
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* Reid Hoffman says SpaceX 'not an AI company', xAI 'complete train wreck'
-  https://fortune.com/2026/06/24/reid-hoffman-spacex-musk-openai-anthropic-gen-z-mistake/
+* OpenAI Leans Toward Waiting Until Next Year for IPO
+  https://www.nytimes.com/2026/06/25/technology/openai-ipo-artificial-intelligence.html
   
 
-* For most of the world, open-source AI is the only way forward
-  https://techstrong.ai/articles/for-most-of-the-world-open-source-ai-is-the-only-way-forward/
+* Apple margins tighten as hardware costs push upward
+  https://www.reuters.com/world/asia-pacific/apple-raises-prices-macbooks-ipads-memory-costs-skyrocket-2026-06-25/
+  The price increases across the MacBook and iPad lines signal that even the most optimized supply chains are hitting physical caps. For engineering teams, this squeezes local compute budgets just as local model execution demands more silicon.
+
+* Ford recalls retired human inspectors to patch automated QA blind spots
+  https://www.bloomberg.com/news/articles/2026-06-25/ford-has-been-rehiring-quality-inspectors-after-ai-fell-short
+  The limits of computer vision in structural quality assurance have forced a return to legacy expertise. While automated pipelines catch macro-level defects, they lack the nuanced heuristic judgment required for edge-case structural anomalies—introducing a costly bottleneck where software speed meets physical reality.
+
+* Wikipedia Workers in Britain set global first by seeking union recognition
+  https://utaw.tech/news/wikipedia-recognition
   
 
-* Journalism is rearranging the deckchairs. It needs to reinvent itself
-  https://werd.io/journalism-is-rearranging-the-deckchairs-it-needs-to-reinvent-itself/
-  
-
-* How to burst the AI bubble: Strike at its roots
-  https://arstechnica.com/gadgets/2026/06/how-to-burst-the-ai-bubble-strike-at-its-roots/
-  
+* The Backlash Against LLM Benchmarks and Product Realities
+  https://paulkrugman.substack.com/p/why-does-everyone-hate-ai
+  As standard benchmarks increasingly diverge from actual production performance, a growing industry cynicism highlights the gap between marketing claims and the erosion of predictable software craft. Engineers are left to reconcile inflated evaluation scores with the messy, high-latency reality of deploying these systems at scale.
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
-* Computer use in Gemini 3.5 Flash
-  https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/
-  
-
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* Introduction to Making Makefiles
-  https://www.jfranken.de/homepages/johannes/vortraege/make.en.html
-  No insight extracted.
-
-* Thomann takes legal action against Fender
-  https://www.thomann.de/blog/en/inside/thomann-takes-legal-action-against-fender/
-  No insight extracted.
-
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Anthropic says Alibaba illicitly extracted Claude AI model capabilities
-  https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/
+* Jailbreaking Isn't Theft
+  https://pluralistic.net/2026/06/25/thieve-different/
+  
+
+* LastPass notifies users of yet another data breach
+  https://9to5mac.com/2026/06/23/lastpass-notifies-users-of-yet-another-data-breach/
+  
+
+* Hey Nico, you didn't vibe code your data room but stole it from Papermark
+  https://twitter.com/mfts0/status/2070080422482977095
   
