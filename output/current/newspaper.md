@@ -1,141 +1,131 @@
 # The Daily Token
 
-Edition: 2026-06-28
+Edition: 2026-06-29
 
 ## Editor's Note
-A busy day in the latent space.
+As we increasingly rely on automated systems to fix the very codebases they are diluting, we might look back at the rigid, flawless architecture of early spaceflight not as an archaic relic, but as the high-water mark of human discipline before we outsourced our thinking.
 
 ## The Front Page
 
-### Pentagon expands algorithmic targeting in shift from human oversight
-Source: https://www.bloomberg.com/news/articles/2026-06-25/pentagon-sees-broader-role-for-ai-in-setting-military-targets
-HN: https://news.ycombinator.com/item?id=48704962
-The U.S. military is increasing its reliance on machine learning models to identify battlefield targets, accelerating processing times while introducing severe verification risks. This shift forces a uneasy tradeoff between operational speed and the rigorous verification traditionally required by software craft in high-stakes environments.
-
-### Diagnostic mismatch highlights the edge cases of pattern recognition
-Source: https://arstechnica.com/health/2026/06/doctors-suspected-man-had-brain-cancer-he-actually-had-worms/
-HN: https://news.ycombinator.com/item?id=48699617
-A misdiagnosis of brain cancer that turned out to be a parasitic worm infection underscores the limits of probabilistic models in medicine. For systems trained on statistical likelihood, rare anomalies present a persistent risk of false positives that require strict human oversight to catch.
-
-### Bidirectional Pixels Merge Display and Sensing Components
-Source: https://ethz.ch/en/news-and-events/eth-news/news/2026/06/a-new-type-of-pixel.html
-HN: https://news.ycombinator.com/item?id=48696127
-By engineering pixels that simultaneously emit and analyze light, researchers have bypassed the traditional physical separation of screen and sensor. This consolidation simplifies hardware architecture but introduces severe calibration challenges, as continuous background sensing risks degrading long-term display uniformity.
-
-### Peppa Pig studio wants to clone child actors' voices with AI indefinitely
-Source: https://www.gadgetreview.com/peppa-pigs-ai-voice-clause-draws-nearly-1000-industry-objections
-HN: https://news.ycombinator.com/item?id=48701902
+### Historical memory prices 1960-2026
+Source: https://dam.stanford.edu/memory-prices.html
+HN: https://news.ycombinator.com/item?id=48710092
 
 
-### GLP-1 receptor agonists reshape signaling pathways between gut and brain
-Source: https://www.psychologytoday.com/au/blog/mood-by-microbe/202606/what-ozempic-does-to-the-gut-brain-axis
-HN: https://news.ycombinator.com/item?id=48701984
-Recent findings illuminate how semaglutide alters basic biological signaling, moving beyond mere appetite suppression to fundamentally recalibrate neural feedback loops. While the therapeutic precision is notable, the systemic long-term tradeoffs of artificial endocrine override remain poorly understood by current clinical models.
+### GLM 5.2 Top-Heavy Benchmarks Cloud the Reality of Brittle Defensive Code
+Source: https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/
+HN: https://news.ycombinator.com/item?id=48709670
+While newer models routinely leapfrog established giants in highly specific benchmarks, the gains rarely translate to resilient software architecture. The constant chasing of narrow point-scores obfuscates the deeper, unaddressed decay in foundational engineering discipline.
 
-### Wan Streamer v0.1 Moves Foundation Models to Real-Time Streaming
-Source: https://wan-streamer.com/
-HN: https://news.ycombinator.com/item?id=48702755
-By collapsing traditional pipeline layers into an end-to-end streaming architecture, this release achieves sub-second interactive latencies for generative models. The engineering tradeoff is severe: developers trade clean, deterministic state boundaries for a complex, non-blocking orchestration layer that is notoriously difficult to debug.
+### The Margin Compression of Brute-Force Inference
+Source: https://12gramsofcarbon.com/p/agentics-tech-things-tokenmaxxing
+HN: https://news.ycombinator.com/item?id=48708795
+As context windows expand into the millions of tokens, the industry faces a sharp shift from algorithmic efficiency to raw resource depletion. The real risk lies in the degradation of code maintainability as engineers substitute architectural discipline for massive, uncurated prompts.
 
-### DSpark trades raw compute for latency in speculative decoding push
-Source: https://github.com/deepseek-ai/DeepSpec/blob/main/DSpark_paper.pdf
-HN: https://news.ycombinator.com/item?id=48696585
-By executing lower-cost draft tokens ahead of the main model, DSpark attempts to bypass the memory bandwidth bottlenecks that make LLM inference painfully slow. The risk is a fragile architecture that burns extra compute cycles whenever the speculator guesses wrong, turning efficiency into waste.
-
-### Adrafinil: Overclocking the MacBook's Sleep Cycle for Long-Running Agents
-Source: https://github.com/kageroumado/adrafinil
-HN: https://news.ycombinator.com/item?id=48701512
-A new utility targets the clunky reality of running background local models on consumer hardware, keeping clamshell Macs awake only for active compute tasks. While it solves immediate developer friction, relying on continuous lid-closed execution introduces nontrivial risks of thermal throttling and accelerated battery degradation under heavy inference loads.
-
-### Wayfinder Introduces Rigid Routing Rules for Hybrid LLM Deployments
-Source: https://github.com/itsthelore/wayfinder-router
-HN: https://news.ycombinator.com/item?id=48704373
-The newly released Wayfinder Router attempts to enforce deterministic logic when splitting queries between local and hosted language models, offering predictable execution paths at the cost of rigid, non-adaptive request handling. It reflects a growing industry exhaustion with probabilistic orchestration layers, though its reliance on static rule sets may struggle under shifting semantic workloads.
-
-### Apple Neural Engine: Architecture, Programming, and Performance
-Source: https://arxiv.org/abs/2606.22283
-HN: https://news.ycombinator.com/item?id=48702825
+### Programmable Probabilistic Computer with 1M p-bits
+Source: https://arxiv.org/abs/2606.25313
+HN: https://news.ycombinator.com/item?id=48708496
 
 
-### Linux PSI meets the KV cache: Trimming memory at the operating system's edge
-Source: https://github.com/infiniteregrets/kv-psi
-HN: https://news.ycombinator.com/item?id=48702538
-By linking LLM memory management directly to Linux pressure stall information (PSI), KV-psi offers a pragmatic way to evict cache entries based on host resource strain rather than arbitrary heuristics. It introduces a classic trade-off between predictable model context retention and overall system stability under heavy concurrency.
+### Computer-Aided Language Development in Nonspeaking Children (1968) [pdf]
+Source: https://archive.org/details/colby1968-computer-aided-language-development-in-non-speaking-children
+HN: https://news.ycombinator.com/item?id=48710350
 
-### AMD Strix Halo Cluster Bypasses PCIe Limits Via RDMA
-Source: https://github.com/kyuz0/amd-strix-halo-vllm-toolboxes/blob/main/rdma_cluster/setup_guide.md
-HN: https://news.ycombinator.com/item?id=48703258
-A new lab setup demonstrates direct memory access clustering for AMD's upcoming unified-memory silicon, trading traditional server topologies for raw interconnect bandwidth. While it lowers the barrier to hosting large local models, the approach introduces severe network routing complexities that expose how fragile DIY infrastructure remains compared to proprietary fabrics.
 
-### I Build a 10 Inch Mini Rack from Aluminium Extrusions
-Source: https://louwrentius.com/i-build-a-10-inch-mini-rack-from-aluminium-extrusions.html
-HN: https://news.ycombinator.com/item?id=48702917
+### Knowledge Distillation of Black-Box Large Language Models (2024)
+Source: https://arxiv.org/abs/2401.07013
+HN: https://news.ycombinator.com/item?id=48712420
 
+
+### Pruning the Stack: What 14th-Century Forestry Teaches Us About Sustainable Architecture
+Source: https://www.openculture.com/2020/10/daisugi.html
+HN: https://news.ycombinator.com/item?id=48708859
+The ancient Japanese method of producing lumber without felling the root tree highlights a lost discipline of resource efficiency—a stark contrast to modern software engineering's habit of discarding entire codebases for the next model iteration.
+
+### HackerRank open sourced its ATS. My resume scored 90/100. Oh wait 74. No – 88
+Source: https://danunparsed.com/p/hackerrank-open-source-ats
+HN: https://news.ycombinator.com/item?id=48713832
+
+
+### The MUMPS 76 Primer – anniversary edition
+Source: https://github.com/rochus-keller/MUMPS/blob/main/docs/MUMPS_Primer.adoc
+HN: https://news.ycombinator.com/item?id=48706796
+
+
+### A Return to POSIX: The Argument for Dependency-Free LLM Plumbing
+Source: https://github.com/kamaludu/bash4llm/
+HN: https://news.ycombinator.com/item?id=48710827
+By replacing heavy Python runtimes with a lightweight Bash wrapper for LLM APIs, Bash4LLM+ highlights how over-engineered modern software stacks have become. However, leaning on shell scripts introduces undeniable maintenance brittle-ness as API schemas evolve.
+
+### Show HN: NanoEuler – GPT-2 scale model in pure C/CUDA from scratch
+Source: https://github.com/JustVugg/nanoeuler
+HN: https://news.ycombinator.com/item?id=48710778
+
+
+### Herdr brings multi-agent routing to the terminal, exposing the friction of local state management
+Source: https://github.com/ogulcancelik/herdr
+HN: https://news.ycombinator.com/item?id=48714802
+By multiplexing LLM agents directly within a terminal environment, Herdr trades the heavy abstraction layers of modern orchestration frameworks for lightweight, local execution. However, managing parallel agent context windows without a central coordination server risks rapid token depletion and state desynchronization.
+
+### Lore attempts to anchor codebase drift by feeding architectural debt back to LLMs
+Source: https://github.com/itsthelore/rac-core
+HN: https://news.ycombinator.com/item?id=48714880
+By ingesting previous engineering decisions, Lore tries to prevent context-blind agents from rewriting existing patterns. The approach risks cementing obsolete technical debt if past choices are fed to the model without aggressive, manual curation.
+
+### Ornith-1.0 shifts the burden of scaffolding to the model, bypassing explicit prompt engineering
+Source: https://deep-reinforce.com/ornith_1_0.html
+HN: https://news.ycombinator.com/item?id=48709744
+By allowing LLMs to structurally self-scaffold during complex programming tasks, the system reduces reliance on rigid external agent frameworks. However, this autonomy risks introducing opaque, non-deterministic runtime loops that are notoriously difficult to debug when the code output silently fails.
+
+### Writing your own static website generator
+Source: https://x3hy.github.io/data/pages/f32cbcd0-c594-4a16-b93b-bdcb2c9b2573.html
+HN: https://news.ycombinator.com/item?id=48712364
+
+
+### Working around dragons with the Lemote Yeeloong laptop and OpenBSD
+Source: http://oldvcr.blogspot.com/2026/06/working-around-dragons-with-lemote.html
+HN: https://news.ycombinator.com/item?id=48709187
+
+
+### Space Shuttle I/O Architecture Exposes the Modern Software Deficit
+Source: https://www.righto.com/2026/06/space-shuttle-io-processor-boards.html
+HN: https://news.ycombinator.com/item?id=48708700
+An examination of Ken Shirriff’s teardown of the Space Shuttle's I/O Processor reveals an era where hardware constraints forced rigorous engineering discipline—a stark contrast to modern abstractions that mask massive computational waste. The tradeoff for this extreme reliability was an agonizingly slow iteration cycle, a risk today’s fast-moving but fragile ecosystems have entirely inverted.
 
 ## AI & LLM Overview
 
-### Ford dials back automation after line disruption
-Source: https://www.the-independent.com/tech/ford-ai-automation-human-workers-b3003787.html
-HN: https://news.ycombinator.com/item?id=48703968
-An aggressive shift from human operators to automated systems at Ford has resulted in immediate operational bottlenecks, exposing the fragile state of unmonitored code in legacy manufacturing environments. The failure underscores the persistent tradeoff between immediate payroll reduction and the long-term loss of institutional assembly knowledge.
-
-### Lead Generation Tool Enters Crowded Market Under familiar Automation Claims
-Source: https://aileadgenr.com/en
-HN: https://news.ycombinator.com/item?id=48704870
-Aileadgenr.com launches into the over-saturated B2B outbound pipeline, promising automated client discovery. The risk remains that such high-volume, automated outreach increasingly erodes genuine developer-to-client trust and accelerates the degradation of communication quality.
-
-### The AI Industry as You Know It Died Today
-Source: https://www.thealgorithmicbridge.com/p/the-ai-industry-as-you-know-it-died
-HN: https://news.ycombinator.com/item?id=48702053
-
-
-### AI Assistant for Amazon
-Source: https://chromewebstore.google.com/detail/ai-assistant-for-amazon/ohpekhndmbmkpdoikmphbmdpailacjeo
-HN: https://news.ycombinator.com/item?id=48704938
-
+### The 'Better Images of AI' project tries to correct a visual cliché
+Source: https://betterimagesofai.org/
+HN: https://news.ycombinator.com/item?id=48713051
+An initiative attempting to replace glowing brains and blue-circuit backgrounds with realistic depictions of data centers and human annotators highlights how poorly we visualize automation. The risk is that trading sci-fi tropes for mundane realism still obscures the opaque, proprietary nature of the underlying models.
 
 ## Model Release History
 
-### Asian AI startups launch Mythos-like models
-Source: https://techcrunch.com/2026/06/27/asian-ai-startups-launch-mythos-like-models-as-anthropics-export-ban-drags-on/
-HN: https://news.ycombinator.com/item?id=48697958
-
-
 ## Top Insights & Advice
 
-### The Unglamorous Side of Rust Web Development
-Source: https://blog.jetbrains.com/rust/2026/06/25/rust-web-development-2026/
-HN: https://news.ycombinator.com/item?id=48704040
+### I used Claude Code to get a second opinion on my MRI
+Source: https://antoine.fi/mri-analysis-using-claude-code-opus
+HN: https://news.ycombinator.com/item?id=48708941
 No insight extracted.
 
-### The Divide Between Self-Hosting Control and Managed Reliability
-Source: https://evilbit.de/dns-resolver-guide.html
-HN: https://news.ycombinator.com/item?id=48702273
-While advanced users lean heavily toward total control via self-hosted DNS proxies, DoH servers, and pre-caching to bypass ISP interference, a parallel segment of the community prefers managed solutions like NextDNS for global speed, reliability, and low maintenance overhead. Quote: Every single point on the filter tab is something that I can (and do) just do for myself.
+### Show HN: DRM-Free Books
+Source: https://frequal.com/Perspectives/DrmFreeAuthors.html
+HN: https://news.ycombinator.com/item?id=48709186
+No insight extracted.
 
-### The Illusion of Lived Experience vs. Fluent Storytelling
-Source: https://jayacunzo.com/blog/your-move-chief
-HN: https://news.ycombinator.com/item?id=48703452
-The community discusses how AI mimics human communication without having lived experiences, contrasting the depth of real-life events against the powerful, yet synthetic, nature of storytelling and simulated perspectives. Quote: They speak fluently and confidently about experiences it’s impossible for them to have.
-
-### Template distribution replaces original build in boilerplate race
-Source: https://www.clickcast.tech/template-editor
-HN: https://news.ycombinator.com/item?id=48704886
-The addition of video marketing templates to a minor SaaS wrapper highlights a broader shift toward immediate feature parity over codebase discipline. While it lowers the barrier to initial deployment, it furthers the homogenization of indie software assets.
+### Librepods: AirPods liberated
+Source: https://github.com/librepods-org/librepods
+HN: https://news.ycombinator.com/item?id=48710232
+No insight extracted.
 
 ## Lab Updates & Dark Side
 
-### Anthropic says Alibaba used 25k accounts to mine Claude
-Source: https://arstechnica.com/tech-policy/2026/06/anthropic-claims-alibaba-defied-trump-to-attack-claude-and-steal-capabilities/
-HN: https://news.ycombinator.com/item?id=48699483
+### Brown University incident signals the normalization of synthetic labor in foundational tracks
+Source: https://english.elpais.com/education/2026-06-28/ai-fraud-at-brown-university-academic-integrity-is-at-risk.html
+HN: https://news.ycombinator.com/item?id=48708991
+A professor's discovery of systematic LLM usage on an examination exposes a deeper drift toward outsourced thought. While the immediate risk is institutional friction, the systemic threat remains the quiet erosion of structural literacy in a generation expected to maintain infrastructure they did not construct.
 
+### A way to exclude sensitive files issue still open for OpenAI Codex
+Source: https://github.com/openai/codex/issues/2847
+HN: https://news.ycombinator.com/item?id=48706714
 
-### 'Careless People' author claims Meta surveilled her for 12mos to enforce silence
-Source: https://fortune.com/2026/06/26/meta-wynn-williams-surveillance-gag-order-lawsuit-2026/
-HN: https://news.ycombinator.com/item?id=48701822
-
-
-### Resource disputes turn punitive as infrastructure meetings enforce rigid quotas
-Source: https://www.gadgetreview.com/arrest-him-the-moment-police-handcuffed-a-farmer-for-going-5-seconds-over-his-time-limit-at-data-center-meeting
-HN: https://news.ycombinator.com/item?id=48701342
-The arrest of a farmer over a minor procedural overrun highlights the increasingly hostile friction between legacy agricultural interests and data center resource allocation. While the incident underscores a breakdown in community mediation, it risks setting a chilling precedent for civic engagement in regions dominated by server infrastructure.
