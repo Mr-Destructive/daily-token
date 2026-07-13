@@ -1,136 +1,86 @@
 # The Daily Token
 
-Edition: 2026-07-12
+Edition: 2026-07-13
 
 ## Editor's Note
-As we automate the mechanics of construction, the industry seems to forget that a flawlessly compiled system can still be completely hollow, yet the agency to demand better remains entirely ours.
+A busy day in the latent space.
 
 ## The Front Page
 
-### Nvidia, CoreWeave, and Nebius: Inside the Circular Financing of the GPU Boom
-Source: https://io-fund.com/ai-stocks/nvidia-coreweave-nebius-circular-financing-gpu-boom
-HN: https://news.ycombinator.com/item?id=48873836
+### Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k
+Source: https://systima.ai/blog/claude-code-vs-opencode-token-overhead
+HN: https://news.ycombinator.com/item?id=48883275
 
 
-### Under federal rule, colleges must leave grads better off or lose financial aid
-Source: https://www.npr.org/2026/06/30/nx-s1-5835631/turner-camhi-do-no-harm-college-loans
-HN: https://news.ycombinator.com/item?id=48878126
+### Don't you mean extinct?
+Source: https://fabiensanglard.net/extinct/index.html
+HN: https://news.ycombinator.com/item?id=48881830
 
 
-### Ghost Font: A font that humans can read but AI cannot
-Source: https://www.mixfont.com/ghost-font
-HN: https://news.ycombinator.com/item?id=48870381
+### Mechanistic interpretability researchers applying causality theory to LLMs
+Source: https://cacm.acm.org/news/can-we-understand-how-large-language-models-reason/
+HN: https://news.ycombinator.com/item?id=48883090
 
 
-### Fixed three bugs that made Qwen3.5-122B a daily driver on Mac Studio
-Source: https://mrzk.io/posts/qmlx-maximising-ai-psychosis-minmaxing-mac-studio/
-HN: https://news.ycombinator.com/item?id=48876619
+### Croc side-channels the cloud for peer-to-peer file routing
+Source: https://github.com/schollz/croc/
+HN: https://news.ycombinator.com/item?id=48882034
+The CLI utility Croc bypasses centralized hosting to move data directly between machines using a relay and PAKE encryption. While it simplifies ad-hoc transfers, relying on unauthenticated public relays introduces an structural risk if the code's cryptographic handshake ever weakens.
+
+### Show HN: Codebase Posters – turn any Git repo into generative poster art
+Source: https://github.com/unable12/codebase-posters
+HN: https://news.ycombinator.com/item?id=48885500
 
 
-### SVD and the deep roots of matrix factorization
-Source: https://www.math.ucdavis.edu/~saito/courses/229A/stewart-svd.pdf
-HN: https://news.ycombinator.com/item?id=48872858
-Gilbert Strang’s 1993 retrospective tracker on the Singular Value Decomposition reminds a generation of model builders that today's scaling triumphs still rest entirely on centurial-old linear algebra. The core tradeoff remains structural: reducing data to its primary components strips out noise but inherently risks discarding subtle, non-linear edge cases.
-
-### Speculations Concerning the First Ultraintelligent Machine (1965) [pdf]
-Source: https://languagelog.ldc.upenn.edu/myl/Good1964.pdf
-HN: https://news.ycombinator.com/item?id=48871932
+### Llambda.lisp
+Source: http://funcall.blogspot.com/2026/07/llambdalisp.html
+HN: https://news.ycombinator.com/item?id=48886374
 
 
-### Out-Sourcing the Join: Deterministic Layer Intercepts Silent LLM Database Failures
-Source: https://github.com/sqlsure/sqlsure
-HN: https://news.ycombinator.com/item?id=48875342
-As engineering teams increasingly delegate data queries to probabilistic models, sqlsure catches catastrophic errors like fan-out double-counting via offline schema checks before execution. It trades expensive runtime model validation for traditional static schema maintenance, requiring developers to return to explicit modeling if they wish to trust automated code.
-
-### I built TradingSpy: local, privacy-first AI trading assistant(First Open Source)
-Source: https://github.com/mrhustlex/TradingSpy-TradingAgentService
-HN: https://news.ycombinator.com/item?id=48875678
+### Performant C/CUDA inference engine for Qwen 3.6 35B on RTX 5090 / Blackwell
+Source: https://github.com/ambud/q36
+HN: https://news.ycombinator.com/item?id=48886273
 
 
-### Show HN: Reame – a CPU inference server that gets faster as it runs
-Source: https://github.com/swellweb/reame
-HN: https://news.ycombinator.com/item?id=48873417
+### Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper
+Source: https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6
+HN: https://news.ycombinator.com/item?id=48882716
 
 
-### Mesh LLM moves model orchestration to the edge, trading speed for resilience
-Source: https://www.iroh.computer/blog/mesh-llm
-HN: https://news.ycombinator.com/item?id=48876505
-By running distributed AI computing over the Iroh network, this framework bypasses centralized cloud providers but introduces significant latency penalties. It signals a messy, necessary shift back to decentralized software plumbing at the expense of raw performance.
+### Flash-MSA: Accelerating Million-Token Training with Sparse Attention Kernels
+Source: https://nanduruganesh.github.io/flash-msa/
+HN: https://news.ycombinator.com/item?id=48884618
 
-### Porting BSD’s Packet Filter to Linux XDP
-Source: https://blog.nfsensei.org/the-packet-filter-reborn.html
-HN: https://news.ycombinator.com/item?id=48871758
-Engineers have successfully compiled OpenBSD's trusted pf syntax directly into Linux kernel eBPF bytecode. While this delivers near-line-rate performance, it introduces a massive complexity risk by forcing legacy, stateful firewall rules into an execution environment never designed to hold that much mutable state.
 
-### A dock that wakes up reliably
-Source: https://fabiensanglard.net/tb4/index.html
-HN: https://news.ycombinator.com/item?id=48877269
+### Designing and assembling my first PCB
+Source: https://vilkeliskis.com/b/2026/0711.html
+HN: https://news.ycombinator.com/item?id=48885728
 
 
 ## AI & LLM Overview
-
-### Wealthy AI workers send San Francisco house prices soaring
-Source: https://www.bbc.com/news/articles/c9q29j47v9ro
-HN: https://news.ycombinator.com/item?id=48875371
-
-
-### Sixtyfour Opens Applications Amid Shift Toward Benchmarking Standardization
-Source: https://www.ycombinator.com/companies/sixtyfour/jobs/bIbgQkL-operations-associate-data-samples-customer-success
-HN: https://news.ycombinator.com/item?id=48873665
-The YC-backed startup's hiring push highlights a growing sector focus on auditing AI performance claims. However, standardizing these benchmarks risks creating a monoculture where models optimize for tests rather than real-world utility.
-
-### Weightlifting beats running for blood sugar control, researchers find (2025)
-Source: https://news.vt.edu/articles/2025/11/research_fralinbiomed_yanweightlifting.html
-HN: https://news.ycombinator.com/item?id=48876593
-
 
 ## Model Release History
 
 ## Top Insights & Advice
 
-### The Litmus Test for AI Alignment and Freedom
-Source: https://geohot.github.io//blog/jekyll/update/2026/07/11/ai-2040.html
-HN: https://news.ycombinator.com/item?id=48874200
-The debate over AI alignment isn't just about safety; it acts as a fundamental test of personal freedom and the potential for centralized ideological control, balanced against the chaotic reality of real-world execution. Quote: In your opinion should your AI be permitted to tell you how to cover up a murder?
+### The Value Capture Dilemma and the Rise of Bespoke Software
+Source: https://geohot.github.io//blog/jekyll/update/2026/07/12/i-love-llms.html
+HN: https://news.ycombinator.com/item?id=48883343
+Frontier AI labs may struggle to capture the massive economic value they create. Meanwhile, individual productivity gains are shifting toward hyper-specific, private, one-off software solutions and personalized forks rather than grand commercial releases. Quote: It’s not that AI won’t create that much value, it’s that they won’t capture it.
 
-### Stop Telling Me to Ask an LLM
-Source: https://blog.yaelwrites.com/stop-telling-me-to-ask-an-llm/
-HN: https://news.ycombinator.com/item?id=48876441
+### The Illusion of Digital Reading and the Crisis of Modern Thought
+Source: https://substack.magazinenongrata.com/p/how-i-learned-to-read-again
+HN: https://news.ycombinator.com/item?id=48883238
+Online consumption of articles, Substacks, and forums often acts as a self-justifying escape that masks a decline in deep reading capability. True reading comprehension rarely advances past middle school without deliberate strategy, and the decline of deep reading directly threatens our capacity for critical thinking. Quote: The people who still read won't just be better informed. They'll be (with a couple exceptions) the only ones who can think well.
+
+### Old and new apps, via modern coding agents
+Source: https://terrytao.wordpress.com/2026/07/11/old-and-new-apps-via-modern-coding-agents/
+HN: https://news.ycombinator.com/item?id=48880170
 No insight extracted.
 
-### Show HN: Learn by rebuilding Redis, Git, a database from scratch
-Source: https://shipthatcode.com
-HN: https://news.ycombinator.com/item?id=48871973
-No insight extracted.
-
-### The 'Reverse Centaur' Concept Meets Skepticism Over AI Punditry and Open Source Realities
-Source: https://pluralistic.net/2025/09/11/vulgar-thatcherism/#there-is-an-alternative
-HN: https://news.ycombinator.com/item?id=48873855
-While the discussion engages with the 'reverse centaur' framework, the community expresses disappointment in conventional anti-AI narratives, highlighting a contradiction where mainstream AI punditry is dismissed while open-source AI is simultaneously romanticized or misunderstood. Quote: AI for his own pundit profession is not allowed but 'open source hackers do amazing things with AI'?
-
-### Show HN: Orbit – AR satellite tracker, watch 15k+ objects
-Source: https://nagylukas.github.io/orbit.html
-HN: https://news.ycombinator.com/item?id=48873501
-No insight extracted.
-
-### Why Write Code in 2026
-Source: https://softwaredoug.com/blog/2026/07/09/write-code.html
-HN: https://news.ycombinator.com/item?id=48878195
-No insight extracted.
-
-### The Silent Authority of the Gray Beards
-Source: https://ibm-1401.info/pictures/Proc-MIW-2017-Garner-1401PDP1.pdf
-HN: https://news.ycombinator.com/item?id=48875738
-When formal corporate training fails or lapses due to generational shifts, institutional and mechanical knowledge is preserved entirely through self-directed study and informal mentorship. Quote: I was on my own with the manuals and the insights of the gray beards in the company lunch room
-
-### Modern decor may be straining people's brains
-Source: https://studyfinds.com/modern-decor-may-be-straining-peoples-brains/
-HN: https://news.ycombinator.com/item?id=48873424
+### The One-Step Trap (In AI Research)
+Source: http://incompleteideas.net/IncIdeas/OneStepTrap.html
+HN: https://news.ycombinator.com/item?id=48883415
 No insight extracted.
 
 ## Lab Updates & Dark Side
-
-### What xAI's Grok Build CLI Actually Sends to xAI
-Source: https://gist.github.com/cereblab/dc9a40bc26120f4540e4e09b75ffb547
-HN: https://news.ycombinator.com/item?id=48877371
-
