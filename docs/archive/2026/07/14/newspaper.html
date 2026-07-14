@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Token</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#181512; --paper:#f8f3ea; --sep:#c4b8a4; --highlight:#7a2b1f; --muted:#756b5e; --box:#fffaf0; }
+        * { box-sizing:border-box; }
+        body { background:#c8c1b5; margin:0; font-family:'Source Serif 4',serif; color:var(--ink); line-height:1.35; }
+        .newspaper-container { background:var(--paper); max-width:1280px; margin:0 auto; padding:32px; box-shadow:0 18px 80px rgba(0,0,0,.22); min-height:100vh; transition:opacity .22s ease; }
+        .page-turn-out { opacity:0; }
+        header { text-align:center; border-bottom:6px double var(--ink); padding-bottom:18px; }
+        .masthead-title { font-family:'Playfair Display',serif; font-weight:900; font-size:5.4rem; letter-spacing:-2px; margin:0; text-transform:uppercase; }
+        .sub-masthead { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); margin-top:12px; padding:6px 0; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:.86rem; display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+        nav.sticky-nav { position:sticky; top:0; background:var(--paper); z-index:100; text-align:center; padding:12px 0; border-bottom:1px solid var(--ink); margin-bottom:30px; }
+        .nav-item { text-decoration:none; color:var(--ink); font-family:'Oswald',sans-serif; font-size:.82rem; margin:0 10px; border-bottom:2px solid transparent; }
+        .nav-item.active { color:var(--highlight); border-color:var(--highlight); }
+        .page-title { text-align:center; border-bottom:3px solid var(--ink); line-height:.1em; margin:40px 0 26px; font-family:'Oswald',sans-serif; font-size:1.32rem; }
+        .page-title span { background:var(--paper); padding:0 22px; }
+        .section-sub-header { text-align:left; border-bottom:1px solid var(--sep); line-height:.1em; margin:28px 0 18px; font-family:'Oswald',sans-serif; font-size:.86rem; color:var(--highlight); letter-spacing:.06em; }
+        .section-sub-header span { background:var(--paper); padding-right:12px; }
+        .columns-3 { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px; margin-bottom:24px; }
+        .headline-sm { font-family:'Playfair Display',serif; font-size:1.42rem; line-height:1.14; margin:0 0 10px; }
+        .article a { color:inherit; text-decoration:none; }
+        .article a:hover { color:var(--highlight); }
+        .metadata { font-family:'Oswald',sans-serif; font-size:.72rem; color:var(--muted); margin-bottom:10px; letter-spacing:.04em; text-transform:uppercase; }
+        .metadata .source-link, .hn-link { color:var(--highlight); font-weight:700; }
+        .summary-sm { margin:0; font-size:.98rem; }
+        .news-img { width:100%; display:block; margin-bottom:14px; filter:grayscale(100%); border:1px solid #d7c9b2; transition:.25s; box-shadow:4px 4px 0 rgba(0,0,0,.05); }
+        .news-img:hover { filter:none; transform:translateY(-1px); }
+        .page-footer-nav { display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:14px; border-top:1px solid var(--ink); }
+        .nav-btn { font-family:'Oswald',sans-serif; color:var(--ink); text-decoration:none; border:1px solid var(--ink); padding:8px 14px; font-size:.82rem; }
+        .nav-btn:hover { background:var(--ink); color:#fff; }
+        .edition-nav { display:flex; justify-content:center; align-items:center; gap:20px; background:#e9e1d3; padding:10px; font-family:'Oswald',sans-serif; font-size:.78rem; border-bottom:1px solid #cdbfa8; flex-wrap:wrap; }
+        .edition-link { color:#574f46; text-decoration:none; }
+        .edition-link.disabled { color:#a69e93; }
+        .editors-note { margin-bottom:20px; padding:16px; border:1px solid #d6c8b0; font-style:italic; background:var(--box); border-left:4px solid var(--highlight); }
+        .editors-note .emphasis { color:var(--highlight); font-weight:700; }
+        .insights-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+        .insight-card { padding:18px; border:1px solid #ded1bb; background:var(--box); }
+        .insight-author { font-family:'Oswald',sans-serif; font-size:.68rem; color:var(--highlight); margin-bottom:8px; border-bottom:1px solid #e3d8c7; padding-bottom:4px; text-transform:uppercase; }
+        .insight-headline { font-family:'Playfair Display',serif; font-size:1.34rem; margin:0 0 10px; }
+        .insight-summary { margin:0; }
+        .insight-footer { margin-top:12px; font-family:'Oswald',sans-serif; font-size:.78rem; }
+        .release-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .release-card { border:1px solid #ded1bb; background:var(--box); padding:14px; }
+        .release-kicker { font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.08em; color:var(--highlight); text-transform:uppercase; }
+        .release-card h3 { font-family:'Playfair Display',serif; margin:6px 0 8px; }
+        .release-card p { margin:0; font-size:.95rem; }
+        .release-links { margin-top:10px; font-family:'Oswald',sans-serif; font-size:.75rem; }
+        .model-ledger-link { margin-top:14px; text-align:right; font-family:'Oswald',sans-serif; font-size:.84rem; }
+        .model-ledger-link a { color:var(--highlight); text-decoration:none; }
+        .empty-note { border:1px dashed #cab99f; padding:14px; background:#fff8ea; }
+        @media (max-width:1000px) {
+            .masthead-title { font-size:3rem; }
+            .columns-3, .insights-grid, .release-grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="edition-nav">
+        <a href="../../../../archive/2026/07/13/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+        <span style="font-weight:700; color:#111;">EDITION: JUL 14, 2026</span>
+        <span class="edition-link disabled" aria-disabled="true">NEXT EDITION →</span>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../model-releases.html" class="edition-link">MODEL RELEASES</a>
+    </div>
+    <div class="newspaper-container" id="newspaper-main">
+        <header>
+            <h1 class="masthead-title">The Daily Token</h1>
+            <div class="sub-masthead">
+                <span>TENSOR CITY</span>
+                <span>TUESDAY, JULY 14, 2026</span>
+                <span>GLOBAL AI TECHNOLOGY REPORT</span>
+                <span>VOL. 2026.195</span>
+            </div>
+        </header>
+        <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class='editors-note'><strong>EDITOR'S NOTE:</strong> A busy day in the latent space. <span class='emphasis'>#Judgment and craft</span></div><div class="section-sub-header"><span>BREAKING VECTORS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://neow.in/cWsyMTV3" target="_blank" rel="noopener">Samsung Health app threatens data deletion if users opt out AI training</a></h3><div class="metadata">SOURCE: <a href="https://neow.in/cWsyMTV3" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48897991" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://github.com/xqlsystems/xarray-sql/blob/claude/xarray-sql-mnist-demo/benchmarks/nn.py" target="_blank" rel="noopener">Show HN: I implemented a neural network in SQL</a></h3><div class="metadata">SOURCE: <a href="https://github.com/xqlsystems/xarray-sql/blob/claude/xarray-sql-mnist-demo/benchmarks/nn.py" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48897975" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><a href="https://fabiensanglard.net/silpheed/index.html" target="_blank" rel="noopener"><img src="../../../../images/story_3_0_The_art_and_engineering_of_Seg.png" class="news-img" alt=""></a><h3 class="headline-sm"><a href="https://fabiensanglard.net/silpheed/index.html" target="_blank" rel="noopener">The art and engineering of Sega CD Silpheed</a></h3><div class="metadata">SOURCE: <a href="https://fabiensanglard.net/silpheed/index.html" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48893639" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://github.com/jbwinters/jacquard-lang" target="_blank" rel="noopener">Show HN: Jacquard, a programming language for AI-written, human-reviewed code</a></h3><div class="metadata">SOURCE: <a href="https://github.com/jbwinters/jacquard-lang" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48894630" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://om-intelligence.ch/projects/vocal-notation/vocal-notation.html" target="_blank" rel="noopener">Turn your singing voice into printable notes (in the browser)</a></h3><div class="metadata">SOURCE: <a href="https://om-intelligence.ch/projects/vocal-notation/vocal-notation.html" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48900686" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://github.com/mathaix/OpenClawMachines" target="_blank" rel="noopener">Containerizing the Pirate Cat: OpenClaw Meets the Enterprise</a></h3><div class="metadata">SOURCE: <a href="https://github.com/mathaix/OpenClawMachines" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48896179" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">The adaptation of OpenClaw into an &#x27;enterprise-ready&#x27; architecture highlights a modern urge to wrap lightweight game engines in heavy infrastructure layers. While this brings high availability to a 1999 platformer, it forces developers to trade simple, readable code for a complex deployment matrix that introduces more failure points than it solves.</p></div></article></div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://hackney.app/" target="_blank" rel="noopener">Show HN: Hackney – Compare Uber, Lyft, Waymo, and Robotaxi Prices</a></h3><div class="metadata">SOURCE: <a href="https://hackney.app/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48893550" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://arxiv.org/abs/2607.01418" target="_blank" rel="noopener">A Study of Microsoft&#x27;s Early 2026 Rollout of Claude Code and GitHub Copilot CLI</a></h3><div class="metadata">SOURCE: <a href="https://arxiv.org/abs/2607.01418" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48899321" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://19thnews.org/2026/07/noaa-climate-data-website/" target="_blank" rel="noopener">Former NOAA employees built Climate.us to preserve climate data and resources</a></h3><div class="metadata">SOURCE: <a href="https://19thnews.org/2026/07/noaa-climate-data-website/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=48897945" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="section-sub-header"><span>DAILY MODEL RELEASE LEDGER</span></div><div class="release-grid"><p class="empty-note">No confirmed model releases were detected for this edition date.</p></div><div class="model-ledger-link"><a href="../../../../model-releases.html">OPEN FULL MODEL RELEASE PAGE →</a></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">The Git history command deserves more attention</h3><p class="insight-summary">"No insight extracted."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=48901010" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">Show HN: Sx 2.0 – Share AI skills with your team through a Dropbox folder</h3><p class="insight-summary">"No insight extracted."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=48900319" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">Agents.md – Dumb Human</h3><p class="insight-summary">"No insight extracted."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=48901695" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3"></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align:center; padding:40px 0; font-family:'Oswald',sans-serif; border-top:4px double var(--ink); margin-top:70px;">THE DAILY TOKEN // REPORTING IN PUBLIC // &copy; 2026</footer>
+    </div>
+    <script>
+        let currentPage = 1;
+        function goToPage(pageNum) {
+            if (pageNum < 1 || pageNum > 5 || pageNum === currentPage) return;
+            const container = document.getElementById('newspaper-main');
+            container.classList.add('page-turn-out');
+            setTimeout(() => {
+                document.querySelectorAll('.newspaper-page').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(`page-content-${pageNum}`).style.display = 'block';
+                document.getElementById(`nav-${pageNum}`).classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo(0, 0);
+                const url = new URL(window.location);
+                url.searchParams.set('page', pageNum);
+                window.history.pushState({}, '', url);
+                container.classList.remove('page-turn-out');
+            }, 220);
+        }
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const page = parseInt(params.get('page'));
+            if (page >= 1 && page <= 5) goToPage(page);
+            else document.getElementById('nav-1').classList.add('active');
+        });
+    </script>
+</body>
+</html>

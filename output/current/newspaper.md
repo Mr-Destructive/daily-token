@@ -1,86 +1,86 @@
 # The Daily Token
 
-Edition: 2026-07-13
+Edition: 2026-07-14
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k
-Source: https://systima.ai/blog/claude-code-vs-opencode-token-overhead
-HN: https://news.ycombinator.com/item?id=48883275
+### Samsung Health app threatens data deletion if users opt out AI training
+Source: https://neow.in/cWsyMTV3
+HN: https://news.ycombinator.com/item?id=48897991
 
 
-### Don't you mean extinct?
-Source: https://fabiensanglard.net/extinct/index.html
-HN: https://news.ycombinator.com/item?id=48881830
+### Show HN: I implemented a neural network in SQL
+Source: https://github.com/xqlsystems/xarray-sql/blob/claude/xarray-sql-mnist-demo/benchmarks/nn.py
+HN: https://news.ycombinator.com/item?id=48897975
 
 
-### Mechanistic interpretability researchers applying causality theory to LLMs
-Source: https://cacm.acm.org/news/can-we-understand-how-large-language-models-reason/
-HN: https://news.ycombinator.com/item?id=48883090
+### The art and engineering of Sega CD Silpheed
+Source: https://fabiensanglard.net/silpheed/index.html
+HN: https://news.ycombinator.com/item?id=48893639
 
 
-### Croc side-channels the cloud for peer-to-peer file routing
-Source: https://github.com/schollz/croc/
-HN: https://news.ycombinator.com/item?id=48882034
-The CLI utility Croc bypasses centralized hosting to move data directly between machines using a relay and PAKE encryption. While it simplifies ad-hoc transfers, relying on unauthenticated public relays introduces an structural risk if the code's cryptographic handshake ever weakens.
-
-### Show HN: Codebase Posters – turn any Git repo into generative poster art
-Source: https://github.com/unable12/codebase-posters
-HN: https://news.ycombinator.com/item?id=48885500
+### Show HN: Jacquard, a programming language for AI-written, human-reviewed code
+Source: https://github.com/jbwinters/jacquard-lang
+HN: https://news.ycombinator.com/item?id=48894630
 
 
-### Llambda.lisp
-Source: http://funcall.blogspot.com/2026/07/llambdalisp.html
-HN: https://news.ycombinator.com/item?id=48886374
+### Turn your singing voice into printable notes (in the browser)
+Source: https://om-intelligence.ch/projects/vocal-notation/vocal-notation.html
+HN: https://news.ycombinator.com/item?id=48900686
 
 
-### Performant C/CUDA inference engine for Qwen 3.6 35B on RTX 5090 / Blackwell
-Source: https://github.com/ambud/q36
-HN: https://news.ycombinator.com/item?id=48886273
+### Containerizing the Pirate Cat: OpenClaw Meets the Enterprise
+Source: https://github.com/mathaix/OpenClawMachines
+HN: https://news.ycombinator.com/item?id=48896179
+The adaptation of OpenClaw into an 'enterprise-ready' architecture highlights a modern urge to wrap lightweight game engines in heavy infrastructure layers. While this brings high availability to a 1999 platformer, it forces developers to trade simple, readable code for a complex deployment matrix that introduces more failure points than it solves.
+
+### YouTrackDB is a general-use object-oriented graph database
+Source: https://github.com/JetBrains/youtrackdb
+HN: https://news.ycombinator.com/item?id=48902026
 
 
-### Migrating a production AI agent to GPT-5.6: 2.2x faster, 27% cheaper
-Source: https://ploy.ai/blog/migrating-a-production-ai-agent-to-gpt-5-6
-HN: https://news.ycombinator.com/item?id=48882716
-
-
-### Flash-MSA: Accelerating Million-Token Training with Sparse Attention Kernels
-Source: https://nanduruganesh.github.io/flash-msa/
-HN: https://news.ycombinator.com/item?id=48884618
-
-
-### Designing and assembling my first PCB
-Source: https://vilkeliskis.com/b/2026/0711.html
-HN: https://news.ycombinator.com/item?id=48885728
-
+### The LLM Jury System for Food Metadata
+Source: https://careersatdoordash.com/blog/building-food-metadata-with-llm-juries-context-optimization-multimodal-ai/
+HN: https://news.ycombinator.com/item?id=48901275
+Engineers are increasingly delegating messy categorization tasks to consensus-driven LLM panels, trading deterministic code for statistical agreement. While this bypasses the nightmare of manual classification, it introduces silent, non-reproducible drift that traditional CI/CD pipelines aren't built to catch.
 
 ## AI & LLM Overview
+
+### Show HN: Hackney – Compare Uber, Lyft, Waymo, and Robotaxi Prices
+Source: https://hackney.app/
+HN: https://news.ycombinator.com/item?id=48893550
+
+
+### A Study of Microsoft's Early 2026 Rollout of Claude Code and GitHub Copilot CLI
+Source: https://arxiv.org/abs/2607.01418
+HN: https://news.ycombinator.com/item?id=48899321
+
+
+### Former NOAA employees built Climate.us to preserve climate data and resources
+Source: https://19thnews.org/2026/07/noaa-climate-data-website/
+HN: https://news.ycombinator.com/item?id=48897945
+
 
 ## Model Release History
 
 ## Top Insights & Advice
 
-### The Value Capture Dilemma and the Rise of Bespoke Software
-Source: https://geohot.github.io//blog/jekyll/update/2026/07/12/i-love-llms.html
-HN: https://news.ycombinator.com/item?id=48883343
-Frontier AI labs may struggle to capture the massive economic value they create. Meanwhile, individual productivity gains are shifting toward hyper-specific, private, one-off software solutions and personalized forks rather than grand commercial releases. Quote: It’s not that AI won’t create that much value, it’s that they won’t capture it.
-
-### The Illusion of Digital Reading and the Crisis of Modern Thought
-Source: https://substack.magazinenongrata.com/p/how-i-learned-to-read-again
-HN: https://news.ycombinator.com/item?id=48883238
-Online consumption of articles, Substacks, and forums often acts as a self-justifying escape that masks a decline in deep reading capability. True reading comprehension rarely advances past middle school without deliberate strategy, and the decline of deep reading directly threatens our capacity for critical thinking. Quote: The people who still read won't just be better informed. They'll be (with a couple exceptions) the only ones who can think well.
-
-### Old and new apps, via modern coding agents
-Source: https://terrytao.wordpress.com/2026/07/11/old-and-new-apps-via-modern-coding-agents/
-HN: https://news.ycombinator.com/item?id=48880170
+### The Git history command deserves more attention
+Source: https://lalitm.com/post/git-history/
+HN: https://news.ycombinator.com/item?id=48901010
 No insight extracted.
 
-### The One-Step Trap (In AI Research)
-Source: http://incompleteideas.net/IncIdeas/OneStepTrap.html
-HN: https://news.ycombinator.com/item?id=48883415
+### Show HN: Sx 2.0 – Share AI skills with your team through a Dropbox folder
+Source: https://sleuth-io.github.io/sx/2026/07/10/your-dropbox-is-now-a-skill-server.html
+HN: https://news.ycombinator.com/item?id=48900319
+No insight extracted.
+
+### Agents.md – Dumb Human
+Source: https://gist.github.com/skorotkiewicz/2d4db4ceaf83aa54eb7f2066fdb961ff
+HN: https://news.ycombinator.com/item?id=48901695
 No insight extracted.
 
 ## Lab Updates & Dark Side
