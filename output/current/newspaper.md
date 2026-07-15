@@ -1,86 +1,101 @@
 # The Daily Token
 
-Edition: 2026-07-14
+Edition: 2026-07-15
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### Samsung Health app threatens data deletion if users opt out AI training
-Source: https://neow.in/cWsyMTV3
-HN: https://news.ycombinator.com/item?id=48897991
+### Data centers have hiked electricity prices on the public by $23B
+Source: https://fortune.com/2026/07/14/data-centers-23-billion-electricity-bills/
+HN: https://news.ycombinator.com/item?id=48914683
 
 
-### Show HN: I implemented a neural network in SQL
-Source: https://github.com/xqlsystems/xarray-sql/blob/claude/xarray-sql-mnist-demo/benchmarks/nn.py
-HN: https://news.ycombinator.com/item?id=48897975
+### Demis Hassabis has a plan to harness AI safely
+Source: https://twitter.com/demishassabis/status/2076957440109625718
+HN: https://news.ycombinator.com/item?id=48904095
 
 
-### The art and engineering of Sega CD Silpheed
-Source: https://fabiensanglard.net/silpheed/index.html
-HN: https://news.ycombinator.com/item?id=48893639
+### Same model, same Q4_K_M label: 5.02, 5.07 and 5.27 bits per weight
+Source: https://github.com/logxio/picchio
+HN: https://news.ycombinator.com/item?id=48912947
 
 
-### Show HN: Jacquard, a programming language for AI-written, human-reviewed code
-Source: https://github.com/jbwinters/jacquard-lang
-HN: https://news.ycombinator.com/item?id=48894630
+### The Agentic Loop: Three loops in a trench coat
+Source: https://www.bobbytables.io/p/the-agentic-loop-three-loops-in-a
+HN: https://news.ycombinator.com/item?id=48907672
 
 
-### Turn your singing voice into printable notes (in the browser)
-Source: https://om-intelligence.ch/projects/vocal-notation/vocal-notation.html
-HN: https://news.ycombinator.com/item?id=48900686
+### Differentiable Fortran with LFortran and Enzyme
+Source: https://docs.pasteurlabs.ai/projects/tesseract-core/latest/blog/2026-07-09-enzyme-lfortran-autodiff.html
+HN: https://news.ycombinator.com/item?id=48905667
 
 
-### Containerizing the Pirate Cat: OpenClaw Meets the Enterprise
-Source: https://github.com/mathaix/OpenClawMachines
-HN: https://news.ycombinator.com/item?id=48896179
-The adaptation of OpenClaw into an 'enterprise-ready' architecture highlights a modern urge to wrap lightweight game engines in heavy infrastructure layers. While this brings high availability to a 1999 platformer, it forces developers to trade simple, readable code for a complex deployment matrix that introduces more failure points than it solves.
-
-### YouTrackDB is a general-use object-oriented graph database
-Source: https://github.com/JetBrains/youtrackdb
-HN: https://news.ycombinator.com/item?id=48902026
+### Coding agents think ahead of time
+Source: https://arxiv.org/abs/2607.05188
+HN: https://news.ycombinator.com/item?id=48905764
 
 
-### The LLM Jury System for Food Metadata
-Source: https://careersatdoordash.com/blog/building-food-metadata-with-llm-juries-context-optimization-multimodal-ai/
-HN: https://news.ycombinator.com/item?id=48901275
-Engineers are increasingly delegating messy categorization tasks to consensus-driven LLM panels, trading deterministic code for statistical agreement. While this bypasses the nightmare of manual classification, it introduces silent, non-reproducible drift that traditional CI/CD pipelines aren't built to catch.
+### LeMario: Training a JEPA World Model on Super Mario Bros
+Source: https://www.benjamin-bai.com/projects/lemario
+HN: https://news.ycombinator.com/item?id=48913763
+
+
+### Indian scientists produce most detailed 3D atlas of the human brainstem
+Source: https://www.bbc.com/news/articles/cg53l737v1qo
+HN: https://news.ycombinator.com/item?id=48903082
+
+
+### Alternative(s) to run CUDA on non-Nvidia hardware
+Source: https://www.hpcwire.com/2026/07/09/spectral-compute-aims-to-set-cuda-free-will-it-succeed/
+HN: https://news.ycombinator.com/item?id=48903715
+
 
 ## AI & LLM Overview
 
-### Show HN: Hackney – Compare Uber, Lyft, Waymo, and Robotaxi Prices
-Source: https://hackney.app/
-HN: https://news.ycombinator.com/item?id=48893550
-
-
-### A Study of Microsoft's Early 2026 Rollout of Claude Code and GitHub Copilot CLI
-Source: https://arxiv.org/abs/2607.01418
-HN: https://news.ycombinator.com/item?id=48899321
-
-
-### Former NOAA employees built Climate.us to preserve climate data and resources
-Source: https://19thnews.org/2026/07/noaa-climate-data-website/
-HN: https://news.ycombinator.com/item?id=48897945
+### Legal AI, not a coding agent with scaffolding
+Source: https://lexifina.com/blog/legal-ai-not-a-coding-agent-with-scaffolding
+HN: https://news.ycombinator.com/item?id=48914472
 
 
 ## Model Release History
 
+### Bonsai 27B squeezes desktop-class parameters onto consumer silicon
+Source: https://prismml.com/news/bonsai-27b
+HN: https://news.ycombinator.com/item?id=48910545
+By aggressively optimizing memory layout, the Bonsai 27B model runs locally on modern smartphones. It offers a rare victory for local execution, though the extreme quantization required introduces a stark tradeoff in reasoning precision over multi-step tasks.
+
 ## Top Insights & Advice
 
-### The Git history command deserves more attention
-Source: https://lalitm.com/post/git-history/
-HN: https://news.ycombinator.com/item?id=48901010
+### Just Let Me Write Digits
+Source: https://gendx.dev/blog/2026/07/13/input-digits.html
+HN: https://news.ycombinator.com/item?id=48902791
 No insight extracted.
 
-### Show HN: Sx 2.0 – Share AI skills with your team through a Dropbox folder
-Source: https://sleuth-io.github.io/sx/2026/07/10/your-dropbox-is-now-a-skill-server.html
-HN: https://news.ycombinator.com/item?id=48900319
+### The Hidden Complexity of Analyzing Agent-User Conversations
+Source: https://agnost.ai
+HN: https://news.ycombinator.com/item?id=48908950
+While standard SQL queries and basic LLM tagging work for small datasets, extracting accurate feedback from agent logs breaks down at scale due to attribution challenges, agent framing bias, and rapidly shifting session sentiment. Quote: the hard part isn't extracting quotes, it's attribution – separating what the user actually felt from the agent's own framing, and sentiment that flips inside one session.
+
+### Why organizing knowledge in the age of AI sucks, and how I solve it
+Source: https://jordangreen.bearblog.dev/why-organizing-knowledge-in-the-age-of-ai-sucks-and-what-i-built/
+HN: https://news.ycombinator.com/item?id=48914439
 No insight extracted.
 
-### Agents.md – Dumb Human
-Source: https://gist.github.com/skorotkiewicz/2d4db4ceaf83aa54eb7f2066fdb961ff
-HN: https://news.ycombinator.com/item?id=48901695
-No insight extracted.
+### Why Jurassic Park's Tech Aged So Well
+Source: https://fabiensanglard.net/jurrasic_park_computers/index.html
+HN: https://news.ycombinator.com/item?id=48915709
+The enduring visual appeal of Jurassic Park is anchored in its commitment to absolute authenticity. By featuring real hardware like the Thinking Machines CM-5, actual Macintosh Programmer's Workshop source code, and genuine physical prototypes instead of relying on CGI fakes, the filmmakers respected the audience's sophistication and created a timeless aesthetic. Quote: I don't think it would have aged nearly as well as it has if more CGI (or other ways of 'faking' things) had been been used.
 
 ## Lab Updates & Dark Side
+
+### Cursor 0day: When Full Disclosure Becomes the Only Protection Left
+Source: https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left
+HN: https://news.ycombinator.com/item?id=48910676
+
+
+### TS-2026-009: Insecure argument handling in Tailscale SSH permitted root access
+Source: https://tailscale.com/security-bulletins
+HN: https://news.ycombinator.com/item?id=48915004
+
