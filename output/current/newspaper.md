@@ -1,101 +1,86 @@
 # The Daily Token
 
-Edition: 2026-07-15
+Edition: 2026-07-16
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### Data centers have hiked electricity prices on the public by $23B
-Source: https://fortune.com/2026/07/14/data-centers-23-billion-electricity-bills/
-HN: https://news.ycombinator.com/item?id=48914683
+### OpenAI loses trademark dispute at EU court
+Source: https://dpa-international.com/economics/urn:newsml:dpa.com:20090101:260715-930-389143/
+HN: https://news.ycombinator.com/item?id=48921461
 
 
-### Demis Hassabis has a plan to harness AI safely
-Source: https://twitter.com/demishassabis/status/2076957440109625718
-HN: https://news.ycombinator.com/item?id=48904095
+### The Quiet Drift of Briar into Maintenance Mode
+Source: https://briarproject.org/news/2026-maintenance-mode/
+HN: https://news.ycombinator.com/item?id=48919869
+The peer-to-peer messaging app Briar has stepped back from active development, highlighting the fragile economics of building resilient, metadata-resistant software when users expect complexity over craft.
+
+### An Interactive Map of AI
+Source: https://artifipedia.com/map
+HN: https://news.ycombinator.com/item?id=48930160
 
 
-### Same model, same Q4_K_M label: 5.02, 5.07 and 5.27 bits per weight
-Source: https://github.com/logxio/picchio
-HN: https://news.ycombinator.com/item?id=48912947
+### My Throw Decides My Aim
+Source: https://thegustafson.com/blog/my-throw-decides-my-aim
+HN: https://news.ycombinator.com/item?id=48930149
 
 
-### The Agentic Loop: Three loops in a trench coat
-Source: https://www.bobbytables.io/p/the-agentic-loop-three-loops-in-a
-HN: https://news.ycombinator.com/item?id=48907672
+### Grok Build goes open source, testing the limits of public build orchestration
+Source: https://github.com/xai-org/grok-build
+HN: https://news.ycombinator.com/item?id=48926590
+By releasing Grok Build, xAI open-sources the internal orchestration framework used to compile their massive cluster workloads. While the release offers rare visibility into hyper-scale infrastructure, engineers adopting it face the steep integration tax of a tool highly coupled to xAI's bespoke ecosystem.
+
+### Brainless: Shadcn components that look like Claude Code, Codex and Grok
+Source: https://brainless.swerdlow.dev
+HN: https://news.ycombinator.com/item?id=48926085
 
 
-### Differentiable Fortran with LFortran and Enzyme
-Source: https://docs.pasteurlabs.ai/projects/tesseract-core/latest/blog/2026-07-09-enzyme-lfortran-autodiff.html
-HN: https://news.ycombinator.com/item?id=48905667
+### John Margolies’ roadside Americana archive becomes free fuel for latent space
+Source: https://www.openculture.com/2026/07/free-photos-from-john-margolies-archive-of-americana-architecture.html
+HN: https://news.ycombinator.com/item?id=48928703
+The release of 11,700 high-resolution architectural photographs offers a pristine dataset of mid-century design, though training models on it risks flattening regional vernacular into generic synthetic nostalgia. It serves as a quiet reminder of an era when physical constraints forced structural eccentricity—a discipline increasingly rare in both modern concrete and modern code.
+
+### Launch HN: Coasty (YC S26) – An API for computer-use agents
+Source: https://coasty.ai/docs
+HN: https://news.ycombinator.com/item?id=48922706
 
 
-### Coding agents think ahead of time
-Source: https://arxiv.org/abs/2607.05188
-HN: https://news.ycombinator.com/item?id=48905764
+### Restoring 1,300 historical plates without the modern smoothing brush
+Source: https://www.openculture.com/2026/07/explore-1300-beautiful-wildlife-illustrations-from-the-19th-century.html
+HN: https://news.ycombinator.com/item?id=48929945
+A massive archive of 19th-century wildlife illustrations has been digitally restored, serving as a reminder of an era when botanical and biological documentation required extreme manual precision. While such datasets are prime fodder for training generative models, the loss of physical texture remains a constant casualty of lossy digital curation.
+
+### The Scrap-Heap Stack: Gemma 4 Kept Alive on 2013 Xeon Silicon
+Source: https://www.neomindlabs.com/2026/06/08/running-gemma-4-26b-at-5-tokens-sec-on-a-13-year-old-xeon-with-no-gpu/
+HN: https://news.ycombinator.com/item?id=48922434
+While cloud providers push expensive, liquid-cooled clusters, developers are coaxing five tokens per second out of obsolete enterprise CPUs through aggressive quantization. It is a quiet reminder of how much bloat we tolerate in modern runtimes, even if the severe latency penalties limit this to an exercise in intellectual defiance rather than a production reality.
+
+### LLM Networking with MikroTik
+Source: https://blog.greg.technology/2026/07/14/llm-networking-with-mikrotik.html
+HN: https://news.ycombinator.com/item?id=48927915
 
 
-### LeMario: Training a JEPA World Model on Super Mario Bros
-Source: https://www.benjamin-bai.com/projects/lemario
-HN: https://news.ycombinator.com/item?id=48913763
+### P2P local file transfer based on WebRTC
+Source: https://pairdrop.net/
+HN: https://news.ycombinator.com/item?id=48927900
 
 
-### Indian scientists produce most detailed 3D atlas of the human brainstem
-Source: https://www.bbc.com/news/articles/cg53l737v1qo
-HN: https://news.ycombinator.com/item?id=48903082
-
-
-### Alternative(s) to run CUDA on non-Nvidia hardware
-Source: https://www.hpcwire.com/2026/07/09/spectral-compute-aims-to-set-cuda-free-will-it-succeed/
-HN: https://news.ycombinator.com/item?id=48903715
+### Fleet: Hierarchical Task-Based Abstraction for Megakernels on Multi-Die GPUs
+Source: https://arxiv.org/abs/2604.15379
+HN: https://news.ycombinator.com/item?id=48929856
 
 
 ## AI & LLM Overview
 
-### Legal AI, not a coding agent with scaffolding
-Source: https://lexifina.com/blog/legal-ai-not-a-coding-agent-with-scaffolding
-HN: https://news.ycombinator.com/item?id=48914472
-
-
 ## Model Release History
 
-### Bonsai 27B squeezes desktop-class parameters onto consumer silicon
-Source: https://prismml.com/news/bonsai-27b
-HN: https://news.ycombinator.com/item?id=48910545
-By aggressively optimizing memory layout, the Bonsai 27B model runs locally on modern smartphones. It offers a rare victory for local execution, though the extreme quantization required introduces a stark tradeoff in reasoning precision over multi-step tasks.
+### Inkling: Our Open-Weights Model
+Source: https://thinkingmachines.ai/news/introducing-inkling/
+HN: https://news.ycombinator.com/item?id=48924912
+
 
 ## Top Insights & Advice
 
-### Just Let Me Write Digits
-Source: https://gendx.dev/blog/2026/07/13/input-digits.html
-HN: https://news.ycombinator.com/item?id=48902791
-No insight extracted.
-
-### The Hidden Complexity of Analyzing Agent-User Conversations
-Source: https://agnost.ai
-HN: https://news.ycombinator.com/item?id=48908950
-While standard SQL queries and basic LLM tagging work for small datasets, extracting accurate feedback from agent logs breaks down at scale due to attribution challenges, agent framing bias, and rapidly shifting session sentiment. Quote: the hard part isn't extracting quotes, it's attribution – separating what the user actually felt from the agent's own framing, and sentiment that flips inside one session.
-
-### Why organizing knowledge in the age of AI sucks, and how I solve it
-Source: https://jordangreen.bearblog.dev/why-organizing-knowledge-in-the-age-of-ai-sucks-and-what-i-built/
-HN: https://news.ycombinator.com/item?id=48914439
-No insight extracted.
-
-### Why Jurassic Park's Tech Aged So Well
-Source: https://fabiensanglard.net/jurrasic_park_computers/index.html
-HN: https://news.ycombinator.com/item?id=48915709
-The enduring visual appeal of Jurassic Park is anchored in its commitment to absolute authenticity. By featuring real hardware like the Thinking Machines CM-5, actual Macintosh Programmer's Workshop source code, and genuine physical prototypes instead of relying on CGI fakes, the filmmakers respected the audience's sophistication and created a timeless aesthetic. Quote: I don't think it would have aged nearly as well as it has if more CGI (or other ways of 'faking' things) had been been used.
-
 ## Lab Updates & Dark Side
-
-### Cursor 0day: When Full Disclosure Becomes the Only Protection Left
-Source: https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left
-HN: https://news.ycombinator.com/item?id=48910676
-
-
-### TS-2026-009: Insecure argument handling in Tailscale SSH permitted root access
-Source: https://tailscale.com/security-bulletins
-HN: https://news.ycombinator.com/item?id=48915004
-

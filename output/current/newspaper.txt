@@ -1,83 +1,72 @@
 THE DAILY TOKEN
-Edition: 2026-07-15
+Edition: 2026-07-16
 ================================================
 
 EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Data centers have hiked electricity prices on the public by $23B
-  https://fortune.com/2026/07/14/data-centers-23-billion-electricity-bills/
+* OpenAI loses trademark dispute at EU court
+  https://dpa-international.com/economics/urn:newsml:dpa.com:20090101:260715-930-389143/
   
 
-* Demis Hassabis has a plan to harness AI safely
-  https://twitter.com/demishassabis/status/2076957440109625718
+* The Quiet Drift of Briar into Maintenance Mode
+  https://briarproject.org/news/2026-maintenance-mode/
+  The peer-to-peer messaging app Briar has stepped back from active development, highlighting the fragile economics of building resilient, metadata-resistant software when users expect complexity over craft.
+
+* An Interactive Map of AI
+  https://artifipedia.com/map
   
 
-* Same model, same Q4_K_M label: 5.02, 5.07 and 5.27 bits per weight
-  https://github.com/logxio/picchio
+* My Throw Decides My Aim
+  https://thegustafson.com/blog/my-throw-decides-my-aim
   
 
-* The Agentic Loop: Three loops in a trench coat
-  https://www.bobbytables.io/p/the-agentic-loop-three-loops-in-a
+* Grok Build goes open source, testing the limits of public build orchestration
+  https://github.com/xai-org/grok-build
+  By releasing Grok Build, xAI open-sources the internal orchestration framework used to compile their massive cluster workloads. While the release offers rare visibility into hyper-scale infrastructure, engineers adopting it face the steep integration tax of a tool highly coupled to xAI's bespoke ecosystem.
+
+* Brainless: Shadcn components that look like Claude Code, Codex and Grok
+  https://brainless.swerdlow.dev
   
 
-* Differentiable Fortran with LFortran and Enzyme
-  https://docs.pasteurlabs.ai/projects/tesseract-core/latest/blog/2026-07-09-enzyme-lfortran-autodiff.html
+* John Margolies’ roadside Americana archive becomes free fuel for latent space
+  https://www.openculture.com/2026/07/free-photos-from-john-margolies-archive-of-americana-architecture.html
+  The release of 11,700 high-resolution architectural photographs offers a pristine dataset of mid-century design, though training models on it risks flattening regional vernacular into generic synthetic nostalgia. It serves as a quiet reminder of an era when physical constraints forced structural eccentricity—a discipline increasingly rare in both modern concrete and modern code.
+
+* Launch HN: Coasty (YC S26) – An API for computer-use agents
+  https://coasty.ai/docs
   
 
-* Coding agents think ahead of time
-  https://arxiv.org/abs/2607.05188
+* Restoring 1,300 historical plates without the modern smoothing brush
+  https://www.openculture.com/2026/07/explore-1300-beautiful-wildlife-illustrations-from-the-19th-century.html
+  A massive archive of 19th-century wildlife illustrations has been digitally restored, serving as a reminder of an era when botanical and biological documentation required extreme manual precision. While such datasets are prime fodder for training generative models, the loss of physical texture remains a constant casualty of lossy digital curation.
+
+* The Scrap-Heap Stack: Gemma 4 Kept Alive on 2013 Xeon Silicon
+  https://www.neomindlabs.com/2026/06/08/running-gemma-4-26b-at-5-tokens-sec-on-a-13-year-old-xeon-with-no-gpu/
+  While cloud providers push expensive, liquid-cooled clusters, developers are coaxing five tokens per second out of obsolete enterprise CPUs through aggressive quantization. It is a quiet reminder of how much bloat we tolerate in modern runtimes, even if the severe latency penalties limit this to an exercise in intellectual defiance rather than a production reality.
+
+* LLM Networking with MikroTik
+  https://blog.greg.technology/2026/07/14/llm-networking-with-mikrotik.html
   
 
-* LeMario: Training a JEPA World Model on Super Mario Bros
-  https://www.benjamin-bai.com/projects/lemario
+* P2P local file transfer based on WebRTC
+  https://pairdrop.net/
   
 
-* Indian scientists produce most detailed 3D atlas of the human brainstem
-  https://www.bbc.com/news/articles/cg53l737v1qo
-  
-
-* Alternative(s) to run CUDA on non-Nvidia hardware
-  https://www.hpcwire.com/2026/07/09/spectral-compute-aims-to-set-cuda-free-will-it-succeed/
+* Fleet: Hierarchical Task-Based Abstraction for Megakernels on Multi-Die GPUs
+  https://arxiv.org/abs/2604.15379
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* Legal AI, not a coding agent with scaffolding
-  https://lexifina.com/blog/legal-ai-not-a-coding-agent-with-scaffolding
-  
-
 MODEL RELEASE HISTORY
 ------------------------------------------------
-* Bonsai 27B squeezes desktop-class parameters onto consumer silicon
-  https://prismml.com/news/bonsai-27b
-  By aggressively optimizing memory layout, the Bonsai 27B model runs locally on modern smartphones. It offers a rare victory for local execution, though the extreme quantization required introduces a stark tradeoff in reasoning precision over multi-step tasks.
+* Inkling: Our Open-Weights Model
+  https://thinkingmachines.ai/news/introducing-inkling/
+  
 
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* Just Let Me Write Digits
-  https://gendx.dev/blog/2026/07/13/input-digits.html
-  No insight extracted.
-
-* The Hidden Complexity of Analyzing Agent-User Conversations
-  https://agnost.ai
-  While standard SQL queries and basic LLM tagging work for small datasets, extracting accurate feedback from agent logs breaks down at scale due to attribution challenges, agent framing bias, and rapidly shifting session sentiment. Quote: the hard part isn't extracting quotes, it's attribution – separating what the user actually felt from the agent's own framing, and sentiment that flips inside one session.
-
-* Why organizing knowledge in the age of AI sucks, and how I solve it
-  https://jordangreen.bearblog.dev/why-organizing-knowledge-in-the-age-of-ai-sucks-and-what-i-built/
-  No insight extracted.
-
-* Why Jurassic Park's Tech Aged So Well
-  https://fabiensanglard.net/jurrasic_park_computers/index.html
-  The enduring visual appeal of Jurassic Park is anchored in its commitment to absolute authenticity. By featuring real hardware like the Thinking Machines CM-5, actual Macintosh Programmer's Workshop source code, and genuine physical prototypes instead of relying on CGI fakes, the filmmakers respected the audience's sophistication and created a timeless aesthetic. Quote: I don't think it would have aged nearly as well as it has if more CGI (or other ways of 'faking' things) had been been used.
-
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Cursor 0day: When Full Disclosure Becomes the Only Protection Left
-  https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left
-  
-
-* TS-2026-009: Insecure argument handling in Tailscale SSH permitted root access
-  https://tailscale.com/security-bulletins
-  
