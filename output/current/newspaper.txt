@@ -1,111 +1,96 @@
 THE DAILY TOKEN
-Edition: 2026-07-19
+Edition: 2026-07-20
 ================================================
 
 EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Inkling deployment depletes cloud reserves of B200 hardware
-  https://twitter.com/Akashi203/status/2078615659366252877
-  The immediate exhaustion of available B200 allocations suggests developers are trading off foundational software optimization for raw compute scale. This rush exposes a fragile reliance on monolithic infrastructure providers, leaving smaller teams priced out of the immediate hardware cycle.
-
-* Prompting constraints fail to bridge the frontier gap on NP-hard tasks
-  https://charlesazam.com/blog/fable-5-gpt-5-6-sol-goal/
-  Evaluation of Fable 5 and GPT-5.6 Sol against combinatorial optimization shows that explicit goal-structuring directives offer negligible relief for underlying architectural deficiencies in raw mathematical reasoning. While specialized prompting provides minor execution efficiencies, it introduces structural rigidity that frequently causes agents to collapse into repetitive, sub-optimal loops.
-
-* The Local Bipartisan Front Against Data Centers
-  https://www.washingtonpost.com/technology/2026/07/18/how-data-centers-became-symbol-americans-rage/
-  As power grids strain under modern computing demands, rural and suburban communities are finding rare political unity in opposing local data center expansions. The immediate friction isn't over algorithmic bias or safety, but the tangible erosion of local resources and quiet landscapes.
-
-* GPT-5.6 used a prompt to close a 30-year gap in convex optimization
-  https://old.reddit.com/r/math/comments/1uxj3cy/after_openais_cdc_proof_announcement_gpt56_used_a/
+* OpenAI reduces Codex Model Context Size from 372k to 272k
+  https://github.com/openai/codex/pull/33972/files
   
 
-* AXI – Agent EXperience Interface
-  https://axi.md/
+* Anthropic Model Proposes Jacobian Counterexample, Leaving Mathematicians to Verify the Arithmetic
+  https://xcancel.com/__alpoge__/status/2079028340955197566
+  An automated system has output a potential flaw in a famous 1939 algebraic conjecture, highlighting how modern tools can draft mathematical claims far faster than human peer review can validate them. The risk lies in confusing rapid symbolic generation with actual proof, threatening to flood open research with plausible but unverified noise.
+
+* Probabilistic Systems Trade Determinism for Speed on Complex Search Space
+  https://spectrum.ieee.org/biggest-probabilistic-computer
+  By harnessing thermal and electronic noise as a compute primitive rather than treating it as hardware defect, researchers have scaled probabilistic processors to tackle NP-hard optimization problems. The risk lies in non-deterministic failure modes that complicate traditional debugging, forcing developers to swap exact correctness for statistical confidence.
+
+* Grid operators leverage state power to clear land for compute
+  https://fortune.com/2026/07/19/data-center-eminent-domain-public-use/
+  Utilities are turning to eminent domain to secure physical footprints for data centers, trading agricultural and residential land for raw power capacity. The shift positions energy infrastructure not as a public utility, but as a direct subsidy to industrial scale modeling, permanently altering local property rights.
+
+* Neither GCC nor Clang are compliant with standard C++
+  https://sebsite.pw/w/20260708-badstdcxx.html
   
 
-* Acoustic signatures isolate the malaria vector
-  https://www.smh.com.au/national/nsw/the-device-detecting-the-world-s-deadliest-creature-20260715-p60fm4.html
-  Deploying lightweight classification models to edge hardware allows for real-time tracking of *Anopheles* mosquitoes by their flight tones. While the approach circumvents the need for expensive regional surveillance infrastructure, it introduces significant false-positive risks in biodiverse environments where acoustic overlap is common.
+* The Silicon Reality of Isla Nublar's Infrastructure
+  https://www.tomshardware.com/desktops/jurassic-park-packed-usd4-million-of-legit-1993-computer-hardware-a-software-engineer-detailed-every-single-piece-of-hardware-in-the-film
+  Michael Crichton’s fictional control room relied on $4 million of authentic 1993 hardware—including Connection Machine CM-5s and SGI Crimson workstations—to ground its premise in contemporary engineering reality. It remains a stark reminder of an era when system limits were respected because they were physical, though the film's premise still exposed the permanent vulnerability of trusting a complex system to a single, disgruntled architect.
 
-* Laser mini-devices generate a stream of unique keys for stronger security
-  https://discovery.kaust.edu.sa/en/article/27198/laser-security-system-protects-online-data/
+* Study: Single-crystal nanowires of niobium arsenide may replace copper wires
+  https://news.cornell.edu/stories/2026/07/too-thin-fail-alternative-copper-microchip-interconnects
   
 
-* Transcribe.cpp and the localism of necessary tools
-  https://workshop.cjpais.com/projects/transcribe-cpp
-  The migration of audio transcription to optimized, local C++ implementations highlights a growing preference for predictable, self-contained dependencies over brittle cloud APIs. While this reclaims engineering autonomy, it shifts the burden of hardware-specific performance tuning entirely back to the individual developer.
-
-* I built a browser-based P2P file transfer tool using WebRTC
-  https://airdows.com/
+* Claude Code skill for searching royalty-free stock photos via the Pexels API
+  https://github.com/amalshehu/pexels-skill
   
 
-* IceCream – Never use print() to debug again
-  https://github.com/gruns/icecream
+* Delete Your Data with Drop
+  https://privacy.ca.gov/
   
 
-* Show HN: Zlvox – 25 Free Developer Tools (AI, JSON, PDF) with Zero Tracking
-  https://zlvox.com/
+* Moonshine Extends PC Game Streaming Beyond Official Moonlight Limits
+  https://github.com/hgaiser/moonshine
+  Moonshine wraps NVIDIA’s open-source streaming protocol into a lighter, host-side runner, preserving local hardware efficiency while bypassing vendor setup bloat. It trade-off remains network susceptibility: local frame pacing gains mean little over unoptimized Wi-Fi.
+
+* Anthropic shifts Claude Code to Bun runtime, trading edge-case stability for speed
+  https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/
+  By swapping the underlying execution layer for a Rust-built engine, the tool cuts latency for local repository operations. It is a welcome nod to performance, though relying on a less mature runtime introduces unpredictable failure modes for developers in production environments.
+
+* Clever hacker fits 537,000 domains in a $5 ESP32 ad-blocking dongle
+  https://www.tomshardware.com/networking/clever-hacker-fits-537-000-domains-in-a-tiny-usd5-esp32-ad-blocking-dongle-firmware-uses-only-around-50kb-of-ram-and-can-answer-blocked-lookups-in-10-milliseconds
   
 
-* LLM-Integrated Multivariable Calculus Course
-  https://calculus.academa.ai/
-  
-
-* The Proliferation of the Prompt-Driven Draft
-  https://github.com/ai-for-developers/awesome-vibe-coding
-  As 'vibecoding' shifts from a Twitter meme to a structured repository of commercial tooling, the trade-off is clear: rapid deployment at the expense of deep architectural legibility. The emerging toolkit commoditizes execution, leaving open the question of who inherits the technical debt when the vibe shifts.
-
-* The Computer at the Bottom of a Canal
-  https://negroniventurestudios.com/2026/07/18/the-computer-at-the-bottom-of-a-canal/
-  
-
-* AI for Systems is "AGI-Complete"
-  https://dl.acm.org/doi/10.1145/3830422.3830425
+* Anthropic runs large-scale code migrations with Claude Code
+  https://claude.com/blog/ai-code-migration
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* What AI did to stackoverflow in a graph
-  https://data.stackexchange.com/stackoverflow/query/1953768#graph
+* Wall Street Demands Proof of Utility as Infrastructure Costs Mount
+  https://www.bloomberg.com/news/articles/2026-07-19/big-tech-needs-to-justify-ai-spending-as-investors-dump-stocks
+  As capital expenditures outpace tangible software revenue, tech conglomerates face a reckoning over whether massive cluster deployments can yield genuine productivity or merely expensive automation. The shift forces a pivot from speculative scaling toward rigorous, disciplined software engineering.
+
+* Tech Workers Face Evaporating Financial Security as AI Transforms Industry
+  https://www.adn.com/nation-world/2026/07/19/the-biggest-winners-of-the-american-economy-fear-theyre-sinking-fast/
   
 
-* The spreadsheet-era decline of corporate leadership, accelerated
-  https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/#fnref:3
-  As executives outsource their thinking to opaque analytical frameworks, the capacity for genuine strategic judgment is fracturing. The immediate risk is not rogue software, but the rapid degradation of institutional accountability under the guise of data-driven objectivity.
-
-* AI Mania Is Eviscerating Global Decision-Making
-  https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/
+* Moonshot AI suspends new subscriptions due to Kimi K3 demand
+  https://twitter.com/kimi_moonshot/status/2078855608565207130
   
 
-* SpaceX short interest climbs as public markets demand structural predictability
-  https://www.ft.com/content/2b96703d-440b-46db-8d86-9fff9ecc59d5
-  Weeks after its public debut, trading data shows a sharp rise in short positions against SpaceX, highlighting a fundamental clash between the company's capital-intensive, high-risk development cycles and the public market's intolerance for unhedged engineering volatility.
+* Ollama: All Aboard Open Models
+  https://ollama.com/blog/all-aboard-open-models
+  
+
+* How proprietary formats have become Microsoft’s main tool for lock-in
+  https://blog.documentfoundation.org/blog/2026/07/17/microsofts-main-tool-for-lock-in/
+  
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* The Rebranding Rorschach Test: Circles, Apertures, and Corporate Abstraction
-  https://velvetshark.com/ai-company-logos-that-look-like-buttholes
-  The trend of circular corporate logos predates the AI era, often serving as a tool for financialization and abstraction away from concrete operations. While some view these minimalist designs as apertures signifying emergence, others see a corporate Rorschach test where over-simplification invites unintended, crude comparisons. Quote: They’re apertures; symbolically things emerge from them.
-
-* Setting up your spare Mac for Claude Code to control, a step-by-step guide
-  https://ykdojo.github.io/claude-controls-mac/
+* AI advice made people less accurate but more confident – sudy
+  https://thenextweb.com/news/ai-advice-suppresses-critical-thinking-wrong-answers-study
   No insight extracted.
 
-* Goodbye, and Thanks for All the Bikesheds
-  https://queue.acm.org/detail.cfm?id=3818307
-  No insight extracted.
-
-* curl can be used to send emails with SMTP
-  https://mastodon.social/@chr1stian/116924759058231144
+* A new Intel Itanium (IA-64) emulator that boots Windows
+  https://raymii.org/s/blog/Intel_Itanium_IA-64-Emulator_that_boots_Windows.html
   No insight extracted.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Parallel Deserialization and the Limits of Review: The Architecture of Wp2shell
-  https://www.hacktron.ai/blog/wp2shell
-  The recent pre-authentication remote code execution chain in WordPress Core highlights a systemic breakdown in tracking parallel internal state structures. While structured code review catching subtle index mismatches remains a defensive ideal, the sheer complexity of stateful batch APIs often outpaces the cognitive limits of manual or automated inspection.
