@@ -1,116 +1,126 @@
 # The Daily Token
 
-Edition: 2026-07-20
+Edition: 2026-07-21
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### OpenAI reduces Codex Model Context Size from 372k to 272k
-Source: https://github.com/openai/codex/pull/33972/files
-HN: https://news.ycombinator.com/item?id=48965850
+### New York blocks large data centers for a year
+Source: https://apnews.com/article/new-york-data-centers-moratorium-ai-c1e05b74208a6c570eec7c658ac8f187
+HN: https://news.ycombinator.com/item?id=48987373
 
 
-### Anthropic Model Proposes Jacobian Counterexample, Leaving Mathematicians to Verify the Arithmetic
-Source: https://xcancel.com/__alpoge__/status/2079028340955197566
-HN: https://news.ycombinator.com/item?id=48973869
-An automated system has output a potential flaw in a famous 1939 algebraic conjecture, highlighting how modern tools can draft mathematical claims far faster than human peer review can validate them. The risk lies in confusing rapid symbolic generation with actual proof, threatening to flood open research with plausible but unverified noise.
+### Formal Verification Reclaims Ground in High-Dimensional Algebra
+Source: https://blog.clidey.com/a-reproducible-proof-against-the-jacobian-conjecture/
+HN: https://news.ycombinator.com/item?id=48986810
+By pairing Lean formal proof assistants with neural code generation, researchers claim a machine-verifiable counterexample to a long-standing conjecture in algebraic geometry. While the approach sidesteps human oversight errors, it exposes a different vulnerability: trusting the translation layer between mathematical intuition and executable logic.
 
-### Probabilistic Systems Trade Determinism for Speed on Complex Search Space
-Source: https://spectrum.ieee.org/biggest-probabilistic-computer
-HN: https://news.ycombinator.com/item?id=48971938
-By harnessing thermal and electronic noise as a compute primitive rather than treating it as hardware defect, researchers have scaled probabilistic processors to tackle NP-hard optimization problems. The risk lies in non-deterministic failure modes that complicate traditional debugging, forcing developers to swap exact correctness for statistical confidence.
-
-### Grid operators leverage state power to clear land for compute
-Source: https://fortune.com/2026/07/19/data-center-eminent-domain-public-use/
-HN: https://news.ycombinator.com/item?id=48974292
-Utilities are turning to eminent domain to secure physical footprints for data centers, trading agricultural and residential land for raw power capacity. The shift positions energy infrastructure not as a public utility, but as a direct subsidy to industrial scale modeling, permanently altering local property rights.
-
-### Neither GCC nor Clang are compliant with standard C++
-Source: https://sebsite.pw/w/20260708-badstdcxx.html
-HN: https://news.ycombinator.com/item?id=48970039
+### Controlling Reasoning Effort in LLMs
+Source: https://magazine.sebastianraschka.com/p/controlling-reasoning-effort-in-llms
+HN: https://news.ycombinator.com/item?id=48979475
 
 
-### The Silicon Reality of Isla Nublar's Infrastructure
-Source: https://www.tomshardware.com/desktops/jurassic-park-packed-usd4-million-of-legit-1993-computer-hardware-a-software-engineer-detailed-every-single-piece-of-hardware-in-the-film
-HN: https://news.ycombinator.com/item?id=48972082
-Michael Crichton’s fictional control room relied on $4 million of authentic 1993 hardware—including Connection Machine CM-5s and SGI Crimson workstations—to ground its premise in contemporary engineering reality. It remains a stark reminder of an era when system limits were respected because they were physical, though the film's premise still exposed the permanent vulnerability of trusting a complex system to a single, disgruntled architect.
-
-### Study: Single-crystal nanowires of niobium arsenide may replace copper wires
-Source: https://news.cornell.edu/stories/2026/07/too-thin-fail-alternative-copper-microchip-interconnects
-HN: https://news.ycombinator.com/item?id=48967406
+### Inertia-1: An Open Exploration to a Unified Motion Foundation Model
+Source: https://yang-ai-lab.github.io/Inertia-1/
+HN: https://news.ycombinator.com/item?id=48978388
 
 
-### Claude Code skill for searching royalty-free stock photos via the Pexels API
-Source: https://github.com/amalshehu/pexels-skill
-HN: https://news.ycombinator.com/item?id=48967807
+### Airport Simulator Swaps Deterministic Logic for Probabilistic Queues
+Source: https://airport.apunen.com/
+HN: https://news.ycombinator.com/item?id=48976846
+The model release models chaotic physical routing through multi-agent orchestration, offering high-throughput system approximation at the expense of reproducible edge-case debugging. It stands as a quiet reminder of how modern tooling continues to replace explicit systems craft with probabilistic guesswork, leaving open whether classical engineering discipline will ever regain its footing.
+
+### Eye Tracking on Your Cellphone
+Source: https://gazecapture.csail.mit.edu/
+HN: https://news.ycombinator.com/item?id=48987114
 
 
-### Delete Your Data with Drop
-Source: https://privacy.ca.gov/
-HN: https://news.ycombinator.com/item?id=48973715
+### A Koi Pond Mosaic Made from 10 Pounds of 3D Printer Waste
+Source: https://www.instructables.com/A-Koi-Pond-Mosaic-Made-From-10-Pounds-of-3D-Printe/
+HN: https://news.ycombinator.com/item?id=48987831
 
 
-### Moonshine Extends PC Game Streaming Beyond Official Moonlight Limits
-Source: https://github.com/hgaiser/moonshine
-HN: https://news.ycombinator.com/item?id=48972970
-Moonshine wraps NVIDIA’s open-source streaming protocol into a lighter, host-side runner, preserving local hardware efficiency while bypassing vendor setup bloat. It trade-off remains network susceptibility: local frame pacing gains mean little over unoptimized Wi-Fi.
+### Jelly UI Replaces Static Forms with Soft-Body Physics
+Source: https://jelly-ui.com/
+HN: https://news.ycombinator.com/item?id=48981620
+By driving native HTML controls with dynamic physical simulations, Jelly UI offers a novel interaction model, though introducing heavy visual computation into basic input elements risks trading traditional interface predictability for novel feel.
 
-### Anthropic shifts Claude Code to Bun runtime, trading edge-case stability for speed
-Source: https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/
-HN: https://news.ycombinator.com/item?id=48966569
-By swapping the underlying execution layer for a Rust-built engine, the tool cuts latency for local repository operations. It is a welcome nod to performance, though relying on a less mature runtime introduces unpredictable failure modes for developers in production environments.
+### Firefox 153 Shifts Video and Image Decoding Off the CPU
+Source: https://www.phoronix.com/news/Firefox-153-Downloads
+HN: https://news.ycombinator.com/item?id=48978835
+By shipping Vulkan video acceleration and JPEG-XL support, Mozilla reduces local compute overhead, though relying on GPU vendor driver stack quality introduces a familiar tail of hardware-specific edge cases.
 
-### Clever hacker fits 537,000 domains in a $5 ESP32 ad-blocking dongle
-Source: https://www.tomshardware.com/networking/clever-hacker-fits-537-000-domains-in-a-tiny-usd5-esp32-ad-blocking-dongle-firmware-uses-only-around-50kb-of-ram-and-can-answer-blocked-lookups-in-10-milliseconds
-HN: https://news.ycombinator.com/item?id=48968348
+### Cue AI Attempts to Systematize Engineer Intuition
+Source: https://deepmind.google/models/gemma/gemmaverse/cue-ai/
+HN: https://news.ycombinator.com/item?id=48983890
+Cue AI promises to streamline advice for engineering teams, though replacing hands-on mentorship with automated playbooks risks dulling the core problem-solving discipline that keeps complex systems standing.
+
+### Nativ: Run frontier open models locally on your Mac
+Source: https://blaizzy.github.io/nativ/
+HN: https://news.ycombinator.com/item?id=48982681
 
 
-### Anthropic runs large-scale code migrations with Claude Code
-Source: https://claude.com/blog/ai-code-migration
-HN: https://news.ycombinator.com/item?id=48966044
+### A PHP server that can handle 10x as many concurrent requests as Nginx+PHP-fpm
+Source: https://github.com/Qbix/webserver/blob/main/README.md
+HN: https://news.ycombinator.com/item?id=48987347
 
 
 ## AI & LLM Overview
 
-### Wall Street Demands Proof of Utility as Infrastructure Costs Mount
-Source: https://www.bloomberg.com/news/articles/2026-07-19/big-tech-needs-to-justify-ai-spending-as-investors-dump-stocks
-HN: https://news.ycombinator.com/item?id=48974426
-As capital expenditures outpace tangible software revenue, tech conglomerates face a reckoning over whether massive cluster deployments can yield genuine productivity or merely expensive automation. The shift forces a pivot from speculative scaling toward rigorous, disciplined software engineering.
+### Open weights beat closed labs at their own game
+Source: https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/
+HN: https://news.ycombinator.com/item?id=48979269
+By flooding the ecosystem with performant open models, Chinese research labs are forcing Western vendors into a margin-squeezing race while quietly shifting the global baseline of software discipline.
 
-### Tech Workers Face Evaporating Financial Security as AI Transforms Industry
-Source: https://www.adn.com/nation-world/2026/07/19/the-biggest-winners-of-the-american-economy-fear-theyre-sinking-fast/
-HN: https://news.ycombinator.com/item?id=48973847
-
-
-### Moonshot AI suspends new subscriptions due to Kimi K3 demand
-Source: https://twitter.com/kimi_moonshot/status/2078855608565207130
-HN: https://news.ycombinator.com/item?id=48969291
+### Agent swarms and the new model economics
+Source: https://cursor.com/blog/agent-swarm-model-economics
+HN: https://news.ycombinator.com/item?id=48982535
 
 
-### Ollama: All Aboard Open Models
-Source: https://ollama.com/blog/all-aboard-open-models
-HN: https://news.ycombinator.com/item?id=48965880
+### Tech Giants Mask $1.65 Trillion in Off-Balance-Sheet Obligations for AI Infrastructure
+Source: https://asia.nikkei.com/business/technology/five-us-tech-giants-hidden-debts-soar-to-1.65tn-on-opaque-ai-funding
+HN: https://news.ycombinator.com/item?id=48987863
+Major technology firms are resorting to complex off-balance-sheet financing mechanisms to bankroll massive compute expansion, trading transparent financial engineering for raw compute scale. The risk lies in obscured capital liabilities that could force sudden cost-cutting across core engineering teams if generative workload margins fail to materialize.
 
-
-### How proprietary formats have become Microsoft’s main tool for lock-in
-Source: https://blog.documentfoundation.org/blog/2026/07/17/microsofts-main-tool-for-lock-in/
-HN: https://news.ycombinator.com/item?id=48974476
+### Who's afraid of Chinese models?
+Source: https://stratechery.com/2026/whos-afraid-of-chinese-models/
+HN: https://news.ycombinator.com/item?id=48977128
 
 
 ## Model Release History
 
 ## Top Insights & Advice
 
-### AI advice made people less accurate but more confident – sudy
-Source: https://thenextweb.com/news/ai-advice-suppresses-critical-thinking-wrong-answers-study
-HN: https://news.ycombinator.com/item?id=48971738
+### I found a WordPress RCEs with GPT5.6 and $25
+Source: https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/
+HN: https://news.ycombinator.com/item?id=48975665
 No insight extracted.
 
-### A new Intel Itanium (IA-64) emulator that boots Windows
-Source: https://raymii.org/s/blog/Intel_Itanium_IA-64-Emulator_that_boots_Windows.html
-HN: https://news.ycombinator.com/item?id=48971566
+### Perfection is not over-engineering
+Source: https://var0.xyz/posts/perfection-is-not-over-engineering.html
+HN: https://news.ycombinator.com/item?id=48979120
 No insight extracted.
+
+### Mythologizing AI makes it more likely that we’ll fail to operate it well (2023)
+Source: https://www.newyorker.com/science/annals-of-artificial-intelligence/there-is-no-ai
+HN: https://news.ycombinator.com/item?id=48980238
+No insight extracted.
+
+### The Customization Trap: AI Prompts as the New Vimrc
+Source: https://rosipov.com/blog/ai-vim-and-the-illusion-of-flow/
+HN: https://news.ycombinator.com/item?id=48982411
+AI enthusiasts often fall into the same productivity illusion as Vim users, spending more time tweaking setups, custom agents, and workflows than actually producing meaningful output. Quote: AI enthusiasts seem to spend most of their time tweaking their setup... Similar to how us vim users keep updating/rewriting our config. It makes you feel productive while
 
 ## Lab Updates & Dark Side
+
+### Safety and alignment in an era of long-horizon models
+Source: https://openai.com/index/safety-alignment-long-horizon-models/
+HN: https://news.ycombinator.com/item?id=48983108
+
+
+### Hacker wipes Romania's land registry database
+Source: https://news.risky.biz/risky-bulletin-hacker-wipes-romanias-entire-land-registry-database/
+HN: https://news.ycombinator.com/item?id=48978605
+
