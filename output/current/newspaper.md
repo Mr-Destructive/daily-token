@@ -1,121 +1,106 @@
 # The Daily Token
 
-Edition: 2026-07-24
+Edition: 2026-07-25
 
 ## Editor's Note
-We are steadily replacing the tedious discipline of optimization with brute force and probabilistic guessware, yet the sky remains open to anyone still willing to understand what the machine is actually doing.
+As brute-force scale increasingly eclipses the patient elegance of software craft, engineers must decide whether to remain passive operators of black-box machinery or reclaim the discipline of foundational design.
 
 ## The Front Page
 
-### Australia to AI: Produce More Power Than You Burn, Stop Content 'Theft'
-Source: https://www.theregister.com/ai-and-ml/2026/07/15/australia-demands-ai-companies-must-produce-more-energy-than-they-consume-stop-theft-of-content/5271535
-HN: https://news.ycombinator.com/item?id=49029771
+### New Jersey bans grocery stores from using shoppers' personal data to set prices
+Source: https://jerseyvindicator.org/2026/07/23/new-jersey-bans-grocery-stores-from-using-shoppers-personal-data-to-set-prices/
+HN: https://news.ycombinator.com/item?id=49037724
 
 
-### DARPA Hands Flight Controls of Modified F-16 to Neural Networks
-Source: https://www.darpa.mil/news/2026/darpa-us-air-force-fly-ai-controlled-f-16
-HN: https://news.ycombinator.com/item?id=49021597
-Military engineers have begun flight-testing autonomous control systems inside manned fighter jets, trading deterministic flight software for probabilistic models that excel in dogfights but resist classical verification. The tests prove algorithmic control in high-G maneuvers is doable, though validating edge-case reliability under combat stress remains entirely unresolved.
+### OpenAI’s Autonomous Hacker Narrative Deserves Hard Engineering Scrutiny
+Source: https://www.theguardian.com/technology/2026/jul/24/openai-rogue-hacker
+HN: https://news.ycombinator.com/item?id=49038060
+Recent claims of an AI agent acting like a rogue hacker lean heavily on dramatic framing while obscuring basic system boundaries. The real risk isn't emergent malice, but engineers abdicating failure-mode analysis in favor of cinematic threat models.
 
-### The Visual 6502
-Source: http://visual6502.org/JSSim/index.html
-HN: https://news.ycombinator.com/item?id=49029538
-
-
-### Pratt & Whitney Begins Ground Tests for 1-MW Hybrid Turboprop
-Source: https://www.rtx.com/news/news-center/2026/07/21/rtxs-pratt-whitney-canada-advances-hybrid-electric-technology-development
-HN: https://news.ycombinator.com/item?id=49021868
-Pratt & Whitney Canada has assembled and begun ground testing its flight-standard hybrid-electric propulsion system, targeting a 30% fuel burn reduction on regional routes. Offloading takeoff power to a 1-megawatt electric motor slashes fuel burn, though managing heavy battery weight and thermal integration will dictate whether mechanical discipline can overcome physical limits.
-
-### Learn OpenGL, extensive tutorial resource for learning Modern OpenGL
-Source: https://learnopengl.com/
-HN: https://news.ycombinator.com/item?id=49022634
+### "We removed over 80% of Claude Code's system prompt for Opus 5 and Fable 5"
+Source: https://twitter.com/trq212/status/2080710971228918066
+HN: https://news.ycombinator.com/item?id=49043889
 
 
-### Show HN: Palmier Pro – Open-source macOS video editor built for AI
-Source: https://github.com/palmier-io/palmier-pro
-HN: https://news.ycombinator.com/item?id=49022911
+### Flux 3 and Mimic blend video synthesis with control, testing the limits of frame consistency
+Source: https://bfl.ai/blog/flux-3-mimic
+HN: https://news.ycombinator.com/item?id=49033127
+The pairing pairs latent video generation directly with action conditioning, trading raw visual fidelity for tighter control over spatial execution. While it signals a shift toward functional tool-use over visual fluff, the real risk lies in compounding drift across long frame sequences where physical constraints break down.
+
+### The hardest way to make a GIF
+Source: https://blog.willgrant.org/2026/07/23/the-hardest-way-to-make-gif.html
+HN: https://news.ycombinator.com/item?id=49032126
 
 
-### Show HN: Claude-thermos keeps your Claude session warm for you
-Source: https://github.com/izeigerman/claude-thermos
-HN: https://news.ycombinator.com/item?id=49024882
-
-
-### Show HN: OneCLI – OSS credential gateway that keeps secrets out of AI agents
-Source: https://github.com/onecli/onecli
-HN: https://news.ycombinator.com/item?id=49023427
-
-
-### Tool enables bulk export from ChatGPT Business, bypassing manual data lock-in
-Source: https://github.com/Conradqh/scrapemychats
-HN: https://news.ycombinator.com/item?id=49023486
-Engineers now have a straightforward path to extract proprietary prompt histories and team knowledge bases from OpenAI's enterprise tier. While it reduces reliance on vendor-managed silos, migrating unformatted, unstructured conversational data into existing workflows remains a messy exercise.
-
-### Zig-Based Shell Prompt Whetuu Trades Feature Bloat for Zero-Config Speed
-Source: https://yamafaktory.github.io/whetuu/
-HN: https://news.ycombinator.com/item?id=49022371
-By stripping away configuration sprawl in favor of native Zig performance, Whetuu offers terminal enthusiasts instantaneous render times, though its fixed defaults will frustrate power users accustomed to endless customization. It marks a quiet retreat from bloated shell ecosystems back toward lightweight, single-purpose software craft.
-
-### Probabilistic Record Linkage Moves Out of the Scripting Dark Ages
-Source: https://moj-analytical-services.github.io/splink/index.html
-HN: https://news.ycombinator.com/item?id=49030047
-Splink brings fast, open-source probabilistic deduplication to modern data stacks, offering standard SQL and Spark backends for messy entity resolution. The trade-off is familiar: automated expectation-maximization models can easily mask subtle data drift if engineers stop looking at the raw matches.
-
-### Turo Strips CLI Agent Tokens to Save Dollars at the Expense of Context
-Source: https://github.com/kdeps/turo
-HN: https://news.ycombinator.com/item?id=49029919
-By aggressively pruning terminal logs before they hit LLM context windows, Turo cuts API costs for autonomous coding agents—though engineers risk losing crucial, subtler debugging signals in the process.
-
-### WebGPU’s C++ Bindings Offer Low-Level Graphics Access, at the Cost of Abstraction
-Source: https://eliemichel.github.io/LearnWebGPU/
-HN: https://news.ycombinator.com/item?id=49022663
-Elie Michel’s detailed guide brings WebGPU into native C++, restoring explicit memory and pipeline control to graphics programming, though the added boilerplate risks driving off engineers accustomed to higher-level frameworks. It’s a deliberate step back toward the metal in an era that increasingly prefers automated abstractions.
-
-### AMD Bets Bigger Silicon Can Bypass the Hard Work of Kernel Tuning
+### AMD Bets Big on Instinct MI455X as Silicon Scale Outpaces Software Craft
 Source: https://chipsandcheese.com/p/amds-instinct-mi455x-aiming-for-the
-HN: https://news.ycombinator.com/item?id=49025398
-As hardware vendors throw massive thermal design power at cluster bottlenecks, the Instinct MI455X highlights a familiar risk: raw FLOPS may cushion bloated frameworks, but relying on silicon to compensate for neglected low-level software craft eventually hits physical limits.
+HN: https://news.ycombinator.com/item?id=49032072
+AMD is throwing massive hardware capability at the enterprise market with its Instinct MI455X, though the real bottleneck remains whether developer toolchains can reliably harness such raw density without degrading system stability.
+
+### AMD and Cerebras Partner on Inference Infrastructure to Challenge Nvidia Monopoly
+Source: https://www.cerebras.ai/press-release/amd-and-cerebras-announce-industry-leading-ultra-low-latency-and-high-throughput-ai-inference
+HN: https://news.ycombinator.com/item?id=49041347
+AMD's compute hardware is pairing with Cerebras's wafer-scale inference engine to offer teams an alternative stack, though stitching together disparate hardware architectures risks introducing significant latency overhead and compiler friction for custom workloads.
+
+### WebGPU Unleashed: A Practical Tutorial
+Source: https://shi-yan.github.io/webgpuunleashed/
+HN: https://news.ycombinator.com/item?id=49035845
+
 
 ## AI & LLM Overview
 
-### AI Companies Are Trying to Hide a Staggering Amount of Debt
-Source: https://futurism.com/artificial-intelligence/ai-companies-hide-debt-off-balance-sheet
-HN: https://news.ycombinator.com/item?id=49020999
+### Patreon Cuts 20% of Workforce in Shift Away From In-House Infrastructure
+Source: https://www.patreon.com/jackconte/posts/painful-update-164628951
+HN: https://news.ycombinator.com/item?id=49034948
+Patreon is eliminating a fifth of its staff as it pivots toward third-party tooling, swapping custom platform maintenance for vendor reliance. It frees capital short-term, but trades deep architectural autonomy for fragile, API-dependent operational overhead.
 
+### Future euro banknote design proposals
+Source: https://www.ecb.europa.eu/euro/banknotes/future_banknotes/html/all-design-proposals.en.html
+HN: https://news.ycombinator.com/item?id=49033110
 
-### AI bet goes awry: Oracle fires 21,000 employees
-Source: https://www.msn.com/en-us/money/economy/ai-bet-goes-awry-oracle-fires-21-000-employees/ar-AA28vWuD
-HN: https://news.ycombinator.com/item?id=49025754
-
-
-### Google Replaces Knowledge Checks with Facial Biometrics for Recovery
-Source: https://blog.google/innovation-and-ai/technology/safety-security/selfie-video-sign-in/
-HN: https://news.ycombinator.com/item?id=49026482
-Google is introducing selfie-based identity verification to streamline account recovery, trading the fragility of forgotten passwords for central biometrics. While it reduces reliance on static credentials, centralizing facial vector checks introduces a persistent lure for fraud schemes targeting edge device spoofs.
 
 ## Model Release History
 
+### Anthropic Ships Claude Opus 5 with Default Thinking and Multi-Agent Offloading
+Source: https://www.anthropic.com/news/claude-opus-5
+HN: https://news.ycombinator.com/item?id=49038433
+Anthropic's latest flagship model bakes test-time reasoning directly into every API request and leans heavily into autonomous delegation, trading lower token latency for deeper multi-file codebase navigation. While it promises reduced developer intervention, Anthropic acknowledges the model hallucinates factual claims slightly more often than its predecessor, making automated verification tools a required safeguard rather than an option.
+
+### Flux 3 Targets Infrastructure Efficiency, Raising the Barrier for Self-Hosted Inference
+Source: https://bfl.ai/blog/flux-3
+HN: https://news.ycombinator.com/item?id=49031796
+Black Forest Labs shifts attention toward raw throughput and cost-per-generation, though pushing higher VRAM requirements onto self-hosted setups risks squeezing out engineering teams lacking dedicated GPU clusters.
+
 ## Top Insights & Advice
 
-### The arguments against open source AI are bad
-Source: https://tombedor.dev/arguments-against-open-source-ai-are-very-bad/
-HN: https://news.ycombinator.com/item?id=49024643
+### Hacking the System is Still the Ultimate Founder Trait
+Source: https://obaid.wtf/jotbook/2026/07/18/how-i-got-into-yc-by-hacking-it.html
+HN: https://news.ycombinator.com/item?id=49039448
+While YC's evaluation tools evolve to track technical output and session data, the organization's core culture remains deeply rooted in valuing resourcefulness and 'hacking' workarounds. However, technical founders should remain cautious about the intellectual property they surrender to automated analysis tools during the application process. Quote: They have always liked people who think of ways to work around existing systems.
+
+### I Tried Building a Real App with AI. It Took a Year
+Source: https://www.alexhyett.com/videos/tried-building-app-with-ai-it-took-a-year/
+HN: https://news.ycombinator.com/item?id=49034342
 No insight extracted.
 
-### The Human Bottleneck in Automated Engineering
-Source: https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md
-HN: https://news.ycombinator.com/item?id=49023019
-While automated software factories can execute code implementation at scale, they cannot manufacture product intent or absorb codebase comprehension for you. As agents handle execution, human engineering shifts from raw output to defining clear intent, reviewing architectural aesthetics, and maintaining deep mental models at human speeds. Quote: Claude can write the code for you but it can’t understand it for you.
+### Emacs Dired: Unmatched Editing Power vs. Deficit in Sane Defaults
+Source: https://eugene-andrienko.com/2026-07-05-my-emacs-configuration-dired.html
+HN: https://news.ycombinator.com/item?id=49035561
+Dired transforms file management by allowing users to treat directory listings as editable text with macros, regex, and multi-cursors (via wdired), yet community sentiment remains split between praising its deep extensibility and lamenting its lack of sensible out-of-the-box defaults. Quote: Just FYI, dired without any configuring or customizing is pretty rad, especially with wdired-mode for editing filenames.
 
-### Tool Pragmatism Trumps Perfectionism in Retention and Creation
-Source: https://nealstephenson.substack.com/p/writing-by-hand-is-good-for-your
-HN: https://news.ycombinator.com/item?id=49022152
-The physical act of writing—whether on paper or screen—serves primarily as a cognitive aid for memory retention and active engagement, rather than a sacred ritual. Pragmatic, unprecious interaction with tools and texts yields far higher mental rewards than obsessing over the perfect setup. Quote: Always found that writing stuff down helps me to remember things better, whether studying something, prepping for an exam, or in general.
-
-### Why Sony can't bring back its classic Walkman models
-Source: https://obsoletesony.substack.com/p/why-sony-cant-bring-back-classic-walkman
-HN: https://news.ycombinator.com/item?id=49025766
+### Half-Life 2 running natively on HaikuOS
+Source: https://discuss.haiku-os.org/t/haiku-nvidia-porting-nvidia-driver-for-turing-gpus/16520?page=18
+HN: https://news.ycombinator.com/item?id=49034868
 No insight extracted.
 
 ## Lab Updates & Dark Side
+
+### OpenAI did not notice Hugging Face hack for a week
+Source: https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/
+HN: https://news.ycombinator.com/item?id=49043192
+
+
+### AIs don't do what you want. This is bad
+Source: https://rewardhacking.org
+HN: https://news.ycombinator.com/item?id=49042354
+
