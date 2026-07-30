@@ -1,115 +1,103 @@
 THE DAILY TOKEN
-Edition: 2026-07-29
+Edition: 2026-07-30
 ================================================
 
-EDITOR'S NOTE: A busy day in the latent space.
+EDITOR'S NOTE: We keep replacing the battle-tested stone of core engineering with complex scaffolding, yet beneath the noise, craftsmen are still quietly refactoring the foundational architecture.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Stop Killing the Internet: No Digital ID and No Age Verification
-  https://citizens-initiative.europa.eu/initiatives/details/2026/000011_en
+* Mitigating upstream risks in NPM and GitHub Actions
+  https://github.blog/security/supply-chain-security/disrupting-supply-chain-attacks-on-npm-and-github-actions/
+  Recent security strategies focus on blunting supply chain vulnerabilities in NPM and GitHub Actions pipelines. Blocking unvetted dependencies protects downstream builds, though tighter validation risks slowing daily engineering velocity.
+
+* Enzymatic Treatment Offers Non-Invasive Alternative to Dental Drilling
+  https://www.sciencedaily.com/releases/2026/07/260729010719.htm
+  Researchers have identified a chemical process that arrests early tooth decay without mechanical intervention, bypassing traditional restorative procedures. While the technique reduces procedural complexity, long-term durability against mechanical wear remains uncertain compared to standard composite fillings.
+
+* Kimi K3's Design Secret May Be in Its Thinking Traces
+  https://notes.designarena.ai/kimi-k3s-design-secret-may-be-in-its-thinking-traces/
   
 
-* Automating Cryptography Audits with Claude Highlights Flaws and Verification Limits
-  https://www.anthropic.com/research/discovering-cryptographic-weaknesses
-  Engineers are turning models like Claude toward detecting subtle cryptographic vulnerabilities, accelerating a process that historically demanded painful manual rigour. While LLMs excel at spotting known antipatterns at scale, relying on probabilistic systems for formal mathematical safety threatens to substitute real cryptographic discipline with high-throughput confidence.
-
-* Google's Beyond Zero: Enterprise Security for the AI Era
-  https://spawn-queue.acm.org/doi/10.1145/3819083
+* The coolest use for the Vision Pro
+  https://christianselig.com/2026/07/vision-pro-house/
   
 
-* Automated Code Generation Trades Craft for Speed, Leaving Security Audits in the Margins
-  https://github.com/openai/codex-security
-  Relying on neural models for code synthesis accelerates feature delivery, but it systematically shifts the burden of static analysis onto overworked review pipelines. As developer convenience continues to supplant formal verification, teams must weigh immediate velocity against the quiet accumulation of structural vulnerabilities.
+* Managing parallel agent collisions with a local merge queue
+  https://github.com/funador/claude-code-merge-queue
+  Engineers offloading work to multiple autonomous Claude Code instances face an immediate operational bottleneck: local Git branch conflicts. Introducing a local merge queue brings back structured order to agentic workflows, though offloading branch resolution to automated tools risks masking subtle semantic regressions.
 
-* 7.1 Earthquake in Japan
-  https://www.data.jma.go.jp/multi/quake/quake_detail.html?eventID=20260728163528&lang=en
+* Kuna: Decompiler Development in the Age of Coding Agents
+  https://noelo.org/blog/kuna-release/
   
 
-* Moonshot AI's Kimi K3 Architecture Prioritizes Inference Efficiency Over Brute-Force Parameters
-  https://sebastianraschka.com/blog/2026/kimi-k3-architecture-notes.html
-  The Kimi K3 technical breakdown details architectural tweaks aimed at suppressing context degradation during long-horizon reasoning, though offloading context management introduces memory bandwidth bottlenecks under heavy batch workloads.
-
-* MCP 2026-07-28 Specification: transport going stateless
-  https://blog.modelcontextprotocol.io/posts/2026-07-28/
+* LLM Honeypot
+  https://llm2human.pages.dev/
   
 
-* Formalizing Pitch and Consonance: The Limits of Reducing Harmony to Math
-  https://arxiv.org/abs/1202.4212
-  Attempts to construct a rigid scientific framework for musical harmony offer clean algorithmic abstractions, but they risk reducing intuitive craft into brittle formalisms. While computational models clarify structural rules, they often trade human perceptual nuance for deterministic predictability.
+* Turso Takes On Postgres After Rewriting SQLite in Rust
+  https://www.theregister.com/databases/2026/07/29/after-rewriting-sqlite-in-rust-turso-turns-its-sights-on-postgres/5279835
+  Having rebuilt SQLite in Rust to fit edge infrastructure, Turso is expanding its rewrite strategy to target PostgreSQL workloads. Replacing decades of battle-tested C code offers modern memory safety and custom distribution models, though matching Postgres's deep ecosystem compatibility remains a steep engineering hurdle.
 
-* Transformer Transformer: A Unified Model for Motion-Conditioned Robot Co-Design
-  https://transformer-transformer.github.io/
-  
-
-* The Illusion of the Custom Game Engine and the Real Costs of Software Craft
-  https://lisyarus.github.io/blog/posts/so-you-want-to-make-a-game-engine.html#part-3
-  Building a custom engine remains the ultimate rite of passage for graphics programmers, though it routinely devolves into an endless struggle against API churn rather than actual game design. The practice exposes a painful tradeoff: while it forces deep technical discipline, it almost guarantees the game itself never gets made.
-
-* Zig's Incremental Compilation Internals
-  https://mlugg.co.uk/posts/incremental-compilation-internals/
-  
-
-* Hubble opens source on shared markdown workspace for human and automated note-takers
-  https://www.hubble.md/
-  Hubble presents a local-first markdown notebook engineered for simultaneous editing by humans and autonomous agents. While it provides a structured context repository for agentic workflows, relying on automated agents to organize raw documentation risks quietly compounding unstructured noise over time.
-
-* Show HN: Lean4 Datalog DSL Based on Google Zanzibar for AI Projects
-  https://github.com/jagg-ix/zil-lean
-  
-
-* Show HN: XY – A Fast, composable, GPU-accelerated interactive plotting library
-  https://github.com/reflex-dev/xy
-  
-
-* Steel Bank Common Lisp 2.6.7 Delivers Incremental Polish to a Timeless Runtime
-  https://sbcl.org/all-news.html?2.6.7
-  The latest maintenance release of SBCL quietens edge-case bugs and refines compiler performance for long-running systems. It is a humble reminder of software discipline in an era obsessed with volatile stacks, though it risks further siloing Lispers from modern, hyper-abstracted workflows.
-
-* Trading Dashboard Polish for Low-Overhead Spring Boot Metrics
-  https://pvrlabs.xyz/articles/lightweight-spring-boot-monitoring.html
-  By bypassing heavy Prometheus and Grafana stacks in favor of embedded, zero-dependency monitoring, teams trade away rich historical visualizations to reclaim memory and operational simplicity. It is a quiet reminder that observability used to be a lightweight tool rather than an enterprise footprint.
-
-* More Tailscale tricks for your jailbroken Kindle
-  https://tailscale.com/blog/jailbroken-kindle-proxy-tun-modes
-  
-
-* Una GPS Watch Prioritizes Repairability and Open Interfaces Over Sealed Consumer Optics
-  https://unawatch.com/
-  By pairing USB-C and user-serviceable parts with a developer-friendly platform, the Una watch rejects the disposable design choices that dominate modern wearables. The trade-off is clear: maintaining an accessible, modular chassis inevitably compromises the ultra-thin form factor and tight IP-rated sealing found in glued-shut alternatives.
-
-* Mesa's Vulkan Driver Enters Windows Space
-  https://www.collabora.com/news-and-blog/news-and-events/cracking-windows-open-porting-radv-to-win32.html
-  Porting RADV to Win32 brings Mesa's AMD graphics stack into native Windows environments, bypassing traditional vendor driver constraints. While cross-platform portability simplifies deployment pipelines, maintaining dual-ABI driver targets introduces long-term maintenance overhead for graphics engineering teams.
+* Self-Hosting Kimi K3 Yields Linear Task Gains at Equal Cost Premium
+  https://aistack.imec-int.com/blog/gpu-self-hosting
+  Deploying Kimi K3 on private hardware delivers a 20% boost in task completion rates, matching its 20% bump in infrastructure costs. It offers a rare 1:1 scaling trade-off for teams willing to trade managed convenience for local control, though long-term operational maintenance remains an unquantified liability.
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* LearnVector – Andrew Ng's AI company building one‑to‑one learning experiences
-  https://learnvector.ai/
+* AI's top startups are barely publishing their research
+  https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research
   
+
+* A.I. companies are recruiting electricians and carpenters by the thousands
+  https://www.nytimes.com/2026/07/29/business/economy/data-center-electricians-training.html
+  
+
+* Commodification of Intelligence: Good, Bad, and Ugly Circular AI Deals
+  https://www.emergingtrajectories.com/lh/commodification-and-circularity/
+  
+
+* Vermont pharmacy chain automates operations, trading human oversight for raw throughput
+  https://vtdigger.org/2026/07/29/a-pharmacy-chain-in-vermont-implemented-ai-for-efficiency-its-led-to-delays-incorrect-information-and-privacy-concerns/
+  A regional pharmacy network has quietly integrated algorithmic queuing to streamline fulfillment, boosting short-term speed while introducing systemic risks around unflagged prescription edge cases. The shift reflects a broader, troubling trend toward replacing deliberate software craft and human verification with automated guesswork.
+
+* Cold Emails for Cold Benchmarks: Cold Outreach as Model Evaluation
+  https://zachholman.com/posts/cold-email
+  When automated evaluation suite benchmarks fail to capture real-world performance, engineers resort to cold-emailing users directly to measure actual model efficacy. The risk lies in replacing standardized metrics with subjective, non-reproducible feedback loops that trade rigorous software measurement for noisy anecdotal data.
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
+* Kimi K3-256k
+  https://www.kimi.com/code/docs/en/kimi-code/models
+  
+
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* Substack writers, you need a website
-  https://elizabethtai.com/2026/06/10/substack-writers-you-need-a-website/
+* How to think about software quality (2022)
+  https://www.evalapply.org/posts/how-to-not-die-by-a-thousand-cuts/index.html
   No insight extracted.
 
-* Rules-Based Access Only Disadvantages Law-Abiding Competitors
-  https://cacm.acm.org/opinion/now-is-the-time-to-give-llms-access-to-the-acm-digital-library/
-  Restricting academic research and library access to AI models fails to stop unauthorized scraping; it only disadvantages ethical players and open-source models while open access enables fair competition against those who ignore the rules. Quote: Blocking access only hurts people who follow the rules.
+* How much can you delegate to agents?
+  https://newsletter.posthog.com/p/agent-autonomy
+  No insight extracted.
 
-* Why DMARC Enforcement Fails: Misconfiguration, Ignored Policies, and the Identity Problem
-  https://ciphercue.com/blog/dmarc-enforcement-gap-rua-fragmentation-2026
-  Email authentication protocols like DMARC suffer from practical friction and widespread misconfiguration. System administrators routinely ignore enforcement policies to avoid dropping legitimate email from misconfigured senders, while spammers easily pass authentication checks, leaving the fundamental problem of sender trust unsolved. Quote: The core problem is that the real need of email end users need is a way of determining whether or not to trust a given sender.
+* Context Length Belies Limited Working Memory in LLMs
+  https://arxiv.org/abs/2607.25398
+  Massive context windows do not guarantee adherence to long policy documents. Due to architectural constraints, RL post-training limits, and the 'Lost in the Middle' effect, models struggle with long-term instruction retention—making dynamic, task-specific prompts significantly more effective than static, exhaustive handbooks. Quote: Humans are pretty terrible at being thrown a long policy document and being expected to follow it
 
-* User Interfaces of the Demo Scene
-  https://www.datagubbe.se/scenegui/
+* Visual Art as a Conduit for Retro Computing Nostalgia
+  https://amiga.lychesis.net/index.html
+  Early digital art and game logo aesthetics serve as powerful emotional anchors, preserving the cultural memory and unique creative spirit of the Amiga era. Quote: I have especially fond memories associated with this logo (which is a work of art all of its own IMHO)...
+
+* Shipping Godot VR and Porting to PSVR2: A Partial Post Mortem
+  https://www.claire-blackshaw.com/blog/2026/07/shipping-godot-vr-and-porting-to-psvr2-a-partial-post-mortem/
+  No insight extracted.
+
+* Man and the Computer by John G. Kemeny (1972 book by the co-creator of BASIC)
+  https://archive.org/details/mancomputerbyjoh0000john
   No insight extracted.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Relaxin Jailbreak for iOS 17.0-17.3.1 Released
-  https://onejailbreak.com/blog/relaxin-jailbreak-enters-closed-beta-for-ios-17/
+* Document-borne AI worms can self-propagate through Copilot for Word
+  https://enklypesalt.com/posts/context-collapse-part3-ai-worming-through-word/
   
