@@ -1,5 +1,72 @@
 {
-  "generated": "2026-08-02T05:40:31.919297",
-  "count": 0,
-  "releases": []
+  "generated": "2026-08-03T05:56:30.387178",
+  "count": 6,
+  "releases": [
+    {
+      "model_name": "Qwen-3.8-Max",
+      "provider": "Alibaba",
+      "release_type": "Model/API Update",
+      "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3.8",
+      "hn_url": "https://news.ycombinator.com/item?id=49150470",
+      "published": "2026-08-03T02:16:09+00:00"
+    },
+    {
+      "model_name": "Qwen3.6-27B",
+      "provider": "Alibaba",
+      "release_type": "Model/API Update",
+      "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3.8",
+      "hn_url": "https://news.ycombinator.com/item?id=49150470",
+      "published": "2026-08-03T02:16:09+00:00"
+    },
+    {
+      "model_name": "Qwen3.8",
+      "provider": "Alibaba",
+      "release_type": "Model/API Update",
+      "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3.8",
+      "hn_url": "https://news.ycombinator.com/item?id=49150470",
+      "published": "2026-08-03T02:16:09+00:00"
+    },
+    {
+      "model_name": "Qwen3.8-27B",
+      "provider": "Alibaba",
+      "release_type": "Model/API Update",
+      "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3.8",
+      "hn_url": "https://news.ycombinator.com/item?id=49150470",
+      "published": "2026-08-03T02:16:09+00:00"
+    },
+    {
+      "model_name": "Qwen3.8-Max",
+      "provider": "Alibaba",
+      "release_type": "Model/API Update",
+      "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3.8",
+      "hn_url": "https://news.ycombinator.com/item?id=49150470",
+      "published": "2026-08-03T02:16:09+00:00"
+    },
+    {
+      "model_name": "Qwen3.8-Max-Preview",
+      "provider": "Alibaba",
+      "release_type": "Model/API Update",
+      "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+      "summary": "",
+      "source": "Unknown",
+      "source_url": "https://qwen.ai/blog?id=qwen3.8",
+      "hn_url": "https://news.ycombinator.com/item?id=49150470",
+      "published": "2026-08-03T02:16:09+00:00"
+    }
+  ]
 }
