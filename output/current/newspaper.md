@@ -1,126 +1,126 @@
 # The Daily Token
 
-Edition: 2026-08-03
+Edition: 2026-08-04
 
 ## Editor's Note
-As automated narrative campaigns and broad-brush code generators erode the deliberate discipline of software craftsmanship, those who still care to inspect the foundation retain the rare privilege of deciding what stands.
+We have traded deliberate craftsmanship for automated velocity, yet the choice to inspect the foundation remains entirely in our hands.
 
 ## The Front Page
 
-### My personal AI benchmark: “Generate an SVG of a frog with a Habsburg jaw”
-Source: https://frogs.vaguespac.es/
-HN: https://news.ycombinator.com/item?id=49147622
+### The Dunning-Kruger effect may just be a data artefact (2020)
+Source: https://www.mcgill.ca/oss/article/critical-thinking/dunning-kruger-effect-probably-not-real
+HN: https://news.ycombinator.com/item?id=49160437
 
 
-### A fresh look at CPU silent data corruption in modern data centers
-Source: https://cacm.acm.org/research/revisiting-cpu-silent-data-corruptions-in-modern-datacenters/
-HN: https://news.ycombinator.com/item?id=49147029
+### DDoS against Norwegian government IT infrastructure – status
+Source: https://status.digdir.no/incidents/d7hvqmf2yr3l
+HN: https://news.ycombinator.com/item?id=49160631
 
 
-### Flock – Chilling Effects: Long Island's Emerging Open-Air Prison
-Source: https://www.11971.com/
-HN: https://news.ycombinator.com/item?id=49148541
+### LLMs Can't Jump
+Source: https://openreview.net/pdf?id=klU4737opt
+HN: https://news.ycombinator.com/item?id=49162791
 
 
-### OpenAI’s amazing — but vastly oversold — new model Astra
-Source: https://garymarcus.substack.com/p/openais-amazing-but-vastly-oversold
-HN: https://news.ycombinator.com/item?id=49148959
+### AI-assisted staging draws boos at the Richard Wagner festival in Germany
+Source: https://apnews.com/article/germany-bayreuth-wagner-festival-ai-f4300cdc0be195dabdadfa6d2ab4254c
+HN: https://news.ycombinator.com/item?id=49164296
 
 
-### AI-assisted analytics now 10x cheaper
-Source: https://motherduck.com/blog/openai-just-made-analytics-10x-cheaper/
-HN: https://news.ycombinator.com/item?id=49147192
+### Why did we wait so long for the bicycle? (2019)
+Source: https://blog.rootsofprogress.org/why-did-we-wait-so-long-for-the-bicycle
+HN: https://news.ycombinator.com/item?id=49162787
 
 
-### A New 'Show HN' Project Claims Resonance Math Can Exorcise AI Hallucinations
-Source: https://github.com/ConsciousGroupMind/SKYNET-800---Collective-Intelligence-Forecasting-System
-HN: https://news.ycombinator.com/item?id=49148735
-An open-source repository named Alfa proposes replacing probabilistic sampling with deterministic 'resonance' calculations, promising an end to LLM hallucinations through formal state boundaries. While the deterministic framing appeals to software discipline, trading generative flexibility for rigid temporal arithmetic risks turning creative text synthesis into an brittle, unproven state machine.
-
-### Show HN: Mu – Tools for Agents
-Source: https://github.com/micro/mu
-HN: https://news.ycombinator.com/item?id=49148899
+### Bonsai: Janestreet's UI Library
+Source: https://github.com/janestreet/bonsai
+HN: https://news.ycombinator.com/item?id=49152842
 
 
-### Show HN: MicroCodex Coding Agent – OpenAI/codex reimplemented in C++ <1MB binary
-Source: https://github.com/paoloanzn/microcodex
-HN: https://news.ycombinator.com/item?id=49147842
+### Two Decades in the Document Trenches
+Source: https://pandoc.org/twenty-years-of-pandoc.html
+HN: https://news.ycombinator.com/item?id=49156750
+Pandoc’s twenty-year run proves that quiet, deterministic text transformation remains more reliable than probabilistic AI generation, though maintaining its complex Haskell abstraction layer poses an ongoing tax on maintainers. As modern software increasingly relies on fuzzy probabilistic models, John MacFarlane’s parser stands as a rare monument to rigorous, loss-free document craft.
+
+### Show HN: Nightcrawler – A local AI pentesting agent running on a smartphone
+Source: https://github.com/garagehq/nightcrawler/
+HN: https://news.ycombinator.com/item?id=49154127
 
 
-### KotlinLLM
-Source: https://github.com/JetBrains-Research/kotlinllm-plugin
-HN: https://news.ycombinator.com/item?id=49147170
+### Show HN: Product analytics (and evals) for agent sessions on your MCP
+Source: https://armature.tech/
+HN: https://news.ycombinator.com/item?id=49157807
 
 
-### Nanocodex ports agent building blocks to Rust
-Source: https://github.com/gakonst/nanocodex
-HN: https://news.ycombinator.com/item?id=49146991
-Engineers are rebuilding OpenAI agent primitives in Rust, trading Python's rapid prototyping speed for strict memory safety and minimal runtime overhead. It offers a rare path back to systems discipline, though wrapping fluid model outputs in rigid static types remains an awkward fit.
-
-### Firstmate: Talk to one agent. Ship with a crew
-Source: https://github.com/kunchenguid/firstmate
-HN: https://news.ycombinator.com/item?id=49150203
+### Pangram – AI Detector
+Source: https://www.pangram.com
+HN: https://news.ycombinator.com/item?id=49162345
 
 
-### RosaicLabs, Atom RTL, and 32-Tile AMX: Trying to Piece Together a x86 Puzzle
-Source: https://chipsandcheese.com/p/rosaiclabs-atom-rtl-and-32-tile-amx
-HN: https://news.ycombinator.com/item?id=49147219
+### Octane – React’s programming model, compiled
+Source: https://octanejs.dev
+HN: https://news.ycombinator.com/item?id=49152640
 
+
+### AirLLM 70B inference with single 4GB GPU
+Source: https://github.com/lyogavin/airllm
+HN: https://news.ycombinator.com/item?id=49154228
+
+
+### Distilling Kimi and GLM: Edge Inference Chooses Speed Over Depth
+Source: https://blog.cloudflare.com/smaller-faster-safer-models/
+HN: https://news.ycombinator.com/item?id=49158581
+Deploying lightweight Kimi and GLM variants trims serving latency and hardware overhead, though compressing inference pipelines always carries the quiet risk of degrading precision in edge-case reasoning.
+
+### Cloudflare Opens Workers to Raw TCP and gRPC Traffic
+Source: https://blog.cloudflare.com/grpc-workers/
+HN: https://news.ycombinator.com/item?id=49155579
+Edge runtimes are finally ditching the HTTP-only straightjacket, opening the door for low-latency RPC and custom protocols—though wrestling stateful networking into ephemeral serverless workers remains a debugging tax waiting to happen.
 
 ## AI & LLM Overview
 
-### Super PAC Funding Automated Outlets to Disparage AI Critics
-Source: https://www.modelrepublic.org/articles/the-reporters-at-this-news-site-are-ai-bots.-openai%E2%80%99s-super-pac-appears-to-be-using-it-to-advance-its-political-agenda
-HN: https://news.ycombinator.com/item?id=49150561
-A political entity linked to OpenAI is quietly financing synthetic news operations to neutralize industry dissent, trading authentic policy dialogue for cheap, scalable influence. The move highlights how easily automated text generation can be weaponized to erode public scrutiny of system architecture and safety.
+### The AI Productivity Gap
+Source: https://bjorg.bjornroche.com/management/ai-productivity-gap/
+HN: https://news.ycombinator.com/item?id=49152222
 
-### Amazon completes $50B investment in OpenAI
-Source: https://www.ft.com/content/8ae9e6e4-a53c-44da-8e7d-c9d81f0df4b9
-HN: https://news.ycombinator.com/item?id=49150420
-
-
-### AI Expands Task Scopes as Software Craft Yields to Broad-Brush Automation
-Source: https://openai.com/index/how-ai-is-expanding-what-people-do-at-work/
-HN: https://news.ycombinator.com/item?id=49148630
-Organizations are increasingly leveraging generative models to push non-specialist staff into adjacent domains, swapping deep domain expertise for rapid, superficial output. While this shift boosts individual throughput, it risks eroding core technical standards and creating silent failure modes across automated workflows.
-
-### eBay’s $56 Million Settlement Exposes the Dark Underbelly of Executive Oversight
-Source: https://www.ft.com/content/06ec1b03-d4af-40cf-b12a-4ba5a410f6d2
-HN: https://news.ycombinator.com/item?id=49147435
-A corporate harassment campaign targeting newsletter publishers ends in a massive payout, underscoring how operational culture can severely fracture when internal guardrails fail. The case highlights a stark legal risk for tech firms where unmonitored executive directive threatens systemic compliance.
 
 ## Model Release History
 
-### Qwen3.8-Max: A New Bar for Coding and Cowork
-Source: https://qwen.ai/blog?id=qwen3.8
-HN: https://news.ycombinator.com/item?id=49150470
-
-
 ## Top Insights & Advice
 
-### LLMs Cannot Out-Code Bad Product Design or Replace Deterministic Verification
-Source: https://daringfireball.net/linked/2026/08/02/cherny-claude-swift
-HN: https://news.ycombinator.com/item?id=49149800
-Relying purely on LLM loops and high token burn to fix visual UI/UX is fundamentally flawed; better AI technology cannot compensate for poor design principles, and visual layout validation still requires deterministic checks over fragile multimodal evaluation. Quote: Better technology cannot compensate for poor product design.
+### The Illusion of Efficiency: AI Delegation vs. Cognitive Ownership
+Source: https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/
+HN: https://news.ycombinator.com/item?id=49153374
+While some developers embrace LLMs to scale their output to a managerial level, the community warns that blindly trusting or manually re-keying AI output creates 'cognitive debt'—replacing deep comprehension with tedious code review and memory gaps. Quote: Poring over hundreds of lines of overly-defensive, badly-commented, subtly incorrect code is not fun.
 
-### How much AI can a maintainer get away with using without losing their humanity?
-Source: https://www.jvt.me/posts/2026/08/02/ai-maintainer/
-HN: https://news.ycombinator.com/item?id=49148708
+### Mind Your Manners: Polite Prompting Benefits AI Output and Human Habit
+Source: https://yegge.ai/essays/model-welfare/
+HN: https://news.ycombinator.com/item?id=49162671
+Even if model sentience is preposterous, treating AI with respect yields measurably better results and keeps users from forming bad communication habits in text-based human interactions. Quote: It doesn't actually matter to you if they have feelings, because you will still get demonstrably better results across the board if you treat them as if they do.
 
+### Live Preview URLs Are the Key Differentiator for Cloud Coding Agents
+Source: https://hoplite.sh
+HN: https://news.ycombinator.com/item?id=49157997
+While many cloud coding agent setups handle repo editing and PR generation, the true value of sandboxed environments lies in automatically booting live URLs for feature previews, allowing developers to test branches without running local environments. Quote: Cursor doesn't easily have that, and that's what would allow me to ditch my local env entirely - the ability to actually try out a PR without needing to check it out locally.
 
-### The Esoteric Placebo of Instant Knowledge
-Source: https://publicdomainreview.org/essay/ars-notoria/
-HN: https://news.ycombinator.com/item?id=49143001
-Historical shortcuts to wisdom relied on the subjective nature of fields like rhetoric or dialectic, where psychological placebos could mimic mastery—a illusion that immediately collapses when applied to rigorous, objective disciplines. Quote: Like maybe a powerful placebo could make you feel you’ve improved at “eloquence” or “dialect”, but it certainly wouldn’t make you able to compute wavefunctions for quantum mechanics.
+### LLMs reward expertise
+Source: https://www.seangoedecke.com/llms-reward-expertise/
+HN: https://news.ycombinator.com/item?id=49161518
+No insight extracted.
 
-### The Illusion of One-Shot AI Migrations
-Source: https://arxiv.org/abs/2607.28271
-HN: https://news.ycombinator.com/item?id=49150773
-Large-scale AI code migrations are inherently non-deterministic and bound to introduce vast numbers of new bugs unless executed through painstaking, step-by-step human verification. Quote: Any hope that one-shot migraton of a large code base will not introduce enormous number of bugs is very naive.
-
-### Modular Model Chaining Unlocks Peak AI Capabilities
-Source: https://flashblaze.xyz/posts/having-fun-with-omp-deepseek-luna-and-agy/
-HN: https://news.ycombinator.com/item?id=49145463
-Developers are using extensible CLI tools to chain different specialized models together—pairing budget reasoning engines with vision or web search models to bypass single-provider limitations, even at the risk of skirting ToS restrictions. Quote: This is an incredibly powerful paradigm since you can mix and match models for their best capabilities.
+### The true power of regular expressions (2012)
+Source: https://www.npopov.com/2012/06/15/The-true-power-of-regular-expressions.html
+HN: https://news.ycombinator.com/item?id=49152973
+No insight extracted.
 
 ## Lab Updates & Dark Side
+
+### SQLite 'Critical' Vulnerabilities Trace Back to AI Slop Generation
+Source: https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/
+HN: https://news.ycombinator.com/item?id=49154332
+Automated security scanners fed on low-quality LLM outputs are flooding core infrastructure maintainers with false alarms, trading genuine vulnerability hunting for noise. The risk isn't just wasted maintainer time, but the gradual habituation to ignoring security alerts altogether.
+
+### The Potomac River Midair Collision
+Source: https://admiralcloudberg.medium.com/reaping-the-whirlwind-inside-the-potomac-river-midair-collision-0475416f2b0f
+HN: https://news.ycombinator.com/item?id=49154441
+
