@@ -1,121 +1,126 @@
 # The Daily Token
 
-Edition: 2026-09-01
+Edition: 2026-09-02
 
 ## Editor's Note
-As our automated systems swamp our validation machinery and collapse our high-minded abstractions into plain text files, we are forced to remember that engineering only happens when a human mind remains accountable for the output.
+A busy day in the latent space.
 
 ## The Front Page
 
-### In Pursuit of Silicon, OpenAI Faces Apple’s Shredder Accusations
-Source: https://www.bloomberg.com/news/articles/2026-08-31/apple-says-openai-is-destroying-evidence-in-trade-secrets-case
-HN: https://news.ycombinator.com/item?id=49516354
-Apple told a federal court that OpenAI instructed a poached engineer to destroy evidence after using stolen circuit schematics to train internal AI agents. As frontier labs race to design bespoke hardware, the line between aggressive recruitment and systematic IP theft is becoming the industry's messiest engineering constraint.
-
-### GPU World
-Source: https://www.gpuworld.org/
-HN: https://news.ycombinator.com/item?id=49517584
+### I trained a small transformer in 1.5hrs and it beats many LLMs
+Source: https://mvakde.github.io/blog/44-on-arc-1/
+HN: https://news.ycombinator.com/item?id=49519939
 
 
-### ArXiv Flooded with Automated Submissions as Peer Review Breaks Down
-Source: https://arxiv.org/list/math/new
-HN: https://news.ycombinator.com/item?id=49517928
-A record influx of synthetic research papers is overwhelming ArXiv's moderation pipelines, forcing pre-print archives to choose between unsustainable manual filtering and aggressive automated gatekeeping that risks flagging genuine, idiosyncratic work.
+### Forensic Review of Ex-Engineer's Laptop Escalates Apple-OpenAI Trade Secret Feud
+Source: https://9to5mac.com/2026/08/31/apple-openai-forensic-macbook-evidence/
+HN: https://news.ycombinator.com/item?id=49527573
+Apple claims forensic evidence from a former engineer's MacBook proves proprietary circuit designs were run through AI agents at OpenAI, exposing a dirty reality of hardware talent poaching. While OpenAI points to sloppy offboarding as the root cause, the risk of legal liability propagating through autonomous agent logs leaves modern hardware development on shaky ground.
 
-### Registry quietly kills off third-level .name domains
-Source: https://itp.cdn.icann.org/en/files/consensus-policies/rsep-2026013-name-request-15-04-2026-en.pdf
-HN: https://news.ycombinator.com/item?id=49516047
-Verisign is sunsetting support for third-level .name registrations, stripping away a hyper-personalized, multi-dot naming scheme that required custom DNS routing. The move simplifies legacy registry infrastructure, though it forces early adopters into inconvenient migration paths with zero modern equivalency.
-
-### Launch HN: Hebbian Robotics (YC S26) – Build scalable robotics data pipelines
-Source: https://github.com/Hebbian-Robotics/hflow
-HN: https://news.ycombinator.com/item?id=49510632
+### Zero of 773 FIPS 140-3 certificates are validated at Level 4
+Source: https://808bits.com/articles/fips-140-3-levels-explained/
+HN: https://news.ycombinator.com/item?id=49527687
 
 
-### 1960s theory that Stonehenge was a prehistoric computer
-Source: https://www.bbc.com/culture/article/20260828-the-startling-1960s-theory-that-stonehenge-was-a-prehistoric-computer
-HN: https://news.ycombinator.com/item?id=49507810
+### The Emergent Symbolic Structure of Artificial Neural Networks
+Source: https://arxiv.org/abs/2608.29530
+HN: https://news.ycombinator.com/item?id=49531651
 
 
-### DoltLite: A SQLite fork with Git-style version control, built with 2k agent PRs
-Source: https://www.dolthub.com/blog/2026-08-31-doltlite-beta/
-HN: https://news.ycombinator.com/item?id=49516848
+### World Labs Releases Atlas, Testing Whether Spatial Intelligence Can Rebuild Lost Software Craft
+Source: https://www.worldlabs.ai/blog/atlas
+HN: https://news.ycombinator.com/item?id=49525160
+Atlas attempts to anchor AI models in three-dimensional physical reality, offering a potential path toward grounding systems that currently hallucinate structure. The operational risk remains execution speed, as simulating persistent spatial environments requires compute overhead that off-the-shelf transformers routinely bypass.
+
+### Launch HN: Nori Robotics (YC S26) – A low-cost humanoid robot for development
+Source: https://www.norirobotics.com/
+HN: https://news.ycombinator.com/item?id=49525153
 
 
-### Google Antigravity introduces Boost deep reasoning (/boost)
-Source: https://antigravity.google/docs/boost/
-HN: https://news.ycombinator.com/item?id=49517537
+### Saab has unveiled its A3 collaborative combat aircraft concept
+Source: https://aviationweek.com/defense/aircraft-propulsion/saab-enters-collaborative-combat-aircraft-race-high-end-concept
+HN: https://news.ycombinator.com/item?id=49522374
 
 
-### Agent state abandons specialized databases for simple files
-Source: https://calpaterson.com/memoryfields.html
-HN: https://news.ycombinator.com/item?id=49508317
-Treating agent memory as standard file formats reduces system opacity and frees developers from proprietary state stores, though it risks performance bottlenecks as context sizes scale. The shift suggests software engineering discipline is quietly reasserting itself over hasty infrastructure abstraction.
+### Keenable SELECT: an agent that searches the web in SQL
+Source: https://keenableai.github.io/select-showcase/
+HN: https://news.ycombinator.com/item?id=49523473
 
-### Paint.NET Tests Wine Compatibility as Desktop Independence Escalates
-Source: https://forums.paint.net/topic/134563-%F0%9F%8D%B7-extremely-experimental-winelinux-support-how-to-get-started/
-HN: https://news.ycombinator.com/item?id=49517727
-The longstanding Windows image editor is taking experimental steps onto Linux, highlighting a quiet migration away from single-OS reliance. The trade-off remains performance parity; translating .NET native dependencies through Wine risks subtle latency bugs that compromise the feel of desktop software craft.
 
-### How we configured OpenTelemetry logs in Rails
-Source: https://www.sixpatterns.com/blog/how-we-configured-opentelemetry-logs-in-rails
-HN: https://news.ycombinator.com/item?id=49514895
+### AI Coding Agent Skills for Real Engineers
+Source: https://github.com/mattpocock/skills
+HN: https://news.ycombinator.com/item?id=49529329
+
+
+### Relational Theory Reminds AI Engineers What Normalization Was Built For
+Source: https://www.bkent.net/Doc/simple5.htm
+HN: https://news.ycombinator.com/item?id=49528530
+Decades after Kent articulated the five normal forms to eliminate data anomalies, modern machine learning systems frequently trade database integrity for rapid retrieval, accepting subtle redundancy risks in exchange for speed. Revisiting the 1982 paper highlights how automated data pipelines often reinvent structural bugs that disciplined schema design solved forty years ago.
+
+### A browser-based viewer for Office Open XML documents
+Source: https://ooxml.silurus.dev/
+HN: https://news.ycombinator.com/item?id=49523361
+
+
+### My local model setup on an M4 Pro Mac Mini
+Source: https://lws.io/blog/my-local-model-setup/
+HN: https://news.ycombinator.com/item?id=49529132
+
+
+### The efficient frontier of LLM inference
+Source: https://www.baseten.co/blog/the-efficient-frontier-of-llm-inference/
+HN: https://news.ycombinator.com/item?id=49529898
+
+
+### Show HN: Claude and ChatGPT need a datacenter. This runs on my phone
+Source: https://llmobi.pages.dev
+HN: https://news.ycombinator.com/item?id=49526848
+
+
+### A Ground-Up Accounting of DeepSeek-V3’s Systems Engineering
+Source: https://deepseek-v3.ezyang.com/index.html
+HN: https://news.ycombinator.com/item?id=49527051
+Edward Yang’s analytical breakdown demystifies DeepSeek-V3 by bridging theoretical speed-of-light compute limits with real PyTorch execution traces. It exposes how delicate hardware-software alignment really is, reminding us that relying on theoretical rooflines hides the messy engineering tax of memory bandwidth and kernel overheads.
+
+### The ChatGPT/Codex app bundles a full copy of LibreOffice
+Source: https://simonwillison.net/2026/Sep/1/codex-libreoffice/
+HN: https://news.ycombinator.com/item?id=49527396
+
+
+### Refurbishing a Tektronix TDS7104 Oscilloscope
+Source: https://tomverbeure.github.io/2026/08/23/Tektronix-TDS7104-Refurbishing.html
+HN: https://news.ycombinator.com/item?id=49527232
 
 
 ## AI & LLM Overview
 
-### Apple caught off guard by AI demand for Mac Mini and Mac Studio
-Source: https://www.macrumors.com/2026/08/30/apple-unexpected-mac-mini-and-studio-demand/
-HN: https://news.ycombinator.com/item?id=49508982
+### Dwarf Fortress' creator says the industry's in shambles over AI
+Source: https://www.pcgamer.com/gaming-industry/dwarf-fortress-creator-says-the-industrys-in-shambles-over-ai-and-layoff-happy-ceos-everyone-i-know-their-bosses-are-slowly-getting-psychosis/
+HN: https://news.ycombinator.com/item?id=49523720
 
 
-### Reference Tool Tracks AI's Slow Degradation of Core Coding Mechanics
-Source: https://codex-tool-reference.simonw.chatgpt.site/
-HN: https://news.ycombinator.com/item?id=49510000
-A new taxonomy catalogs where LLM workflows streamline syntax lookup while quietly eroding engineers' foundational mental models of system behavior. The long-term risk lies in a generation of developers who can prompt a patch but cannot trace execution failures.
-
-### Why Prose Refuses to Yield to the Predictor
-Source: http://muratbuffalo.blogspot.com/2026/08/the-safest-job-from-ai-may-be-writing.html
-HN: https://news.ycombinator.com/item?id=49512856
-While automated test suites let language models quickly conquer software engineering, writing remains uniquely resistant because its feedback loop relies on another human mind rather than a deterministic compiler. The risk is economic rather than technological: high-end narrative craft may prove unassailable, but the routine entry-level copy that finances young writers is disappearing anyway.
-
-### Rakuten Kobo returns to U.S. retail as sales double
-Source: https://www.publishersweekly.com/pw/by-topic/digital/content-and-e-books/article/101053-rakuten-kobo-re-enters-u-s-retail-as-sales-double.html
-HN: https://news.ycombinator.com/item?id=49510532
-
-
-### Almanac Attempts Knowledge Retrieval by Wiring AI into Internal Context
-Source: https://usealmanac.com/
-HN: https://news.ycombinator.com/item?id=49511007
-By attempting to solve context fragmentation across enterprise tools, Almanac promises a unified repository for company knowledge—though engineers risk trading human-maintained documentation for non-deterministic AI hallucination traps.
-
-### Student teacher arrested for private Snapchat message
-Source: https://www.gadgetreview.com/student-teacher-sent-a-private-snapchat-complaining-about-her-workday-an-hour-later-police-pulled-up-to-her-school
-HN: https://news.ycombinator.com/item?id=49512789
+### AI is making back-office work extinct
+Source: https://www.whitecollardream.com/
+HN: https://news.ycombinator.com/item?id=49528663
 
 
 ## Model Release History
 
+### Anthropic Split-Forks Claude 5.1 into Cheap Labor and Heavy Compute
+Source: https://www.anthropic.com/claude-fable-and-mythos-5-1
+HN: https://news.ycombinator.com/item?id=49525378
+ The release of Fable and Mythos 5.1 draws a line between low-cost execution and heavy inference, forcing teams to trade predictable latency for raw reasoning depth. It offers a path back to intentional system design, though mostly by shifting the burden of prompt orchestration back onto already weary engineers.
+
 ## Top Insights & Advice
 
-### How to get a free .arpa domain
-Source: https://hawksley.dev/blog/get-free-arpa-domain
-HN: https://news.ycombinator.com/item?id=49515558
-No insight extracted.
+### The Punditry Trap and Interpreting AI Skepticism
+Source: https://danluu.com/zitron/
+HN: https://news.ycombinator.com/item?id=49526069
+Analyzing public tech commentators requires separating literal predictions from underlying ideological stances. Maintaining media presence demands frequent output over rigorous accuracy, leading pundits to align with audience biases rather than coherent, data-driven arguments. Quote: Once you become a pundit, whether on politics or tech, and rely on eyeballs to feed you, you are going to be throwing stinkers.
 
-### The Fragility of Technological History
-Source: https://www.heise.de/en/news/Zuse-Computer-Museum-ZCOM-in-Hoyerswerda-faces-closure-11344513.html
-HN: https://news.ycombinator.com/item?id=49511917
-Historical artifacts face a dangerous cultural limbo when they are too recent to be prized as antiques yet old enough to require active, costly preservation, making location and random chance as decisive as historical importance in determining what survives. Quote: For every bit of history there is 'the danger period', when it is still recent enough that most people don't consider it special but old enough that special effort needs to be made to preserve it.
-
-### Study: Blue light impairs the eye's ability to distinguish fine detail most
-Source: https://research.uga.edu/news/blue-light-has-a-surprising-effect-on-your-eyes-study-finds/
-HN: https://news.ycombinator.com/item?id=49507121
-No insight extracted.
-
-### AI Can Make You Suck Faster Too
-Source: https://www.hermit-tech.com/blog/ai-can-make-you-suck-faster-too
-HN: https://news.ycombinator.com/item?id=49518316
-No insight extracted.
+### Algorithmic Friction and the Demand for Human-First Curation
+Source: https://masteranza.github.io/weedout/
+HN: https://news.ycombinator.com/item?id=49528895
+Users are actively seeking external extensions to reclaim control over their feeds because platform algorithms push AI-generated content to the top regardless of user preference, while official AI labeling systems frequently misflag genuine human creators. Quote: I go on YouTube to watch humans talking, nature and music videos and get an insane amount of AI reviews, AI videos, and AI songs.
 
 ## Lab Updates & Dark Side
