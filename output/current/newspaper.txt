@@ -1,103 +1,103 @@
 THE DAILY TOKEN
-Edition: 2026-09-07
+Edition: 2026-09-08
 ================================================
 
 EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Conservatives turn on Flock Safety as license plate AI faces state bans
-  https://www.ft.com/content/b207536e-6def-4080-878f-d0eba61d11e0
-  Prominent Republican governors are cutting ties with Flock Safety's nation-spanning license plate tracking network amid civil liberties pushback and rampant local police misuse. The fallout exposes a sharp political tension: law enforcement can deploy automated pattern-matching with relative ease, but centralizing cross-jurisdiction search invites severe oversight and political liability.
+* Compute Constraints Limit AI Oncology Modeling, Arm CEO Claims
+  https://www.bbc.com/news/articles/c0m39g7xzevo
+  Arm chief executive Rene Haas argues that data center silicon shortages are delaying AI-driven cancer breakthroughs, framing high-dimensional DNA marker analysis as a hardware capacity problem. The claim glosses over the fundamental medical reality that oncology spans hundreds of distinct cellular diseases, making clinical translation a far messier barrier than raw FLOPs.
 
-* Harnessing the Universal Geometry of Embeddings
-  https://arxiv.org/abs/2505.12540
+* Australia to opt out of social media algorithms, Albanese confirms
+  https://www.smh.com.au/politics/federal/australia-to-opt-out-of-social-media-algorithms-albanese-confirms-20260908-p60vf4.html
   
 
-* Bern Initiates 3,000-Seat OpenDesk Pilot to Unseat Microsoft 365
-  https://itsfoss.com/news/switzerland-replace-microssoft-pilot/
-  Switzerland has deployed openDesk across 3,000 workstations to curb vendor lock-in, running the suite parallel to Microsoft 365. While it bolsters data sovereignty, maintaining hybrid tooling risks compounding long-term administrative overhead.
+* Ecodesign rules meet corporate apathy as phone vendors ignore EU repair mandates
+  https://www.theregister.com/personal-tech/2026/09/07/smartphone-makers-dont-bother-to-comply-with-eu-repairability-requirements/5294532
+  Over 80 percent of smartphones released in the EU still lack mandatory repair documentation and spare part listings, revealing the futility of self-reported compliance regimes without aggressive enforcement. The structural tradeoff is clear: regulatory frameworks that rely on vendor transparency rather than strict auditing simply turn consumer rights into optional paperwork.
 
-* Has anybody seen my keys? A key-hierarchy strategy for rack-level security
-  https://rfd.shared.oxide.computer/rfd/0301
+* I've factored the RSA keys of a Certificate Authority from the 90s
+  https://mcpherrin.ca/2026/09/07/rsa.html
   
 
-* The pencil case model of creativity
-  https://dub.uu.nl/en/column/pencil-case-model-creativity
+* There's a new "Google Jail" for independent wikis
+  https://weirdgloop.org/blog/google-jail
   
 
-* "We Have to Assume That the Internet Will Go Offline in the Next Few Years"
-  https://www.trendingtopics.eu/emad-mostaque-ai-internet-outlook-english/
+* I tested 10 model/harness combinations on the same Three.js task
+  https://alvins82.github.io/hangar-harness-model-tests/
   
 
-* Making a Python interpreter in 1024 bytes
-  https://austinhenley.com/blog/python1024.html
+* Caltech Mathathon – first hackathon ever devoted to research level mathematics
+  https://mathathonchallenge.com/index.html
   
 
-* A Keyboard-Sized 6502 Computer Puts Retro Hardware Back on the Workbench
-  https://olimex.wordpress.com/2026/09/04/new-open-source-hardware-variant-of-neo6502-now-includes-keyboard-4-usb-hosts-uext-power-switch-and-usb-c-for-power-and-programming-all-in-one-keyboard-body/
-  The Neo6502kbd condenses an entire 8-bit architecture into a standalone keyboard layout, forcing modern developers to build within strict, low-level physical constraints. While it restores the lost transparency of bare-metal programming, relying on specialized microcontrollers for legacy emulation exposes the system to long-term component obsolescence.
+* Distributing the labor of a dying web
+  https://tracker.archiveteam.org/
+  Running an ArchiveTeam Warrior offloads web preservation onto local hardware, turning idle consumer compute into an automated scraping node before platform decay erases vulnerable digital infrastructure. It demands zero active maintenance, though it inevitably consumes bandwidth and exposes home IPs to aggressive rate-limiting.
 
-* Show HN: Engrim – A universal, local-first SQLite memory engine for AI CLIs
-  https://github.com/timgordontg/engrim
+* UAE-based Falcon AI NSFW classifier among top global open-source models (2025)
+  https://www.middleeastainews.com/p/uae-ai-model-tops-50-million-monthly
   
 
-* ripwire: ripgrep of AI context (CLI+MCP) giving coding agents a map of any repo
-  https://github.com/redhat-et/ripwire
+* Multi-Agents LLM Financial Trading Framework
+  https://github.com/TauricResearch/TradingAgents
   
 
-* Researchers Quietly Depend on NetBSD for Portable Systems Work
-  https://www.netbsd.org/gallery/research.html
-  Academic and industrial researchers continue using NetBSD as a clean baseline for operating systems research, valuing its modularity over mainstream OS bloat. However, relying on a niche, community-maintained core risks long-term bit rot as hardware architectures rapidly shift.
+* vLLM Brings Speculative Decoding to AMD, Trading Silicon Rigidity for Token Speed
+  https://vllm.ai/blog/2026-08-23-speculative-decoding-amd-gpus
+  By pairing draft and target models on ROCm, vLLM cuts latency for open weights on AMD hardware, though tuning memory overhead remains an uncomfortable tax for systems engineers. It is a quiet reminder that optimizing modern inference is less about algorithmic breakthroughs and more about squeezing blood from memory bandwidth.
 
-* ROCm 10.0: A Decade of Open Compute, Built for the Age of Agentic AI
-  https://rocm.blogs.amd.com/ecosystems-and-partners/rocm-x-blog/README.html
-  
+* Arm pushes desktop GPU features to mobile chips, adding dedicated hardware for neural graphics
+  https://newsroom.arm.com/blog/arm-mali-g2-ultra-nx-ai-native-mobile-graphics
+  The G2-Ultra NX moves matrix math off main compute pipelines to run upscaling locally, trading chip area and thermal headroom for higher mobile frame rates. It offers a rare path back to hardware-level performance tuning, provided developers actually bother to optimize for the bespoke block.
 
-* Coop – Isolated VM Environments for Running Claude Code and Codex
-  https://github.com/trailofbits/coop
+* The VMs Powering Mobile Agents (Instinct, Claude Code)
+  https://rohanadwankar.github.io/posts/platforms.html
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* OpenAI 2025 financials $38.5B loss ahead of IPO
-  https://qz.com/openai-leaked-financials-losses-revenue-ipo-061626
+* Mistral raises €3B to make sovereign, open-weight AI the technology frontier
+  https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/
   
 
-* TiVo Monetizes the Skip Button It Built Its Name On
-  https://cordcuttersnews.com/tivo-plans-to-end-free-automatic-commercial-skipping-in-november-tests-paid-premium-replacement-service/
-  By taxing the exact fast-forward utility that originally defined consumer control, the company signals a final shift from user-owned utility to rent-seeking software, forcing engineers to weigh convenience against platform degradation.
+* Initial effects of AI technology on employment look positive
+  https://www.economist.com/finance-and-economics/2026/09/04/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here
+  
 
-* OpenAI Details Internal Acceleration While Engineering Discipline Shifts
-  https://openai.com/index/research-acceleration-view-inside-openai
-  Internal benchmarks point to shorter iteration loops across OpenAI's research workflows, trading rigorous codebase maintenance for pure experimental speed. Whether this speed-first approach scales without introducing systemic technical debt remains an open question for the industry.
+* Post-Scarcity Pledges Meet Fiscal Realities
+  https://theconversation.com/do-tech-billionaires-dream-of-shared-abundance-we-should-probably-just-tax-them-286658
+  Silicon Valley's promises of AI-driven material abundance increasingly substitute for structural wealth distribution, leaving tax policy as a far more predictable mechanism than philanthropic techno-utopianism. The clear risk is relying on voluntary billionaire largesse while institutional software standards and public revenue bases continue to degrade.
+
+* Bill Gates tries to install MovieMaker (2003)
+  https://www.techemails.com/p/bill-gates-tries-to-install-movie-maker
+  
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* Your intellectual fly is open when you use an LLM to author a post (2025)
-  https://bcantrill.dtrace.org/2025/12/05/your-intellectual-fly-is-open/
+* AI Amplifies Engineering Habits, Good or Bad
+  https://ycj.bearblog.dev/ai-again/
+  Generative tools do not cause sloppy engineering; they merely accelerate poor practices that were already present. Unchecked AI generation makes rigorous PM, QA, and automated testing practices more vital than ever. Quote: The problem is the people doing this were never good software engineers before vibe coding.
+
+* Why the Harness Matters More Than the Model [video]
+  https://www.youtube.com/watch?v=n9xKblqyQ28
   No insight extracted.
 
-* I refused to train the AI that could replace me
-  https://restofworld.org/2026/ai-training-jobs-expert-replacement/
+* Impedance Matching (2017)
+  https://www.edge.org/response-detail/27238
   No insight extracted.
-
-* How I feel about AI
-  https://beza1e1.tuxen.de/ai_feelings.html
-  No insight extracted.
-
-* The Custom Domain Paradox
-  https://crookedtimber.org/2026/09/03/dont-use-a-gmail-com-address/
-  Using custom email domains offers control and tracking, but users face friction from both digital gatekeepers restricting unknown domains and spam filters penalizing ubiquitous providers like Gmail. Quote: They are 'too big to fail': few people can afford to just block Google.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Engineering teams turn static analysis inward as autonomous coding agents drift
-  https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/
-  Engineers are adapting traditional runtime telemetry and linter pipelines to catch behavioral drift in internal coding models before flawed pull requests hit production. The added observability overhead is real, but it remains the only reliable substitute for declining human code review rigor.
+* Show HN: Stuxnet – A reconstructed source code of the infamous cyber-weapon
+  https://github.com/Sadpainy/Stuxnet
+  
 
-* A/I Publication Halts Operations Amid Ongoing Retractions
-  https://keepitfree.ai/announcements/a/i-shuts-down-stay-human/
-  The quiet closure of A/I highlights the growing fragility of outlets trying to cover machine learning without rigid editorial rigor. While sunsetting the publication eliminates a vector for unvetted automated claims, it further diminishes the dwindling pool of technical venues willing to audit code over press releases.
+* Disconnect your LG television from the internet, now
+  https://appleinsider.com/articles/26/09/07/disconnect-your-lg-television-from-the-internet-now
+  
