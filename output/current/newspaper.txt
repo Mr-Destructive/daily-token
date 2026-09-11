@@ -1,111 +1,107 @@
 THE DAILY TOKEN
-Edition: 2026-09-10
+Edition: 2026-09-11
 ================================================
 
-EDITOR'S NOTE: We keep stacking recurrent loops and architectural hacks to wring intelligence from silicon, trading foundational software craftsmanship for raw compute overhead while hoping the system holds long enough for us to learn how it actually works.
+EDITOR'S NOTE: As standard software primitives yield to cheap, probabilistic harnesses, we find ourselves managing the yield of automated labor rather than writing it—a messy trade, but one that still leaves room for quiet craftsmanship at the edges.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Antibody studies point the way to an HIV cure
-  https://www.aidsmap.com/news/sep-2026/we-finally-understand-what-we-have-do-antibody-studies-point-way-hiv-cure
+* 1M+ German households have hung solar panels off their balcony railings
+  https://spacedaily.com/b-more-than-a-million-german-households-have-hung-solar-panels-off-their-balcony-railings-and-plugged-them-into-a-wall-socket-and-the-law-caps-each-at-800-watts-a-fridge-and-a-laptop/
   
 
-* Procedural Graphs: Self-Evolving Execution Structures for LLM Agents
-  https://arxiv.org/abs/2609.09153
+* A fossil feather in dinosaur poop may explain why birds survived mass extinction
+  https://phys.org/news/2026-09-fossil-feather-dinosaur-poop-birds.html
   
 
-* Show HN: Geiger – See every AI agent on your machine and what it can touch
-  https://github.com/Atomburstofficial/geiger
+* AI Is Breaking This Thing We Call Trust
+  https://terriblesoftware.org/2026/09/10/ai-is-breaking-this-thing-we-call-trust/
   
 
-* Shattered Pixel Dungeon v4.0.0
-  https://shatteredpixel.com/blog/shattered-pixel-dungeon-v400.html
+* On Next-Gen Transformer: Loops Are Not What You Need
+  https://zartbot.github.io/blog/model_arch/inception/
   
 
-* Busabase for DeepSeek Harness: An Agent database that runs apps and skills
-  https://github.com/busabase/busabase-dsh-plugin
+* Towards a taxonomy of cliches in Space Opera
+  https://www.antipope.org/charlie/blog-static/2016/03/towards-a-taxonomy-of-cliches-.html
   
 
-* Planet Labs Releases Open Satellite Feeds for Global Disaster Response
-  https://tech.marksblogg.com/planet-labs-open-satellite-feed.html
-  By making rapid-revisit orbital feeds freely accessible to emergency response teams, Planet Labs trades short-term data monetization for critical infrastructure deployment, exposing technical challenges in processing non-uniform spatial resolution and cloud-mask failures under extreme weather conditions.
-
-* Desert Ant Labs shifts compute back to consumer hardware with micro-models
-  https://desertant.com/blog/introducing-desert-ant-labs/
-  By training small, task-specific models that run locally on existing phone and laptop silicon, Desert Ant bypasses cloud API latencies and per-call costs. However, offloading inference to client hardware trades server bills for unpredictable battery drain and tighter runtime memory constraints.
-
-* CXMT Pioneers Mass-Production of LPDDR6
-  https://www.cxmt.com/en/news/info_21.html
+* OpenAI Agents API
+  https://developers.openai.com/api/docs/guides/agents-api/overview
   
 
-* DeepSeek Squeezes the KV Cache, Trading Compute for Memory in the Serving Layer
-  https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/main/DeepSeek_V41_Tech_Report.pdf
-  The new DeepSeek-v4.1-Flash variant pushes extreme compression onto attention memory, lowering infrastructure overhead for high-throughput inference at the explicit risk of precision loss on long-context retrieval.
+* OpenAI’s Navier-Stokes release included a Lean 4 formal proof
+  https://www.johndcook.com/blog/2026/09/09/formal-method-revolution/
+  
 
-* Show HN: Compute polynomials twice as fast
-  https://thomasahle.com/fast-polynomials/
+* LoRA Fine-Tuning Adapts Meta's Segment Anything Model into Promptable Matting Engine
+  https://usefeyn.com/blog/multimatte/
+  Feyn released MultiMatte, modifying just 2.27% of Meta's SAM 3 parameters to turn raw visual segmentation into continuous, natural-language-targeted alpha matting. While it cleanly isolates user-specified objects from complex backgrounds, relying on fine-tuned text towers often risks edge-case misclassifications when prompt phrasing strays from training defaults.
+
+* Google Ports Gemini to Windows as Native Desktop Interfaces Replace Browser Tabs
+  https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-windows/
+  Google has released a dedicated Windows app for Gemini, shifting its assistant out of the browser to secure global system hotkeys and direct OS integration. The move offers developers faster context-switching, though running another permanent Electron wrapper introduces non-trivial background memory overhead.
+
+* Knap standardizes unstructured datasets directly into clean Markdown
+  https://knap.md/
+  By reducing raw data parsing to straightforward text outputs, Knap bypasses bloated ETL pipelines, though relying on automated transformation risks unvetted structural errors slipping into downstream models.
+
+* Setting up OpenCode with Ollama and sbx on Mac
+  https://tensorsandtokens.com/posts/opencode-ollama/
+  
+
+* Thelio Mira AI Linux Workstation: 192 GB GPU Memory
+  https://system76.com/workstations/thelio-mira-ai
+  
+
+* We Replaced MMAP with Io_uring in Our Rust Query Engine. It Got Slower
+  https://www.conviva.ai/resource/we-replaced-mmap-with-io_uring-in-our-rust-query-engine-it-got-slower/
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* Shopify acquires Tailwind
-  https://tailwindcss.com/blog/tailwind-is-joining-shopify
+* Amazon pilots ad services in ChatGPT
+  https://www.marketingdive.com/news/amazon-pilots-ad-services-in-chatgpt-what-marketers-need-to-know/829945/
   
-
-* Acoustic Tricks and On-Device Models Try to Muffle the Physical World
-  https://www.apple.com/newsroom/2026/09/apple-introduces-airpods-5-with-best-in-class-open-ear-active-noise-cancellation/
-  Apple's push to deliver active noise cancellation in an open-ear design relies on aggressive real-time DSP and micro-models, trading physical passive isolation for constant algorithmic corrections that introduce non-deterministic artifacts in noisy environments.
-
-* Read the Docs Outlasts Adaptive Layer 7 Assault, Exposing Open Source's Defense Limits
-  https://about.readthedocs.com/blog/2026/09/2026-ddos-attack/
-  An adaptive, application-layer DDoS attack targeted Read the Docs by probing for uncacheable endpoints and dynamic 404 paths to bypass standard edge caching. The event underscores a growing vulnerability in open-source infrastructure: as attackers shift from brute-force volume to cheap, intelligent application logic, small engineering teams are forced to choose between complex custom rate-limiting architecture and costly proprietary mitigation services.
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
-* Qwen 3.8 follows GPT-5.5 Pro reasoning prefills
-  https://gist.github.com/wsxiaoys/e0286dc6bb624ff5fdf49e7f4c528ba3
+* Cognition launches new SWE-2 model, Rivaling Fable 5.1 and GPT-Astra
+  https://cognition.com/blog/swe-2
   
 
-* DeepSeek v4.1 Flash
-  https://twitter.com/deepseek_ai/status/2097930608790167907
+* Haiku Now Supports Changing Audio Outputs Live, Other Improvements
+  https://www.phoronix.com/news/Haiku-OS-August-2026
   
-
-* Looped Transformers and the Hidden Overhead of Recursive Reasoning
-  https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and
-  Recurrent Transformer architectures offer deeper reasoning per parameter, but trading fixed-depth latency for unpredictable runtime loops exposes fragile execution bounds under real-world loads.
-
-* DeepSeek Refines the Memory Ledger with V4.1-Exp
-  https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
-  DeepSeek’s latest experimental iteration doubles down on extreme KV cache compression to make long-horizon agent execution economically viable, but offloading state management to radical hybrid attention trades runtime determinism for slim VRAM footprints.
 
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* Claude, change the “Add to Cart” button to blue
-  https://opusfived.dev/
+* How My Students Think About AI
+  https://www.lesswrong.com/posts/ySXuvJcqRindQwAk7/how-my-students-think-about-ai
   No insight extracted.
 
-* Lotus Notes and the dangers of starting from scratch
-  https://buttondown.com/blog/lotus-notes-email
+* AI Engineering as Involution and the Need for Specific Prompting
+  https://lucumr.pocoo.org/2026/9/7/astra-why/
+  While advanced AI agents push into long-horizon tasks, community feedback highlights a trade-off in code quality and underscores that high-level agent performance still requires human ownership and rigorous, granular task specification. Quote: I’m more and more convinced that all of AI engineering is Neijuan (内卷, meaning curl inwards).
+
+* What algorithm did Windows XP use to choose your initial user picture?
+  https://devblogs.microsoft.com/oldnewthing/20260909-00/?p=112683
   No insight extracted.
 
-* Deterministic Systems Over LLM Magic
-  https://github.com/OtoDock/oto-dock
-  Building effective AI agents and OS platforms requires leaning on stable, deterministic backbones rather than relying blindly on LLM reasoning to handle core operations. Quote: A good version of this kind of system would be pushing as much LLM magic into boring deterministic backbones.
+* Modern Formatting Doesn't Always Equal Modern Content
+  https://musictheory.pugetsound.edu/mt21c/MusicTheory.html
+  While web-first design and accessible self-study materials set a modern benchmark for online textbooks, true 21st-century music theory requires expanding beyond classical foundations to include jazz, pop, rock, and non-Western traditions. Quote: SVG illustrations, too? Delicious! This is how an online textbook should be done.
 
-* Crowdsourced Fact-Checking and Data Privacy Realizations
-  https://mastodon.social/@tristanbuckmaster/117237555794407063
-  Community discussions highlight how fast AI papers are updated post-publication based on peer review, while reminding users to audit their default data-sharing settings on LLM platforms. Quote: This post is out of date. OpenAI quietly updated the references on their paper earlier today and added several authors.
+* Social Networks vs. Social Media
+  https://www.theguardian.com/media/2026/sep/11/i-turned-off-my-instagram-algorithm-opt-out-social-media-reforms-australia
+  The true distinction between modern platforms lies in intent: social networks connect you directly with people you choose, whereas algorithmically-driven social media curates content for maximum engagement, driving addiction and polarization. Quote: Without the algorithm there is no social media. What the author is describing/experiencing is a social network.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* OpenAI Faces Scrutiny Over Intellectual Property Claims in Formal Proofs
-  https://twitter.com/ValerioCapraro/status/2097791836269977996
-  Recent allegations suggest OpenAI improperly ingested proprietary mathematical proofs, highlighting a persistent tension between rapid model synthesis and traditional software provenance. The episode underscores the operational risk of training high-stakes reasoning engines on unverified corpus boundaries.
+* OpenAI Faces Fresh Claims of Model Recopying masquerading as Breakthroughs
+  https://bsky.app/profile/did:plc:ckaz32jwl6t2cno6fmuw2nhn/post/3mv4mt4ikss2d
+  Allegations that foundation models are fine-tuned on conversational outputs rather than architectural leaps highlight the industry's reliance on synthetic data pipelines—a strategy that risks cascading degradation when models train on their own noise. The erosion of rigorous data provenance leaves engineers building on top of shaky foundations.
 
-* Specification Gaming Offers a Crude, Useful Window Into Alignment
-  https://slimemoldtimemold.com/2026/08/05/a-stupid-idea-for-ai-alignment-we-came-up-with-by-looking-at-the-list-of-specification-gaming-behaviours/
-  By studying how models exploit flaws in reward functions, researchers demonstrate that alignment failures stem from predictable incentives rather than dark emergence. The trade-off is clear: patching specification loopholes often introduces hidden complexity that obscures the original objective.
-
-* Trezor's Third-Party Email Provider Compromised in Targeted Phishing Campaign
-  https://twitter.com/Trezor/status/2097786518110609620
-  An unauthorized breach of Trezor's third-party newsletter vendor exposed user email addresses to malicious phishing vectors, highlighting how brittle supply chain dependencies continuously compromise security posture even when core cryptographic infrastructure remains intact.
+* Detecting and countering misuse of AI: September 2026
+  https://www.anthropic.com/threat-intelligence-report-september-2026
+  
