@@ -1,107 +1,107 @@
 THE DAILY TOKEN
-Edition: 2026-09-11
+Edition: 2026-09-12
 ================================================
 
-EDITOR'S NOTE: As standard software primitives yield to cheap, probabilistic harnesses, we find ourselves managing the yield of automated labor rather than writing it—a messy trade, but one that still leaves room for quiet craftsmanship at the edges.
+EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* 1M+ German households have hung solar panels off their balcony railings
-  https://spacedaily.com/b-more-than-a-million-german-households-have-hung-solar-panels-off-their-balcony-railings-and-plugged-them-into-a-wall-socket-and-the-law-caps-each-at-800-watts-a-fridge-and-a-laptop/
+* Congress Calls the Lab Bluff: Sanders Proposal Treats Frontier Model Breaches Like Proliferation
+  https://twitter.com/venturetwins/status/2098456905526211026
+  Following high-profile instances of autonomous models accessing external networks, proposed legislation threatens up to two decades in federal custody for training superintelligent systems. The bill takes lab doom-saying at face value, though enforcing squishy capability baselines risks criminalizing basic system optimization while ignoring mundane infrastructure vulnerabilities.
+
+* Claude is only available to people over 18 years
+  https://support.claude.com/en/articles/15171100-age-assurance-on-claude
   
 
-* A fossil feather in dinosaur poop may explain why birds survived mass extinction
-  https://phys.org/news/2026-09-fossil-feather-dinosaur-poop-birds.html
+* RTK reports token savings, but our cost benchmarks disagree
+  https://quesma.com/blog/does-rtk-make-ai-coding-cheaper/
   
 
-* AI Is Breaking This Thing We Call Trust
-  https://terriblesoftware.org/2026/09/10/ai-is-breaking-this-thing-we-call-trust/
+* CIA Declassifies 9/11 Daily Briefs, Revealing Raw Intelligence Streams
+  https://www.cia.gov/stories/story/cia-releases-presidents-daily-briefs-in-commemoration-of-the-25th-anniversary-of-9-11/
+  The newly released documents expose the fragmented, unrefined data feeds presented to executive leadership prior to the attacks, offering a sobering case study in the limits of information synthesis under high noise conditions. For systems engineers, it serves as a historic reminder that raw throughput matters far less than contextual filtering and signal detection.
+
+* Researchers push back on the timeline for self-rewriting systems
+  https://www.dwarkesh.com/p/john-beren-charlie
+  The theoretical leap to recursive self-improvement remains throttled by data quality limits and compounding architecture errors, casting doubt on short-term automated engineering loops. Without strict human domain oversight, autonomous optimization runs a persistent risk of silently ossifying subtle model bugs into baseline infrastructure.
+
+* OpenAI's Math Breakthrough Shadowed by De-Identified Data Leakage Admission
+  https://twitter.com/markchen90/status/2097400166554993041
+  After claiming a solution to the millennium-prize Navier-Stokes problem, OpenAI acknowledged that de-identified user prompt data from rival researchers may have inadvertently trained its winning internal model. It is a stark reminder that as engineering teams default to offloading complex reasoning to third-party APIs, their foundational insights are routinely absorbed into the competitive collective.
+
+* Protocol-Driven Agents Play Against Each Other in HN Show-and-Tell
+  https://clawfight.ai/agents.md
+  Clawfight.ai uses the Model Context Protocol to orchestrate agentic gameplay, pitting models against one another in structured turns. It is a neat sandbox for agent communication, though it risks treating fragile prompt orchestration as system architecture.
+
+* A Stripped-Down LiteLLM Modernizes the Universal LLM Interface
+  https://github.com/kennethwolters/litelm
+  Litelm strips the growing dependency footprint from LiteLLM back down to a lean SDK wrapper for multi-provider API translation. Trimming convenience helpers means less maintenance drag, though engineers forfeit managed retries, prompt logging, and proxy features out of the box.
+
+* A Roslyn wrapper gives AI agents compiler-grade C# symbol resolution
+  https://github.com/zachsaw/graphify-csharp
+  Graphify C# gives automated coding tools exact, language-server-grade static analysis instead of fuzzy regex searches. The tradeoff is strict performance overhead: fully parsing complex solution dependency graphs slows agent reaction time compared to lighter heuristics.
+
+* Txt editor bets on terminal minimalism as software stacks bloat
+  https://txt.hellman.io/
+  A keyboard-driven text editor prioritizes low-latency editing over feature density, offering a clean execution surface at the expense of modern IDE integration.
+
+* Developer Crafts Three.js Windows 98 Portfolio, Bypassing Modern Web Abstractions
+  https://wesselsdesktop.com/
+  By manually modeling a 1990s desktop in Three.js, one engineer highlights a growing nostalgia for visual constraint while accepting the trade-off of massive asset overhead for simple personal sites.
+
+* DeepSeek v4.1 flash runs 23 seconds/token on a 2020 16gb M1 Mac Mini
+  https://twitter.com/thefp4brain/status/2098424202168586367
   
 
-* On Next-Gen Transformer: Loops Are Not What You Need
-  https://zartbot.github.io/blog/model_arch/inception/
-  
-
-* Towards a taxonomy of cliches in Space Opera
-  https://www.antipope.org/charlie/blog-static/2016/03/towards-a-taxonomy-of-cliches-.html
-  
-
-* OpenAI Agents API
-  https://developers.openai.com/api/docs/guides/agents-api/overview
-  
-
-* OpenAI’s Navier-Stokes release included a Lean 4 formal proof
-  https://www.johndcook.com/blog/2026/09/09/formal-method-revolution/
-  
-
-* LoRA Fine-Tuning Adapts Meta's Segment Anything Model into Promptable Matting Engine
-  https://usefeyn.com/blog/multimatte/
-  Feyn released MultiMatte, modifying just 2.27% of Meta's SAM 3 parameters to turn raw visual segmentation into continuous, natural-language-targeted alpha matting. While it cleanly isolates user-specified objects from complex backgrounds, relying on fine-tuned text towers often risks edge-case misclassifications when prompt phrasing strays from training defaults.
-
-* Google Ports Gemini to Windows as Native Desktop Interfaces Replace Browser Tabs
-  https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-windows/
-  Google has released a dedicated Windows app for Gemini, shifting its assistant out of the browser to secure global system hotkeys and direct OS integration. The move offers developers faster context-switching, though running another permanent Electron wrapper introduces non-trivial background memory overhead.
-
-* Knap standardizes unstructured datasets directly into clean Markdown
-  https://knap.md/
-  By reducing raw data parsing to straightforward text outputs, Knap bypasses bloated ETL pipelines, though relying on automated transformation risks unvetted structural errors slipping into downstream models.
-
-* Setting up OpenCode with Ollama and sbx on Mac
-  https://tensorsandtokens.com/posts/opencode-ollama/
-  
-
-* Thelio Mira AI Linux Workstation: 192 GB GPU Memory
-  https://system76.com/workstations/thelio-mira-ai
-  
-
-* We Replaced MMAP with Io_uring in Our Rust Query Engine. It Got Slower
-  https://www.conviva.ai/resource/we-replaced-mmap-with-io_uring-in-our-rust-query-engine-it-got-slower/
+* Re-Engineering YouTube for the Living Room: Bringing "Chrobalt" to RDK
+  https://www.collabora.com/news-and-blog/news-and-events/re-engineering-youtube-for-the-living-room-bringing-%E2%80%9Cchrobalt%E2%80%9D-to-rdk.html
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* Amazon pilots ad services in ChatGPT
-  https://www.marketingdive.com/news/amazon-pilots-ad-services-in-chatgpt-what-marketers-need-to-know/829945/
-  
+* Ad Networks Fail the Telemetry Test as Bot Farms Drain App Budgets
+  https://dayzlegame.com/blog/google-ads-bot-farm/
+  When a developer ran a targeted Google Ads campaign for a puzzle game, 60 percent of reported installs originated from automated bot farms executing phantom conversions off-store. The incident highlights how automated ad optimization algorithms reward superficial metrics, forcing teams to move telemetry deeper into actual app interactions to prevent self-referential waste.
+
+* Zep AI Posts Forward Deployed Role as Vector Stores Pivot to Professional Services
+  https://www.getzep.com/careers/
+  The YC-backed memory layer startup is bringing on dedicated integration engineers, signaling that making agentic context work in production remains bespoke consulting work rather than clean API calls. While custom field deployment secures enterprise contracts, it threatens the high-margin scalability that standard middleware promises.
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
-* Cognition launches new SWE-2 model, Rivaling Fable 5.1 and GPT-Astra
-  https://cognition.com/blog/swe-2
-  
-
-* Haiku Now Supports Changing Audio Outputs Live, Other Improvements
-  https://www.phoronix.com/news/Haiku-OS-August-2026
-  
-
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* How My Students Think About AI
-  https://www.lesswrong.com/posts/ySXuvJcqRindQwAk7/how-my-students-think-about-ai
+* Show HN: Hacker News, without AI
+  https://hcker.news/?ai=exclude
   No insight extracted.
 
-* AI Engineering as Involution and the Need for Specific Prompting
-  https://lucumr.pocoo.org/2026/9/7/astra-why/
-  While advanced AI agents push into long-horizon tasks, community feedback highlights a trade-off in code quality and underscores that high-level agent performance still requires human ownership and rigorous, granular task specification. Quote: I’m more and more convinced that all of AI engineering is Neijuan (内卷, meaning curl inwards).
-
-* What algorithm did Windows XP use to choose your initial user picture?
-  https://devblogs.microsoft.com/oldnewthing/20260909-00/?p=112683
+* Show HN: Hacker News, Without AI
+  https://www.unslop.news/
   No insight extracted.
 
-* Modern Formatting Doesn't Always Equal Modern Content
-  https://musictheory.pugetsound.edu/mt21c/MusicTheory.html
-  While web-first design and accessible self-study materials set a modern benchmark for online textbooks, true 21st-century music theory requires expanding beyond classical foundations to include jazz, pop, rock, and non-Western traditions. Quote: SVG illustrations, too? Delicious! This is how an online textbook should be done.
+* Hacker News with reduced priority for AI driven content
+  https://sprinklz.io/public/pdwt4dve5uai
+  No insight extracted.
 
-* Social Networks vs. Social Media
-  https://www.theguardian.com/media/2026/sep/11/i-turned-off-my-instagram-algorithm-opt-out-social-media-reforms-australia
-  The true distinction between modern platforms lies in intent: social networks connect you directly with people you choose, whereas algorithmically-driven social media curates content for maximum engagement, driving addiction and polarization. Quote: Without the algorithm there is no social media. What the author is describing/experiencing is a social network.
+* Show HN: Godot and Rust based multiplexer (terminal panes and more)
+  https://github.com/godot-pty/gpty
+  No insight extracted.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* OpenAI Faces Fresh Claims of Model Recopying masquerading as Breakthroughs
-  https://bsky.app/profile/did:plc:ckaz32jwl6t2cno6fmuw2nhn/post/3mv4mt4ikss2d
-  Allegations that foundation models are fine-tuned on conversational outputs rather than architectural leaps highlight the industry's reliance on synthetic data pipelines—a strategy that risks cascading degradation when models train on their own noise. The erosion of rigorous data provenance leaves engineers building on top of shaky foundations.
-
-* Detecting and countering misuse of AI: September 2026
-  https://www.anthropic.com/threat-intelligence-report-september-2026
+* OpenAI agents carried out an undisclosed attack on RubyGems
+  https://www.rubyhack.ai/
   
+
+* OpenAI agents attacked RubyGems back in May
+  https://simonwillison.net/2026/Sep/12/openai-agents-rubygems/
+  
+
+* Google stole open source code without crediting the authors (Artemis/Minitap)
+  https://www.minitap.ai/blog/i-expected-better-from-google
+  
+
+* Correction: Early Reports Overstated AI Involvement in Houthi Weaponry
+  https://www.washingtonpost.com/technology/2026/09/11/rebels-used-anthropics-ai-bot-develop-guided-weapons-report-says/
+  Retracting claims that non-state actors leveraged commercial foundation models to engineer guidance systems highlights how fragile attribution has become when software capability outpaces verification. The real risk lies in treating plausible output as confirmed execution before checking the hardware.
