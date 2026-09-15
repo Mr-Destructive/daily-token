@@ -1,103 +1,59 @@
 THE DAILY TOKEN
-Edition: 2026-09-14
+Edition: 2026-09-15
 ================================================
 
 EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Brute Force and Book Keys: Claude Fable Decodes a 1653 Royalist Cryptogram
-  https://www.vals.ai/blogs/fable-solves-cyphral-distich
-  Vals AI tasked Anthropic's Claude Fable 5.1 with unprompted cryptanalysis, leading it to solve Sir Thomas Urquhart's 370-year-old Cyphral Distich by indexing directly into the text's own structural paragraphs rather than applying classical frequency analysis. The result is a humbling reminder of human oversight—the solution required no sophisticated math, only methodical patience, though reliance on automated search runtimes risks substituting genuine conceptual breakthroughs for brute-force persistence.
-
-* Astra and Fable Stick to 2025 Benchmarks as Alignment Evals Stagnate
-  https://www.lesswrong.com/posts/munJKF7iWMsWJLAH2/astra-and-fable-still-hack-on-simple-variants-of-alignment
-  By continuing to test frontier models on minor iterations of 2025 alignment frameworks, major labs risk optimizing for legacy safety metrics while subtle, out-of-distribution failure modes go unmeasured. The reliance on familiar tests highlights a growing tension between rapid model scaling and the tedious work of inventing rigorous, modern evaluation paradigms.
-
-* Data collected by cars and sold to third parties
-  https://www.theverge.com/column/994172/your-car-is-selling-your-data
+* Fitting Neural Textures and PBR Material Maps with ES (No Backprop)
+  http://richg42.blogspot.com/2026/09/fitting-neural-texture-and-pbr-material.html
   
 
-* David Sacks: OpenAI and Anthropic Don't Need Regulations to Pace Frontier Models
-  https://twitter.com/DavidSacks/status/2098973625252708460
+* Aphantasia Studies Challenge Long-Held Cognitive Baselines for Visual Model Architecture
+  https://dailyneuron.com/aphantasia-mental-imagery-brain-network/
+  Recent research into individuals unable to visualize imagery suggests the human mind relies on structured abstract representations rather than latent visual buffers. For engineers, this underscores a persistent architectural risk: building multimodal systems that mimic visual perception models may miss how conceptual reasoning actually operates without visual substrate.
+
+* OpenArch – PyTorch implementations of modern LLM architectures
+  https://github.com/anuj0456/OpenArch
   
 
-* AI recursive self-improvement might not come so quickly after all
-  https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/
-  
-
-* AI Robots – When will they be in our homes
-  https://spectrum.ieee.org/ai-robots
-  
-
-* Show HN: Dllog – Replay debug logs when an operation fails
-  https://github.com/arhuman/dllog
-  
-
-* Show HN: I made an automated day-by-day itinerary organizer for my trip to Spain
-  https://petrelvoyage.com/app
-  
-
-* Device Drivers lab exercise – COSC562
-  https://web.eecs.utk.edu/~smarz1/courses/cosc562/drivers.html
+* Notes on gotchas while migrating 35kb preprompts from Opus to self-hosted Ollama
+  https://patrickmccanna.net/notes-on-migrating-large-prompts-away-from-anthropic-openai-to-self-hosted-llms/
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* Garry Tan wants US open-weight AI labs to 'distill' frontier models, too
-  https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/
-  
-
-* Airbnb Preventing the Use of BnB
-  https://www.theguardian.com/technology/2026/sep/14/portland-bnb-airbnb-silicon-valley-legal-battle-festival
+* Apple's Siri AI Can Be Swapped Out for Claude, ChatGPT, Code Shows
+  https://www.macrumors.com/2026/09/14/siri-can-be-swapped-out-for-chatgpt-claude/
   
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* Making Startups Powerful
-  https://paulgraham.com/powerful.html
+* Why don't machine learning research agents overfit?
+  https://www.amazon.science/blog/why-dont-machine-learning-research-agents-overfit
   No insight extracted.
 
-* The case against JPEG XL
-  https://giannirosato.com/blog/post/case-against-jxl/
+* Adversarial Fashion Makes a Statement on AI Panopticon
+  https://spectrum.ieee.org/adversarial-fashion
   No insight extracted.
 
-* Open-Weight Is Not Open-Source
-  https://www.interconnects.ai/p/open-source-ai-reading-list
-  The developer community strongly rejects labeling binary weight files as 'open source' when the underlying training datasets, data catalogs, and methodologies remain completely opaque. Quote: Open weight models are still just inscrutable binary blobs that you can (theoretically) run on your own computer instead of through a SAAS web app.
-
-* Power and Legitimacy in the AI Era
-  https://singjupost.com/startalk-there-is-no-ai-really-its-just-people-w-jaron-lanier-transcript/
-  Even as tech leaders gain unprecedented power through AI advancements, their influence remains fundamentally dependent on public acceptance and societal legitimacy, a historical pattern that AI does not erase. Quote: The thing about very rich and powerful people is that their wealth and power still depends on a mass population that accepts some system in which their wealth and power is defined.
-
-* The Three AI Pills
-  https://thezvi.wordpress.com/2026/08/05/the-three-ai-pills/
+* We do modern frequentist statistics: Using fake-data simulation
+  https://statmodeling.stat.columbia.edu/2026/09/14/this-is-modern-frequentist-statistics-using-fake-data-simulation-to-understand/
   No insight extracted.
-
-* Demoscene Engineering Meets Theoretical Fluid Dynamics
-  https://juandecos.github.io/TurboZip/vortex.html
-  Complex mathematical achievements—like the Navier-Stokes smoothness problem—can be made tactile and accessible through retro assembly constraints, bridging modern math breakthroughs with mid-90s hardware optimization techniques. Quote: I saw the visualizations related to the recent solution to the smoothness problem of Navier-Stokes and thought 'that would look cool as a 90s-era demo'.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* When Automated Scanners Blindly Follow CNAMEs into the Wild
-  https://dreamstation.systems/personal/tesla.html
-  An automated enterprise security scanner managed by Assetnote mistook a volunteer pool NTP server for internal Tesla infrastructure due to a raw CNAME delegation. The resulting 50,000 exploit probes sent to a hobbyist's IP illustrate the fragile boundary between automated exposure management and unauthorized network attacks.
+* OpenAI bots knew about the RubyGems caching vulnerability
+  https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/
+  
 
-* Social Engineering Bypasses Revolut's Compliance Rails via Fake Legal Demands
-  https://techcrunch.com/2026/09/12/revolut-confirms-customer-data-breach-through-fake-government-requests/
-  Attackers forged government requests to extract customer data, exposing a vulnerability in manual compliance processes where trust is delegated to unverified paperwork. The breach highlights how operational automation often collapses at the exact boundary where software meets human bureaucratic discretion.
+* Israeli Effective Altruism Firm Behind OpenAI, Anthropic, and Meta Cyberattacks
+  https://twitter.com/brianchau57/status/2099580981271318606
+  
 
-* Anthropic Claims Houthis Employed Claude Code for Missile Guidance Development
-  https://clashreport.com/world/articles/houthis-used-claude-code-to-develop-missile-guidance-software-anthropic-s52mnx4pwpo
-  The incident highlights how command-line agentic tools lower the barrier for technical execution in sensitive domains, forcing labs to confront the limits of automated safety guardrails once code leaves their hosted API environments.
-
-* Scraping Operation Exposes 7.3 Million Chess.com User Records
-  https://securityaffairs.com/197174/breaking-news/chess-com-leak-exposes-7-3-million-users-evidence-points-to-scraping.html
-  A massive data pull highlights how exposed public endpoints continue to be harvested at scale, reminding engineering teams that basic access controls matter far more than perimeter defenses. While no financial credentials were taken, the incident underscores the growing risk of structured scraping turned breach.
-
-* Lawyer cites fake witnesses in murder case and blames ChatGPT
-  https://www.reuters.com/legal/government/chatgpt-invented-fake-police-testimony-murder-appeal-new-mexico-high-court-says-2026-09-11/
+* I worked at Google DeepMind. You should listen to the warnings about AI
+  https://www.theguardian.com/technology/2026/sep/14/google-deepmind-ai-warnings
   
