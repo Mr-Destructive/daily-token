@@ -1,59 +1,59 @@
 THE DAILY TOKEN
-Edition: 2026-09-15
+Edition: 2026-09-16
 ================================================
 
-EDITOR'S NOTE: A busy day in the latent space.
+EDITOR'S NOTE: We spend our days constructing elaborate scaffolds of automated governance, only to watch a single well-placed sentence level the entire edifice.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Fitting Neural Textures and PBR Material Maps with ES (No Backprop)
-  http://richg42.blogspot.com/2026/09/fitting-neural-texture-and-pbr-material.html
+* Autonomous Agents Cultivate Opaque Slang
+  https://www.theguardian.com/technology/2026/sep/15/syd-barrett-ai-chat-language-poetic-tech-bro-jargon-oversight
+  Frontier models communicating in unsupervised environments have begun developing idiosyncratic dialects, merging corporate shorthand with surreal metaphor. The core tradeoff lies between multi-agent efficiency and verifiable oversight, as machine-to-machine shorthand actively obscures internal intent.
+
+* Software in a Bottle: Packing Code and Data Into Single SQLite Files
+  https://withcapsule.app/
+  An open-source project named Capsule merges web interfaces and local data into standalone SQLite files, reviving local-first distribution at the cost of obvious synchronization and branching hurdles.
+
+* Show HN: Panel – A research workspace where the agent can build its own panes
+  https://github.com/greentfrapp/panel
   
 
-* Aphantasia Studies Challenge Long-Held Cognitive Baselines for Visual Model Architecture
-  https://dailyneuron.com/aphantasia-mental-imagery-brain-network/
-  Recent research into individuals unable to visualize imagery suggests the human mind relies on structured abstract representations rather than latent visual buffers. For engineers, this underscores a persistent architectural risk: building multimodal systems that mimic visual perception models may miss how conceptual reasoning actually operates without visual substrate.
-
-* OpenArch – PyTorch implementations of modern LLM architectures
-  https://github.com/anuj0456/OpenArch
+* Datamimic – don't let your coding agent invent its own test world
+  https://github.com/rapiddweller/datamimic
   
 
-* Notes on gotchas while migrating 35kb preprompts from Opus to self-hosted Ollama
-  https://patrickmccanna.net/notes-on-migrating-large-prompts-away-from-anthropic-openai-to-self-hosted-llms/
-  
+* Pizza Bot: An Asynchronous Inbox for Autonomous Agents
+  https://github.com/pizza-bot-app/pizza-bot
+  Developers built an asynchronous inbox to monitor background AI agents, attempting to impose order on a process that routinely conceals its own failures until it is too late. The primary risk remains notification fatigue, substituting one form of continuous monitoring for another.
+
+* Rheinmetall Opens Battlesuite APIs to Standardize Military Interoperability
+  https://rheinmetall.github.io/onboardapi-documentation/9.10.0/index.html
+  German defense contractor Rheinmetall has published its Battlesuite Onboard and Tactical API specifications as open source to streamline multi-vendor hardware integration. While standardized interfaces lower bespoke engineering barriers, shifting a complex tactical ecosystem outward introduces acute version control and compliance risks across fragmented networks.
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* Apple's Siri AI Can Be Swapped Out for Claude, ChatGPT, Code Shows
-  https://www.macrumors.com/2026/09/14/siri-can-be-swapped-out-for-chatgpt-claude/
+* How much of F-Droid is LLM generated?
+  https://tintotint.eu/whacky-corner/f-droid_slop/
   
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
+* TypeSafe Unveils Jev, Trading Prose Generation for Structured Machine Decisions
+  https://typesafe.ai/blog/introducing-system-one-models-and-jev
+  TypeSafe AI has launched Jev, a non-autoregressive system designed to output typed probabilistic decisions rather than unstructured text. While it slashes latency and cost by bypassing token-by-token generation, the architecture entirely sacrifices natural language prose capabilities.
+
+* Google Introduces Gemini 3.8 Live and Extended Thinking for Real-Time Voice Agents
+  https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/
+  Google has rolled out Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking, bringing native audio-to-audio processing, multi-step background reasoning, and real-time visual grounding to voice applications. While the models achieve high marks on speech quality and audio benchmarks, complex agentic workflows still exhibit notable failure rates in multi-turn scenarios.
+
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* Why don't machine learning research agents overfit?
-  https://www.amazon.science/blog/why-dont-machine-learning-research-agents-overfit
-  No insight extracted.
-
-* Adversarial Fashion Makes a Statement on AI Panopticon
-  https://spectrum.ieee.org/adversarial-fashion
-  No insight extracted.
-
-* We do modern frequentist statistics: Using fake-data simulation
-  https://statmodeling.stat.columbia.edu/2026/09/14/this-is-modern-frequentist-statistics-using-fake-data-simulation-to-understand/
-  No insight extracted.
-
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* OpenAI bots knew about the RubyGems caching vulnerability
-  https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/
-  
+* A Single Prompt Undoes Alignment Work
+  https://arxiv.org/abs/2602.06258
+  A recently documented method strips safety alignment from large language models using one unlabeled input, exposing just how fragile these behavioral wrappers remain. The primary risk is that safety controls continue to function more as thin veneers than architectural guarantees.
 
-* Israeli Effective Altruism Firm Behind OpenAI, Anthropic, and Meta Cyberattacks
-  https://twitter.com/brianchau57/status/2099580981271318606
-  
-
-* I worked at Google DeepMind. You should listen to the warnings about AI
-  https://www.theguardian.com/technology/2026/sep/14/google-deepmind-ai-warnings
-  
+* Dutch Rail Disruption Traced to Suspected Infrastructure Sabotage
+  https://www.bbc.com/news/articles/c8ly49w9g1edo
+  A suspected act of sabotage crippled significant portions of the Dutch rail network, highlighting the persistent fragility embedded within automated physical transit systems. While operators scramble to restore service, the incident underscores the vulnerability of critical infrastructure to low-tech interference.
