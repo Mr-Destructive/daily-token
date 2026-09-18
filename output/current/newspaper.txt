@@ -1,47 +1,44 @@
 THE DAILY TOKEN
-Edition: 2026-09-17
+Edition: 2026-09-18
 ================================================
 
 EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Reverse-Engineered Jev-Like Model Surfaces Without Documentation
-  https://github.com/vinnylarouge/jevlike
-  An undocumented Jev-like model has been reverse-engineered from public endpoints, offering a functional look at its latent structure while obscuring its training corpus. The primary risk lies in deploying architecture derived entirely through behavioral inference rather than specification.
-
-* Pangram – AI detector for text and images
-  https://www.pangram.com
+* How SpaceX Streamlined the Raptor Engine
+  https://www.construction-physics.com/p/how-spacex-streamlined-the-raptor
   
 
-* Jev Ultrafast Indexes Browser Actions for Autonomous Agents
-  https://github.com/browser-use/jev-ultrafast
-  A newly detailed browser agent relies on a dynamic, indexed action space to accelerate task execution, though compressing interface states into rigid vectors risks compounding edge-case failures in complex DOM trees.
+* Paleontological Reassessment Places Tyrannosaurus Rex Internal Temperature Near 36 Degrees Celsius
+  https://www.nytimes.com/2026/09/16/science/trex-dinosaur-temperature-warm-blooded.html
+  Recent thermal modeling suggests Tyrannosaurus rex maintained a core temperature closer to modern mammals than previously assumed, complicating metabolic assumptions for apex predators of the Cretaceous. The primary trade-off in this revision lies in reconciling lower baseline heat generation with the sheer mass required to retain it.
 
-* Common Crawl Lands on Hugging Face, Exposing the Infrastructure of Scale
-  https://commoncrawl.org/blog/getting-started-with-common-crawl-data-on-hugging-face
-  The migration of petabyte-scale web archives to hosted buckets streamlines model ingestion, though it risks centralizing raw data access around fewer commercial choke points.
+* Bend Restricts Concurrency to Formal Proofs
+  https://bend-lang.com/
+  Bend attempts to bring mathematical certainty to parallel execution by preventing runtime errors at compile time, though its strict constraints will likely test the patience of engineers accustomed to fast iteration.
 
-* Modeling AMD Matrix Cores Without Vendor Blueprints
-  https://arxiv.org/abs/2609.14845
-  Researchers reverse-engineer accurate behavioral models of AMD matrix hardware to bypass closed documentation, though the fidelity of these approximations under dense workloads remains unverified.
+* Automated Code Scans Arrive to Diagnose an Industry Built on Speed
+  https://devin.ai/blog/introducing-code-scans
+  Static analysis tooling attempts to intercept systematic drift in large repositories, though automated guardrails routinely risk generating background noise that engineers learn to ignore.
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* Mistral and Mozilla Partner to Bring Local Models to Firefox
-  https://mistral.ai/news/mistral-x-mozilla/
-  Mozilla integrates Mistral's weights into the browser runtime, trading cloud latency for local hardware overhead.
+* CCC invites all model citizens to 40C3
+  https://events.ccc.de/en/2026/09/12/40c3-model-citizens/
+  
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
-* DeepSeek Refines the KV Cache, Squeezing Context Costs to 890 Bytes a Token
-  https://zartbot.github.io/blog/model_arch/dsv41flash_arch/en.html
-  DeepSeek's new V4.1 Flash architecture shrinks its global key-value cache footprint down to 890 bytes per token through sparse attention and FP4 quantization, cutting long-context memory overhead. While this lowers the barrier for running million-token agent sessions, it leaves developers grappling with the reality that cross-session persistence remains entirely absent.
-
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
+* Show HN: Share your AI Setup, Learn from others
+  https://mysetup.ai/
+  No insight extracted.
+
+* Bridging LLMs and Classic ML for Robust Classification
+  https://minimallysufficient.com/posts/llm-classification-is-feature-extraction/
+  Instead of relying solely on expensive megaprompts or end-to-end LLM classification, the community advocates using LLM outputs, prompts, or judgments as features for downstream classical machine learning models (like logistic regression) to achieve better performance, lower costs, and stronger generalization. Quote: In my work on LLM as a judge, I prefer to use LLM decisions as features in a downstream classic ML model for the final decision. It works really well
+
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Hackers Got Inside a Flock Camera
-  https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/
-  
