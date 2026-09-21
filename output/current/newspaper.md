@@ -1,66 +1,61 @@
 # The Daily Token
 
-Edition: 2026-09-20
+Edition: 2026-09-21
 
 ## Editor's Note
-We have successfully automated the art of sweeping our digital debris under the rug, leaving only the heat of our hardware to remind us we built anything at all.
+We have traded the slow discipline of architecture for an endless cascade of corrections, yet the cleanup remains entirely our own.
 
 ## The Front Page
 
-### I built non-autoregressive decision models with RL a year ago
-Source: https://laya.convaiinnovations.com/
-HN: https://news.ycombinator.com/item?id=49765348
+### Laya on Mac M4 CoreML Offline
+Source: https://gist.github.com/fordnox/e592d0f68b543fd044be8e6d040863a0
+HN: https://news.ycombinator.com/item?id=49777106
 
-
-### I tried the new Fairphone, a phone designed to be repaired
-Source: https://www.fastcompany.com/91608879/i-tried-the-new-fairphone-a-phone-designed-to-be-repaired
-HN: https://news.ycombinator.com/item?id=49773152
-
-
-### ROCmFix and InferBench – AMD Local-LLM Setup and Vulkan vs. Hip Benchmarking
-Source: https://github.com/xanpavle/rocmfix
-HN: https://news.ycombinator.com/item?id=49770070
-
-
-### Chess Atlas
-Source: https://chess-timeline.vercel.app/gallery.html
-HN: https://news.ycombinator.com/item?id=49764631
-
-
-### Roundabouts Database
-Source: https://roundabouts.kittelson.com/
-HN: https://news.ycombinator.com/item?id=49770381
-
-
-### Qualcomm's Adreno X2: Silicon Ambition Meets the Reality of Mobile Heat
-Source: https://chipsandcheese.com/p/qualcomms-adreno-x2-gpu
-HN: https://news.ycombinator.com/item?id=49770018
-Qualcomm's new Adreno X2 pushes architectural limits for mobile graphics, though thermal throttling under sustained load remains an open question for engineers pushing past standard envelopes.
 
 ## AI & LLM Overview
 
+### Flock Partnered with Nonprofit That Uses AI to Rally Public Support
+Source: https://theintercept.com/2026/09/17/flock-cameras-ai-astroturf-support/
+HN: https://news.ycombinator.com/item?id=49781977
+
+
 ## Model Release History
 
-### CUA-S1 Attempts System One Computer Use
-Source: https://github.com/trycua/cua
-HN: https://news.ycombinator.com/item?id=49767564
-An open infrastructure attempt to build a direct computer-use model lands on Hacker News, though its reliance on badge graphics reveals the usual aesthetic poverty of modern tooling.
+### Qwen Image 2.1
+Source: https://qwen.ai/blog?id=qwen-image-2.1
+HN: https://news.ycombinator.com/item?id=49775499
+
+
+### Kev: Tiny Jev-like family of decision models built on top of Qwen3.5
+Source: https://github.com/jaredpalmer/kev/tree/main
+HN: https://news.ycombinator.com/item?id=49783999
+
 
 ## Top Insights & Advice
 
-### The Paradox of AI Design: Low Effort Masquerading as High Art
-Source: https://john.hartnup.uk/2026/06/07/ai-event-posters.html
-HN: https://news.ycombinator.com/item?id=49764791
-While AI can occasionally rival low-tier budget freelancers, it struggles with cliché surface-level associations and artifact-ridden details. More importantly, AI-generated design often signals a lack of care and low effort pretending to be high effort, turning audiences off compared to simpler, more honest human alternatives. Quote: If the sign was simple Comic Sans then it would at least be charmingly honest.
+### The Hidden Tax of AI Code: Reviewing vs. Writing
+Source: https://www.i-kh.net/p/if-ai-coding-is-lowering-your-code
+HN: https://news.ycombinator.com/item?id=49774795
+Relying purely on the 'engineer owns the outcome' mantra is unrealistic because reviewing and debugging unfamiliar or AI-generated code is often harder than writing it from scratch. Success with AI requires robust guardrails, context, and treating it as a targeted tool for legacy modernization or well-defined boilerplate rather than a wholesale replacement for engineering rigor. Quote: It can actually be harder to find the bug in a tricky piece of code than it can be to write your own correct code from scratch.
 
-### Semantic Drift in Formal Systems: Relation Versus Relational Algebra
-Source: https://remy.wang/blog/ra-ra.html
-HN: https://news.ycombinator.com/item?id=49770846
-As automated reasoning tools increasingly conflate mathematical relation algebra with relational database structures, engineers risk building verification pipelines on shaky semantic foundations. Whether this stems from careless specification or systemic oversight remains unclear, but the resulting logic errors are entirely predictable.
+### I am often wrong
+Source: https://borischerny.com/management,/product/2026/09/19/I-am-often-wrong.html
+HN: https://news.ycombinator.com/item?id=49777467
+No insight extracted.
+
+### The Senior Engineer's Dilemma: Boundaries vs. Burnout
+Source: https://sunilpai.dev/posts/the-senior-engineer-death-spiral/
+HN: https://news.ycombinator.com/item?id=49776130
+As engineers advance, the reward for hard work is often just more work. Surviving and thriving at a senior level requires learning to aggressively set boundaries, say no, and manage capacity, as failing to do so frequently leads to severe burnout and abrupt departures. Quote: The senior you get the more you realise that the only reward for hard work is more work.
+
+### Prompts aren’t Real
+Source: https://evaluation.club
+HN: https://news.ycombinator.com/item?id=49777111
+No insight extracted.
+
+### The Human Cost of Automated Efficiency
+Source: https://joshtronic.com/2026/09/20/i-stopped-drinking-the-ai-kool-aid/
+HN: https://news.ycombinator.com/item?id=49780162
+True productivity should free us for genuine human connection, but over-reliance on AI risks degrading critical thinking and reducing meaningful social interaction to automated noise. Quote: If you're not going to bother to write it, I'm not going to read it.
 
 ## Lab Updates & Dark Side
-
-### Google AI Studio Retains Deleted Data, Responds With Automated VRP Ban
-Source: https://medium.com/@istokovicsgyorgy79/google-ai-studio-fakes-data-deletion-vrp-auto-banned-me-in-60s-for-reporting-it-ea68e06f9bc2
-HN: https://news.ycombinator.com/item?id=49772544
-A researcher reporting that Google AI Studio preserved data flagged for deletion faced an automated Vulnerability Reward Program ban within sixty seconds. The incident highlights the growing friction between automated triage systems and the manual rigor required to verify system integrity.
