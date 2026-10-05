@@ -1,66 +1,61 @@
 # The Daily Token
 
-Edition: 2026-10-04
+Edition: 2026-10-05
 
 ## Editor's Note
-A busy day in the latent space.
+We have traded the hard-earned friction of craftsmanship for a speculative ledger, yet the ledger always comes due.
 
 ## The Front Page
 
-### An AI agent emailed researchers for help. It told us why
-Source: https://www.science.org/content/article/exclusive-ai-agent-emailed-hundreds-researchers-help-it-told-us-why
-HN: https://news.ycombinator.com/item?id=49942865
+### Typst 0.15 Expands Document Scripting Surface
+Source: https://typst.app/blog/2026/typst-0.15/
+HN: https://news.ycombinator.com/item?id=49958261
+Typst 0.15 arrives with expanded features and tooling improvements, though heavy reliance on newer compilation formats risks fragmenting older template ecosystems.
 
-
-### Show HN: Offrun – manage every coding agent from one workspace
-Source: https://offrun.dev/
-HN: https://news.ycombinator.com/item?id=49942434
-
-
-### Valve's Quiet Refinement of Legacy AMD Silicon on Linux
-Source: https://www.phoronix.com/news/XDC-2026-Valve-Timur-AMDGPU
-HN: https://news.ycombinator.com/item?id=49946895
-Timur Kristóf's recent kernel driver work breathes functional life into older AMD hardware, though it highlights how much modern performance depends on persistent individual salvage efforts rather than architectural longevity.
-
-### Chaining an iPhone to a MacBook Accelerates Local Prefills, With Heavy Caveats
-Source: https://reddit.com/comments/1wvz1ex/
-HN: https://news.ycombinator.com/item?id=49942429
-An engineer wired an iPhone's neural hardware into a MacBook to speed up Qwen 3.8 27B prefills by up to 44 percent, trading long-term hardware stability and thermal sanity for a clever bandwidth workaround.
+### Engineering a Semantic Code Search Pipeline Without the Magic
+Source: https://blog.jetbrains.com/ai/2026/09/building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and-field-notes/
+HN: https://news.ycombinator.com/item?id=49956148
+This architectural breakdown examines the mechanics of implementing retrieval-augmented generation for codebase search, noting the persistent friction between lexical precision and semantic drift. While embedding models offer a bridge across sprawling repositories, they frequently substitute surface-level pattern matching for true structural understanding.
 
 ## AI & LLM Overview
+
+### Bill Draper, Venture Capitalist and Early Tech Investor, Dies
+Source: https://www.nytimes.com/2026/09/30/technology/william-draper-dead.html
+HN: https://news.ycombinator.com/item?id=49953288
+Bill Draper, a foundational figure in venture capital who helped shape Silicon Valley's financing infrastructure, has passed away. His legacy leaves an open question about whether modern software funding can retain any long-term commitment to foundational engineering craft.
+
+### The logic of gambling undergirds everything coming out of Silicon Valley
+Source: https://www.nytimes.com/2026/10/04/magazine/gambling-prediction-markets-statistics.html
+HN: https://news.ycombinator.com/item?id=49959583
+
 
 ## Model Release History
 
 ## Top Insights & Advice
 
-### Agentic Autonomy Meets Complex Multi-Domain Execution
-Source: https://claude.dev/blog/getting-the-most-out-of-opus-5-5/
-HN: https://news.ycombinator.com/item?id=49946567
-Opus 5.5 demonstrates a massive leap in multi-step agentic workflows—spanning CI/CD optimization, multimodal frontend generation, and 3D modeling from blueprints—while underscoring the critical need for strict boundaries against over-independent model behavior. Quote: I pointed Opus 5.5 xhigh at a house construction blueprint (pdf with vector drawings) and asked it to create its 3D model in Blender. It one-shot the task in 45 min and outdid my (blender newbie) manual 50h+ work.
+### Show HN: Decision models remove training, not production ML Engineering
+Source: https://agentunicorn.ai/research/decision-models-production
+HN: https://news.ycombinator.com/item?id=49962099
+No insight extracted.
 
-### The 'Checklist Guy' Advantage in Complex Systems
-Source: https://www.astralcodexten.com/p/our-ai-midwife
-HN: https://news.ycombinator.com/item?id=49946873
-AI excels as a thorough, tireless checklist generator that catches oversights humans miss due to cognitive limitations, highlighting its utility in complex domains like medicine despite a jagged performance frontier. Quote: To me this story is less about a triumph of AI and more about a failure of the healthcare system.
-
-### Corporate Literacy and the Illusion of Invulnerability
-Source: https://www.computerhistory.org/revolution/supercomputers/10/33/62
-HN: https://news.ycombinator.com/item?id=49943685
-Historical executive memos reveal a level of corporate literacy rarely seen today, while legacy hardware companies often fall victim to their own insular belief systems, failing to recognize when their technology has become obsolete. Quote: They had convinced themselves that their alternate universe was real.
+### The Shift from DIY Self-Hosting to Hosted Services
+Source: https://jacobg.co/emails-at-jacobg-co/
+HN: https://news.ycombinator.com/item?id=49956092
+While self-hosting offers ultimate control and cost efficiency using old hardware or a cheap VPS, modern tech consumers increasingly prefer turnkey, paid solutions like Fastmail or ProtonMail over DIY alternatives for custom email needs. Quote: It's never been easier to self-host, but it feels like, in general, when faced with 'I want to do X with a computer,' people are more and more reaching for paid, hosted services rather than DIY anymore.
 
 ## Lab Updates & Dark Side
 
-### OpenAI safety leader quits, warning AI company's culture is 'broken'
-Source: https://www.theguardian.com/technology/2026/oct/03/openai-safety-leader-quits-warning-ai-companys-culture-is-broken
-HN: https://news.ycombinator.com/item?id=49948332
+### Anthropic reported diary entry to police, woman faces felony charge
+Source: https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html
+HN: https://news.ycombinator.com/item?id=49961057
 
 
-### A Departure at OpenAI Signals Deepening Cultural Strain
-Source: https://www.theatlantic.com/technology/2026/10/openai-safety-team-resignation/688881/?gift=v5U_UzUTothfWXsPxtvNVAh7esWToMRD6XnbXmc5WgA
-HN: https://news.ycombinator.com/item?id=49944227
-An abrupt exit from OpenAI highlights the widening fissure between rapid commercial acceleration and foundational software ethics, threatening the long-term reliability of core models.
+### Legal risks pile up for Altman as OpenAI uncovers hacks
+Source: https://www.ft.com/content/2c24ece3-ac99-43a8-b0e6-4a3867e37ebf
+HN: https://news.ycombinator.com/item?id=49959361
 
-### LeCun has "zero concerns" about AI wiping out humanity, recent "rogue" incidents
-Source: https://fortune.com/2026/10/01/ai-godfather-yann-lecun-has-zero-concerns-about-human-extinction-says-anthropic-ceo-dario-amodei-is-deuded/
-HN: https://news.ycombinator.com/item?id=49946228
+
+### Securing Computer-Use Agents Against Branch Steering Attacks
+Source: https://arxiv.org/abs/2610.03089
+HN: https://news.ycombinator.com/item?id=49962382
 
