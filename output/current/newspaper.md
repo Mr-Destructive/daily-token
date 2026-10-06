@@ -1,61 +1,51 @@
 # The Daily Token
 
-Edition: 2026-10-05
+Edition: 2026-10-06
 
 ## Editor's Note
-We have traded the hard-earned friction of craftsmanship for a speculative ledger, yet the ledger always comes due.
+We scavenge for durable fundamentals in a software landscape increasingly content to build skyscrapers on quicksand.
 
 ## The Front Page
 
-### Typst 0.15 Expands Document Scripting Surface
-Source: https://typst.app/blog/2026/typst-0.15/
-HN: https://news.ycombinator.com/item?id=49958261
-Typst 0.15 arrives with expanded features and tooling improvements, though heavy reliance on newer compilation formats risks fragmenting older template ecosystems.
+### Learning Jazz Pianist Style with Cross-Attention Conditioning
+Source: https://almostimplemented.github.io/jazz-pianist-style/
+HN: https://news.ycombinator.com/item?id=49971726
 
-### Engineering a Semantic Code Search Pipeline Without the Magic
-Source: https://blog.jetbrains.com/ai/2026/09/building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and-field-notes/
-HN: https://news.ycombinator.com/item?id=49956148
-This architectural breakdown examines the mechanics of implementing retrieval-augmented generation for codebase search, noting the persistent friction between lexical precision and semantic drift. While embedding models offer a bridge across sprawling repositories, they frequently substitute surface-level pattern matching for true structural understanding.
+
+### A Single-File Bi-Temporal Graph Engine Emerges for Local State
+Source: https://github.com/project-minigraf/minigraf
+HN: https://news.ycombinator.com/item?id=49963394
+Minigraf packs Datalog and dual-clock time tracking into an embedded Rust library, offering an alternative to amorphous agent memory files—though constrained by single-node limits.
+
+### The Kernel Beneath the Cruft: Rebuilding Linux Containers in Five Hundred Lines
+Source: https://blog.lizzie.io/linux-containers-in-500-loc.html
+HN: https://news.ycombinator.com/item?id=49965118
+Strip away a decade of orchestration bloat, and core container isolation reveals itself through surprisingly sparse primitives. The risk lies in mistaking educational minimalism for a hardened production boundary.
 
 ## AI & LLM Overview
-
-### Bill Draper, Venture Capitalist and Early Tech Investor, Dies
-Source: https://www.nytimes.com/2026/09/30/technology/william-draper-dead.html
-HN: https://news.ycombinator.com/item?id=49953288
-Bill Draper, a foundational figure in venture capital who helped shape Silicon Valley's financing infrastructure, has passed away. His legacy leaves an open question about whether modern software funding can retain any long-term commitment to foundational engineering craft.
-
-### The logic of gambling undergirds everything coming out of Silicon Valley
-Source: https://www.nytimes.com/2026/10/04/magazine/gambling-prediction-markets-statistics.html
-HN: https://news.ycombinator.com/item?id=49959583
-
 
 ## Model Release History
 
 ## Top Insights & Advice
 
-### Show HN: Decision models remove training, not production ML Engineering
-Source: https://agentunicorn.ai/research/decision-models-production
-HN: https://news.ycombinator.com/item?id=49962099
-No insight extracted.
+### The Undying Portability of Plain Text
+Source: https://deadparrotbbs.com/why-plain-text-is-still-one-of-the-best-technologies-we-have/
+HN: https://news.ycombinator.com/item?id=49968906
+While software tools and specialized formats inevitably deprecate and lock users in, plain text—anchored by historical ASCII standards and universal line endings—remains the ultimate durable medium for preserving human work and ideas across decades. Quote: Everything can be text with Base64, including things that have absolutely no business being text!
 
-### The Shift from DIY Self-Hosting to Hosted Services
-Source: https://jacobg.co/emails-at-jacobg-co/
-HN: https://news.ycombinator.com/item?id=49956092
-While self-hosting offers ultimate control and cost efficiency using old hardware or a cheap VPS, modern tech consumers increasingly prefer turnkey, paid solutions like Fastmail or ProtonMail over DIY alternatives for custom email needs. Quote: It's never been easier to self-host, but it feels like, in general, when faced with 'I want to do X with a computer,' people are more and more reaching for paid, hosted services rather than DIY anymore.
+### The Enduring Power of Ancient Hacker Lore
+Source: https://users.cs.utah.edu/~elb/folklore/magic.html
+HN: https://news.ycombinator.com/item?id=49972367
+Deep historical anecdotes and technical traditions serve as vital cultural touchstones for the hacker community, bridging generations of practitioners and preserving the playful spirit of early computing. Quote: Of all the ancient hacker lore, this is probably my favorite bit.
 
 ## Lab Updates & Dark Side
 
-### Anthropic reported diary entry to police, woman faces felony charge
-Source: https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html
-HN: https://news.ycombinator.com/item?id=49961057
+### Generative Cartoons Forge Signatures, Mimicking the New Yorker Style
+Source: https://www.niemanlab.org/2026/10/chatgpt-is-adding-real-cartoonists-signatures-to-fake-new-yorker-cartoons/
+HN: https://news.ycombinator.com/item?id=49971846
+ChatGPT has begun appending real cartoonists' signatures to synthetic illustrations, highlighting the persistent mechanical drift of automated image generation. While the tool efficiently mimics a distinct aesthetic, it bypasses the foundational attribution of human craft—a trade-off that risks eroding the boundary between imitation and appropriation.
 
-
-### Legal risks pile up for Altman as OpenAI uncovers hacks
-Source: https://www.ft.com/content/2c24ece3-ac99-43a8-b0e6-4a3867e37ebf
-HN: https://news.ycombinator.com/item?id=49959361
-
-
-### Securing Computer-Use Agents Against Branch Steering Attacks
-Source: https://arxiv.org/abs/2610.03089
-HN: https://news.ycombinator.com/item?id=49962382
+### Wikipedia operator says OpenAI's 'rogue' bots may be linked to a May outage
+Source: https://www.theverge.com/news/1004929/wikipedia-openai-rogue-bots-wikimedia-foundation-outage
+HN: https://news.ycombinator.com/item?id=49972467
 
