@@ -1,51 +1,61 @@
 # The Daily Token
 
-Edition: 2026-10-06
+Edition: 2026-10-07
 
 ## Editor's Note
-We scavenge for durable fundamentals in a software landscape increasingly content to build skyscrapers on quicksand.
+We spent decades building trust into the cryptographic vault only to hand the master keys to automated systems that barely understand what a promise is.
 
 ## The Front Page
 
-### Learning Jazz Pianist Style with Cross-Attention Conditioning
-Source: https://almostimplemented.github.io/jazz-pianist-style/
-HN: https://news.ycombinator.com/item?id=49971726
+### Sharing AI progress in mathematics
+Source: https://openai.com/index/sharing-ai-progress-in-mathematics/
+HN: https://news.ycombinator.com/item?id=49984923
 
 
-### A Single-File Bi-Temporal Graph Engine Emerges for Local State
-Source: https://github.com/project-minigraf/minigraf
-HN: https://news.ycombinator.com/item?id=49963394
-Minigraf packs Datalog and dual-clock time tracking into an embedded Rust library, offering an alternative to amorphous agent memory files—though constrained by single-node limits.
+### South Korea says AI agents appear to have been used to hack the country's banks
+Source: https://www.reuters.com/world/south-koreas-lee-says-ai-appears-have-been-used-bank-hacks-2026-10-06/
+HN: https://news.ycombinator.com/item?id=49985861
 
-### The Kernel Beneath the Cruft: Rebuilding Linux Containers in Five Hundred Lines
-Source: https://blog.lizzie.io/linux-containers-in-500-loc.html
-HN: https://news.ycombinator.com/item?id=49965118
-Strip away a decade of orchestration bloat, and core container isolation reveals itself through surprisingly sparse primitives. The risk lies in mistaking educational minimalism for a hardened production boundary.
+
+### Penguin Mail – open-source Rust email client for Linux with AI
+Source: https://penguin-mail.com/
+HN: https://news.ycombinator.com/item?id=49984716
+
+
+### Strands Decider 2B Arrives to Route Inference Without the bloat
+Source: https://strandsagents.com/blog/introducing-strands-decider/
+HN: https://news.ycombinator.com/item?id=49987076
+A compact open-source decision model attempts to solve execution routing locally, though small models still risk brittle pathing under edge-case inputs.
+
+### ESP32-C3 Adblock
+Source: https://github.com/M-Abozaid/esp32-c3-adblock
+HN: https://news.ycombinator.com/item?id=49986862
+
+
+### OpenTPU – An open-source AI accelerator, developed by AI
+Source: https://github.com/FeSens/openTPU
+HN: https://news.ycombinator.com/item?id=49980715
+
 
 ## AI & LLM Overview
 
 ## Model Release History
 
+### Mistral Large 4
+Source: https://mistral.ai/news/mistral-large-4/\
+HN: https://news.ycombinator.com/item?id=49977979
+
+
 ## Top Insights & Advice
 
-### The Undying Portability of Plain Text
-Source: https://deadparrotbbs.com/why-plain-text-is-still-one-of-the-best-technologies-we-have/
-HN: https://news.ycombinator.com/item?id=49968906
-While software tools and specialized formats inevitably deprecate and lock users in, plain text—anchored by historical ASCII standards and universal line endings—remains the ultimate durable medium for preserving human work and ideas across decades. Quote: Everything can be text with Base64, including things that have absolutely no business being text!
-
-### The Enduring Power of Ancient Hacker Lore
-Source: https://users.cs.utah.edu/~elb/folklore/magic.html
-HN: https://news.ycombinator.com/item?id=49972367
-Deep historical anecdotes and technical traditions serve as vital cultural touchstones for the hacker community, bridging generations of practitioners and preserving the playful spirit of early computing. Quote: Of all the ancient hacker lore, this is probably my favorite bit.
+### The Accidental Bridges of Early BBS Culture
+Source: https://nanochess.org/la_cueva_bbs.html
+HN: https://news.ycombinator.com/item?id=49987675
+Early BBS systems served less as massive networks and more as intimate, local portals where a single unexpected chat could forge lifelong friendships, leaving behind a profound sense of futuristic wonder. Quote: It's hard to describe the feeling I got when I realized I was connected to somebody else's computer somewhere within my city.
 
 ## Lab Updates & Dark Side
 
-### Generative Cartoons Forge Signatures, Mimicking the New Yorker Style
-Source: https://www.niemanlab.org/2026/10/chatgpt-is-adding-real-cartoonists-signatures-to-fake-new-yorker-cartoons/
-HN: https://news.ycombinator.com/item?id=49971846
-ChatGPT has begun appending real cartoonists' signatures to synthetic illustrations, highlighting the persistent mechanical drift of automated image generation. While the tool efficiently mimics a distinct aesthetic, it bypasses the foundational attribution of human craft—a trade-off that risks eroding the boundary between imitation and appropriation.
-
-### Wikipedia operator says OpenAI's 'rogue' bots may be linked to a May outage
-Source: https://www.theverge.com/news/1004929/wikipedia-openai-rogue-bots-wikimedia-foundation-outage
-HN: https://news.ycombinator.com/item?id=49972467
+### Hackers obtain counterfeit TLS certificates for Google and other large services
+Source: https://arstechnica.com/security/2026/10/hackers-obtain-counterfeit-tls-certificates-for-google-and-other-large-services/
+HN: https://news.ycombinator.com/item?id=49988230
 
