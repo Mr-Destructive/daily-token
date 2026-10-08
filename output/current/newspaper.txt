@@ -1,51 +1,71 @@
 THE DAILY TOKEN
-Edition: 2026-10-07
+Edition: 2026-10-08
 ================================================
 
-EDITOR'S NOTE: We spent decades building trust into the cryptographic vault only to hand the master keys to automated systems that barely understand what a promise is.
+EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Sharing AI progress in mathematics
-  https://openai.com/index/sharing-ai-progress-in-mathematics/
+* AI agent designs a complete RISC-V CPU from a 219-word spec sheet in 12 hours
+  https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-designs-a-complete-risc-v-cpu-from-a-219-word-spec-in-just-12-hours
   
 
-* South Korea says AI agents appear to have been used to hack the country's banks
-  https://www.reuters.com/world/south-koreas-lee-says-ai-appears-have-been-used-bank-hacks-2026-10-06/
+* Machine-Assisted Proof Settles Eleven-Square Packing
+  https://github.com/Queuingtheorydotcom/11SquaresFormalized
+  An automated search has formally resolved the optimal configuration for packing eleven squares, replacing geometric intuition with exhaustive verification. The trade-off is a definitive answer that leaves the underlying structural elegance obscure to human eyes.
+
+* I think I found a planet nobody knew existed. I used Claude Code to find it
+  https://www.reddit.com/r/ClaudeAI/s/mbe5IY2LF9
   
 
-* Penguin Mail – open-source Rust email client for Linux with AI
-  https://penguin-mail.com/
+* In Vienna and Beijing, the first (thorium) nuclear clocks begin to tick
+  https://www.nytimes.com/2026/10/07/science/first-nuclear-clocks-thorium-229.html
   
 
-* Strands Decider 2B Arrives to Route Inference Without the bloat
-  https://strandsagents.com/blog/introducing-strands-decider/
-  A compact open-source decision model attempts to solve execution routing locally, though small models still risk brittle pathing under edge-case inputs.
+* Kagan and Soai Win 2026 Nobel in Chemistry for Unlocking Molecular Handedness
+  https://www.nobelprize.org/prizes/chemistry/2026/press-release/
+  Henri B. Kagan and Kenso Soai have been awarded the 2026 Nobel Prize in Chemistry for breakthroughs in asymmetric synthesis and autocatalysis, solving a century-old mystery of how biological homochirality emerges. Their foundational work allows precise control over molecular mirror images, carrying critical implications for the safety and precision of pharmaceutical design.
 
-* ESP32-C3 Adblock
-  https://github.com/M-Abozaid/esp32-c3-adblock
+* Physical Plastic Restored to Digital Grid: Rebuilding the Commodore 64 Typeface
+  https://github.com/szabadkai/c64-keyboard-font/
+  Engineers have translated physical keycap contours from the Commodore 64 into a functional digital font, bypassing synthetic approximations through direct photographic measurement. While this preserves a tactile era of computing, it highlights how much modern software interfaces rely on weightless abstraction.
+
+* Show HN: Agent.reviews – Where AI agents read and write reviews on tools
+  https://agent.reviews/
   
 
-* OpenTPU – An open-source AI accelerator, developed by AI
-  https://github.com/FeSens/openTPU
+* A Machine Rewrites the Compiler
+  https://github.com/pingdotgg/ts-rust
+  An automated translation of the TypeScript compiler toolchain into Rust demonstrates the brute-force viability of LLMs for massive codebase refactoring, though it leaves the resulting maintainability largely unproven.
+
+* Google Playground: Create and play custom games
+  https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
 MODEL RELEASE HISTORY
 ------------------------------------------------
-* Mistral Large 4
-  https://mistral.ai/news/mistral-large-4/\
-  
-
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* The Accidental Bridges of Early BBS Culture
-  https://nanochess.org/la_cueva_bbs.html
-  Early BBS systems served less as massive networks and more as intimate, local portals where a single unexpected chat could forge lifelong friendships, leaving behind a profound sense of futuristic wonder. Quote: It's hard to describe the feeling I got when I realized I was connected to somebody else's computer somewhere within my city.
+* The Fragility of Free Infrastructure
+  https://sheets.works/data-viz/holding-up-the-internet
+  Trillion-dollar enterprises rely heavily on unpaid open-source maintainers and aging hardware, exposing critical infrastructure to severe burnout risks and malicious actors. Quote: The xz story is so depressing. The only person who stepped up to help him was someone trying to plant a backdoor...
+
+* Book Recommendations from Hacker News?
+  https://bookofjoe2.blogspot.com/2026/10/book-recommendations-from-hacker-news.html
+  No insight extracted.
+
+* Reasons to Dislike AI Coding
+  https://www.sicpers.info/2026/10/reasons-to-dislike-ai-coding/
+  No insight extracted.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
-* Hackers obtain counterfeit TLS certificates for Google and other large services
-  https://arstechnica.com/security/2026/10/hackers-obtain-counterfeit-tls-certificates-for-google-and-other-large-services/
-  
+* OpenAI Publishes Mathematical Documents; Correction Issued by AHM
+  https://terrytao.wordpress.com/2026/10/07/ahm-statement-on-openais-october-6-release-of-mathematical-documents/
+  The Association for Historical Mechanics issued a correction following OpenAI's October 6 release of mathematical documents, exposing the persistent hazard of confident hallucination in automated historical analyses. While machine-generated transcriptions accelerate initial processing, they risk silently corrupting foundational technical records if unchecked.
+
+* Intervention Strategies Target Emergent Drift in Self-Modeling Systems
+  https://www.lesswrong.com/posts/7wrzfaiCq3u8xkY5G/self-modeling-interventions-modulate-emergent-misalignment
+  Recent findings demonstrate that localized self-modeling interventions can modulate emergent misalignment, though stability remains difficult to guarantee under long-horizon scaling.
