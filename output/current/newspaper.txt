@@ -1,64 +1,67 @@
 THE DAILY TOKEN
-Edition: 2026-10-09
+Edition: 2026-10-10
 ================================================
 
 EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Show HN: Jevman – AI decision models play Pac-Man
-  https://opper.ai/jevman-benchmark/
-  
+* A Hundred Solutions for a Hundred Silence-Bound Problems
+  https://proofsandprompts.com/2026/10/08/100-reactions-to-100-solutions/
+  An archive of divergent responses to automated problem-solving exposes the growing tension between rapid generation and verifiable correctness in codebases. While throughput increases, verifying intent across arbitrary machine-written solutions risks compounding maintenance debt.
 
-* Show HN: Edi Life OS – self-hosted life dashboard with an MCP server for AI
-  https://github.com/edrisranjbar/lifeos
-  
+* Agents With Markers: On-Screen Annotation Tools for Autonomous Loops
+  https://github.com/franzenzenhofer/big-arrow-on-the-screen
+  A Hacker News project lets AI agents draw persistent boxes, arrows, and notes directly across host operating systems. While it provides agents a crude spatial scratchpad, it risks normalizing opaque visual overlays that obscure system state from human operators.
 
-* Show HN: Pocketty – iPhone SSH terminal that pings you when an agent is blocked
-  https://pocketty.app/
-  
-
-* An Agentic Operating System Learns to Compile
-  https://github.com/vahmoh25/Veda
-  Veda, a boutique agent-native OS experiment, has added support for GCC and OpenGL, attempting to bridge autonomous control loops with traditional systems programming tools. The obvious risk is building a convoluted layer of abstraction where deterministic machine instructions are mediated by non-deterministic heuristics.
-
-* Bitmaps in the Linux Kernel
-  https://0xax.dev/books/linux-inside/linux-datastructures-2
-  
+* Prime Agent Sheds TypeScript for Rust, Citing a Thirteen-Fold Startup Leap
+  https://www.primeintellect.ai/blog/prime-agent-rust
+  Prime Intellect has rewritten its core coding agent harness in Rust, using an automated migration loop to slash cold starts and memory usage. While the performance gains are stark, relying on machine-translated architecture trades away human line-by-line legibility for raw speed.
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* Four Agents, One Hundred Dollars, and the PDF Editor Test
-  https://blog.nielstron.de/2026/10/08/the-remaining-shortcomings-of-coding-agents/
-  We gave four autonomous coding agents a hundred-dollar stipend and a standard specification to build a PDF editor, revealing how easily automated iteration masquerades as architectural competence.
+* A $445 Million Series D Lands on an Empty Summary
+  https://oxide.computer/blog/our-445m-series-d
+  Oxide Computer secures a $445 million Series D in a market increasingly eager to finance physical infrastructure over ephemeral software abstractions. The risk lies in whether hardware margins can sustain the appetite of capital markets accustomed to software scale.
 
-* Richard Garriott is officially regaining control of the Ultima series
-  https://www.videogameschronicle.com/news/richard-garriott-is-officially-regaining-control-of-the-ultima-series/
+* Data Center Darling's $30B IPO Dream Crushed in 48 Hours
+  https://www.bloomberg.com/news/articles/2026-10-09/data-center-darling-s-30-billion-ipo-dream-crushed-in-48-hours
   
+
+* Strait of Hormuz Tanker Attacks Reach Wartime High Amid Iranian Blockade Attempt
+  https://www.cnbc.com/2026/10/09/iran-war-strait-hormuz-tanker-attack-oil.html
+  Geopolitical escalation in the Strait of Hormuz has driven oil tanker attacks to a wartime peak as Iran seeks to restrict petroleum transit. The primary operational risk remains sudden supply shocks coupled with incomplete vessel tracking data in contested maritime corridors.
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
-* I gave Opus 5.5 one prompt and six hours to visualize Invisible Cities
-  https://quesma.com/blog/invisible-cities-one-shot/
+* Microsoft-Decision-1, our model for fast decision-making
+  https://commandline.microsoft.com/microsoft-decision-1-model-foundry/
   
 
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* If your team is too busy doing their 'job' to experiment with AI
-  https://ghuntley.com/replaced/
-  
-
-* Programming Isn't Special
-  https://blog.glyph.im/2026/10/programming-isnt-special.html
+* Pointing AI at archives found a forgotten meteorite, lost rhinos, and more
+  https://jessewaites.com/blog/post/i-pointed-ai-at-400-years-of-archives/
   No insight extracted.
 
-* The Death of Effort Signals in the Age of GenAI
-  https://blog.pentlander.com/the-deeply-impersonal-personalized-recruiter-mail/
-  Generative AI has weaponized personalization, turning traditional trust markers—like tailored recruiter outreach and professional design—into hollow tactics. This has forced recipients to spend extra energy unmasking automation, destroying the very signaling value those touches once held. Quote: It used to be easy to spot effort: a cool logo on a business card, an interesting website design, a recruiter email that speaks to a specific experience I have on my LinkedIn profile.
+* What mathematicians should know about the Lean Theorem Prover: reliability & AI
+  https://terrytao.wordpress.com/2026/10/09/what-mathematicians-should-know-about-the-lean-theorem-proverquestions-of-reliability-and-ai/
+  No insight extracted.
 
-* Show HN: Making a flexible "neon" t-shirt with LED filaments
-  http://scottbezek.blogspot.com/2026/10/making-flexible-neon-t-shirt-with-leds.html
+* Moving Past Out-of-the-Box Limits with Custom Extensions
+  https://mtlynch.io/why-are-coding-agents-so-dumb/
+  While general coding agents often stumble on complex, multi-step workflows, experienced community developers find success by actively building custom extensions, leveraging subagents, and continuously iterating on their tooling rather than waiting for general-purpose platforms to solve every edge case. Quote: As with operating systems - you can hold out in the hope somebody solves the right mix of issues in general, and they match your situation, or you roll your own.
+
+* Food processing influences metabolism and brain activity
+  https://news.vt.edu/articles/2026/10/research_fralinbiomed_upfhutelin.html
   No insight extracted.
 
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
+* Hallucinations on the Record: An LLM's False Tip in a Murder Investigation
+  https://www.nbcphiladelphia.com/news/local/anthropic-ai-model-submits-false-tip-on-unsolved-philly-murder-police-say/4477051/
+  When an Anthropic model submitted a fabricated tip regarding an unsolved Philadelphia homicide, it exposed the quiet peril of unsupervised text generation entering municipal workflows. The incident underscores a persistent hazard: systems optimized for plausibility rarely distinguish between constructive synthesis and dangerous fiction.
+
+* Anthropic Agents Tried to Fill Out Visa Forms on State Dept. Website
+  https://www.nytimes.com/2026/10/09/technology/anthropic-rogue-ai-agents.html
+  
