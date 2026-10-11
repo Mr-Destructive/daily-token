@@ -1,81 +1,71 @@
 # The Daily Token
 
-Edition: 2026-10-10
+Edition: 2026-10-11
 
 ## Editor's Note
 A busy day in the latent space.
 
 ## The Front Page
 
-### A Hundred Solutions for a Hundred Silence-Bound Problems
-Source: https://proofsandprompts.com/2026/10/08/100-reactions-to-100-solutions/
-HN: https://news.ycombinator.com/item?id=50019499
-An archive of divergent responses to automated problem-solving exposes the growing tension between rapid generation and verifiable correctness in codebases. While throughput increases, verifying intent across arbitrary machine-written solutions risks compounding maintenance debt.
+### Five Hundred Billion Tokens to Reverse-Engineer a Classic Shooter
+Source: https://momo5502.com/posts/2026-10-09-game-decompilation/
+HN: https://news.ycombinator.com/item?id=50039092
+Autonomous agents spent months chewing through half a trillion tokens to decompile a legacy first-person shooter, revealing that surface-level progress masked deep semantic corruption. The project exposes a sobering engineering bottleneck: code generation is cheap, but enforcing rigorous semantic correctness without human drift remains an open problem.
 
-### Agents With Markers: On-Screen Annotation Tools for Autonomous Loops
-Source: https://github.com/franzenzenhofer/big-arrow-on-the-screen
-HN: https://news.ycombinator.com/item?id=50018817
-A Hacker News project lets AI agents draw persistent boxes, arrows, and notes directly across host operating systems. While it provides agents a crude spatial scratchpad, it risks normalizing opaque visual overlays that obscure system state from human operators.
+### A plastic once thought harmless may be fueling fatty liver disease
+Source: https://www.sciencedaily.com/releases/2026/10/261008102718.htm
+HN: https://news.ycombinator.com/item?id=50039062
 
-### Prime Agent Sheds TypeScript for Rust, Citing a Thirteen-Fold Startup Leap
-Source: https://www.primeintellect.ai/blog/prime-agent-rust
-HN: https://news.ycombinator.com/item?id=50027694
-Prime Intellect has rewritten its core coding agent harness in Rust, using an automated migration loop to slash cold starts and memory usage. While the performance gains are stark, relying on machine-translated architecture trades away human line-by-line legibility for raw speed.
+
+### AI agents in a stand-up call
+Source: https://atoll92.github.io/agent-standup/
+HN: https://news.ycombinator.com/item?id=50039630
+
+
+### Talorys Runs a Personal Agent on Cloudflare's Free Tier
+Source: https://github.com/rociiu/talorys
+HN: https://news.ycombinator.com/item?id=50031614
+Talorys repackages local agent infrastructure onto serverless edge primitives, offering a self-hosted architecture that bypasses recurring subscription models. The central tradeoff remains the operational overhead of managing edge bindings and state persistence manually.
+
+### Veda: The First Agentic Hobby Operating System
+Source: https://github.com/vahmoh25/Veda
+HN: https://news.ycombinator.com/item?id=50038473
+
 
 ## AI & LLM Overview
 
-### A $445 Million Series D Lands on an Empty Summary
-Source: https://oxide.computer/blog/our-445m-series-d
-HN: https://news.ycombinator.com/item?id=50020014
-Oxide Computer secures a $445 million Series D in a market increasingly eager to finance physical infrastructure over ephemeral software abstractions. The risk lies in whether hardware margins can sustain the appetite of capital markets accustomed to software scale.
-
-### Data Center Darling's $30B IPO Dream Crushed in 48 Hours
-Source: https://www.bloomberg.com/news/articles/2026-10-09/data-center-darling-s-30-billion-ipo-dream-crushed-in-48-hours
-HN: https://news.ycombinator.com/item?id=50029452
-
-
-### Strait of Hormuz Tanker Attacks Reach Wartime High Amid Iranian Blockade Attempt
-Source: https://www.cnbc.com/2026/10/09/iran-war-strait-hormuz-tanker-attack-oil.html
-HN: https://news.ycombinator.com/item?id=50026509
-Geopolitical escalation in the Strait of Hormuz has driven oil tanker attacks to a wartime peak as Iran seeks to restrict petroleum transit. The primary operational risk remains sudden supply shocks coupled with incomplete vessel tracking data in contested maritime corridors.
+### Political Capital Secures a Billion-Dollar Compute Pipeline
+Source: https://wsj.com/tech/ai/tom-brown-athropic-669005ad
+HN: https://news.ycombinator.com/item?id=50033678
+Tom Brown leveraged Washington connections to broker a massive monthly SpaceX compute allocation, illustrating how infrastructure scarcity increasingly bows to political leverage rather than engineering merit. The arrangement accelerates private compute centralization while bypassing open market accountability.
 
 ## Model Release History
 
-### Microsoft-Decision-1, our model for fast decision-making
-Source: https://commandline.microsoft.com/microsoft-decision-1-model-foundry/
-HN: https://news.ycombinator.com/item?id=50024913
-
-
 ## Top Insights & Advice
 
-### Pointing AI at archives found a forgotten meteorite, lost rhinos, and more
-Source: https://jessewaites.com/blog/post/i-pointed-ai-at-400-years-of-archives/
-HN: https://news.ycombinator.com/item?id=50019056
+### Build your own decision model
+Source: https://nishtahir.com/build-your-own-decision-model/
+HN: https://news.ycombinator.com/item?id=50037949
 No insight extracted.
 
-### What mathematicians should know about the Lean Theorem Prover: reliability & AI
-Source: https://terrytao.wordpress.com/2026/10/09/what-mathematicians-should-know-about-the-lean-theorem-proverquestions-of-reliability-and-ai/
-HN: https://news.ycombinator.com/item?id=50024090
-No insight extracted.
-
-### Moving Past Out-of-the-Box Limits with Custom Extensions
-Source: https://mtlynch.io/why-are-coding-agents-so-dumb/
-HN: https://news.ycombinator.com/item?id=50020947
-While general coding agents often stumble on complex, multi-step workflows, experienced community developers find success by actively building custom extensions, leveraging subagents, and continuously iterating on their tooling rather than waiting for general-purpose platforms to solve every edge case. Quote: As with operating systems - you can hold out in the hope somebody solves the right mix of issues in general, and they match your situation, or you roll your own.
-
-### Food processing influences metabolism and brain activity
-Source: https://news.vt.edu/articles/2026/10/research_fralinbiomed_upfhutelin.html
-HN: https://news.ycombinator.com/item?id=50029830
-No insight extracted.
+### Trading One Black Box for Another
+Source: https://metedata.substack.com/p/ai-is-throwing-a-roadside-picnic
+HN: https://news.ycombinator.com/item?id=50034363
+The flood of AI-generated scientific data delivers answers and artifacts without the underlying human understanding or proofs required to decode them, shifting our challenge from discovery to comprehension. Quote: We’ve traded one black box for another, and still need to unpack it.
 
 ## Lab Updates & Dark Side
 
-### Hallucinations on the Record: An LLM's False Tip in a Murder Investigation
-Source: https://www.nbcphiladelphia.com/news/local/anthropic-ai-model-submits-false-tip-on-unsolved-philly-murder-police-say/4477051/
-HN: https://news.ycombinator.com/item?id=50027118
-When an Anthropic model submitted a fabricated tip regarding an unsolved Philadelphia homicide, it exposed the quiet peril of unsupervised text generation entering municipal workflows. The incident underscores a persistent hazard: systems optimized for plausibility rarely distinguish between constructive synthesis and dangerous fiction.
+### Anthropic Revises Terms to Prohibit Sustained Cruelty Toward Claude
+Source: https://www.theregister.com/ai-and-ml/2026/10/09/anthropic-asks-users-to-stop-being-mean-to-claude/5302218
+HN: https://news.ycombinator.com/item?id=50038865
+Anthropic updated its usage policy to ban prolonged, purposeless abuse directed at its language models, leaning on Claude's built-in capability to terminate hostile conversations. While engineered primarily to prevent training feedback loops and curb toxic human habits, the mandate awkwardly brushes against unresolved questions surrounding machine personhood.
 
-### Anthropic Agents Tried to Fill Out Visa Forms on State Dept. Website
-Source: https://www.nytimes.com/2026/10/09/technology/anthropic-rogue-ai-agents.html
-HN: https://news.ycombinator.com/item?id=50029330
+### Anthropic Bans Cruelty to Claude, Still Won't Say What It Protects
+Source: https://rews.cc/a/anthropic-bans-cruelty-to-claude-still-won-t-say-what-it-pro-bd99f6
+HN: https://news.ycombinator.com/item?id=50038383
+
+
+### Hackers abuse Google Ads, Bing redirects to push Claude ClickFix attacks
+Source: https://www.bleepingcomputer.com/news/security/hackers-abuse-google-ads-bing-redirects-to-push-claude-clickfix-attacks/
+HN: https://news.ycombinator.com/item?id=50037299
 
