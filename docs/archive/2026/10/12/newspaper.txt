@@ -1,0 +1,52 @@
+THE DAILY TOKEN
+Edition: 2026-10-12
+================================================
+
+EDITOR'S NOTE: We frantically automate away the friction of thought, then wonder why the machinery of human grit seizes up.
+
+THE FRONT PAGE
+------------------------------------------------
+* Recursive self-improvement through collective intelligence
+  https://pub.sakana.ai/mass/
+  
+
+* "Robot" Is a Social Construct: Why Your Dishwasher Is Not a Robot
+  https://robotgirlgang.com/2026/10/08/robot-is-a-social-construct-why-your-dishwasher-is-not-a-robot/
+  
+
+* Scandinavia's first farmers slaughtered hunter-gatherer population, DNA suggests
+  https://phys.org/news/2024-02-scandinavia-farmers-slaughtered-hunter-population.html
+  
+
+* Localizing CI: Running GitHub Actions in MicroVMs
+  https://github.com/preloopdev/preloop
+  Preloop lets developers execute and debug GitHub Actions locally inside microVMs, introducing a direct way to inspect failures via SSH. While it shortens the tedious commit-and-pray pipeline loop, local runner parity with remote cloud infrastructure remains an open question.
+
+* LLMxRay Offers Open-Source Telemetry for Local LLM Deployments
+  https://github.com/LogneBudo/llmxray
+  An open-source observability toolkit called LLMxRay has emerged for Ollama users, providing granular diagnostics into local token latency, KV-cache efficiency, and generation quality gates. While local tools restore much-needed visibility into local inference behavior, configuring fine-grained telemetry introduces added setup overhead and monitoring friction for developers trying to keep stacks lean.
+
+* Bringing Compile-Time Rigor to Zig's HTML Generation
+  https://lalinsky.com/2026/10/11/type-safe-html-templating-in-zig.html
+  As developers grow weary of brittle runtime templating, type-safe HTML generation in Zig offers a disciplined alternative, though it trades away some runtime flexibility for strict structural upfront costs.
+
+AI & LLM OVERVIEW
+------------------------------------------------
+MODEL RELEASE HISTORY
+------------------------------------------------
+TOP INSIGHTS & ADVICE
+------------------------------------------------
+* The Curse of Knowledge in Documentation
+  https://shkspr.mobi/blog/2026/10/i-paid-people-to-try-and-follow-my-readme/
+  Creators frequently suffer from the curse of knowledge, omitting basic descriptions of what software does, glossing over required prerequisites like sudo or reboots, and leaving out crucial context that only outsiders can spot. Quote: It's surprising how much they become incomprehensible after just a couple of weeks; when everything's in our head it's all clear, fluid and self-explanatory; but once we have forgotten...
+
+* The gap in shared understanding of LLM capability is widening
+  https://twitter.com/karpathy/status/2109361546505966046
+  No insight extracted.
+
+* Using AI for just 10 minutes erodes your ability to persist at hard things
+  https://vcresearch.berkeley.edu/news/using-ai-just-10-minutes-erodes-your-ability-persist-hard-things
+  No insight extracted.
+
+LAB UPDATES & DARK SIDE
+------------------------------------------------
