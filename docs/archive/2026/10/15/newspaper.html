@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Token</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --ink:#181512; --paper:#f8f3ea; --sep:#c4b8a4; --highlight:#7a2b1f; --muted:#756b5e; --box:#fffaf0; }
+        * { box-sizing:border-box; }
+        body { background:#c8c1b5; margin:0; font-family:'Source Serif 4',serif; color:var(--ink); line-height:1.35; }
+        .newspaper-container { background:var(--paper); max-width:1280px; margin:0 auto; padding:32px; box-shadow:0 18px 80px rgba(0,0,0,.22); min-height:100vh; transition:opacity .22s ease; }
+        .page-turn-out { opacity:0; }
+        header { text-align:center; border-bottom:6px double var(--ink); padding-bottom:18px; }
+        .masthead-title { font-family:'Playfair Display',serif; font-weight:900; font-size:5.4rem; letter-spacing:-2px; margin:0; text-transform:uppercase; }
+        .sub-masthead { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); margin-top:12px; padding:6px 0; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:.86rem; display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+        nav.sticky-nav { position:sticky; top:0; background:var(--paper); z-index:100; text-align:center; padding:12px 0; border-bottom:1px solid var(--ink); margin-bottom:30px; }
+        .nav-item { text-decoration:none; color:var(--ink); font-family:'Oswald',sans-serif; font-size:.82rem; margin:0 10px; border-bottom:2px solid transparent; }
+        .nav-item.active { color:var(--highlight); border-color:var(--highlight); }
+        .page-title { text-align:center; border-bottom:3px solid var(--ink); line-height:.1em; margin:40px 0 26px; font-family:'Oswald',sans-serif; font-size:1.32rem; }
+        .page-title span { background:var(--paper); padding:0 22px; }
+        .section-sub-header { text-align:left; border-bottom:1px solid var(--sep); line-height:.1em; margin:28px 0 18px; font-family:'Oswald',sans-serif; font-size:.86rem; color:var(--highlight); letter-spacing:.06em; }
+        .section-sub-header span { background:var(--paper); padding-right:12px; }
+        .columns-3 { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px; margin-bottom:24px; }
+        .headline-sm { font-family:'Playfair Display',serif; font-size:1.42rem; line-height:1.14; margin:0 0 10px; }
+        .article a { color:inherit; text-decoration:none; }
+        .article a:hover { color:var(--highlight); }
+        .metadata { font-family:'Oswald',sans-serif; font-size:.72rem; color:var(--muted); margin-bottom:10px; letter-spacing:.04em; text-transform:uppercase; }
+        .metadata .source-link, .hn-link { color:var(--highlight); font-weight:700; }
+        .summary-sm { margin:0; font-size:.98rem; }
+        .news-img { width:100%; display:block; margin-bottom:14px; filter:grayscale(100%); border:1px solid #d7c9b2; transition:.25s; box-shadow:4px 4px 0 rgba(0,0,0,.05); }
+        .news-img:hover { filter:none; transform:translateY(-1px); }
+        .page-footer-nav { display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:14px; border-top:1px solid var(--ink); }
+        .nav-btn { font-family:'Oswald',sans-serif; color:var(--ink); text-decoration:none; border:1px solid var(--ink); padding:8px 14px; font-size:.82rem; }
+        .nav-btn:hover { background:var(--ink); color:#fff; }
+        .edition-nav { display:flex; justify-content:center; align-items:center; gap:20px; background:#e9e1d3; padding:10px; font-family:'Oswald',sans-serif; font-size:.78rem; border-bottom:1px solid #cdbfa8; flex-wrap:wrap; }
+        .edition-link { color:#574f46; text-decoration:none; }
+        .edition-link.disabled { color:#a69e93; }
+        .editors-note { margin-bottom:20px; padding:16px; border:1px solid #d6c8b0; font-style:italic; background:var(--box); border-left:4px solid var(--highlight); }
+        .editors-note .emphasis { color:var(--highlight); font-weight:700; }
+        .insights-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+        .insight-card { padding:18px; border:1px solid #ded1bb; background:var(--box); }
+        .insight-author { font-family:'Oswald',sans-serif; font-size:.68rem; color:var(--highlight); margin-bottom:8px; border-bottom:1px solid #e3d8c7; padding-bottom:4px; text-transform:uppercase; }
+        .insight-headline { font-family:'Playfair Display',serif; font-size:1.34rem; margin:0 0 10px; }
+        .insight-summary { margin:0; }
+        .insight-footer { margin-top:12px; font-family:'Oswald',sans-serif; font-size:.78rem; }
+        .release-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .release-card { border:1px solid #ded1bb; background:var(--box); padding:14px; }
+        .release-kicker { font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.08em; color:var(--highlight); text-transform:uppercase; }
+        .release-card h3 { font-family:'Playfair Display',serif; margin:6px 0 8px; }
+        .release-card p { margin:0; font-size:.95rem; }
+        .release-links { margin-top:10px; font-family:'Oswald',sans-serif; font-size:.75rem; }
+        .model-ledger-link { margin-top:14px; text-align:right; font-family:'Oswald',sans-serif; font-size:.84rem; }
+        .model-ledger-link a { color:var(--highlight); text-decoration:none; }
+        .empty-note { border:1px dashed #cab99f; padding:14px; background:#fff8ea; }
+        @media (max-width:1000px) {
+            .masthead-title { font-size:3rem; }
+            .columns-3, .insights-grid, .release-grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="edition-nav">
+        <a href="../../../../archive/2026/10/14/newspaper.html" class="edition-link">← PREVIOUS EDITION</a>
+        <span style="font-weight:700; color:#111;">EDITION: OCT 15, 2026</span>
+        <span class="edition-link disabled" aria-disabled="true">NEXT EDITION →</span>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../archive/index.html" class="edition-link">FULL ARCHIVES</a>
+        <span style="color:#9b8f82">|</span>
+        <a href="../../../../model-releases.html" class="edition-link">MODEL RELEASES</a>
+    </div>
+    <div class="newspaper-container" id="newspaper-main">
+        <header>
+            <h1 class="masthead-title">The Daily Token</h1>
+            <div class="sub-masthead">
+                <span>EMBEDDING ESTATES</span>
+                <span>THURSDAY, OCTOBER 15, 2026</span>
+                <span>GLOBAL AI TECHNOLOGY REPORT</span>
+                <span>VOL. 2026.288</span>
+            </div>
+        </header>
+        <nav class="sticky-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-item" id="nav-1">THE FRONT PAGE</a><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-item" id="nav-2">AI & LLM OVERVIEW</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-item" id="nav-3">MODEL RELEASE HISTORY</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-item" id="nav-4">TOP INSIGHTS & ADVICE</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-item" id="nav-5">LAB UPDATES & DARK SIDE</a></nav>
+        <main id="pages-wrapper"><div id="page-content-1" class="newspaper-page" style="display: block"><div class="page-title"><span>THE FRONT PAGE</span></div><div class='editors-note'><strong>EDITOR'S NOTE:</strong> We spend our days constructing elaborate scaffolds to manage the entropy of our own decaying architectures, hoping something holds before the infrastructure finally gives way. <span class='emphasis'>#AI degradation and infrastructure fragility</span></div><div class="section-sub-header"><span>MODEL ARCHITECTURES</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://brooker.co.za:443/blog/2026/10/04/encoders.html" target="_blank" rel="noopener">Strands Decider: The Lingering Inconvenience of the Encoder</a></h3><div class="metadata">SOURCE: <a href="https://brooker.co.za:443/blog/2026/10/04/encoders.html" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=50088447" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Revisiting why modern pipelines lean toward deciders over traditional encoders reveals an industry increasingly allergic to structural constraints. The tradeoff is predictable: greater architectural flexibility bought at the cost of opaque, harder-to-debug runtime behavior.</p></div></article></div><div class="section-sub-header"><span>NEURAL HORIZONS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><a href="https://blog.cloudflare.com/yandex-outage/" target="_blank" rel="noopener"><img src="../../../../images/story_3_0_Yandex_outage__data_shows_that.png" class="news-img" alt=""></a><h3 class="headline-sm"><a href="https://blog.cloudflare.com/yandex-outage/" target="_blank" rel="noopener">Yandex outage: data shows that instead of going dark, malicious bots moved</a></h3><div class="metadata">SOURCE: <a href="https://blog.cloudflare.com/yandex-outage/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=50094673" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="section-sub-header"><span>LAB OUTPUTS</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><a href="https://github.com/bealesh/neckbeard" target="_blank" rel="noopener"><img src="../../../../images/story_4_0_Neckbeard___A_DevOps_platform_.png" class="news-img" alt=""></a><h3 class="headline-sm"><a href="https://github.com/bealesh/neckbeard" target="_blank" rel="noopener">Neckbeard: An Agentic Plugin for Infrastructure Automation</a></h3><div class="metadata">SOURCE: <a href="https://github.com/bealesh/neckbeard" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=50091794" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">This developer tool integrates operational context directly into agent workflows, though increased automation risks obscuring underlying system mechanics from engineers.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://github.com/graphicle-ai/graphicle" target="_blank" rel="noopener">Graphicle Translates Agent Memory into Rust</a></h3><div class="metadata">SOURCE: <a href="https://github.com/graphicle-ai/graphicle" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=50088713" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Graphicle ports Graphify into Rust, offering coding agents a structured graph memory to track context across sessions. While it reduces repetitive context-loading, the underlying trade-off is the silent accumulation of stale or poisoned nodes as a codebase mutates.</p></div></article><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://openlume.com/examples/3f65f6ce-87bf-4c81-a34b-3a1ec82f0ed1" target="_blank" rel="noopener">Show HN: Ask a technical question, get an animated explainer you can interrupt</a></h3><div class="metadata">SOURCE: <a href="https://openlume.com/examples/3f65f6ce-87bf-4c81-a34b-3a1ec82f0ed1" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=50096513" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="page-footer-nav"><span></span><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">NEXT →</a></div></div><div id="page-content-2" class="newspaper-page" style="display: none"><div class="page-title"><span>AI & LLM OVERVIEW</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.dataforprogress.org/blog/2026/9/29/americans-social-activity-has-steeply-declined-in-the-past-30-years" target="_blank" rel="noopener">Americans&#x27; social activity has steeply declined in the past 30 years</a></h3><div class="metadata">SOURCE: <a href="https://www.dataforprogress.org/blog/2026/9/29/americans-social-activity-has-steeply-declined-in-the-past-30-years" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=50089921" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(1)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">NEXT →</a></div></div><div id="page-content-3" class="newspaper-page" style="display: none"><div class="page-title"><span>MODEL RELEASE HISTORY</span></div><div class="section-sub-header"><span>DAILY MODEL RELEASE LEDGER</span></div><div class="release-grid"><p class="empty-note">No confirmed model releases were detected for this edition date.</p></div><div class="section-sub-header"><span>RELATED COVERAGE</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://www.liquid.ai/blog/lfm2-5-24b-a2b" target="_blank" rel="noopener">LFM2.5-24B-A2B: Built for fast on-device agents</a></h3><div class="metadata">SOURCE: <a href="https://www.liquid.ai/blog/lfm2-5-24b-a2b" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=50097369" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm"></p></div></article></div><div class="model-ledger-link"><a href="../../../../model-releases.html">OPEN FULL MODEL RELEASE PAGE →</a></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(2)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">NEXT →</a></div></div><div id="page-content-4" class="newspaper-page" style="display: none"><div class="page-title"><span>TOP INSIGHTS & ADVICE</span></div><div class="insights-grid"><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">Beyond AI Detectors: Prioritizing Quality Over Policing Ticks</h3><p class="insight-summary">"The community consensus suggests shifting the focus away from costly and futile AI text detection toward rewarding genuine, comprehensible writing that avoids repetitive templates, while acknowledging that humans ultimately prioritize speed and volume over authenticity. Quote: I wonder which will come first, the year of AI writing well without grating ticks, or the year of the Linux desktop."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=50090799" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">I let an AI run my startup for a week</h3><p class="insight-summary">"No insight extracted."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=50085296" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">The Architectural Blindspot of Single-Sender Inboxes</h3><p class="insight-summary">"While radical email gating concepts like single-sender limits capture attention for reducing noise, the community highlights a fatal technical flaw: enterprise fragmentation and shifting corporate domains (such as rebrandings or multi-departmental sending addresses) mean hard-locking an inbox to a single sender inevitably causes critical messages to be silently dropped. Quote: If the &#x27;Citibank inbox&#x27; just takes the first address that Citi happens to use and auto rejects all future others, user will lose critical emails without even knowing."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=50090932" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div><div class="insight-card"><div class="insight-author">PERSPECTIVE: The Community</div><h3 class="insight-headline">The Mode Collapse of AI Generation</h3><p class="insight-summary">"When models produce generic or repetitive outputs, it is often a symptom of mode collapse during post-training rather than a failure of user prompting or a fundamental limitation of the underlying architecture. Quote: All current post-trained LLMs are mode-collapsed compared to the post-training set distribution, and this doesn&#x27;t get nearly enough attention from the labs and independent researchers."</p><div class="insight-footer"><a href="https://news.ycombinator.com/item?id=50090443" target="_blank" rel="noopener">READ FULL DISCUSSION →</a></div></div></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(3)" class="nav-btn">← PREVIOUS</a><a href="javascript:void(0)" onclick="goToPage(5)" class="nav-btn">NEXT →</a></div></div><div id="page-content-5" class="newspaper-page" style="display: none"><div class="page-title"><span>LAB UPDATES & DARK SIDE</span></div><div class="columns-3"><article class="article span-1"><div class="article-body"><h3 class="headline-sm"><a href="https://dpa-international.com/politics/urn:newsml:dpa.com:20090101:261014-930-839530/" target="_blank" rel="noopener">Infrastructure Vulnerabilities Exposed by Incidents in Bulgaria and Poland</a></h3><div class="metadata">SOURCE: <a href="https://dpa-international.com/politics/urn:newsml:dpa.com:20090101:261014-930-839530/" target="_blank" rel="noopener" class="source-link">HACKERNEWS</a> | <a href="https://news.ycombinator.com/item?id=50092730" target="_blank" rel="noopener" class="hn-link">HN DISCUSSION</a></div><p class="summary-sm">Recent physical disruptions to satellite and transit infrastructure highlight the fragile dependencies of distributed networks, raising questions about physical resilience in modern system architectures.</p></div></article></div><div class="page-footer-nav"><a href="javascript:void(0)" onclick="goToPage(4)" class="nav-btn">← PREVIOUS</a><span></span></div></div></main>
+        <footer style="text-align:center; padding:40px 0; font-family:'Oswald',sans-serif; border-top:4px double var(--ink); margin-top:70px;">THE DAILY TOKEN // REPORTING IN PUBLIC // &copy; 2026</footer>
+    </div>
+    <script>
+        let currentPage = 1;
+        function goToPage(pageNum) {
+            if (pageNum < 1 || pageNum > 5 || pageNum === currentPage) return;
+            const container = document.getElementById('newspaper-main');
+            container.classList.add('page-turn-out');
+            setTimeout(() => {
+                document.querySelectorAll('.newspaper-page').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById(`page-content-${pageNum}`).style.display = 'block';
+                document.getElementById(`nav-${pageNum}`).classList.add('active');
+                currentPage = pageNum;
+                window.scrollTo(0, 0);
+                const url = new URL(window.location);
+                url.searchParams.set('page', pageNum);
+                window.history.pushState({}, '', url);
+                container.classList.remove('page-turn-out');
+            }, 220);
+        }
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const page = parseInt(params.get('page'));
+            if (page >= 1 && page <= 5) goToPage(page);
+            else document.getElementById('nav-1').classList.add('active');
+        });
+    </script>
+</body>
+</html>
