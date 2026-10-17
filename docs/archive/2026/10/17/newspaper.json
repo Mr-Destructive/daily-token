@@ -1,0 +1,316 @@
+{
+  "metadata": {
+    "generated": "2026-10-17T07:04:44.487451",
+    "format_version": "1.2",
+    "location": "PROMPT BAY",
+    "editorial": {
+      "main_lead_index": 1,
+      "supporting_lead_indices": [
+        0,
+        3
+      ],
+      "editors_note": "We spend our mornings training models to explain their own shortcuts, as if naming the compromise somehow restores the craftsmanship we surrendered.",
+      "emphasis": "The industrialization of architectural reasoning and modest code generation"
+    },
+    "top_candidates": [
+      {
+        "original_title": "How to make System 1 LLMs show System 2 competencies?",
+        "generated_headline": "Prompting System 1 for Deliberation",
+        "url": "https://onlinelibrary.wiley.com/doi/epdf/10.1002/aaai.70113",
+        "hn_url": "https://news.ycombinator.com/item?id=50118662",
+        "source": "HackerNews",
+        "score": 51,
+        "significance_score": 72,
+        "category": "AI & LLM Overview",
+        "category_id": 2,
+        "confidence": 0.85,
+        "detected_model": null,
+        "summary": "Researchers are pushing intuitive language models to mimic slower, reasoned deduction, though the friction between raw token prediction and actual verification remains wide.",
+        "selected_image_url": null,
+        "worth_showing_image": false,
+        "image_layout": "WIDE",
+        "published": 1792160194,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0,
+        "generated_image_path": null
+      },
+      {
+        "original_title": "AI is driving a boom in modestly successful software projects",
+        "generated_headline": "The Proliferation of Modest Code",
+        "url": "https://www.seangoedecke.com/ai-is-driving-a-boom-in-modestly-successful-software/",
+        "hn_url": "https://news.ycombinator.com/item?id=50127729",
+        "source": "HackerNews",
+        "score": 8,
+        "significance_score": 68,
+        "category": "Benchmarks & Claims Audit",
+        "category_id": 6,
+        "confidence": 0.9,
+        "detected_model": null,
+        "summary": "Lower development friction has saturated the market with functional but unremarkable software. The resulting trade-off is a measurable decline in architectural foresight balanced by an uptick in rapid prototyping speed.",
+        "selected_image_url": "https://www.seangoedecke.com/static/4f91bc34d50bc74f627d5c0b46f4889c/fcda8/data.png",
+        "worth_showing_image": true,
+        "image_layout": "WIDE",
+        "published": 1792208859,
+        "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+        "cost": 0,
+        "generated_image_path": "../images/story_6_0_AI_is_driving_a_boom_in_modest.png"
+      },
+      {
+        "original_title": "You could have invented transformers from memory",
+        "generated_headline": "You could have invented transformers from memory",
+        "url": "https://alexwang.ai/posts/associative-memory/",
+        "hn_url": "https://news.ycombinator.com/item?id=50122878",
+        "source": "HackerNews",
+        "score": 242,
+        "significance_score": 50,
+        "category": "AI & LLM Overview",
+        "category_id": 2,
+        "confidence": 0.8,
+        "detected_model": null,
+        "summary": "",
+        "selected_image_url": "https://alexwang.ai/images/share-card_hu_ba29a66ace5a286c.jpg",
+        "worth_showing_image": false,
+        "image_layout": "SQUARE",
+        "published": 1792177277,
+        "model_used": "Cat: Free-Chatbot, Sum: None",
+        "cost": 0,
+        "generated_image_path": "../images/story_2_1_You_could_have_invented_transf.jpg"
+      },
+      {
+        "original_title": "Designing more efficient quantum circuits with Claude",
+        "generated_headline": "Designing more efficient quantum circuits with Claude",
+        "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
+        "hn_url": "https://news.ycombinator.com/item?id=50121939",
+        "source": "HackerNews",
+        "score": 129,
+        "significance_score": 50,
+        "category": "All Articles",
+        "category_id": 1,
+        "confidence": 0.95,
+        "detected_model": null,
+        "summary": "",
+        "selected_image_url": null,
+        "worth_showing_image": false,
+        "image_layout": "SQUARE",
+        "published": 1792173618,
+        "model_used": "Cat: Free-Chatbot, Sum: None",
+        "cost": 0,
+        "generated_image_path": null
+      },
+      {
+        "original_title": "Show HN: Gemini 4 Argon plays StarCraft",
+        "generated_headline": "Show HN: Gemini 4 Argon plays StarCraft",
+        "url": "https://starskirmish.com/bench/v0-2/",
+        "hn_url": "https://news.ycombinator.com/item?id=50118688",
+        "source": "HackerNews",
+        "score": 211,
+        "significance_score": 50,
+        "category": "Infra & Cost Watch",
+        "category_id": 7,
+        "confidence": 0.95,
+        "detected_model": "Gemini 4 Argon",
+        "summary": "",
+        "selected_image_url": "https://starskirmish.com/assets/og.png",
+        "worth_showing_image": false,
+        "image_layout": "SQUARE",
+        "published": 1792160324,
+        "model_used": "Cat: Free-Chatbot, Sum: None",
+        "cost": 0,
+        "generated_image_path": null
+      },
+      {
+        "original_title": "Nine-Inch Snails",
+        "generated_headline": "Nine-Inch Snails",
+        "url": "https://www.theatlantic.com/science/2026/10/giant-african-snails-florida-invasion/688850/",
+        "hn_url": "https://news.ycombinator.com/item?id=50125545",
+        "source": "HackerNews",
+        "score": 51,
+        "significance_score": 50,
+        "category": "Policy & Safety Moves",
+        "category_id": 8,
+        "confidence": 0.1,
+        "detected_model": null,
+        "summary": "No insight extracted.",
+        "selected_image_url": null,
+        "worth_showing_image": false,
+        "image_layout": "SQUARE",
+        "published": 1792189265,
+        "model_used": "Cat: Free-Chatbot, Sum: None",
+        "cost": 0,
+        "source_author": "The Community",
+        "generated_image_path": null
+      }
+    ],
+    "model_releases": []
+  },
+  "pages": {
+    "1": {
+      "title": "Breaking Vectors",
+      "stories": [
+        {
+          "original_title": "Designing more efficient quantum circuits with Claude",
+          "generated_headline": "Designing more efficient quantum circuits with Claude",
+          "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
+          "hn_url": "https://news.ycombinator.com/item?id=50121939",
+          "source": "HackerNews",
+          "score": 129,
+          "significance_score": 50,
+          "category": "All Articles",
+          "category_id": 1,
+          "confidence": 0.95,
+          "detected_model": null,
+          "summary": "",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "SQUARE",
+          "published": 1792173618,
+          "model_used": "Cat: Free-Chatbot, Sum: None",
+          "cost": 0,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "2": {
+      "title": "Model Architectures",
+      "stories": [
+        {
+          "original_title": "How to make System 1 LLMs show System 2 competencies?",
+          "generated_headline": "Prompting System 1 for Deliberation",
+          "url": "https://onlinelibrary.wiley.com/doi/epdf/10.1002/aaai.70113",
+          "hn_url": "https://news.ycombinator.com/item?id=50118662",
+          "source": "HackerNews",
+          "score": 51,
+          "significance_score": 72,
+          "category": "AI & LLM Overview",
+          "category_id": 2,
+          "confidence": 0.85,
+          "detected_model": null,
+          "summary": "Researchers are pushing intuitive language models to mimic slower, reasoned deduction, though the friction between raw token prediction and actual verification remains wide.",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "WIDE",
+          "published": 1792160194,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0,
+          "generated_image_path": null
+        },
+        {
+          "original_title": "You could have invented transformers from memory",
+          "generated_headline": "You could have invented transformers from memory",
+          "url": "https://alexwang.ai/posts/associative-memory/",
+          "hn_url": "https://news.ycombinator.com/item?id=50122878",
+          "source": "HackerNews",
+          "score": 242,
+          "significance_score": 50,
+          "category": "AI & LLM Overview",
+          "category_id": 2,
+          "confidence": 0.8,
+          "detected_model": null,
+          "summary": "",
+          "selected_image_url": "https://alexwang.ai/images/share-card_hu_ba29a66ace5a286c.jpg",
+          "worth_showing_image": false,
+          "image_layout": "SQUARE",
+          "published": 1792177277,
+          "model_used": "Cat: Free-Chatbot, Sum: None",
+          "cost": 0,
+          "generated_image_path": "../images/story_2_1_You_could_have_invented_transf.jpg"
+        }
+      ]
+    },
+    "3": {
+      "title": "Neural Horizons",
+      "stories": []
+    },
+    "4": {
+      "title": "Lab Outputs",
+      "stories": []
+    },
+    "5": {
+      "title": "Inference Corner",
+      "stories": []
+    },
+    "6": {
+      "title": "AI & LLM Overview",
+      "stories": [
+        {
+          "original_title": "AI is driving a boom in modestly successful software projects",
+          "generated_headline": "The Proliferation of Modest Code",
+          "url": "https://www.seangoedecke.com/ai-is-driving-a-boom-in-modestly-successful-software/",
+          "hn_url": "https://news.ycombinator.com/item?id=50127729",
+          "source": "HackerNews",
+          "score": 8,
+          "significance_score": 68,
+          "category": "Benchmarks & Claims Audit",
+          "category_id": 6,
+          "confidence": 0.9,
+          "detected_model": null,
+          "summary": "Lower development friction has saturated the market with functional but unremarkable software. The resulting trade-off is a measurable decline in architectural foresight balanced by an uptick in rapid prototyping speed.",
+          "selected_image_url": "https://www.seangoedecke.com/static/4f91bc34d50bc74f627d5c0b46f4889c/fcda8/data.png",
+          "worth_showing_image": true,
+          "image_layout": "WIDE",
+          "published": 1792208859,
+          "model_used": "Cat: Free-Chatbot, Sum: Free-Chatbot",
+          "cost": 0,
+          "generated_image_path": "../images/story_6_0_AI_is_driving_a_boom_in_modest.png"
+        }
+      ]
+    },
+    "7": {
+      "title": "Model Release History",
+      "stories": [
+        {
+          "original_title": "Show HN: Gemini 4 Argon plays StarCraft",
+          "generated_headline": "Show HN: Gemini 4 Argon plays StarCraft",
+          "url": "https://starskirmish.com/bench/v0-2/",
+          "hn_url": "https://news.ycombinator.com/item?id=50118688",
+          "source": "HackerNews",
+          "score": 211,
+          "significance_score": 50,
+          "category": "Infra & Cost Watch",
+          "category_id": 7,
+          "confidence": 0.95,
+          "detected_model": "Gemini 4 Argon",
+          "summary": "",
+          "selected_image_url": "https://starskirmish.com/assets/og.png",
+          "worth_showing_image": false,
+          "image_layout": "SQUARE",
+          "published": 1792160324,
+          "model_used": "Cat: Free-Chatbot, Sum: None",
+          "cost": 0,
+          "generated_image_path": null
+        }
+      ]
+    },
+    "8": {
+      "title": "Top Insights & Advice",
+      "stories": [
+        {
+          "original_title": "Nine-Inch Snails",
+          "generated_headline": "Nine-Inch Snails",
+          "url": "https://www.theatlantic.com/science/2026/10/giant-african-snails-florida-invasion/688850/",
+          "hn_url": "https://news.ycombinator.com/item?id=50125545",
+          "source": "HackerNews",
+          "score": 51,
+          "significance_score": 50,
+          "category": "Policy & Safety Moves",
+          "category_id": 8,
+          "confidence": 0.1,
+          "detected_model": null,
+          "summary": "No insight extracted.",
+          "selected_image_url": null,
+          "worth_showing_image": false,
+          "image_layout": "SQUARE",
+          "published": 1792189265,
+          "model_used": "Cat: Free-Chatbot, Sum: None",
+          "cost": 0,
+          "source_author": "The Community",
+          "generated_image_path": null
+        }
+      ]
+    },
+    "9": {
+      "title": "Lab Updates & Dark Side",
+      "stories": []
+    }
+  }
+}
