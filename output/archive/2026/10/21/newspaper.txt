@@ -1,0 +1,72 @@
+THE DAILY TOKEN
+Edition: 2026-10-21
+================================================
+
+EDITOR'S NOTE: A busy day in the latent space.
+
+THE FRONT PAGE
+------------------------------------------------
+* Claude designed protein binders against scorpion neurotoxins
+  https://www.anthropic.com/research/claude-scorpion-toxin-binder-design
+  
+
+* LabRobotBench v0.1: Benchmarking wet lab robotics
+  https://gamowlabs.com/lab-robot-bench-v0-1
+  
+
+* Quantum State Expansions Test the Limits of Deterministic Verification
+  https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/
+  As high-dimensional latent spaces absorb complex categorical abstractions, software engineering gains expressive power while quietly surrendering the luxury of precise line-by-line tracing.
+
+* Google Releases TorchTPU Backend for PyTorch
+  https://github.com/google-pytorch/torch_tpu
+  Google has open-sourced TorchTPU, providing a native PyTorch backend for its TPU hardware. While this reduces reliance on specialized translation layers, deeper hardware integration risks locking code further into proprietary optimization stacks.
+
+* Show HN: Penmentor – Claude marks up your handwritten math like a teacher
+  https://github.com/AbdullahAlhariri/penmentor
+  
+
+* Show HN: Jev Cards, Can you beat a vision model at a picture quiz?
+  https://jevcards.com
+  
+
+* Nexus-CLI – Pure Go Bridge to DeepSeek R1/V3 with Claude Code and Ollama Support
+  https://github.com/xamrayev/nexus-cli
+  
+
+* DeepInfer: High-performance inference framework for DeepSeek models
+  https://github.com/deepseek-ai/DeepInfer
+  
+
+AI & LLM OVERVIEW
+------------------------------------------------
+* AfD Leak: What 421,179 Hacked Emails Show about the German Far Right
+  https://www.heistberlin.com/news/afd-leak-what-421-179-hacked-emails-show-about-the-german-far-right/
+  
+
+MODEL RELEASE HISTORY
+------------------------------------------------
+TOP INSIGHTS & ADVICE
+------------------------------------------------
+* The Friction of Reality vs. The Illusion of Optimal Design
+  https://permit.petercai.com/
+  City simulation games highlight the tension between centralized planning and bureaucratic reality. While engineers and mayors might dream of optimal, top-down solutions, real-world urban development is inherently messy, constrained by public input, unpredictable regulations, and the human friction that video games often gloss over. Quote: Real life is worse than SimCity because of rules and the public getting a say.
+
+* Four Years with Decker
+  https://beyondloom.com/blog/fouryearsdecker.html
+  No insight extracted.
+
+* Using Claude to reduce the attack surface of code
+  https://www.anthropic.com/research/attack-surface-reduction
+  No insight extracted.
+
+* On AI writing
+  https://www.bolkunov.com/p/on-ai-writing
+  No insight extracted.
+
+* Craftsmanship in the Mundane
+  https://unsung.aresluna.org/good-type-against-all-odds/
+  True appreciation arises when creators apply deep passion, care, and meticulous attention to detail to everyday, overlooked subjects like typography and keyboards. Quote: So pleasant to see elegance in such seemingly mundane places. Someone cared and took a little extra time.
+
+LAB UPDATES & DARK SIDE
+------------------------------------------------
