@@ -1,72 +1,51 @@
 THE DAILY TOKEN
-Edition: 2026-10-21
+Edition: 2026-10-22
 ================================================
 
 EDITOR'S NOTE: A busy day in the latent space.
 
 THE FRONT PAGE
 ------------------------------------------------
-* Claude designed protein binders against scorpion neurotoxins
-  https://www.anthropic.com/research/claude-scorpion-toxin-binder-design
+* Qpack Amplification Vulnerabilities Expose HTTP/3 Servers
+  https://foxio.io/blog/header-accordions-qpack-amplification-attacks-against-http-3-servers
+  Recent findings reveal that Qpack compression mechanisms in HTTP/3 servers can be weaponized for amplification attacks, highlighting persistent oversight in modern protocol implementations.
+
+* Autonomous Vulnerability Discovery Collides with Patch Latency
+  https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/
+  As multi-agent systems accelerate the discovery of global software flaws faster than manual remediation can keep pace, security teams face a widening window of exposure driven by automated discovery pipelines.
+
+* A Sub-Quadratic Shift in Integer Multiplication
+  https://web.maths.unsw.edu.au/~davidharvey/research/subnlogn.pdf
+  Recent work proposes an $O(n \log n)$ integer multiplication algorithm, trimming asymptotic overhead while testing whether practical implementations will ever displace decades of optimized, hardware-specific assembly routines.
+
+* Using thousands of AI agents to uncover new leads in biological data
+  https://openai.com/index/scaling-ai-research-for-complex-biological-data/
   
 
-* LabRobotBench v0.1: Benchmarking wet lab robotics
-  https://gamowlabs.com/lab-robot-bench-v0-1
+* WorldTUI: I trained a 360M model to pretend to be a terminal
+  https://simedw.com/2026/10/21/world-model-terminal/
   
 
-* Quantum State Expansions Test the Limits of Deterministic Verification
-  https://www.quantamagazine.org/in-hilbert-space-all-things-are-quantumly-possible-20260826/
-  As high-dimensional latent spaces absorb complex categorical abstractions, software engineering gains expressive power while quietly surrendering the luxury of precise line-by-line tracing.
-
-* Google Releases TorchTPU Backend for PyTorch
-  https://github.com/google-pytorch/torch_tpu
-  Google has open-sourced TorchTPU, providing a native PyTorch backend for its TPU hardware. While this reduces reliance on specialized translation layers, deeper hardware integration risks locking code further into proprietary optimization stacks.
-
-* Show HN: Penmentor – Claude marks up your handwritten math like a teacher
-  https://github.com/AbdullahAlhariri/penmentor
-  
-
-* Show HN: Jev Cards, Can you beat a vision model at a picture quiz?
-  https://jevcards.com
-  
-
-* Nexus-CLI – Pure Go Bridge to DeepSeek R1/V3 with Claude Code and Ollama Support
-  https://github.com/xamrayev/nexus-cli
-  
-
-* DeepInfer: High-performance inference framework for DeepSeek models
-  https://github.com/deepseek-ai/DeepInfer
+* Claude Code install script is down
+  https://downloads.claude.ai/claude-code-releases/bootstrap.sh
   
 
 AI & LLM OVERVIEW
 ------------------------------------------------
-* AfD Leak: What 421,179 Hacked Emails Show about the German Far Right
-  https://www.heistberlin.com/news/afd-leak-what-421-179-hacked-emails-show-about-the-german-far-right/
-  
+* OpenAI Models Find a Home on Google Cloud
+  https://openai.com/index/openai-models-google-cloud/
+  OpenAI models are now available within Google Cloud infrastructure, bridging a notable enterprise divide between the two firms. This integration simplifies deployment for corporate clients, though it deepens dependencies on a shrinking pool of foundational providers.
 
 MODEL RELEASE HISTORY
 ------------------------------------------------
+* Claude Duet
+  https://claude.com/product/claude-duet
+  
+
 TOP INSIGHTS & ADVICE
 ------------------------------------------------
-* The Friction of Reality vs. The Illusion of Optimal Design
-  https://permit.petercai.com/
-  City simulation games highlight the tension between centralized planning and bureaucratic reality. While engineers and mayors might dream of optimal, top-down solutions, real-world urban development is inherently messy, constrained by public input, unpredictable regulations, and the human friction that video games often gloss over. Quote: Real life is worse than SimCity because of rules and the public getting a say.
-
-* Four Years with Decker
-  https://beyondloom.com/blog/fouryearsdecker.html
-  No insight extracted.
-
-* Using Claude to reduce the attack surface of code
-  https://www.anthropic.com/research/attack-surface-reduction
-  No insight extracted.
-
-* On AI writing
-  https://www.bolkunov.com/p/on-ai-writing
-  No insight extracted.
-
-* Craftsmanship in the Mundane
-  https://unsung.aresluna.org/good-type-against-all-odds/
-  True appreciation arises when creators apply deep passion, care, and meticulous attention to detail to everyday, overlooked subjects like typography and keyboards. Quote: So pleasant to see elegance in such seemingly mundane places. Someone cared and took a little extra time.
-
 LAB UPDATES & DARK SIDE
 ------------------------------------------------
+* Railway Halts Deployments After Unauthorized Access to Encrypted Variables
+  https://blog.railway.com/p/security-disclosure-wednesday-october-21st
+  Cloud deployment platform Railway paused all builds following a security incident where external parties may have accessed and partially decrypted customer environment variables containing sensitive keys and credentials. The primary tradeoff forces developers to choose between immediate platform-locked downtime or leaving exposed downstream production credentials unrotated.
