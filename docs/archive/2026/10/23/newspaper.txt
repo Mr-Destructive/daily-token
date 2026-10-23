@@ -1,0 +1,55 @@
+THE DAILY TOKEN
+Edition: 2026-10-23
+================================================
+
+EDITOR'S NOTE: As autonomous agent harnesses begin reverse-engineering closed ecosystems with casual indifference, we are left to wonder whether the future of engineering is invention or simply automated exhaustion.
+
+THE FRONT PAGE
+------------------------------------------------
+* Rule 30: one black cell
+  https://www.wolframcollatzmahler.com/rule30/index.html
+  
+
+* Show HN: CATT 0.2.1: Test agents/services against a Muse/Instinct-alike, in CI
+  https://github.com/Coverage-Cat/consumer-agent-testing-tool
+  
+
+* OpenShell – A safe, private runtime for fleets of autonomous AI agents
+  https://github.com/NVIDIA/OpenShell
+  
+
+* The HTML-in-Canvas API origin trial
+  https://developer.chrome.com/blog/html-in-canvas-origin-trial
+  
+
+* Jank Tries to Bring Clojure to C++'s Native Turf
+  https://jank-lang.org/
+  Jank introduces a native Clojure dialect with direct C++ interop, bypassing the JVM to chase raw performance. The risk lies in maintaining rigid language semantics across a vastly different runtime model, though it offers a rare path toward disciplined systems programming in Lisp.
+
+* Railpass
+  https://train.samismith.com/
+  
+
+AI & LLM OVERVIEW
+------------------------------------------------
+MODEL RELEASE HISTORY
+------------------------------------------------
+TOP INSIGHTS & ADVICE
+------------------------------------------------
+* Show HN: UI micro interactions prompts for AI
+  https://www.typeui.sh/micro-interactions
+  No insight extracted.
+
+* Mapping the AI Blind Spot: Sampling Cognitively Unavailable Research
+  https://arxiv.org/abs/2603.01092
+  By treating machine learning papers as combinations of foundational idea atoms and training coherence models, researchers can systematically surface scientifically valid concepts that existing human communities are culturally or cognitively unpositioned to propose. Quote: We built a way to sample diverse ideas in machine learning - ideas that make scientific sense, but that no existing research community is positioned to propose.
+
+LAB UPDATES & DARK SIDE
+------------------------------------------------
+* Software Exploit for Nintendo Switch 2 Demonstrates Automated Agent Harnesses in Reverse Engineering
+  https://pepsipu.com/blog/2026-10-switch2-jailbreak-ns2jb/
+  A developer leveraged an automated coding agent loop and a physical hardware test harness to crack the Nintendo Switch 2's filesystem service on the latest firmware. While the exploit remains tethered and temporary, it signals a shift where routine vulnerability research is increasingly driven by automated agents iterating through firmware logic bugs.
+
+* Woman charged with computer fraud due to scam CashApp account being in her name
+  https://www.404media.co/amanda-smith-opened-a-cashapp-in-her-name-she-faces-years-in-prison-cashapp-fraud/
+  
