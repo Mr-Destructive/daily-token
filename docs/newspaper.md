@@ -1,6 +1,6 @@
 # The Daily Token
 
-Edition: 2026-11-15
+Edition: 2026-11-16
 
 ## Editor's Note
 A quiet day in AI.
